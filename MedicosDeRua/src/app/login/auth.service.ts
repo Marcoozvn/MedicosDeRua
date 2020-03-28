@@ -1,0 +1,46 @@
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable, BehaviorSubject } from 'rxjs';
+import { map } from 'rxjs/operators';
+
+const API = 'http://localhost:3333';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class AuthService {
+  private currentUserSubject: BehaviorSubject<string>;
+  public currentUser: Observable<string>;
+
+  constructor(private http: HttpClient) { 
+    this.currentUserSubject = new BehaviorSubject<any>(JSON.parse(localStorage.getItem('currentUser')));
+    this.currentUser = this.currentUserSubject.asObservable();
+  }
+
+  private authenticate(username: string, password: string): Observable<any> {
+    return this.http.post(`${API}/login`, { username, password });
+  }
+
+  public isAuthenticated(): boolean {
+    return localStorage.getItem('token') != null;
+  }
+
+  public getCurrentUser(): string {
+    return this.currentUserSubject.value;
+  }
+
+  public login(username: string, password: string): Observable<any> {
+    return this.authenticate(username, password).pipe(
+      map(response => {
+        localStorage.setItem('token', response.token);
+        this.currentUserSubject.next(response.token);
+        return response.token;
+      })
+    );
+  }
+
+  public logout() {
+    localStorage.removeItem('token');
+    this.currentUserSubject.next(null);
+  }
+}

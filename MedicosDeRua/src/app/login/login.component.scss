@@ -5,6 +5,13 @@
   height: 100%;
 }
 
+.login-error {
+  color: red;
+  border: 1px solid red;
+  padding: 5px 20px;
+  margin-top: 10px;
+}
+
 .login-body {
   display: flex;
   flex-direction: column;

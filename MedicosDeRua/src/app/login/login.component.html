@@ -1,9 +1,12 @@
 <div class="login-container">
   <div class="login-body">
     <img src="../../assets/logo.png" alt="Logo" width="200"/>
-    <form action="submit">
-      <input type="text" placeholder="Usuário">
-      <input type="password" placeholder="Senha">
+    <div class="login-error" *ngIf="error">
+      <span>Login/Senha incorretos!</span>
+    </div>
+    <form action="submit" (ngSubmit)="submit()" [formGroup]="loginForm">
+      <input type="text" placeholder="Usuário" formControlName="username">
+      <input type="password" placeholder="Senha" formControlName="password">
       <button type="submit">Login</button>
     </form>
   </div>
