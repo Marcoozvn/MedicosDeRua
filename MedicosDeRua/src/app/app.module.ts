@@ -20,6 +20,9 @@ import { MatListModule } from '@angular/material/list';
 import { NavbarComponent } from './navbar/navbar.component';
 import { AnamneseComponent } from './anamnese/anamnese.component';
 import { RetornoComponent } from './retorno/retorno.component';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
 
 @NgModule({
   declarations: [
@@ -41,7 +44,10 @@ import { RetornoComponent } from './retorno/retorno.component';
     LayoutModule,
     MatToolbarModule,
     MatIconModule,
-    MatListModule
+    MatListModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule
   ],
   providers: [AuthGuardService, { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true }],
   bootstrap: [AppComponent]

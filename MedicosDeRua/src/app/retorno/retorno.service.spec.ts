@@ -1,12 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 
-import { AuthService } from '../auth/auth.service';
+import { RetornoService } from './retorno.service';
 
-describe('LoginService', () => {
+describe('RetornoService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
-    const service: AuthService = TestBed.get(AuthService);
+    const service: RetornoService = TestBed.get(RetornoService);
     expect(service).toBeTruthy();
   });
 });

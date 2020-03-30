@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatSort } from '@angular/material/sort';
+import { MatTableDataSource } from '@angular/material/table';
+import { MatPaginator } from '@angular/material/paginator';
+import { RetornoService } from './retorno.service';
 
 @Component({
   selector: 'app-retorno',
@@ -7,9 +11,36 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RetornoComponent implements OnInit {
 
-  constructor() { }
+  mock = [
+    {prontuario: 1, nome: 'Marcos Vinicius Rodrigues Cesar', idade: 22, data: '01/03/1997'},
+    {prontuario: 2, nome: 'Julia Macionilia Teixeira Balbys', idade: 22, data: '02/03/1997'},
+    {prontuario: 2, nome: 'Julia Macionilia Teixeira Balbys', idade: 22, data: '02/03/1997'},
+    {prontuario: 2, nome: 'Julia Macionilia Teixeira Balbys', idade: 22, data: '02/03/1997'},
+    {prontuario: 2, nome: 'Julia Macionilia Teixeira Balbys', idade: 22, data: '02/03/1997'},
+    {prontuario: 2, nome: 'Julia Macionilia Teixeira Balbys', idade: 22, data: '02/03/1997'},
+    {prontuario: 2, nome: 'Julia Macionilia Teixeira Balbys', idade: 22, data: '02/03/1997'},
+    {prontuario: 2, nome: 'Julia Macionilia Teixeira Balbys', idade: 22, data: '02/03/1997'},
+    {prontuario: 2, nome: 'Julia Macionilia Teixeira Balbys', idade: 22, data: '02/03/1997'},
+    {prontuario: 2, nome: 'Julia Macionilia Teixeira Balbys', idade: 22, data: '02/03/1997'},
+    {prontuario: 2, nome: 'Julia Macionilia Teixeira Balbys', idade: 22, data: '02/03/1997'},
+    {prontuario: 2, nome: 'Julia Macionilia Teixeira Balbys', idade: 22, data: '02/03/1997'},
+    {prontuario: 3, nome: 'Alexandre José Oliveira Cesar', idade: 22, data: '07/01/1997'}
+  ]
+
+  teste = [];
+  dataSource = new MatTableDataSource(this.mock);
+
+  displayedColumns: string[] = ['prontuario', 'nome', 'idade', 'data'];
+
+  constructor(private retornoService: RetornoService) { }
+
+  @ViewChild(MatSort, {static: true}) sort: MatSort;
+  @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
 
   ngOnInit() {
+    this.dataSource.sort = this.sort;
+    this.dataSource.paginator = this.paginator;
+    this.retornoService.getAll().subscribe( res => console.log(res));
   }
 
 }
