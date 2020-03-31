@@ -3,6 +3,7 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { RetornoService } from './retorno.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-retorno',
@@ -30,9 +31,9 @@ export class RetornoComponent implements OnInit {
   teste = [];
   dataSource = new MatTableDataSource(this.mock);
 
-  displayedColumns: string[] = ['prontuario', 'nome', 'idade', 'data'];
+  displayedColumns: string[] = ['prontuario', 'nome', 'idade', 'data', 'action'];
 
-  constructor(private retornoService: RetornoService) { }
+  constructor(private retornoService: RetornoService, private route: Router) { }
 
   @ViewChild(MatSort, {static: true}) sort: MatSort;
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
@@ -41,6 +42,10 @@ export class RetornoComponent implements OnInit {
     this.dataSource.sort = this.sort;
     this.dataSource.paginator = this.paginator;
     this.retornoService.getAll().subscribe( res => console.log(res));
+  }
+
+  redirectToReturnForm(){
+    this.route.navigate(['/form-retorno']);
   }
 
 }
