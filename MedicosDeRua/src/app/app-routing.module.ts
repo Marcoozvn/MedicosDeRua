@@ -9,12 +9,14 @@ import { NotFoundComponent } from './not-found/not-found.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
-  { path: 'app', component: HomeComponent, canActivate: [AuthGuard], children: [
-    {path: '', redirectTo: 'retorno', pathMatch: 'full'},
-    { path: 'anamnese', component: AnamneseComponent },
-    { path: 'retorno', component: RetornoComponent }
-  ]},
-  { path: 'form-retorno', loadChildren: './retorno/retorno.module#RetornoModule'},
+  { path: 'app', component: HomeComponent, canActivate: [AuthGuard],
+    children: [
+      { path: 'anamnese', component: AnamneseComponent },
+      { path: 'retorno', component: RetornoComponent },
+      { path: 'retorno/new', loadChildren: './retorno/retorno.module#RetornoModule'},
+      { path: '**', component: RetornoComponent }
+    ]
+  },
   { path: '**', component: NotFoundComponent }
 ];
 

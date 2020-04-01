@@ -1,9 +1,12 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-import { MatPaginator } from '@angular/material/paginator';
+import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import { RetornoService } from './retorno.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
+import { merge } from 'rxjs';
+import { startWith, switchMap, map, catchError } from 'rxjs/operators';
 
 @Component({
   selector: 'app-retorno',
@@ -12,40 +15,35 @@ import { Router } from '@angular/router';
 })
 export class RetornoComponent implements OnInit {
 
-  mock = [
-    {prontuario: 1, nome: 'Marcos Vinicius Rodrigues Cesar', idade: 22, data: '01/03/1997'},
-    {prontuario: 2, nome: 'Julia Macionilia Teixeira Balbys', idade: 22, data: '02/03/1997'},
-    {prontuario: 2, nome: 'Julia Macionilia Teixeira Balbys', idade: 22, data: '02/03/1997'},
-    {prontuario: 2, nome: 'Julia Macionilia Teixeira Balbys', idade: 22, data: '02/03/1997'},
-    {prontuario: 2, nome: 'Julia Macionilia Teixeira Balbys', idade: 22, data: '02/03/1997'},
-    {prontuario: 2, nome: 'Julia Macionilia Teixeira Balbys', idade: 22, data: '02/03/1997'},
-    {prontuario: 2, nome: 'Julia Macionilia Teixeira Balbys', idade: 22, data: '02/03/1997'},
-    {prontuario: 2, nome: 'Julia Macionilia Teixeira Balbys', idade: 22, data: '02/03/1997'},
-    {prontuario: 2, nome: 'Julia Macionilia Teixeira Balbys', idade: 22, data: '02/03/1997'},
-    {prontuario: 2, nome: 'Julia Macionilia Teixeira Balbys', idade: 22, data: '02/03/1997'},
-    {prontuario: 2, nome: 'Julia Macionilia Teixeira Balbys', idade: 22, data: '02/03/1997'},
-    {prontuario: 2, nome: 'Julia Macionilia Teixeira Balbys', idade: 22, data: '02/03/1997'},
-    {prontuario: 3, nome: 'Alexandre José Oliveira Cesar', idade: 22, data: '07/01/1997'}
-  ]
+  private dataSource: MatTableDataSource<any>;
+  private displayedColumns: string[] = ['prontuario', 'nome', 'idade', 'data', 'action'];
+  private isLoadingResults = true;
+  private totalItems: number;
 
-  teste = [];
-  dataSource = new MatTableDataSource(this.mock);
+  constructor(private retornoService: RetornoService, private route: Router, private activatedRoute: ActivatedRoute) { }
 
-  displayedColumns: string[] = ['prontuario', 'nome', 'idade', 'data', 'action'];
-
-  constructor(private retornoService: RetornoService, private route: Router) { }
-
-  @ViewChild(MatSort, {static: true}) sort: MatSort;
-  @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
+  @ViewChild(MatSort, {static: false}) sort: MatSort;
+  @ViewChild(MatPaginator, {static: false}) paginator: MatPaginator;
 
   ngOnInit() {
-    this.dataSource.sort = this.sort;
-    this.dataSource.paginator = this.paginator;
-    this.retornoService.getAll().subscribe( res => console.log(res));
+    this.fetchItems();
+  }
+
+  handleChangePage(pageEvent: PageEvent) {
+    this.fetchItems(pageEvent.pageIndex + 1, pageEvent.pageSize);
+  }
+
+  fetchItems(page: number = 1, perPage: number = 5) {
+    this.retornoService.getAll(page, perPage).subscribe( res => {
+      this.dataSource = new MatTableDataSource(res.body);
+      this.dataSource.sort = this.sort;
+      this.isLoadingResults = false;
+      this.totalItems = res.headers.get('x-total-count');
+    });
   }
 
   redirectToReturnForm(){
-    this.route.navigate(['/form-retorno']);
+    this.route.navigate(['new'], { relativeTo: this.activatedRoute });
   }
 
 }

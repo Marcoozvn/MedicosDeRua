@@ -4,7 +4,12 @@
       <h1>Página não encontrada</h1>
       <br>
     </div>
-    <p>Clique <a [routerLink]="['/app']">aqui</a>  e volte para tela inicial</p>
+    <a [routerLink]="['/app']">
+      <span class="material-icons">
+        arrow_back
+      </span>
+      Voltar para a tela inicial
+    </a>
     </div>
     <div class="not-found-side">
       <img src="../../assets/heroes.png" alt="Heroes" width="500">

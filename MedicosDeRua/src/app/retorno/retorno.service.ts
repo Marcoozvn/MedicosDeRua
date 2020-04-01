@@ -11,8 +11,8 @@ export class RetornoService {
 
   constructor(private http: HttpClient) { }
 
-  public getAll(): Observable<any> {
-    return this.http.get(`${API}/return`);
+  public getAll(page: number = 1, perPage: number = 5): Observable<any> {
+    return this.http.get(`${API}/return?page=${page}&perPage=${perPage}`, { observe: 'response' });
   }
 
   public create(form: any) {

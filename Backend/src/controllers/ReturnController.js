@@ -27,8 +27,15 @@ module.exports = {
   },
 
   async findAll(req, res) {
+    const { page = 1 } = req.query;
+    const { perPage = 5 } = req.query;
+    
     try {
-      const items = await ReturnForm.find({});
+      const count = await ReturnForm.estimatedDocumentCount();
+
+      res.header('X-Total-Count', count);
+      
+      const items = await ReturnForm.find().limit(+perPage).skip((page-1)*perPage);
 
       res.send(items);
     } catch (error) {

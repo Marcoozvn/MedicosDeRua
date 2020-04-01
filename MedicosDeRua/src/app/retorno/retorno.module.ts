@@ -10,8 +10,8 @@ import { SharedModule } from '../shared/shared.module';
 import {RouterModule, Routes} from '@angular/router';
 
 const ROUTES: Routes = [
-    {path: '', component: FormularioRetornoComponent}
-   ]
+    { path: '', component: FormularioRetornoComponent }
+]
 
 @NgModule({
     imports: [SharedModule,  RouterModule.forChild(ROUTES)],
