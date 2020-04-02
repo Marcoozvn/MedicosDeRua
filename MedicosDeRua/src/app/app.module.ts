@@ -11,7 +11,7 @@ import { HomeComponent } from './home/home.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { AnamneseComponent } from './anamnese/anamnese.component';
 import { NotFoundComponent } from './not-found/not-found.component';
-
+import { MatRadioModule } from '@angular/material/radio';
 
 import { AuthGuardService } from './auth/auth-guard.service';
 
@@ -19,6 +19,7 @@ import { JwtInterceptor } from './helpers/jwt.interceptor';
 
 import { SharedModule } from './shared/shared.module';
 import { RetornoModule } from './retorno/retorno.module';
+import { SearchComponent } from './search/search.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { RetornoModule } from './retorno/retorno.module';
     NavbarComponent,
     AnamneseComponent,
     NotFoundComponent,
+    SearchComponent,
 
   ],
   imports: [
@@ -36,7 +38,8 @@ import { RetornoModule } from './retorno/retorno.module';
     AppRoutingModule,
     HttpClientModule,
     RetornoModule,
-    SharedModule
+    SharedModule,
+    MatRadioModule
   ],
   providers: [AuthGuardService, { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true }],
   bootstrap: [AppComponent]

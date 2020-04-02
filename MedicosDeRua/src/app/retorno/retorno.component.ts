@@ -42,6 +42,19 @@ export class RetornoComponent implements OnInit {
     });
   }
 
+  editForm() {
+    console.log('navega para edição');
+  }
+
+  deleteForm(event, element) {
+    event.stopPropagation();
+    console.log('deleta formulário', element);
+    this.retornoService.delete(element._id).subscribe( res => {
+      this.fetchItems();
+      alert('Deletado com sucesso');
+    });
+  }
+
   redirectToReturnForm(){
     this.route.navigate(['new'], { relativeTo: this.activatedRoute });
   }

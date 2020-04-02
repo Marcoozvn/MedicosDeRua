@@ -20,7 +20,7 @@ export class RetornoService {
   }
 
   public delete(id: string) {
-    return this.http.delete(`${API}/${id}`);
+    return this.http.delete(`${API}/return/${id}`);
   }
 
   public update(id: string, form: any) {
