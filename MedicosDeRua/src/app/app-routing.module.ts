@@ -3,18 +3,19 @@ import { Routes, RouterModule } from '@angular/router';
 import { AuthGuardService as AuthGuard } from './auth/auth-guard.service';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
-import { AnamneseComponent } from './anamnese/anamnese.component';
-import { RetornoComponent } from './retorno/retorno.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { SearchComponent } from './search/search.component';
+import { ListUsersComponent } from './list-users/list-users.component';
+import { ListFormsComponent } from './list-forms/list-forms.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
   { path: 'app', component: HomeComponent, canActivate: [AuthGuard],
     children: [
-      { path: 'anamnese', component: AnamneseComponent },
-      { path: 'retorno', component: RetornoComponent },
-      { path: 'retorno/new', loadChildren: './retorno/retorno.module#RetornoModule'},
-      { path: '**', component: RetornoComponent }
+      { path: 'search', component: SearchComponent },
+      { path: 'users', component: ListUsersComponent },
+      { path: 'users/:cpf', component: ListFormsComponent },
+      { path: '**', component: SearchComponent }
     ]
   },
   { path: '**', component: NotFoundComponent }

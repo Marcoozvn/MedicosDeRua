@@ -1,0 +1,29 @@
+.list-users-container {
+  margin: 10px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.list-container {
+  margin-top: 25px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  width: 100%;
+
+  li {
+    list-style: none;
+  }
+}
+
+.user-card {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  background: #7159c1;
+  color: #fff;
+  padding: 15px;
+  border-radius: 8px;
+}

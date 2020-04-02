@@ -5,12 +5,6 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 
-import { AppComponent } from './app.component';
-import { LoginComponent } from './login/login.component';
-import { HomeComponent } from './home/home.component';
-import { NavbarComponent } from './navbar/navbar.component';
-import { AnamneseComponent } from './anamnese/anamnese.component';
-import { NotFoundComponent } from './not-found/not-found.component';
 import { MatRadioModule } from '@angular/material/radio';
 
 import { AuthGuardService } from './auth/auth-guard.service';
@@ -18,18 +12,23 @@ import { AuthGuardService } from './auth/auth-guard.service';
 import { JwtInterceptor } from './helpers/jwt.interceptor';
 
 import { SharedModule } from './shared/shared.module';
-import { RetornoModule } from './retorno/retorno.module';
 import { SearchComponent } from './search/search.component';
+import { ListUsersComponent } from './list-users/list-users.component';
+import { ListFormsComponent } from './list-forms/list-forms.component';
+import { AppComponent } from './app.component';
+import { LoginComponent } from './login/login.component';
+import { HomeComponent } from './home/home.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     HomeComponent,
-    NavbarComponent,
-    AnamneseComponent,
     NotFoundComponent,
     SearchComponent,
+    ListUsersComponent,
+    ListFormsComponent,
 
   ],
   imports: [
@@ -37,7 +36,6 @@ import { SearchComponent } from './search/search.component';
     BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule,
-    RetornoModule,
     SharedModule,
     MatRadioModule
   ],

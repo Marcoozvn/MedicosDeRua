@@ -1,0 +1,18 @@
+<a class="back-button" [routerLink]="['/app']">
+  <span class="material-icons">
+    arrow_back
+  </span>
+  Voltar para a busca
+</a>
+<div class="list-users-container">
+  <h2>Usuários assistidos</h2>
+  <ul class="list-container">
+    <li *ngFor="let user of mock">
+      <div class="user-card" (click)="searchForm(user.cpf)">
+        <div><strong>Nome: </strong>{{ user.name }}</div>
+        <div><strong>CPF: </strong>{{ user.cpf }}</div>
+        <div><strong>Data de nascimento: </strong>{{ user.birthDate }}</div>
+      </div>
+    </li>
+  </ul>
+</div>

@@ -1,0 +1,27 @@
+.list-forms-container {
+  margin: 5px 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.list-container {
+  width: 100%;
+
+  li {
+    list-style: none;
+    margin: 10px;
+  }
+}
+
+.form-card {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: center;
+  background: #7159c1;
+  color: #fff;
+  padding: 10px;
+  border-radius: 8px;
+}

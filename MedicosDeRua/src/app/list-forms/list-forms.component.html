@@ -1,0 +1,20 @@
+<a class="back-button" [routerLink]="['/app']">
+  <span class="material-icons">
+    arrow_back
+  </span>
+  Voltar para a busca
+</a>
+<div class="list-forms-container">
+  <h2>Formulários encontrados</h2>
+  <ul class="list-container">
+    <li *ngFor="let form of mock">
+      <div class="form-card">
+        <div><strong>Formulário de {{ form.type }} </strong></div>
+        <div><strong>Data de criação: </strong><span>{{ form.createdAt }}</span></div>
+        <span class="material-icons">
+          delete
+        </span>
+      </div>
+    </li>
+  </ul>
+</div>

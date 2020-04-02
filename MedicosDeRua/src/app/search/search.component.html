@@ -1,1 +1,10 @@
-<p>search works!</p>
+<div class="home-body">
+  <h2>Busca por usuário assistido</h2>
+  <mat-radio-group class="radio-group">
+    <mat-radio-button value="name">Nome</mat-radio-button>
+    <mat-radio-button value="cpf">CPF</mat-radio-button>
+    <mat-radio-button value="birthDate">Data de Nascimento</mat-radio-button>
+  </mat-radio-group>
+  <input type="text" placeholder="Digite a informação aqui">
+  <button class="button-add" (click)="search()">Buscar</button>
+</div>
