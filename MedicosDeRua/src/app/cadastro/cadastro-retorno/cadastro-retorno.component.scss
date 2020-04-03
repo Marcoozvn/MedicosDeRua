@@ -1,0 +1,18 @@
+
+  .logo-container {
+	display: flex;
+	align-items: center;
+  
+	span {
+	  font-weight: 500;
+	  font-size: 1rem;
+	  margin-left: 10px;
+	}
+  }
+  
+  .matInput {
+	width: 100%;
+	min-width: 150px;
+	max-width: 500px;
+	padding: 10px;
+}

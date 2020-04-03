@@ -1,0 +1,59 @@
+<mat-card style="padding: 20px;">
+    <mat-card-header>
+        <mat-card-title [ngStyle]="{'font-size':'24px','color':'#8844EE'}">
+            Ficha de retorno
+        </mat-card-title>
+
+    </mat-card-header>
+    <mat-card-content>
+        <form #Form="ngForm" class="matForm">
+            <mat-form-field class="matInput">
+                <input matInput name="prontuario" placeholder="Prontuario" required>
+                <!-- <mat-error *ngIf="nome.invalid">O nome é Inválido</mat-error> -->
+            </mat-form-field>
+
+            <mat-form-field class="matInput">
+                <input matInput name="nome" placeholder="Nome" required>
+            </mat-form-field>
+
+            <mat-form-field class="matInput">
+                <input matInput [matDatepicker]="picker" name="dataNascimento" placeholder="Data">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+
+            <mat-form-field class="matInput">
+                <input matInput name="idade" placeholder="Idade" required>
+            </mat-form-field>
+
+            <h3>Sinais Vitais</h3>
+            <section style="display:flex; flex-flow:row;">
+                <mat-form-field class="matInput">
+                    <input matInput name="bpm" placeholder="Freq.Cardiaca (bpm)" required>
+                </mat-form-field>
+
+                <mat-form-field class="matInput">
+                    <input matInput name="ipm" placeholder="Freq.Respiratoria (ipm)" required>
+                </mat-form-field>
+
+                <mat-form-field class="matInput">
+                    <input matInput name="mmhg" placeholder="Pressão Arterial (mm Hg)" required>
+                </mat-form-field>
+
+                <mat-form-field class="matInput">
+                    <input matInput name="sat" placeholder="Sat.O2(%)" required>
+                </mat-form-field>
+
+                <mat-form-field class="matInput">
+                    <input matInput name="temperatura" placeholder="Temperatura °C" required>
+                </mat-form-field>
+            </section>
+
+            <div>
+                <button [disabled]="Form.invalid" mat-raised-button color="basic"
+                    (click)="salvarDados()">SALVAR</button>&nbsp;
+                <button mat-raised-button color="basic" (click)="Form.reset()">LIMPAR</button>
+            </div>
+        </form>
+    </mat-card-content>
+</mat-card>

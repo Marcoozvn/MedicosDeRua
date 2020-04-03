@@ -19,6 +19,7 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { CadastroRetornoComponent } from './cadastro/cadastro-retorno/cadastro-retorno.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
     SearchComponent,
     ListUsersComponent,
     ListFormsComponent,
+    CadastroRetornoComponent,
 
   ],
   imports: [

@@ -7,6 +7,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { SearchComponent } from './search/search.component';
 import { ListUsersComponent } from './list-users/list-users.component';
 import { ListFormsComponent } from './list-forms/list-forms.component';
+import { CadastroRetornoComponent } from './cadastro/cadastro-retorno/cadastro-retorno.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -18,6 +19,7 @@ const routes: Routes = [
       { path: '**', component: SearchComponent }
     ]
   },
+  { path: 'cadastro-retorno', component: CadastroRetornoComponent },
   { path: '**', component: NotFoundComponent }
 ];
 
