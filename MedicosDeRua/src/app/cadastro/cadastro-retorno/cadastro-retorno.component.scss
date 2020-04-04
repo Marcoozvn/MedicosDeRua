@@ -1,5 +1,5 @@
 
-  .logo-container {
+.logo-container {
 	display: flex;
 	align-items: center;
   
@@ -8,11 +8,23 @@
 	  font-size: 1rem;
 	  margin-left: 10px;
 	}
-  }
+}
   
-  .matInput {
+.matInput {
 	width: 100%;
 	min-width: 150px;
 	max-width: 500px;
-	padding: 10px;
+	padding: 0 5px 0 5px !important;
+}
+
+.sinais-vitais {
+	display:flex;
+	flex-direction: row;
+	width: 100%;
+}
+
+@media(max-width: 750px) {
+	.sinais-vitais {
+		flex-direction: column;
+	}
 }
