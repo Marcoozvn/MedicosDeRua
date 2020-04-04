@@ -30,6 +30,8 @@ module.exports = {
     const { page = 1 } = req.query;
     const { perPage = 5 } = req.query;
     
+    console.log('chamou');
+
     try {
       const count = await ReturnForm.estimatedDocumentCount();
 
@@ -61,6 +63,8 @@ module.exports = {
 
     try {
       await ReturnForm.remove({ _id: id });
+
+      console.log('deletado');
 
       res.json({ message: 'Ok' });
       

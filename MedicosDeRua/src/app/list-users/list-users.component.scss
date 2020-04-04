@@ -6,11 +6,19 @@
   align-items: center;
 }
 
+.list-header {
+  display: flex;
+  width: 100%;
+  padding: 15px 15px 0 15px;
+
+  span {
+    flex: 1;
+    font-weight: 500;
+  }
+}
+
 .list-container {
-  margin-top: 25px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 15px;
+  margin-top: 10px;
   width: 100%;
 
   li {
@@ -20,10 +28,15 @@
 
 .user-card {
   display: flex;
-  justify-content: space-between;
   flex-wrap: wrap;
   background: #7159c1;
   color: #fff;
   padding: 15px;
   border-radius: 8px;
+  margin-bottom: 5px;
+
+  span {
+    flex: 1;
+    word-break: break-word;
+  }
 }

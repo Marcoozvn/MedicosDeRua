@@ -5,10 +5,7 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 
-import { MatRadioModule } from '@angular/material/radio';
-
 import { AuthGuardService } from './auth/auth-guard.service';
-
 import { JwtInterceptor } from './helpers/jwt.interceptor';
 
 import { SharedModule } from './shared/shared.module';
@@ -36,8 +33,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
     BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule,
-    SharedModule,
-    MatRadioModule
+    SharedModule
   ],
   providers: [AuthGuardService, { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true }],
   bootstrap: [AppComponent]

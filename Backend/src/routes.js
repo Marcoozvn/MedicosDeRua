@@ -1,8 +1,10 @@
 const { Router } = require('express');
 
 const SessionController = require('./controllers/SessionController');
-const AnamneseController = require('./controllers/AnamneseController');
-const ReturnController = require('./controllers/ReturnController');
+const FormController = require('./controllers/FormController');
+const AssistedUserController = require('./controllers/AssistedUserController');
+//const AnamneseController = require('./controllers/AnamneseController');
+//const ReturnController = require('./controllers/ReturnController');
 
 const routes = Router();
 
@@ -10,18 +12,20 @@ const routes = Router();
 routes.post('/register', SessionController.verifyToken, SessionController.register);
 routes.post('/login', SessionController.login);
 
+//Usuários
+routes.get('/users', SessionController.verifyToken, AssistedUserController.find);
+
+//Formulários
+routes.get('/form/:assistedUserId', SessionController.verifyToken, FormController.find);
+
 //Fichas de Anamnese
-routes.get('/anamnese', SessionController.verifyToken, AnamneseController.findAll);
-routes.get('/anamnese/:id', SessionController.verifyToken, AnamneseController.findById);
-routes.post('/anamnese', SessionController.verifyToken, AnamneseController.create);
-routes.put('/anamnese/:id', SessionController.verifyToken, AnamneseController.update);
-routes.delete('/anamnese/:id', SessionController.verifyToken, AnamneseController.delete);
+routes.post('/form/anamnese', SessionController.verifyToken, FormController.createAnamnese);
+routes.put('/form/anamnese/:id', SessionController.verifyToken, FormController.updateAnamnese);
+routes.delete('/form/anamnese/:id', SessionController.verifyToken, FormController.deleteAnamnese);
 
 //Fichas de Retorno
-routes.get('/return', SessionController.verifyToken, ReturnController.findAll);
-routes.get('/return/:id', SessionController.verifyToken, ReturnController.findById);
-routes.post('/return', SessionController.verifyToken, ReturnController.create);
-routes.put('/return/:id', SessionController.verifyToken, ReturnController.update);
-routes.delete('/return/:id', SessionController.verifyToken, ReturnController.delete);
+routes.post('/form/return', SessionController.verifyToken, FormController.createReturn);
+routes.put('/form/return/:id', SessionController.verifyToken, FormController.updateReturn);
+routes.delete('/form/return/:id', SessionController.verifyToken, FormController.deleteReturn);
 
 module.exports = routes;
