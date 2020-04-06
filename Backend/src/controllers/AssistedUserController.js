@@ -17,5 +17,24 @@ module.exports = {
     } catch (error) {
       res.status(500).send({ message: error });
     }
+  },
+
+  async extractUser(form) {
+    const { paciente: { nome, cpf, dataNascimento }} = form;
+
+      let user;
+
+      if (cpf) {
+        user = await AssistedUser.findOne({cpf});
+
+      } else {
+        user = await AssistedUser.findOne({nome});
+      }
+
+      if (!user) {
+        user = await AssistedUser.create({nome, cpf, dataNascimento});
+      } 
+
+      return user;
   }
 }

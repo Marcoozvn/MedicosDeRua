@@ -1,22 +1,11 @@
 const Anamnese = require('../models/AnamneseForm');
 const Return = require('../models/ReturnForm');
-const AssistedUser = require('../models/AssistedUser');
+const AssistedUserController = require('./AssistedUserController');
 
 module.exports = {
   async createAnamnese(req, res) {
     try {
-      const { paciente: { nome, cpf, idade }} = req.body;
-
-      let user;
-
-      if (cpf) {
-        user = await AssistedUser.findOne({cpf});
-
-      } else {
-        user = await AssistedUser.findOne({nome});
-      }
-
-      if (!user) AssistedUser.create({nome, cpf, idade});
+      const user = await AssistedUserController.extractUser(req.body);
 
       const anamnese = await Anamnese.create({
         ...req.body,
@@ -57,18 +46,7 @@ module.exports = {
 
   async createReturn(req, res) {
     try {
-      const { paciente: { nome, cpf, idade }} = req.body;
-
-      let user;
-
-      if (cpf) {
-        user = await AssistedUser.findOne({cpf});
-
-      } else {
-        user = await AssistedUser.findOne({nome});
-      }
-
-      if (!user) AssistedUser.create({nome, cpf, idade});
+      const user = await AssistedUserController.extractUser(req.body);
 
       const returnForm = await Return.create({
         ...req.body,

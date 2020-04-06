@@ -19,7 +19,6 @@ const UserSchema = mongoose.Schema({
     type: String,
     enum: ['Academico', 'Medico', 'Juridico', 'Odontologia', 'Nutricao', 'Enfermagem', 'Veterinaria', 'Psicologia',
           'Fisioterapia', 'Admin', 'Tutor'],
-    required: true
   },
   tutorArea: {
     type: String
