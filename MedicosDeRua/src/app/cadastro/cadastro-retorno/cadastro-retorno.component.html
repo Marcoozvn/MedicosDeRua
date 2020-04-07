@@ -7,24 +7,28 @@
     </mat-card-header>
     <mat-card-content>
         <form #Form="ngForm" class="matForm">
-            <mat-form-field class="matInput">
-                <input matInput name="prontuario" placeholder="Prontuario" required>
-                <!-- <mat-error *ngIf="nome.invalid">O nome é Inválido</mat-error> -->
-            </mat-form-field>
+            <section>
+                <mat-form-field class="matInput">
+                    <input matInput name="prontuario" placeholder="Prontuario" required>
+                    <!-- <mat-error *ngIf="nome.invalid">O nome é Inválido</mat-error> -->
+                </mat-form-field>
 
-            <mat-form-field class="matInput">
-                <input matInput name="nome" placeholder="Nome" required>
-            </mat-form-field>
+                <mat-form-field class="matInput">
+                    <input matInput [matDatepicker]="picker" name="dataNascimento" placeholder="Data">
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+            </section>
 
-            <mat-form-field class="matInput">
-                <input matInput [matDatepicker]="picker" name="dataNascimento" placeholder="Data">
-                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-                <mat-datepicker #picker></mat-datepicker>
-            </mat-form-field>
+            <section>
+                <mat-form-field class="matInput">
+                    <input matInput name="nome" placeholder="Nome" required>
+                </mat-form-field>
 
-            <mat-form-field class="matInput">
-                <input matInput name="idade" placeholder="Idade" required>
-            </mat-form-field>
+                <mat-form-field class="matInput">
+                    <input matInput name="idade" placeholder="Idade" required>
+                </mat-form-field>
+            </section>
 
             <h3>Sinais Vitais</h3>
             <section class="sinais-vitais">
@@ -49,6 +53,95 @@
                 </mat-form-field>
             </section>
 
+            <h3>Queixa Principal</h3>
+            <section>
+                <mat-form-field class="matInput">
+                    <input matInput name="queixa" placeholder="Qual sua queixa?">
+                </mat-form-field>
+
+                <mat-form-field class="matInput">
+                    <input matInput name="tempo" placeholder="Há quanto tempo?">
+                </mat-form-field>
+
+                <mat-form-field class="matInput">
+                    <input matInput name="quandoComecou" placeholder="Quando e como começou?">
+                </mat-form-field>
+
+                <mat-radio-group aria-labelledby="example-radio-group-label" class="matInput">
+                    <label id="example-radio-group-label">Sua queixa da última consulta melhorou?</label>&nbsp;
+                    <mat-radio-button value="S" labelPosition="before">S</mat-radio-button>&nbsp;
+                    <mat-radio-button value="N" labelPosition="before">N</mat-radio-button>
+                </mat-radio-group>
+            </section>
+
+            <br>
+            <h3>História Mórbida Atual</h3>
+            <section>
+                <mat-form-field class="matInput">
+                    <input matInput placeholder="Detalhar: local, inicio, tipo/caracteristica, irradiação etc..">
+                </mat-form-field>
+
+                <mat-radio-group aria-labelledby="example-radio-group-label" class="matInput">
+                    <label id="example-radio-group-label">Dor de dente?</label>&nbsp;
+                    <mat-radio-button value="S" labelPosition="before">S</mat-radio-button>&nbsp;
+                    <mat-radio-button value="N" labelPosition="before">N</mat-radio-button>
+                </mat-radio-group>
+            </section>
+            <br>
+            
+            <h3>História Mórbida Pregressa</h3>
+            <section>
+                <br>
+                <div>
+                    <label id="example-radio-group-label">Uso de substâncias:</label>&nbsp;
+                    <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group">
+                        <mat-radio-button value="S" labelPosition="before">S</mat-radio-button>&nbsp;
+                        <mat-radio-button value="N" labelPosition="before">N</mat-radio-button>
+                    </mat-radio-group>
+                </div>
+                <div>
+                    <mat-checkbox class="">Álcool</mat-checkbox>&nbsp;
+                    <mat-form-field>
+                        <input matInput name="quantidade" placeholder="Quant.:">
+                    </mat-form-field>&nbsp;
+                    <mat-checkbox labelPosition="before" class="">Diário:</mat-checkbox>&nbsp;
+                    <mat-form-field>
+                        <input matInput name="quantidade" placeholder="x na sem.">
+                    </mat-form-field>&nbsp;
+                    <mat-checkbox labelPosition="before" class="">Esporádico:</mat-checkbox>
+                </div>
+                <div>
+                    <mat-checkbox class="">Cigarro</mat-checkbox>&nbsp;
+                    <mat-form-field>
+                        <input matInput placeholder="Quantidade/Maços">
+                    </mat-form-field>&nbsp;
+                    <mat-form-field>
+                        <input matInput placeholder="Tempo/Anos">
+                    </mat-form-field>&nbsp;
+                </div>
+            </section>
+            <section>
+                <div>
+                    <!-- ngfor -->
+                    <mat-checkbox class="">Crack</mat-checkbox>&nbsp;
+                    <mat-checkbox class="">Uso: Diário</mat-checkbox>&nbsp;
+                    <mat-form-field>
+                        <input matInput placeholder="X na sem,">
+                    </mat-form-field>&nbsp;
+                    <mat-checkbox class="">Esporádico</mat-checkbox>&nbsp;
+                </div>
+
+                <mat-form-field class="matInput full">
+                    <label>Medicações de uso contínuo (listar quais e motivo):</label>
+                    <input matInput>
+                </mat-form-field>
+
+                <mat-form-field class="matInput full">
+                    <label>Alergias (qual agente e qual a reação alergica):</label>
+                    <input matInput>
+                </mat-form-field>
+                
+            </section>
             <div>
                 <button [disabled]="Form.invalid" mat-raised-button color="basic"
                     (click)="salvarDados()">SALVAR</button>&nbsp;

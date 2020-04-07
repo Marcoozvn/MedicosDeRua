@@ -1,20 +1,15 @@
-
-.logo-container {
-	display: flex;
-	align-items: center;
-  
-	span {
-	  font-weight: 500;
-	  font-size: 1rem;
-	  margin-left: 10px;
-	}
+h3 {
+	border-bottom:1px solid;
 }
-  
+
 .matInput {
 	width: 100%;
 	min-width: 150px;
-	max-width: 500px;
+	max-width: 50%;
 	padding: 0 5px 0 5px !important;
+}
+input {
+	padding: 0 5px 0 5px!important;
 }
 
 .sinais-vitais {
@@ -28,3 +23,13 @@
 		flex-direction: column;
 	}
 }
+
+.full {
+	max-width: 100%!important
+}
+.checkbox-section {
+	display: flex;
+	align-content: center;
+	align-items: center;
+	height: 55px;
+  }
