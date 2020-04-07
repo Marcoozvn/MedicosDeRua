@@ -1,19 +1,39 @@
 h3 {
 	border-bottom:1px solid;
+	padding-bottom: 5px;
+	color: rgb(136, 68, 238)
 }
 
+.background {
+	background: url('../../../assets/background.png');
+	position: fixed;
+	height: 100%;
+	width: 100%;
+	background-size: 50px;
+	background-repeat: space;
+	filter: opacity(0.03);
+	z-index: -3;
+  }
+
+  .assinatura {
+    border: 2px solid;
+    text-align: center;
+    width: 40%;
+    height: 100px;
+  }
+  
 .matInput {
 	width: 100%;
-	min-width: 150px;
 	max-width: 50%;
 	padding: 0 5px 0 5px !important;
 }
+
 input {
 	padding: 0 5px 0 5px!important;
 }
 
 .sinais-vitais {
-	display:flex;
+	display:flex;	
 	flex-direction: row;
 	width: 100%;
 }
@@ -32,4 +52,68 @@ input {
 	align-content: center;
 	align-items: center;
 	height: 55px;
-  }
+}
+	
+.historia-morbida-container {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}	
+
+.left {
+	margin-top: 15px;
+	width: 50%;
+	display: flex;
+	flex-direction: column;
+	border-right: 1px solid #ccc;
+
+	.mat-form-field {
+		width: 25%;
+	}
+}
+
+.right {
+	display: flex;
+	flex-direction: column;
+	width: 50%;
+	padding-left: 5px;
+	align-items: center;
+}
+
+@media(max-width: 600px) {
+	.historia-morbida-container {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.left,
+	.right {
+		width: 100%;
+		border-right: 0;
+	}
+
+	.historia-morbida-atual {
+		display: flex;
+		flex-direction: column;
+	}
+}
+
+.laboratoriais-container {
+	display: flex; 
+	flex-direction: row;
+	 max-width: 100%;
+}
+
+
+@media(max-width: 600px) {
+	.laboratoriais-container {
+		display: flex; 
+		flex-direction: column;
+		 max-width: 100%;
+	}
+	
+}
+
+.col-33{
+	width: 33%;
+}
