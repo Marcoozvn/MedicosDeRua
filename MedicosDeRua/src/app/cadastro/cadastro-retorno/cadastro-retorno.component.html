@@ -101,8 +101,8 @@
 
         <mat-radio-group aria-labelledby="example-radio-group-label" class="matInput">
           <label id="example-radio-group-label">Dor de dente?</label>&nbsp;
-          <mat-radio-button value="S" labelPosition="before">S</mat-radio-button>&nbsp;
-          <mat-radio-button value="N" labelPosition="before">N</mat-radio-button>
+          <mat-radio-button value="S" labelPosition="before">Sim</mat-radio-button>&nbsp;
+          <mat-radio-button value="N" labelPosition="before">Não</mat-radio-button>
         </mat-radio-group>
       </section>
     </mat-expansion-panel>
@@ -119,8 +119,8 @@
           <div>
             <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group">
               <label id="example-radio-group-label">Uso de substâncias:</label>&nbsp;
-              <mat-radio-button value="S" labelPosition="before">S</mat-radio-button>&nbsp;
-              <mat-radio-button value="N" labelPosition="before">N</mat-radio-button>
+              <mat-radio-button value="S" labelPosition="before">Sim</mat-radio-button>&nbsp;
+              <mat-radio-button value="N" labelPosition="before">Não</mat-radio-button>
             </mat-radio-group>
           </div>
           <div>
@@ -220,7 +220,6 @@
           <div *ngFor="let item of exames">
             <mat-checkbox style="padding:10px;" class="">{{item}}</mat-checkbox>&nbsp;
           </div>
-          <label for="">Testes Rápidos:</label>&nbsp;
           <div *ngFor="let teste of testes">
             <mat-checkbox style="padding:10px;" class="">{{teste}}</mat-checkbox>&nbsp;
           </div>
@@ -235,10 +234,10 @@
         <h3>Medicamentos</h3>
       </mat-expansion-panel-header>
       <section>
-        <div class="laboratoriais-container">
+        <div class="medicamentos-container">
           <div class="col-33">
             <mat-form-field class="" style="width: 100%; padding: 5px">
-              <input matInput name="" placeholder="Motivo da despensação" required>
+              <input matInput name="" placeholder="Motivo da dispensação" required>
             </mat-form-field>
           </div>
           <div class="col-33">
@@ -262,7 +261,7 @@
         <h3>Encaminhamentos</h3>
       </mat-expansion-panel-header>
       <section>
-        <div class="laboratoriais-container">
+        <div class="encaminhamentos-container">
           <div class="col-33" *ngFor="let encaminhamento of encaminhamentos">
             <label>{{encaminhamento.area}}</label>
             <div>

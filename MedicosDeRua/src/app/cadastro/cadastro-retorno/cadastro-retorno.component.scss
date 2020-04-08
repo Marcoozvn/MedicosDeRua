@@ -75,6 +75,35 @@ input {
 	padding-left: 5px;
 }
 
+.laboratoriais-container {
+	display: flex; 
+	flex-direction: row;
+	max-width: 100%;
+	flex-wrap: wrap;
+}
+
+.medicamentos-container {
+	display: flex;
+
+	.col-33 {
+		width: 33%;
+	}
+}
+
+.historia-morbida-atual {
+	display: flex;
+	flex-direction: column;
+
+	.mat-form-field {
+		max-width: 100%;
+	}
+}
+
+.encaminhamentos-container {
+	display: flex;
+	flex-direction: row;
+}
+
 @media(max-width: 600px) {
 	.historia-morbida-container {
 		display: flex;
@@ -87,35 +116,28 @@ input {
 		border-right: 0;
 	}
 
-	.historia-morbida-atual {
-		display: flex;
-		flex-direction: column;
-	}
-
 	.sinais-vitais {
 		display: flex;
 		flex-direction: row;
 		flex-wrap: wrap;
 	}
-}
 
-.laboratoriais-container {
-	display: flex; 
-	flex-direction: row;
-	max-width: 100%;
-	flex-wrap: wrap;
-}
-
-
-@media(max-width: 600px) {
 	.laboratoriais-container {
-		display: flex; 
-		flex-direction: column;
-		 max-width: 100%;
+		display: grid; 
+		grid-template-columns: repeat(2, 1fr);
 	}
-	
-}
 
-.col-33{
-	width: 33%;
+	.medicamentos-container {
+		display: flex;
+		flex-direction: column;
+
+		.col-33 {
+			width: 100% !important;
+		}
+	}
+
+	.encaminhamentos-container {
+		display: flex;
+		flex-direction: column;
+	}
 }
