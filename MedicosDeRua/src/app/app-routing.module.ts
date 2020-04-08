@@ -16,10 +16,10 @@ const routes: Routes = [
       { path: 'search', component: SearchComponent },
       { path: 'users', component: ListUsersComponent },
       { path: 'forms', component: ListFormsComponent },
+      { path: 'cadastro-retorno', component: CadastroRetornoComponent },
       { path: '**', component: SearchComponent }
     ]
   },
-  { path: 'cadastro-retorno', component: CadastroRetornoComponent },
   { path: '**', component: NotFoundComponent }
 ];
 

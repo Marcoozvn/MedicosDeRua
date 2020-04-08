@@ -1,225 +1,280 @@
-<div class="background"></div>
-<mat-card>
-    <mat-card-header>
-        <mat-card-title [ngStyle]="{'font-size':'24px','color':'#8844EE'}">
-            Ficha de retorno
-        </mat-card-title>
+<h2 style="text-align: center; margin-top: 10px; color: #7159c1">Formulário de retorno</h2>
+<mat-card style="margin-top: 15px;">
+  <form #Form="ngForm" class="matForm">
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <h3>Informações pessoais</h3>
+      </mat-expansion-panel-header>
+      <section>
+        <mat-form-field class="matInput">
+          <input matInput name="prontuario" placeholder="Prontuario" required>
+          <!-- <mat-error *ngIf="nome.invalid">O nome é Inválido</mat-error> -->
+        </mat-form-field>
 
-    </mat-card-header>
-    <mat-card-content>
-        <form #Form="ngForm" class="matForm">
-            <section>
-                <mat-form-field class="matInput">
-                    <input matInput name="prontuario" placeholder="Prontuario" required>
-                    <!-- <mat-error *ngIf="nome.invalid">O nome é Inválido</mat-error> -->
-                </mat-form-field>
+        <mat-form-field class="matInput">
+          <input matInput [matDatepicker]="picker" name="dataNascimento" placeholder="Data">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
 
-                <mat-form-field class="matInput">
-                    <input matInput [matDatepicker]="picker" name="dataNascimento" placeholder="Data">
-                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-                    <mat-datepicker #picker></mat-datepicker>
-                </mat-form-field>
-            </section>
+        <mat-form-field class="matInput">
+          <input matInput name="nome" placeholder="Nome" required>
+        </mat-form-field>
 
-            <section>
-                <mat-form-field class="matInput">
-                    <input matInput name="nome" placeholder="Nome" required>
-                </mat-form-field>
+        <mat-form-field class="matInput">
+          <input matInput name="idade" placeholder="Idade" required>
+        </mat-form-field>
+      </section>
+    </mat-expansion-panel>
 
-                <mat-form-field class="matInput">
-                    <input matInput name="idade" placeholder="Idade" required>
-                </mat-form-field>
-            </section>
+    <mat-divider></mat-divider>
+    
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <h3>Sinais Vitais</h3>
+      </mat-expansion-panel-header>
 
-            <h3>Sinais Vitais</h3>
-            <section class="sinais-vitais">
-                <mat-form-field class="matInput">
-                    <input matInput name="bpm" placeholder="Freq.Cardiaca (bpm)" required>
-                </mat-form-field>
+      <section class="sinais-vitais">
+        <mat-form-field class="matInput">
+          <input matInput name="bpm" placeholder="Freq.Cardiaca (bpm)" required>
+        </mat-form-field>
 
-                <mat-form-field class="matInput">
-                    <input matInput name="ipm" placeholder="Freq.Respiratoria (ipm)" required>
-                </mat-form-field>
+        <mat-form-field class="matInput">
+          <input matInput name="ipm" placeholder="Freq.Respiratoria (ipm)" required>
+        </mat-form-field>
 
-                <mat-form-field class="matInput">
-                    <input matInput name="mmhg" placeholder="Pressão Arterial (mm Hg)" required>
-                </mat-form-field>
+        <mat-form-field class="matInput">
+          <input matInput name="mmhg" placeholder="Pressão Arterial (mm Hg)" required>
+        </mat-form-field>
 
-                <mat-form-field class="matInput">
-                    <input matInput name="sat" placeholder="Sat.O2(%)" required>
-                </mat-form-field>
+        <mat-form-field class="matInput">
+          <input matInput name="sat" placeholder="Sat.O2(%)" required>
+        </mat-form-field>
 
-                <mat-form-field class="matInput">
-                    <input matInput name="temperatura" placeholder="Temperatura °C" required>
-                </mat-form-field>
-            </section>
+        <mat-form-field class="matInput">
+          <input matInput name="temperatura" placeholder="Temperatura °C" required>
+        </mat-form-field>
+      </section>
+    </mat-expansion-panel>
 
-            <h3>Queixa Principal</h3>
-            <section>
-                <mat-form-field class="matInput">
-                    <input matInput name="queixa" placeholder="Qual sua queixa?">
-                </mat-form-field>
+    <mat-divider></mat-divider>
 
-                <mat-form-field class="matInput">
-                    <input matInput name="tempo" placeholder="Há quanto tempo?">
-                </mat-form-field>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <h3>Queixa Principal</h3>
+      </mat-expansion-panel-header>
 
-                <mat-form-field class="matInput">
-                    <input matInput name="quandoComecou" placeholder="Quando e como começou?">
-                </mat-form-field>
+      <section>
+        <mat-form-field class="matInput">
+          <textarea matInput name="queixa" placeholder="Qual sua queixa?"></textarea>
+        </mat-form-field>
 
-                <mat-radio-group aria-labelledby="example-radio-group-label" class="matInput">
-                    <label id="example-radio-group-label">Sua queixa da última consulta melhorou?</label>&nbsp;
-                    <mat-radio-button value="S" labelPosition="before">S</mat-radio-button>&nbsp;
-                    <mat-radio-button value="N" labelPosition="before">N</mat-radio-button>
-                </mat-radio-group>
-            </section>
+        <mat-form-field class="matInput">
+          <textarea matInput name="tempo" placeholder="Há quanto tempo?"></textarea>
+        </mat-form-field>
 
-            <br>
-            <h3>História Mórbida Atual</h3>
-            <section class="historia-morbida-atual">
-                <mat-form-field class="matInput">
-                    <input matInput placeholder="Detalhar: local, inicio, tipo/caracteristica, irradiação etc..">
-                </mat-form-field>
+        <mat-form-field class="matInput">
+          <textarea matInput name="quandoComecou" placeholder="Quando e como começou?"></textarea>
+        </mat-form-field>
 
-                <mat-radio-group aria-labelledby="example-radio-group-label" class="matInput">
-                    <label id="example-radio-group-label">Dor de dente?</label>&nbsp;
-                    <mat-radio-button value="S" labelPosition="before">S</mat-radio-button>&nbsp;
-                    <mat-radio-button value="N" labelPosition="before">N</mat-radio-button>
-                </mat-radio-group>
-            </section>
-            <br>
+        <mat-radio-group aria-labelledby="example-radio-group-label" class="matInput">
+          <label id="example-radio-group-label">Sua queixa da última consulta melhorou?</label>&nbsp;
+          <mat-radio-button value="S" labelPosition="before">Sim</mat-radio-button>&nbsp;
+          <mat-radio-button value="N" labelPosition="before">Não</mat-radio-button>
+        </mat-radio-group>
+      </section>
+    </mat-expansion-panel>
 
-            <h3>História Mórbida Pregressa</h3>
-            <section class="historia-morbida-container">
-                <br>
-                <div class="left">
-                    <div>
-                        <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group">
-                            <label id="example-radio-group-label">Uso de substâncias:</label>&nbsp;
-                            <mat-radio-button value="S" labelPosition="before">S</mat-radio-button>&nbsp;
-                            <mat-radio-button value="N" labelPosition="before">N</mat-radio-button>
-                        </mat-radio-group>
-                    </div>
-                    <div>
-                        <mat-checkbox class="">Álcool</mat-checkbox>&nbsp;
-                        <mat-form-field>
-                            <input matInput name="quantidade" placeholder="Quant.:">
-                        </mat-form-field>&nbsp;
-                        <mat-checkbox labelPosition="before" class="">Diário:</mat-checkbox>&nbsp;
-                        <mat-form-field>
-                            <input matInput name="quantidade" placeholder="x na sem.">
-                        </mat-form-field>&nbsp;
-                        <mat-checkbox labelPosition="before" class="">Esporádico:</mat-checkbox>
-                    </div>
-                    <div>
-                        <mat-checkbox class="">Cigarro</mat-checkbox>&nbsp;
-                        <mat-form-field>
-                            <input matInput placeholder="Quantidade/Maços">
-                        </mat-form-field>&nbsp;
-                        <mat-form-field>
-                            <input matInput placeholder="Tempo/Anos">
-                        </mat-form-field>&nbsp;
-                    </div>
-                </div>
-                <div class="right">
-                    <div *ngFor="let droga of drogas">
-                        <mat-checkbox>{{droga?.nome}}</mat-checkbox>&nbsp;
-                        <mat-checkbox class="">Uso: Diário</mat-checkbox>&nbsp;
-                        <mat-form-field>
-                            <input matInput placeholder="X na sem,">
-                        </mat-form-field>&nbsp;
-                        <mat-checkbox class="">Esporádico</mat-checkbox>&nbsp;
-                    </div>
-                </div>
+    <mat-divider></mat-divider>
 
-            </section>
-            <section>
-                <mat-form-field class="matInput full">
-                    <label>Medicações de uso contínuo (listar quais e motivo):</label>
-                    <input matInput>
-                </mat-form-field>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <h3>História Mórbida Atual</h3>
+      </mat-expansion-panel-header>
 
-                <mat-form-field class="matInput full">
-                    <label>Alergias (qual agente e qual a reação alergica):</label>
-                    <input matInput>
-                </mat-form-field>
-            </section>
-            <h3>Exame Físico</h3>
-            <br>
-            <section>
-                <mat-form-field class="matInput full">
-                    <label>Ectoscopia, cabeça e pescoço, cardiopulmonar, gastrintestinal, neurológico, dermatológico,
-                        geniturinário</label>
-                    <input matInput required>
-                </mat-form-field>
-            </section>
-            <br>
-            <h3>Ánalise</h3>
-            <section>
-                <mat-form-field class="matInput full">
-                    <input matInput placeholder="Digite aqui a análise" required>
-                </mat-form-field>
-            </section>
-            <h3>Plano</h3>
-            <br>
-            <section>
-                <mat-form-field class="matInput full">
-                    <input matInput placeholder="Digite aqui o plano" required>
-                </mat-form-field>
-            </section>
-            <h3>Exames Laboratoriais</h3>
-            <br>
-            <section>
-                <div class="laboratoriais-container">
-                    <div *ngFor="let item of exames">
-                        <mat-checkbox style="padding:10px;" class="">{{item}}</mat-checkbox>&nbsp;
-                    </div>
-                    <label for="">Testes Rápidos:</label>&nbsp;
-                    <div *ngFor="let teste of testes">
-                        <mat-checkbox style="padding:10px;" class="">{{teste}}</mat-checkbox>&nbsp;
-                    </div>
-                </div>
-            </section>
-            <h3>Medicamentos</h3>
-            <section>
-                <div class="laboratoriais-container">
-                    <div class="col-33">
-                        <mat-form-field class="" style="width: 100%; padding: 5px">
-                            <input matInput name="" placeholder="Motivo da despensação" required>
-                        </mat-form-field>
-                    </div>
-                    <div  class="col-33">
-                        <mat-form-field class="" style="width: 100%; padding: 5px">
-                            <input matInput name="" placeholder="Medicamento" required>
-                        </mat-form-field>
-                    </div>
-                    <div  class="col-33" >
-                        <mat-form-field class="" style="width: 100%; padding: 5px;">
-                            <input matInput name="" placeholder="Quantidade" required>
-                        </mat-form-field>
-                    </div>
-                </div>
-            </section>
-            <h3>Encaminhamentos</h3>
-            <br>
-            <section>
-                <div class="laboratoriais-container">
-                    <div class="col-33" *ngFor="let encaminhamento of encaminhamentos">
-                        <label>{{encaminhamento.area}}</label>
-                        <div>
-                            <mat-checkbox class="">{{encaminhamento.situacao1}}</mat-checkbox>&nbsp;
-                            <mat-checkbox class="">{{encaminhamento.situacao2}}</mat-checkbox>&nbsp;
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <br>
+      <section class="historia-morbida-atual">
+        <mat-form-field class="matInput">
+          <textarea matInput placeholder="Detalhar: local, inicio, tipo/caracteristica, irradiação etc.."></textarea>
+        </mat-form-field>
+
+        <mat-radio-group aria-labelledby="example-radio-group-label" class="matInput">
+          <label id="example-radio-group-label">Dor de dente?</label>&nbsp;
+          <mat-radio-button value="S" labelPosition="before">S</mat-radio-button>&nbsp;
+          <mat-radio-button value="N" labelPosition="before">N</mat-radio-button>
+        </mat-radio-group>
+      </section>
+    </mat-expansion-panel>
+
+    <mat-divider></mat-divider>
+
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <h3>História Mórbida Pregressa</h3>
+      </mat-expansion-panel-header>
+
+      <section class="historia-morbida-container">
+        <div class="left">
+          <div>
+            <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group">
+              <label id="example-radio-group-label">Uso de substâncias:</label>&nbsp;
+              <mat-radio-button value="S" labelPosition="before">S</mat-radio-button>&nbsp;
+              <mat-radio-button value="N" labelPosition="before">N</mat-radio-button>
+            </mat-radio-group>
+          </div>
+          <div>
+            <mat-checkbox class="">Álcool</mat-checkbox>&nbsp;
+            <mat-form-field>
+              <input matInput name="quantidade" placeholder="Quant.:">
+            </mat-form-field>&nbsp;
+            <mat-checkbox labelPosition="before" class="">Diário:</mat-checkbox>&nbsp;
+            <mat-form-field>
+              <input matInput name="quantidade" placeholder="x na sem.">
+            </mat-form-field>&nbsp;
+            <mat-checkbox labelPosition="before" class="">Esporádico:</mat-checkbox>
+          </div>
+          <div>
+            <mat-checkbox class="">Cigarro</mat-checkbox>&nbsp;
+            <mat-form-field>
+              <input matInput placeholder="Quantidade/Maços">
+            </mat-form-field>&nbsp;
+            <mat-form-field>
+              <input matInput placeholder="Tempo/Anos">
+            </mat-form-field>&nbsp;
+          </div>
+        </div>
+        <div class="right">
+          <div *ngFor="let droga of drogas">
+            <mat-checkbox>{{droga?.nome}}</mat-checkbox>&nbsp;
+            <mat-checkbox class="">Uso: Diário</mat-checkbox>&nbsp;
+            <mat-form-field>
+              <input matInput placeholder="X na sem,">
+            </mat-form-field>&nbsp;
+            <mat-checkbox class="">Esporádico</mat-checkbox>&nbsp;
+          </div>
+        </div>
+      </section>
+      <section>
+        <mat-form-field class="matInput full">
+          <label>Medicações de uso contínuo (listar quais e motivo):</label>
+          <textarea matInput></textarea>
+        </mat-form-field>
+
+        <mat-form-field class="matInput full">
+          <label>Alergias (qual agente e qual a reação alergica):</label>
+          <textarea matInput></textarea>
+        </mat-form-field>
+      </section>
+    </mat-expansion-panel>
+
+    <mat-divider></mat-divider>
+
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <h3>Exame Físico</h3>
+      </mat-expansion-panel-header>
+      <section>
+        <mat-form-field class="matInput full">
+          <label>Ectoscopia, cabeça e pescoço, cardiopulmonar, gastrintestinal, neurológico, dermatológico,
+            geniturinário</label>
+          <textarea matInput required></textarea>
+        </mat-form-field>
+      </section>
+    </mat-expansion-panel>
+
+    <mat-divider></mat-divider>
+
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <h3>Ánalise</h3>
+      </mat-expansion-panel-header>
+      <section>
+        <mat-form-field class="matInput full">
+          <textarea matInput placeholder="Digite aqui a análise" required></textarea>
+        </mat-form-field>
+      </section>
+    </mat-expansion-panel>
+
+    <mat-divider></mat-divider>
+
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <h3>Plano</h3>
+      </mat-expansion-panel-header>
+      <section>
+        <mat-form-field class="matInput full">
+          <textarea matInput placeholder="Digite aqui o plano" required></textarea>
+        </mat-form-field>
+      </section>
+    </mat-expansion-panel>
+
+    <mat-divider></mat-divider>
+
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <h3>Exames Laboratoriais</h3>
+      </mat-expansion-panel-header>
+      <section>
+        <div class="laboratoriais-container">
+          <div *ngFor="let item of exames">
+            <mat-checkbox style="padding:10px;" class="">{{item}}</mat-checkbox>&nbsp;
+          </div>
+          <label for="">Testes Rápidos:</label>&nbsp;
+          <div *ngFor="let teste of testes">
+            <mat-checkbox style="padding:10px;" class="">{{teste}}</mat-checkbox>&nbsp;
+          </div>
+        </div>
+      </section>
+    </mat-expansion-panel>
+
+    <mat-divider></mat-divider>
+
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <h3>Medicamentos</h3>
+      </mat-expansion-panel-header>
+      <section>
+        <div class="laboratoriais-container">
+          <div class="col-33">
+            <mat-form-field class="" style="width: 100%; padding: 5px">
+              <input matInput name="" placeholder="Motivo da despensação" required>
+            </mat-form-field>
+          </div>
+          <div class="col-33">
+            <mat-form-field class="" style="width: 100%; padding: 5px">
+              <input matInput name="" placeholder="Medicamento" required>
+            </mat-form-field>
+          </div>
+          <div class="col-33">
+            <mat-form-field class="" style="width: 100%; padding: 5px;">
+              <input matInput name="" placeholder="Quantidade" required>
+            </mat-form-field>
+          </div>
+        </div>
+      </section>
+    </mat-expansion-panel>
+
+    <mat-divider></mat-divider>
+
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <h3>Encaminhamentos</h3>
+      </mat-expansion-panel-header>
+      <section>
+        <div class="laboratoriais-container">
+          <div class="col-33" *ngFor="let encaminhamento of encaminhamentos">
+            <label>{{encaminhamento.area}}</label>
             <div>
-                <button [disabled]="Form.invalid" mat-raised-button color="basic"
-                    (click)="salvarDados()">SALVAR</button>&nbsp;
-                <button mat-raised-button color="basic" (click)="Form.reset()">LIMPAR</button>
+              <mat-checkbox class="">{{encaminhamento.situacao1}}</mat-checkbox>&nbsp;
+              <mat-checkbox class="">{{encaminhamento.situacao2}}</mat-checkbox>&nbsp;
             </div>
-        </form>
-    </mat-card-content>
+          </div>
+        </div>
+      </section>
+    </mat-expansion-panel>
+    <br>
+    <div>
+      <button [disabled]="Form.invalid" mat-raised-button color="basic" (click)="salvarDados()">SALVAR</button>&nbsp;
+      <button mat-raised-button color="basic" (click)="Form.reset()">LIMPAR</button>
+    </div>
+  </form>
 </mat-card>

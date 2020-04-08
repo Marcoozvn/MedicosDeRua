@@ -1,7 +1,15 @@
 h3 {
-	border-bottom:1px solid;
-	padding-bottom: 5px;
-	color: rgb(136, 68, 238)
+	color: #7159c1;
+}
+
+.mat-expansion-panel {
+	margin-bottom: 10px;
+	box-shadow: none;
+
+}
+
+.mat-divider + .mat-expansion-panel {
+	padding-top: 10px;
 }
 
 .background {
@@ -30,18 +38,6 @@ h3 {
 
 input {
 	padding: 0 5px 0 5px!important;
-}
-
-.sinais-vitais {
-	display:flex;	
-	flex-direction: row;
-	width: 100%;
-}
-
-@media(max-width: 750px) {
-	.sinais-vitais {
-		flex-direction: column;
-	}
 }
 
 .full {
@@ -77,7 +73,6 @@ input {
 	flex-direction: column;
 	width: 50%;
 	padding-left: 5px;
-	align-items: center;
 }
 
 @media(max-width: 600px) {
@@ -96,12 +91,19 @@ input {
 		display: flex;
 		flex-direction: column;
 	}
+
+	.sinais-vitais {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+	}
 }
 
 .laboratoriais-container {
 	display: flex; 
 	flex-direction: row;
-	 max-width: 100%;
+	max-width: 100%;
+	flex-wrap: wrap;
 }
 
 

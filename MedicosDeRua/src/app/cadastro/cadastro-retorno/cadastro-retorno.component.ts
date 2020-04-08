@@ -7,8 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CadastroRetornoComponent implements OnInit {
 
+  usoDeSubstancias;
+
   constructor() { }
-  drogas = [] = [{ nome: 'Cigarro' }, { nome: 'Cocaína' }, { nome: 'Macohnha' }, { nome: 'LSD' }, { nome: 'Ecstasy' }, { nome: 'Lança perfume/cola' }]
+  drogas = [] = [{ nome: 'Cigarro' }, { nome: 'Cocaína' }, { nome: 'Maconha' }, { nome: 'LSD' }, { nome: 'Ecstasy' }, { nome: 'Lança perfume/cola' }]
   exames = ['Destro', 'Parcial de Urina', 'Hemograma', 'Ureia + Creatina', 'TGO + TGP', 'Bilirrubinas', 'Lipidograma', 'Hb glicada']
   testes = [] = ['Sífilis', 'HIV', 'Hepatite B', 'Hepatite C', 'Gravidez']
   
