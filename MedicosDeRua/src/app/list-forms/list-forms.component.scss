@@ -6,6 +6,17 @@
   align-items: center;
 }
 
+.list-header {
+  display: flex;
+  width: 100%;
+  padding: 15px 15px 0 15px;
+
+  span {
+    flex: 1;
+    font-weight: 500;
+  }
+}
+
 .list-container {
   width: 100%;
 
@@ -17,11 +28,24 @@
 
 .form-card {
   display: flex;
-  justify-content: space-between;
   flex-wrap: wrap;
   align-items: center;
   background: #7159c1;
   color: #fff;
   padding: 10px;
   border-radius: 8px;
+  cursor: pointer;
+
+  span {
+    flex: 1
+  }
+
+  .material-icons {
+    display: flex;
+    flex-direction: row-reverse;
+  }
+}
+
+.form-card:hover {
+  opacity: 0.95;
 }

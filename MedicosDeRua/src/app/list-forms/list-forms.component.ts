@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormService } from '../shared/form.service';
 
 @Component({
   selector: 'app-list-forms',
@@ -7,16 +8,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListFormsComponent implements OnInit {
 
+  // Remover o mock depois
   mock = [
-    { type: 'Anamnese', createdAt: '20/03/2020' },
-    { type: 'Retorno', createdAt: '01/04/2020' },
-    { type: 'Retorno', createdAt: '02/04/2020' },
-    { type: 'Retorno', createdAt: '03/04/2020' }
+    { tipo: 'Anamnese', createdAt: '20/03/2020' },
+    { tipo: 'Retorno', createdAt: '01/04/2020' },
+    { tipo: 'Retorno', createdAt: '02/04/2020' },
+    { tipo: 'Retorno', createdAt: '03/04/2020' }
   ];
 
-  constructor() { }
+  // Isso aqui vai ser utilizado para listar os forms
+  forms: any[];
+
+  constructor(private formsService: FormService) { }
 
   ngOnInit() {
+    this.formsService.getForms().subscribe( res => {
+      this.forms = res;
+    });
   }
 
 }

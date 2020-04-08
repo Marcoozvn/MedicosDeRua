@@ -15,7 +15,7 @@ const routes: Routes = [
     children: [
       { path: 'search', component: SearchComponent },
       { path: 'users', component: ListUsersComponent },
-      { path: 'users/:cpf', component: ListFormsComponent },
+      { path: 'forms', component: ListFormsComponent },
       { path: '**', component: SearchComponent }
     ]
   },

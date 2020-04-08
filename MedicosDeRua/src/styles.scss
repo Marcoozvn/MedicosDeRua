@@ -42,6 +42,12 @@ button {
   opacity: 0.8;
 }
 
+.button-add:disabled {
+  opacity: 1;
+  background: #dddddd;
+  cursor: auto;
+}
+
 .back-button {
   padding: 20px;
   display: flex;

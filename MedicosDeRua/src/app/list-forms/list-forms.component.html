@@ -6,11 +6,16 @@
 </a>
 <div class="list-forms-container">
   <h2>Formulários encontrados</h2>
+  <div class="list-header">
+    <span>Tipo de formulário</span>
+    <span>Data de criação</span>
+    <span></span>
+  </div>
   <ul class="list-container">
     <li *ngFor="let form of mock">
       <div class="form-card">
-        <div><strong>Formulário de {{ form.type }} </strong></div>
-        <div><strong>Data de criação: </strong><span>{{ form.createdAt }}</span></div>
+        <span>{{form.tipo}}</span>
+        <span>{{form.createdAt}}</span>
         <span class="material-icons">
           delete
         </span>

@@ -6,12 +6,17 @@
 </a>
 <div class="list-users-container">
   <h2>Usuários assistidos</h2>
+  <div class="list-header">
+    <span>Nome</span>
+    <span>CPF</span>
+    <span>Data de Nascimento</span>
+  </div>
   <ul class="list-container">
-    <li *ngFor="let user of mock">
-      <div class="user-card" (click)="searchForm(user.cpf)">
-        <div><strong>Nome: </strong>{{ user.name }}</div>
-        <div><strong>CPF: </strong>{{ user.cpf }}</div>
-        <div><strong>Data de nascimento: </strong>{{ user.birthDate }}</div>
+    <li *ngFor="let user of users">
+      <div class="user-card" (click)="searchForm(user)">
+        <span>{{user.nome ? user.nome : 'Não informado'}}</span>
+        <span>{{user.cpf ? user.cpf : 'Não informado'}}</span>
+        <span>{{user.dataNascimento ? user.dataNascimento : 'Não informado'}}</span>
       </div>
     </li>
   </ul>
