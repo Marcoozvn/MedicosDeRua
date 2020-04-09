@@ -80,6 +80,7 @@ input {
 	flex-direction: row;
 	max-width: 100%;
 	flex-wrap: wrap;
+	line-height: 1.5rem;
 }
 
 .medicamentos-container {
@@ -102,6 +103,24 @@ input {
 .encaminhamentos-container {
 	display: flex;
 	flex-direction: row;
+}
+
+.submit-button {
+  background: #7159c1;
+  padding: 15px;
+  color: #fff;
+  border: 0;
+  border-radius: 8px;
+  box-shadow: 0 2px 1px -1px rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 1px 3px 0 rgba(0,0,0,.12);
+  text-align: center;
+  text-decoration: none;
+  height: 45px;
+	font: 500 14px Roboto;
+	width: 150px;
+}
+
+.submit-button:hover {
+  opacity: 0.8;
 }
 
 @media(max-width: 600px) {
@@ -140,4 +159,9 @@ input {
 		display: flex;
 		flex-direction: column;
 	}
+
+	.submit-button {
+		width: 100%;
+	}
 }
+

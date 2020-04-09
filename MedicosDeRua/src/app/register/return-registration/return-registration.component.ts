@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators} from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-return-registration',
@@ -14,31 +14,31 @@ export class ReturnRegistrationComponent implements OnInit {
   constructor(private fb: FormBuilder) { }
 
   drogas = [] = [{ nome: 'Cigarro' }, { nome: 'Cocaína' }, { nome: 'Maconha' }, { nome: 'LSD' }, { nome: 'Ecstasy' }, { nome: 'Lança perfume/cola' }]
-  
+
   exames = [] = [
-    { nome: 'Destro'}, 
-    { nome: 'Hemograma'}, 
-    { nome: 'Parcial de Urina'}, 
-    { nome: 'Ureia + Creatina'}, 
-    { nome: 'TGO + TGP'}, 
-    {nome: 'Bilirrubinas'}, 
-    { nome: 'Lipidograma'}, 
-    { nome: 'Hb glicada'}, 
-    { nome: 'Sífilis'}, 
-    { nome: 'HIV'},
-    { nome: 'Hepatite B'},
-    { nome: 'Hepatite C'},
-    { nome: 'Gravidez'}]
+    { nome: 'Destro' },
+    { nome: 'Hemograma' },
+    { nome: 'Parcial de Urina' },
+    { nome: 'Ureia + Creatina' },
+    { nome: 'TGO + TGP' },
+    { nome: 'Bilirrubinas' },
+    { nome: 'Lipidograma' },
+    { nome: 'Hb glicada' },
+    { nome: 'Sífilis' },
+    { nome: 'HIV' },
+    { nome: 'Hepatite B' },
+    { nome: 'Hepatite C' },
+    { nome: 'Gravidez' }]
 
   encaminhamentos = [] = [{
     area: 'Odontologia',
     situacao1: 'Não quis/ foi necessário atendimento',
     situacao2: 'Atendido - ver ficha específica'
-  },{
+  }, {
     area: 'Psicologia',
     situacao1: 'Não quis/ foi necessário atendimento',
     situacao2: 'Atendido - ver ficha específica'
-  },{
+  }, {
     area: 'Jurídico',
     situacao1: 'Não quis/ foi necessário atendimento',
     situacao2: 'Atendido - ver ficha específica'
@@ -47,9 +47,11 @@ export class ReturnRegistrationComponent implements OnInit {
   ngOnInit() {
     this.registerForm = this.fb.group({
       prontuario: [''],
-      nome: ['', Validators.required],
       data: '',
-      idade: '',
+      paciente: this.fb.group({
+        nome: ['', Validators.required],
+        idade: '',
+      }),
       sinaisVitais: this.fb.group({
         freqCardiaca: '',
         freqRespiratoria: '',
@@ -80,20 +82,20 @@ export class ReturnRegistrationComponent implements OnInit {
         descricao: '',
       }),
       examesLaboratoriais: this.fb.group({
-       exames: ''
+        exames: ''
       }),
       medicamentos: this.fb.group({
         motivo: '',
         tipo: '',
         quantidade: ''
-       }),
-       encaminhamentos: this.fb.group({
+      }),
+      encaminhamentos: this.fb.group({
         encaminhamentos: ''
-       })
-    })
+      })
+    });
   }
 
-  submitForm(){
+  submitForm() {
     console.log(this.registerForm.value);
   }
 

@@ -7,11 +7,11 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { SearchComponent } from './search/search.component';
 import { ListUsersComponent } from './list-users/list-users.component';
 import { ListFormsComponent } from './list-forms/list-forms.component';
-import { ReturnRegistrationComponent } from './register/return-registration/return-registration';
+import { ReturnRegistrationComponent } from './register/return-registration/return-registration.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
-  { path: 'app', component: HomeComponent, canActivate: [AuthGuard],
+  { path: 'app', component: HomeComponent,
     children: [
       { path: 'search', component: SearchComponent },
       { path: 'users', component: ListUsersComponent },

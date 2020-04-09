@@ -7,8 +7,10 @@
     </div>
     
     <div class="buttons-container">
-      <button class="button-add button-header">Cadastrar anamnese</button>
-      <button class="button-add button-header" [routerLink]="['/app/return-registration']">Cadastrar retorno</button>
+      <div style="display: flex; flex-direction: row;">
+        <button class="button-add button-header">Cadastrar anamnese</button>
+        <button class="button-add button-header" [routerLink]="['/app/return-registration']">Cadastrar retorno</button>
+      </div>
       <button class="button-logout button-header">
         <span class="material-icons">
           power_settings_new

@@ -1,282 +1,291 @@
-<h2 style="text-align: center; margin-top: 10px; color: #7159c1">Formulário de retorno</h2>
-<mat-card style="margin-top: 15px;">
-  <form [formGroup]="registerForm" (submit)="submitForm()"class="matForm">
-
-    <!--Informações pessoais-->
-    <mat-expansion-panel>
-      <mat-expansion-panel-header>
-        <h3>Informações pessoais</h3>
-      </mat-expansion-panel-header>
-      <section>
-        <mat-form-field class="matInput">
-          <input formControlName="prontuario" matInput name="prontuario" placeholder="Prontuario">
-        </mat-form-field>
-
-        <mat-form-field class="matInput">
-          <input formControlName="data" matInput [matDatepicker]="picker" name="data" placeholder="Data">
-          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-          <mat-datepicker #picker></mat-datepicker>
-        </mat-form-field>
-
-        <mat-form-field class="matInput">
-          <input formControlName="nome" matInput name="nome" placeholder="Nome">
-          <mat-error *ngIf="registerForm.invalid">Campo Obrigatório</mat-error>
-        </mat-form-field>
-
-        <mat-form-field class="matInput">
-          <input formControlName="idade" matInput name="idade" placeholder="Idade">
-        </mat-form-field>
-      </section>
-    </mat-expansion-panel>
-    <mat-divider></mat-divider>
-
-    <!--Sinais vitais-->
-    <mat-expansion-panel>
-      <mat-expansion-panel-header>
-        <h3>Sinais Vitais</h3>
-      </mat-expansion-panel-header>
-
-      <section class="sinais-vitais" formGroupName="sinaisVitais">
-        <mat-form-field class="matInput">
-          <input formControlName="freqCardiaca" matInput name="bpm" placeholder="Freq.Cardiaca (bpm)">
-        </mat-form-field>
-
-        <mat-form-field class="matInput">
-          <input formControlName="freqRespiratoria" matInput name="ipm" placeholder="Freq.Respiratoria (ipm)">
-        </mat-form-field>
-
-        <mat-form-field class="matInput">
-          <input formControlName="pressaoArterial"matInput name="mmhg" placeholder="Pressão Arterial (mm Hg)">
-        </mat-form-field>
-
-        <mat-form-field class="matInput">
-          <input formControlName="sat"matInput name="sat" placeholder="Sat.O2(%)">
-        </mat-form-field>
-
-        <mat-form-field class="matInput">
-          <input formControlName="temperatura" matInput name="temperatura" placeholder="Temperatura °C">
-        </mat-form-field>
-      </section>
-    </mat-expansion-panel>
-    <mat-divider></mat-divider>
-
-    <!--Queixa principal-->
-    <mat-expansion-panel>
-      <mat-expansion-panel-header>
-        <h3>Queixa Principal</h3>
-      </mat-expansion-panel-header>
-
-      <section formGroupName="queixa">
-        <mat-form-field class="matInput">
-          <textarea formControlName="descricao" matInput formname="descricao" placeholder="Qual sua queixa?"></textarea>
-        </mat-form-field>
-
-        <mat-form-field class="matInput">
-          <textarea formControlName="tempo" matInput name="tempo" placeholder="Há quanto tempo?"></textarea>
-        </mat-form-field>
-
-        <mat-form-field class="inicio">
-          <textarea matInput formControlName="inicio" name="quandoComecou" placeholder="Quando e como começou?"></textarea>
-        </mat-form-field>
-
-        <mat-radio-group  formControlName="melhora" aria-labelledby="example-radio-group-label" class="matInput">
-          <label id="example-radio-group-label">Sua queixa da última consulta melhorou?</label>&nbsp;
-          <mat-radio-button value="S" labelPosition="before">Sim</mat-radio-button>&nbsp;
-          <mat-radio-button value="N" labelPosition="before">Não</mat-radio-button>
-        </mat-radio-group>
-      </section>
-    </mat-expansion-panel>
-    <mat-divider></mat-divider>
-
-    <!--História mórbida atual-->
-    <mat-expansion-panel>
-      <mat-expansion-panel-header>
-        <h3>História Mórbida Atual</h3>
-      </mat-expansion-panel-header>
-
-      <section class="historia-morbida-atual" formGroupName="historiaMorbidaAtual">
-        <mat-form-field class="matInput">
-          <textarea  formControlName="descricao" matInput placeholder="Detalhar: local, inicio, tipo/caracteristica, irradiação etc.."></textarea>
-        </mat-form-field>
-
-        <mat-radio-group  formControlName="dordeDente" aria-labelledby="example-radio-group-label" class="matInput">
-          <label id="example-radio-group-label">Dor de dente?</label>&nbsp;
-          <mat-radio-button value="S" labelPosition="before">Sim</mat-radio-button>&nbsp;
-          <mat-radio-button value="N" labelPosition="before">Não</mat-radio-button>
-        </mat-radio-group>
-      </section>
-    </mat-expansion-panel>
-    <mat-divider></mat-divider>
-
-    <!--História mórbida pregressa-->
-    <mat-expansion-panel>
-      <mat-expansion-panel-header>
-        <h3>História Mórbida Pregressa</h3>
-      </mat-expansion-panel-header>
-
-      <section class="historia-morbida-container" formGroupName="historiaMorbidaProgressa">
-        <div class="left">
-          <div>
-            <mat-radio-group formControlName="usoSubstancias" aria-labelledby="example-radio-group-label" class="example-radio-group">
-              <label id="example-radio-group-label">Uso de substâncias:</label>&nbsp;
-              <mat-radio-button value="S" labelPosition="before">Sim</mat-radio-button>&nbsp;
-              <mat-radio-button value="N" labelPosition="before">Não</mat-radio-button>
-            </mat-radio-group>
-          </div>
-          <div>
-            <mat-checkbox class="">Álcool</mat-checkbox>&nbsp;
-            <mat-form-field>
-              <input matInput name="quantidade" placeholder="Quant.:">
-            </mat-form-field>&nbsp;
-            <mat-checkbox labelPosition="before" class="">Diário:</mat-checkbox>&nbsp;
-            <mat-form-field>
-              <input matInput name="quantidade" placeholder="x na sem.">
-            </mat-form-field>&nbsp;
-            <mat-checkbox labelPosition="before" class="">Esporádico:</mat-checkbox>
-          </div>
-          <div>
-            <mat-checkbox class="">Cigarro</mat-checkbox>&nbsp;
-            <mat-form-field>
-              <input matInput placeholder="Quantidade/Maços">
-            </mat-form-field>&nbsp;
-            <mat-form-field>
-              <input matInput placeholder="Tempo/Anos">
-            </mat-form-field>&nbsp;
-          </div>
-        </div>
-        <div class="right">
-          <div *ngFor="let droga of drogas">
-            <mat-checkbox>{{droga?.nome}}</mat-checkbox>&nbsp;
-            <mat-checkbox class="">Uso: Diário</mat-checkbox>&nbsp;
-            <mat-form-field>
-              <input matInput placeholder="X na sem,">
-            </mat-form-field>&nbsp;
-            <mat-checkbox class="">Esporádico</mat-checkbox>&nbsp;
-          </div>
-        </div>
-      </section>      
-      <section>
-        <mat-form-field class="matInput full">
-          <label>Medicações de uso contínuo (listar quais e motivo):</label>
-          <textarea matInput></textarea>
-        </mat-form-field>
-
-        <mat-form-field class="matInput full">
-          <label>Alergias (qual agente e qual a reação alergica):</label>
-          <textarea matInput></textarea>
-        </mat-form-field>
-      </section>
-    </mat-expansion-panel>
-    <mat-divider></mat-divider>
-
-    <!--Exame físico-->
-    <mat-expansion-panel>
-      <mat-expansion-panel-header>
-        <h3>Exame Físico</h3>
-      </mat-expansion-panel-header>
-      <section formGroupName="exameFisico">
-        <mat-form-field class="matInput full">
-          <label>Ectoscopia, cabeça e pescoço, cardiopulmonar, gastrintestinal, neurológico, dermatológico,
-            geniturinário</label>
-          <textarea matInput formControlName="descricao"></textarea>
-        </mat-form-field>
-      </section>
-    </mat-expansion-panel>
-    <mat-divider></mat-divider>
-
-    <!--Análise-->
-    <mat-expansion-panel>
-      <mat-expansion-panel-header>
-        <h3>Ánalise</h3>
-      </mat-expansion-panel-header>
-      <section formGroupName="analise">
-        <mat-form-field class="matInput full">
-          <textarea formControlName="descricao" matInput placeholder="Digite aqui a análise"></textarea>
-        </mat-form-field>
-      </section>
-    </mat-expansion-panel>
-    <mat-divider></mat-divider>
-
-    <!--Plano-->
-    <mat-expansion-panel>
-      <mat-expansion-panel-header>
-        <h3>Plano</h3>
-      </mat-expansion-panel-header>
-      <section formGroupName="plano">
-        <mat-form-field class="matInput full">
-          <textarea formControlName="descricao" matInput placeholder="Digite aqui o plano"></textarea>
-        </mat-form-field>
-      </section>
-    </mat-expansion-panel>
-    <mat-divider></mat-divider>
-
-    <!--Exames laboratoriais-->
-    <mat-expansion-panel>
-      <mat-expansion-panel-header>
-        <h3>Exames Laboratoriais</h3>
-      </mat-expansion-panel-header>
-      <section formGroupName="examesLaboratoriais">
-        <div class="laboratoriais-container">
-          <div *ngFor="let exame of exames">
-            <label for="">{{exame.nome}}</label>
-            <mat-checkbox style="padding:8px;"></mat-checkbox>&nbsp;
-          </div>
-          <!-- <div *ngFor="let teste of testes">
-            <mat-checkbox style="padding:10px;" class="">{{teste}}</mat-checkbox>&nbsp;
-          </div> -->
-        </div>
-      </section>
-    </mat-expansion-panel>
-    <mat-divider></mat-divider>
-
-    <!--Medicamentos-->
-    <mat-expansion-panel>
-      <mat-expansion-panel-header>
-        <h3>Medicamentos</h3>
-      </mat-expansion-panel-header>
-      <section  formGroupName="medicamentos">
-        <div class="medicamentos-container">
-          <div class="col-33">
-            <mat-form-field class="" style="width: 100%; padding: 5px">
-              <input formControlName="motivo" matInput placeholder="Motivo da dispensação">
+<div style="display: flex; flex-direction: column;">
+  <a class="back-button" [routerLink]="['/app']">
+    <span class="material-icons">
+      arrow_back
+    </span>
+    Voltar para a busca
+  </a>
+  <h2 style="text-align: center">Formulário de retorno</h2>
+  <mat-card style="margin-top: 15px;">
+    <form [formGroup]="registerForm" class="matForm">
+  
+      <!--Informações pessoais-->
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <h3>Informações pessoais</h3>
+        </mat-expansion-panel-header>
+        <section>
+          <mat-form-field class="matInput">
+            <input formControlName="prontuario" matInput name="prontuario" placeholder="Prontuario">
+          </mat-form-field>
+  
+          <mat-form-field class="matInput">
+            <input formControlName="data" matInput [matDatepicker]="picker" name="data" placeholder="Data">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+  
+          <div formGroupName="paciente">
+            <mat-form-field class="matInput">
+              <input formControlName="nome" matInput name="nome" placeholder="Nome">
+              <mat-error *ngIf="registerForm.invalid">Campo Obrigatório</mat-error>
+            </mat-form-field>
+    
+            <mat-form-field class="matInput">
+              <input formControlName="idade" matInput name="idade" placeholder="Idade">
             </mat-form-field>
           </div>
-          <div class="col-33">
-            <mat-form-field class="" style="width: 100%; padding: 5px">
-              <input matInput formControlName="tipo" placeholder="Medicamento">
-            </mat-form-field>
-          </div>
-          <div class="col-33">
-            <mat-form-field class="" style="width: 100%; padding: 5px;">
-              <input matInput formControlName="quantidade" placeholder="Quantidade">
-            </mat-form-field>
-          </div>
-        </div>
-      </section>
-    </mat-expansion-panel>
-    <mat-divider></mat-divider>
-
-    <!--Encaminhamentos-->
-    <mat-expansion-panel>
-      <mat-expansion-panel-header>
-        <h3>Encaminhamentos</h3>
-      </mat-expansion-panel-header>
-      <section>
-        <div class="encaminhamentos-container">
-          <div class="col-33" *ngFor="let encaminhamento of encaminhamentos">
-            <label>{{encaminhamento.area}}</label>
+        </section>
+      </mat-expansion-panel>
+      <mat-divider></mat-divider>
+  
+      <!--Sinais vitais-->
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <h3>Sinais Vitais</h3>
+        </mat-expansion-panel-header>
+  
+        <section class="sinais-vitais" formGroupName="sinaisVitais">
+          <mat-form-field class="matInput">
+            <input formControlName="freqCardiaca" matInput name="bpm" placeholder="Freq.Cardiaca (bpm)">
+          </mat-form-field>
+  
+          <mat-form-field class="matInput">
+            <input formControlName="freqRespiratoria" matInput name="ipm" placeholder="Freq.Respiratoria (ipm)">
+          </mat-form-field>
+  
+          <mat-form-field class="matInput">
+            <input formControlName="pressaoArterial"matInput name="mmhg" placeholder="Pressão Arterial (mm Hg)">
+          </mat-form-field>
+  
+          <mat-form-field class="matInput">
+            <input formControlName="sat"matInput name="sat" placeholder="Sat.O2(%)">
+          </mat-form-field>
+  
+          <mat-form-field class="matInput">
+            <input formControlName="temperatura" matInput name="temperatura" placeholder="Temperatura °C">
+          </mat-form-field>
+        </section>
+      </mat-expansion-panel>
+      <mat-divider></mat-divider>
+  
+      <!--Queixa principal-->
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <h3>Queixa Principal</h3>
+        </mat-expansion-panel-header>
+  
+        <section formGroupName="queixa">
+          <mat-form-field class="matInput">
+            <textarea formControlName="descricao" matInput formname="descricao" placeholder="Qual sua queixa?"></textarea>
+          </mat-form-field>
+  
+          <mat-form-field class="matInput">
+            <textarea formControlName="tempo" matInput name="tempo" placeholder="Há quanto tempo?"></textarea>
+          </mat-form-field>
+  
+          <mat-form-field class="inicio">
+            <textarea matInput formControlName="inicio" name="quandoComecou" placeholder="Quando e como começou?"></textarea>
+          </mat-form-field>
+  
+          <mat-radio-group  formControlName="melhora" aria-labelledby="example-radio-group-label" class="matInput">
+            <label id="example-radio-group-label">Sua queixa da última consulta melhorou?</label>&nbsp;
+            <mat-radio-button value="S" labelPosition="before">Sim</mat-radio-button>&nbsp;
+            <mat-radio-button value="N" labelPosition="before">Não</mat-radio-button>
+          </mat-radio-group>
+        </section>
+      </mat-expansion-panel>
+      <mat-divider></mat-divider>
+  
+      <!--História mórbida atual-->
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <h3>História Mórbida Atual</h3>
+        </mat-expansion-panel-header>
+  
+        <section class="historia-morbida-atual" formGroupName="historiaMorbidaAtual">
+          <mat-form-field class="matInput">
+            <textarea  formControlName="descricao" matInput placeholder="Detalhar: local, inicio, tipo/caracteristica, irradiação etc.."></textarea>
+          </mat-form-field>
+  
+          <mat-radio-group  formControlName="dordeDente" aria-labelledby="example-radio-group-label" class="matInput">
+            <label id="example-radio-group-label">Dor de dente?</label>&nbsp;
+            <mat-radio-button value="S" labelPosition="before">Sim</mat-radio-button>&nbsp;
+            <mat-radio-button value="N" labelPosition="before">Não</mat-radio-button>
+          </mat-radio-group>
+        </section>
+      </mat-expansion-panel>
+      <mat-divider></mat-divider>
+  
+      <!--História mórbida pregressa-->
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <h3>História Mórbida Pregressa</h3>
+        </mat-expansion-panel-header>
+  
+        <section class="historia-morbida-container" formGroupName="historiaMorbidaProgressa">
+          <div class="left">
             <div>
-              <mat-checkbox class="">{{encaminhamento.situacao1}}</mat-checkbox>&nbsp;
-              <mat-checkbox class="">{{encaminhamento.situacao2}}</mat-checkbox>&nbsp;
+              <mat-radio-group formControlName="usoSubstancias" aria-labelledby="example-radio-group-label" class="example-radio-group">
+                <label id="example-radio-group-label">Uso de substâncias:</label>&nbsp;
+                <mat-radio-button value="S" labelPosition="before">Sim</mat-radio-button>&nbsp;
+                <mat-radio-button value="N" labelPosition="before">Não</mat-radio-button>
+              </mat-radio-group>
+            </div>
+            <div>
+              <mat-checkbox class="">Álcool</mat-checkbox>&nbsp;
+              <mat-form-field>
+                <input matInput name="quantidade" placeholder="Quant.:">
+              </mat-form-field>&nbsp;
+              <mat-checkbox labelPosition="before" class="">Diário:</mat-checkbox>&nbsp;
+              <mat-form-field>
+                <input matInput name="quantidade" placeholder="x na sem.">
+              </mat-form-field>&nbsp;
+              <mat-checkbox labelPosition="before" class="">Esporádico:</mat-checkbox>
+            </div>
+            <div>
+              <mat-checkbox class="">Cigarro</mat-checkbox>&nbsp;
+              <mat-form-field>
+                <input matInput placeholder="Quantidade/Maços">
+              </mat-form-field>&nbsp;
+              <mat-form-field>
+                <input matInput placeholder="Tempo/Anos">
+              </mat-form-field>&nbsp;
             </div>
           </div>
-        </div>
-      </section>
-    </mat-expansion-panel>
-    <br>
-    <div>
-      <button mat-raised-button color="basic" type="submit">SALVAR</button>&nbsp;
-      <button mat-raised-button color="basic" (click)="Form.reset()">LIMPAR</button>
-    </div>
-  </form>
-</mat-card>
+          <div class="right">
+            <div *ngFor="let droga of drogas">
+              <mat-checkbox>{{droga?.nome}}</mat-checkbox>&nbsp;
+              <mat-checkbox class="">Uso: Diário</mat-checkbox>&nbsp;
+              <mat-form-field>
+                <input matInput placeholder="X na sem,">
+              </mat-form-field>&nbsp;
+              <mat-checkbox class="">Esporádico</mat-checkbox>&nbsp;
+            </div>
+          </div>
+        </section>      
+        <section>
+          <mat-form-field class="matInput full">
+            <label>Medicações de uso contínuo (listar quais e motivo):</label>
+            <textarea matInput></textarea>
+          </mat-form-field>
+  
+          <mat-form-field class="matInput full">
+            <label>Alergias (qual agente e qual a reação alergica):</label>
+            <textarea matInput></textarea>
+          </mat-form-field>
+        </section>
+      </mat-expansion-panel>
+      <mat-divider></mat-divider>
+  
+      <!--Exame físico-->
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <h3>Exame Físico</h3>
+        </mat-expansion-panel-header>
+        <section formGroupName="exameFisico">
+          <mat-form-field class="matInput full">
+            <label>Ectoscopia, cabeça e pescoço, cardiopulmonar, gastrintestinal, neurológico, dermatológico,
+              geniturinário</label>
+            <textarea matInput formControlName="descricao"></textarea>
+          </mat-form-field>
+        </section>
+      </mat-expansion-panel>
+      <mat-divider></mat-divider>
+  
+      <!--Análise-->
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <h3>Ánalise</h3>
+        </mat-expansion-panel-header>
+        <section formGroupName="analise">
+          <mat-form-field class="matInput full">
+            <textarea formControlName="descricao" matInput placeholder="Digite aqui a análise"></textarea>
+          </mat-form-field>
+        </section>
+      </mat-expansion-panel>
+      <mat-divider></mat-divider>
+  
+      <!--Plano-->
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <h3>Plano</h3>
+        </mat-expansion-panel-header>
+        <section formGroupName="plano">
+          <mat-form-field class="matInput full">
+            <textarea formControlName="descricao" matInput placeholder="Digite aqui o plano"></textarea>
+          </mat-form-field>
+        </section>
+      </mat-expansion-panel>
+      <mat-divider></mat-divider>
+  
+      <!--Exames laboratoriais-->
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <h3>Exames Laboratoriais</h3>
+        </mat-expansion-panel-header>
+        <section formGroupName="examesLaboratoriais">
+          <div class="laboratoriais-container">
+            <div *ngFor="let exame of exames">
+              <mat-checkbox style="padding:8px;"></mat-checkbox>&nbsp;
+              <label for="">{{exame.nome}}</label>
+            </div>
+            <!-- <div *ngFor="let teste of testes">
+              <mat-checkbox style="padding:10px;" class="">{{teste}}</mat-checkbox>&nbsp;
+            </div> -->
+          </div>
+        </section>
+      </mat-expansion-panel>
+      <mat-divider></mat-divider>
+  
+      <!--Medicamentos-->
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <h3>Medicamentos</h3>
+        </mat-expansion-panel-header>
+        <section  formGroupName="medicamentos">
+          <div class="medicamentos-container">
+            <div class="col-33">
+              <mat-form-field class="" style="width: 100%; padding: 5px">
+                <input formControlName="motivo" matInput placeholder="Motivo da dispensação">
+              </mat-form-field>
+            </div>
+            <div class="col-33">
+              <mat-form-field class="" style="width: 100%; padding: 5px">
+                <input matInput formControlName="tipo" placeholder="Medicamento">
+              </mat-form-field>
+            </div>
+            <div class="col-33">
+              <mat-form-field class="" style="width: 100%; padding: 5px;">
+                <input matInput formControlName="quantidade" placeholder="Quantidade">
+              </mat-form-field>
+            </div>
+          </div>
+        </section>
+      </mat-expansion-panel>
+      <mat-divider></mat-divider>
+  
+      <!--Encaminhamentos-->
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <h3>Encaminhamentos</h3>
+        </mat-expansion-panel-header>
+        <section>
+          <div class="encaminhamentos-container">
+            <div class="col-33" *ngFor="let encaminhamento of encaminhamentos">
+              <label>{{encaminhamento.area}}</label>
+              <div>
+                <mat-checkbox class="">{{encaminhamento.situacao1}}</mat-checkbox>&nbsp;
+                <mat-checkbox class="">{{encaminhamento.situacao2}}</mat-checkbox>&nbsp;
+              </div>
+            </div>
+          </div>
+        </section>
+      </mat-expansion-panel>
+      <br>
+    </form>
+  </mat-card>
+  <div style="display: flex; flex-direction: row-reverse; margin-top: 10px; margin-bottom: 10px;">
+    <button class="submit-button" (click)="submitForm()">Salvar</button>&nbsp;
+  </div>
+</div>

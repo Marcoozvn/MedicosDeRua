@@ -16,7 +16,7 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { NotFoundComponent } from './not-found/not-found.component';
-import { ReturnRegistrationComponent } from './register/return-registration/return-registration';
+import { ReturnRegistrationComponent } from './register/return-registration/return-registration.component';
 
 @NgModule({
   declarations: [

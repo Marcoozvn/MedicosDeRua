@@ -1,23 +1,26 @@
-<a class="back-button" [routerLink]="['/app']">
-  <span class="material-icons">
-    arrow_back
-  </span>
-  Voltar para a busca
-</a>
-<div class="list-users-container">
-  <h2>Usuários assistidos</h2>
-  <div class="list-header">
-    <span>Nome</span>
-    <span>CPF</span>
-    <span>Data de Nascimento</span>
+<div>
+  <a class="back-button" [routerLink]="['/app']">
+    <span class="material-icons">
+      arrow_back
+    </span>
+    Voltar para a busca
+  </a>
+  <div class="list-users-container">
+    <h2>Usuários assistidos</h2>
+    <div class="list-header">
+      <span>Nome</span>
+      <span>CPF</span>
+      <span>Data de Nascimento</span>
+    </div>
+    <ul class="list-container">
+      <li *ngFor="let user of users">
+        <div class="user-card" (click)="searchForm(user)">
+          <span>{{user.nome ? user.nome : 'Não informado'}}</span>
+          <span>{{user.cpf ? user.cpf : 'Não informado'}}</span>
+          <span>{{user.dataNascimento ? user.dataNascimento : 'Não informado'}}</span>
+        </div>
+      </li>
+    </ul>
   </div>
-  <ul class="list-container">
-    <li *ngFor="let user of users">
-      <div class="user-card" (click)="searchForm(user)">
-        <span>{{user.nome ? user.nome : 'Não informado'}}</span>
-        <span>{{user.cpf ? user.cpf : 'Não informado'}}</span>
-        <span>{{user.dataNascimento ? user.dataNascimento : 'Não informado'}}</span>
-      </div>
-    </li>
-  </ul>
+
 </div>
