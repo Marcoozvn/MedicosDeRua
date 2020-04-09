@@ -16,7 +16,7 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { NotFoundComponent } from './not-found/not-found.component';
-import { CadastroRetornoComponent } from './cadastro/cadastro-retorno/cadastro-retorno.component';
+import { ReturnRegistrationComponent } from './register/return-registration/return-registration';
 
 @NgModule({
   declarations: [
@@ -27,7 +27,7 @@ import { CadastroRetornoComponent } from './cadastro/cadastro-retorno/cadastro-r
     SearchComponent,
     ListUsersComponent,
     ListFormsComponent,
-    CadastroRetornoComponent,
+    ReturnRegistrationComponent,
 
   ],
   imports: [

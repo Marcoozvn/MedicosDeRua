@@ -7,7 +7,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { SearchComponent } from './search/search.component';
 import { ListUsersComponent } from './list-users/list-users.component';
 import { ListFormsComponent } from './list-forms/list-forms.component';
-import { CadastroRetornoComponent } from './cadastro/cadastro-retorno/cadastro-retorno.component';
+import { ReturnRegistrationComponent } from './register/return-registration/return-registration';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -16,7 +16,7 @@ const routes: Routes = [
       { path: 'search', component: SearchComponent },
       { path: 'users', component: ListUsersComponent },
       { path: 'forms', component: ListFormsComponent },
-      { path: 'cadastro-retorno', component: CadastroRetornoComponent },
+      { path: 'return-registration', component: ReturnRegistrationComponent },
       { path: '**', component: SearchComponent }
     ]
   },

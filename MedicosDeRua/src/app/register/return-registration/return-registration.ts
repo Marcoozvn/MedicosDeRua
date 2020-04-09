@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators} from '@angular/forms';
 
 @Component({
-  selector: 'app-cadastro-retorno',
-  templateUrl: './cadastro-retorno.component.html',
-  styleUrls: ['./cadastro-retorno.component.scss']
+  selector: 'app-return-registration',
+  templateUrl: './return-registration.component.html',
+  styleUrls: ['./return-registration.component.scss']
 })
-export class CadastroRetornoComponent implements OnInit {
+export class ReturnRegistrationComponent implements OnInit {
 
   usoDeSubstancias: any;
   registerForm: any;
