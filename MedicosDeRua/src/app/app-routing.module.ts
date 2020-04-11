@@ -11,7 +11,7 @@ import { ReturnRegistrationComponent } from './register/return-registration/retu
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
-  { path: 'app', component: HomeComponent,
+  { path: 'app', component: HomeComponent, canActivate: [AuthGuard],
     children: [
       { path: 'search', component: SearchComponent },
       { path: 'users', component: ListUsersComponent },

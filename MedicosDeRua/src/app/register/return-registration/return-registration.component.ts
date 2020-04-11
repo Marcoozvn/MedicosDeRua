@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { FormService } from 'src/app/shared/form.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-return-registration',
@@ -11,9 +13,9 @@ export class ReturnRegistrationComponent implements OnInit {
   usoDeSubstancias: any;
   registerForm: any;
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder, private formService: FormService, private router: Router) { }
 
-  drogas = [] = [{ nome: 'Cigarro' }, { nome: 'Cocaína' }, { nome: 'Maconha' }, { nome: 'LSD' }, { nome: 'Ecstasy' }, { nome: 'Lança perfume/cola' }]
+  drogas = [] = [{ nome: 'Cocaína' }, { nome: 'Maconha' }, { nome: 'LSD' }, { nome: 'Ecstasy' }, { nome: 'Lança perfume' }]
 
   exames = [] = [
     { nome: 'Destro' },
@@ -50,7 +52,7 @@ export class ReturnRegistrationComponent implements OnInit {
       data: '',
       paciente: this.fb.group({
         nome: ['', Validators.required],
-        idade: '',
+        dataNascimento: '',
       }),
       sinaisVitais: this.fb.group({
         freqCardiaca: '',
@@ -69,8 +71,49 @@ export class ReturnRegistrationComponent implements OnInit {
         descricao: '',
         dordeDente: ''
       }),
-      historiaMorbidaProgressa: this.fb.group({
-        usoSubstancias: '',
+      historiaMorbidaPregressa: this.fb.group({
+        usoSubstancias: 'false',
+        Alcool: this.fb.group({
+          uso: false,
+          tipoDeUso: {value: '', disabled: false},
+          quantidade: '',
+          frequencia: ''
+        }),
+        Cigarro: this.fb.group({
+          uso: false,
+          quantidade: '',
+          tempoDeUso: ''
+        }),
+        Cocaína: this.fb.group({
+          uso: false,
+          tipoDeUso: '',
+          quantidade: '',
+          frequencia: ''
+        }),
+        Maconha: this.fb.group({
+          uso: false,
+          tipoDeUso: '',
+          quantidade: '',
+          frequencia: ''
+        }),
+        LSD: this.fb.group({
+          uso: false,
+          tipoDeUso: '',
+          quantidade: '',
+          frequencia: ''
+        }),
+        Ecstasy: this.fb.group({
+          uso: false,
+          tipoDeUso: '',
+          quantidade: '',
+          frequencia: ''
+        }),
+        'Lança perfume': this.fb.group({
+          uso: false,
+          tipoDeUso: '',
+          quantidade: '',
+          frequencia: ''
+        }),
       }),
       exameFisico: this.fb.group({
         descricao: '',
@@ -82,7 +125,19 @@ export class ReturnRegistrationComponent implements OnInit {
         descricao: '',
       }),
       examesLaboratoriais: this.fb.group({
-        exames: ''
+        Destro: [false],
+        Hemograma: [false],
+        'Parcial de Urina': [false],
+        'Ureia + Creatina': [false],
+        'TGO + TGP': [false],
+        Bilirrubinas: [false],
+        Lipidograma: [false],
+        'Hb glicada': [false],
+        Sífilis: [false],
+        HIV: [false],
+        'Hepatite B': [false],
+        'Hepatite C': [false],
+        Gravidez: [false]
       }),
       medicamentos: this.fb.group({
         motivo: '',
@@ -90,13 +145,20 @@ export class ReturnRegistrationComponent implements OnInit {
         quantidade: ''
       }),
       encaminhamentos: this.fb.group({
-        encaminhamentos: ''
+        Odontologia: false,
+        Psicologia: false,
+        Jurídico: false
       })
     });
   }
 
   submitForm() {
     console.log(this.registerForm.value);
+    this.formService.saveForm('return', this.registerForm.value).subscribe( data => {
+      alert('Formulário salvo com sucesso');
+      this.router.navigate(['/app']);
+    },
+    error => alert('Ocorreu um erro ' + error));
   }
 
 
