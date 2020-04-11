@@ -40,8 +40,14 @@
   }
 
   .card-actions {
+    flex: 1;
     display: flex;
     flex-direction: row-reverse;
+    justify-content: start;
     cursor: pointer;
+
+    span {
+      flex: 0;
+    }
   }
 }

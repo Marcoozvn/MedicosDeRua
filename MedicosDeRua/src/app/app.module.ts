@@ -18,6 +18,10 @@ import { HomeComponent } from './home/home.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { ReturnRegistrationComponent } from './register/return-registration/return-registration.component';
 import { AnamneseGeralComponent } from './register/anamnese-geral/anamnese-geral.component';
+import localePtBr from '@angular/common/locales/pt';
+import { registerLocaleData } from '@angular/common';
+
+registerLocaleData(localePtBr);
 
 @NgModule({
   declarations: [
