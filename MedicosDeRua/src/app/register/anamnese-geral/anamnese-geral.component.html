@@ -1,0 +1,155 @@
+<div style="display: flex; flex-direction: column;">
+    <a class="back-button" [routerLink]="['/app']">
+        <span class="material-icons">
+            arrow_back
+        </span>
+        Voltar para a busca
+    </a>
+    <h2 style="text-align: center">Anamnese Inicial</h2>
+    <mat-card style="margin-top: 15px;">
+        <form [formGroup]="anamneseForm" class="matForm">
+
+            <!--Informações pessoais-->
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                    <h3>Identificação</h3>
+                </mat-expansion-panel-header>
+                <section>
+                    <div>
+                        <mat-form-field class="matInput">
+                            <input matInput name="nome" placeholder="Nome">
+                        </mat-form-field>
+
+                        <mat-form-field class="matInput">
+                            <input matInput name="idade" placeholder="Idade">
+                        </mat-form-field>
+                    </div>
+
+                    <div>
+                        <mat-form-field class="matInput">
+                            <input matInput [matDatepicker]="picker" name="data" placeholder="Data nasc.:">
+                            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                            <mat-datepicker #picker></mat-datepicker>
+                        </mat-form-field>
+
+                        <mat-form-field class="matInput">
+                            <input matInput name="religiao" placeholder="Religião">
+                        </mat-form-field>
+                    </div>
+
+                    <div class="dsip-flex-row">
+                        <mat-radio-group aria-labelledby="example-radio-group-label" class="matInput">
+                            <label id="example-radio-group-label">Etnia:</label>&nbsp;
+                            <mat-radio-button value="Branco" labelPosition="before">Branco</mat-radio-button>&nbsp;
+                            <mat-radio-button value="Pardo" labelPosition="before">Pardo</mat-radio-button>&nbsp;
+                            <mat-radio-button value="Negro" labelPosition="before">Negro</mat-radio-button>&nbsp;
+                            <mat-radio-button value="Amarelo" labelPosition="before">Amarelo</mat-radio-button>&nbsp;
+                            <mat-radio-button value="Indigena" labelPosition="before">Indígena</mat-radio-button>
+                        </mat-radio-group>
+
+                        <mat-radio-group aria-labelledby="example-radio-group-label" class="matInput">
+                            <label id="example-radio-group-label">Sexo:</label>&nbsp;
+                            <mat-radio-button value="M" labelPosition="before">M</mat-radio-button>&nbsp;
+                            <mat-radio-button value="F" labelPosition="before">F</mat-radio-button>&nbsp;
+                            <mat-radio-button value="Trans" labelPosition="before">Trans</mat-radio-button>
+                        </mat-radio-group>
+                    </div>
+                    <br>
+
+                    <div class="dsip-flex-row">
+                        <mat-radio-group aria-labelledby="example-radio-group-label" class="matInput">
+                            <label id="example-radio-group-label">Orientação:</label>&nbsp;
+                            <mat-radio-button value="M" labelPosition="before">Hetero</mat-radio-button>&nbsp;
+                            <mat-radio-button value="F" labelPosition="before">Homo</mat-radio-button>&nbsp;
+                            <mat-radio-button value="Trans" labelPosition="before">Trans</mat-radio-button>
+                        </mat-radio-group>
+
+                        <mat-radio-group aria-labelledby="example-radio-group-label" class="matInput">
+                            <label id="example-radio-group-label">Sit. conjugal:</label>&nbsp;
+                            <mat-radio-button value="solteiro" labelPosition="before">Solt</mat-radio-button>&nbsp;
+                            <mat-radio-button value="casado" labelPosition="before">Cas</mat-radio-button>&nbsp;
+                            <mat-radio-button value="divorciado" labelPosition="before">Divorc</mat-radio-button>
+                            <mat-radio-button value="viuvo" labelPosition="before">Viúvo</mat-radio-button>
+                        </mat-radio-group>
+                    </div>
+                    <br>
+
+                    <div class="dsip-flex-row">
+                        <mat-radio-group aria-labelledby="example-radio-group-label" class="matInput">
+                            <label id="example-radio-group-label">Escolaridade:</label>&nbsp;
+                            <mat-radio-button value="analfabeto" labelPosition="before">Analfabeto</mat-radio-button>
+                            &nbsp;
+                            <mat-radio-button value="tecnico" labelPosition="before">Só lê e escreve</mat-radio-button>
+                            &nbsp;
+                            <mat-radio-button value="ens.medio" labelPosition="before">Ens. Fund</mat-radio-button>
+                            &nbsp;
+                            <mat-radio-button value="ens.fund" labelPosition="before">Ens. Med</mat-radio-button>&nbsp;
+                        </mat-radio-group>
+
+                        <mat-radio-group aria-labelledby="example-radio-group-label" class="matInput">
+                            <mat-radio-button value="tecnico" labelPosition="before">Técnico
+                            </mat-radio-button>&nbsp;
+                            <!-- <mat-form-field>
+                                <input matInput name="ens.tec" placeholder="Qual?">
+                            </mat-form-field>&nbsp; -->
+
+                            <mat-radio-button value="ens.sup" labelPosition="before">En. Sup
+                            </mat-radio-button>&nbsp;
+                            <!-- <mat-form-field>
+                                <input matInput name="ens.tec" placeholder="Qual?">
+                            </mat-form-field> -->
+                        </mat-radio-group>
+                    </div>
+
+                    <div>
+                        <mat-form-field class="matInput">
+                            <input matInput name="nome" placeholder="Cidade e estado onde nasceu:">
+                        </mat-form-field>
+
+                        <mat-form-field class="matInput">
+                            <input matInput name="idade" placeholder="Última cidade e estado em que morou:">
+                        </mat-form-field>
+                    </div>
+
+                    <div class="dsip-flex-row">
+                        <mat-radio-group aria-labelledby="example-radio-group-label" class="matInput">
+                            <label id="example-radio-group-label">Tem documentos pessoais?:</label>&nbsp;
+                            <mat-radio-button value="sim" labelPosition="before">S</mat-radio-button>
+                            &nbsp;
+                            <mat-radio-button value="nao" labelPosition="before">N</mat-radio-button>
+                        </mat-radio-group>
+
+                        <mat-radio-group aria-labelledby="example-radio-group-label" class="matInput">
+                            <label id="example-radio-group-label">Quais?</label>&nbsp;
+                            <mat-checkbox style="padding: 5px;" class="" *ngFor="let documento of docsPessoais">
+                                {{documento}}</mat-checkbox>
+                        </mat-radio-group>
+                    </div>
+
+                    <div>
+                        <mat-form-field style="width: 100%;">
+                            <input matInput name="contato"
+                                placeholder="Se precisarmos entrar em contato com você, como podemos te encontrar?">
+                        </mat-form-field>
+                    </div>
+
+                </section>
+            </mat-expansion-panel>
+            <mat-divider></mat-divider>
+
+            <!--Perfil Socioeconômico-->
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                    <h3>Perfil Socioeconômico</h3>
+                </mat-expansion-panel-header>
+                <section>
+                    
+                </section>
+            </mat-expansion-panel>
+            <mat-divider></mat-divider>
+        </form>
+    </mat-card>
+    <div style="display: flex; flex-direction: row-reverse; margin-top: 10px; margin-bottom: 10px;">
+        <button class="submit-button" (click)="submitForm()">Salvar</button>&nbsp;
+    </div>
+</div>
