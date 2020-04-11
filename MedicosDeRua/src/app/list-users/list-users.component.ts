@@ -10,20 +10,28 @@ import { FormService } from '../shared/form.service';
   styleUrls: ['./list-users.component.scss']
 })
 export class ListUsersComponent implements OnInit {
-
+  /*
   users = [
     {_id: '5e87b0825b511f2f7c414d16', nome: 'Marcos Vinicius', cpf: '000.000.000-00', dataNascimento: '07/03/1997'}
   ];
+  */
+ users = [];
 
-  constructor(private route: Router, 
+  constructor(private route: Router,
               private activatedRoute: ActivatedRoute,
               private userService: UserService,
               private listUsersService: ListUsersService,
-              private formService: FormService) {
-    //this.userService.getUsers().subscribe(res => this.users = res);
-  }
+              private formService: FormService) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.userService.getUsers().subscribe(res => {
+      this.users = res;
+
+      if (!this.users) {
+        this.route.navigate(['/app']);
+      }
+    });
+  }
 
   searchForm(user: any) {
     console.log(user);

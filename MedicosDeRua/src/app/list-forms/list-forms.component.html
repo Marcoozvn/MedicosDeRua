@@ -12,13 +12,18 @@
     <span></span>
   </div>
   <ul class="list-container">
-    <li *ngFor="let form of mock">
+    <li *ngFor="let form of forms">
       <div class="form-card">
-        <span>{{form.tipo}}</span>
+        <span>{{form.type}}</span>
         <span>{{form.createdAt}}</span>
-        <span class="material-icons">
-          delete
-        </span>
+        <div class="card-actions">
+          <span class="material-icons" (click)="deleteForm($event, form)">
+            delete
+          </span>
+          <span class="material-icons" (click)="editForm(form)">
+            edit
+          </span>
+        </div>
       </div>
     </li>
   </ul>

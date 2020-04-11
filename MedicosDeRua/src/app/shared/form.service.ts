@@ -24,4 +24,8 @@ export class FormService {
   public saveForm(type: string, form: any) {
     return this.http.post(`${API}/form/${type}`, form);
   }
+
+  public updateForm(type: string, form: any, id: string) {
+    return this.http.put(`${API}/form/${type}/${id}`, form);
+  }
 }

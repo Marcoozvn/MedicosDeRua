@@ -12,8 +12,13 @@ export class ReturnRegistrationComponent implements OnInit {
 
   usoDeSubstancias: any;
   registerForm: any;
+  form: any;
 
-  constructor(private fb: FormBuilder, private formService: FormService, private router: Router) { }
+  constructor(private fb: FormBuilder, private formService: FormService, private router: Router) {
+    if (this.router.getCurrentNavigation().extras.state) {
+      this.form = this.router.getCurrentNavigation().extras.state;
+    }
+  }
 
   drogas = [] = [{ nome: 'Cocaína' }, { nome: 'Maconha' }, { nome: 'LSD' }, { nome: 'Ecstasy' }, { nome: 'Lança perfume' }]
 
@@ -150,15 +155,35 @@ export class ReturnRegistrationComponent implements OnInit {
         Jurídico: false
       })
     });
+
+    if (this.form) {
+      this.initializeFormValues();
+    }
+  }
+
+  initializeFormValues() {
+    this.registerForm.patchValue(this.form);
+    this.registerForm.get('prontuario').disable();
+    this.registerForm.get('paciente').disable();
   }
 
   submitForm() {
-    console.log(this.registerForm.value);
-    this.formService.saveForm('return', this.registerForm.value).subscribe( data => {
-      alert('Formulário salvo com sucesso');
-      this.router.navigate(['/app']);
-    },
-    error => alert('Ocorreu um erro ' + error));
+    if (this.form) {
+      this.formService.updateForm('return', this.registerForm.value, this.form._id).subscribe(
+        data => {
+          alert('Formulário atualizado com sucesso');
+          this.router.navigate(['/app']);
+        },
+        error => alert('Ocorreu um erro ' + error)
+      );
+    } else {
+      this.formService.saveForm('return', this.registerForm.value).subscribe(
+        data => {
+          alert('Formulário salvo com sucesso');
+          this.router.navigate(['/app']);
+        },
+        error => alert('Ocorreu um erro ' + error));
+      }
   }
 
 

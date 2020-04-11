@@ -34,18 +34,14 @@
   color: #fff;
   padding: 10px;
   border-radius: 8px;
-  cursor: pointer;
 
   span {
     flex: 1
   }
 
-  .material-icons {
+  .card-actions {
     display: flex;
     flex-direction: row-reverse;
+    cursor: pointer;
   }
-}
-
-.form-card:hover {
-  opacity: 0.95;
 }
