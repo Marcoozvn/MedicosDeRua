@@ -150,7 +150,7 @@
                     <mat-radio-button value="Esporádico" style="margin: 5px;">Esporádico</mat-radio-button>
                   </mat-radio-group>
                   <mat-form-field *ngIf="registerForm.value.historiaMorbidaPregressa.Alcool.tipoDeUso == 'Esporádico'">
-                    <input matInput name="quantidade" placeholder="x na sem." formControlName="frequencia">
+                    <input matInput name="quantidade" placeholder="x na sem." formControlName="frequencia" [required]="registerForm.value.historiaMorbidaPregressa.Alcool.tipoDeUso == 'Esporádico'">
                   </mat-form-field>&nbsp;
                 </div>
               </div>
@@ -176,7 +176,7 @@
                   <mat-radio-button value="Esporádico">Esporádico</mat-radio-button>&nbsp;
                 </mat-radio-group>
                 <mat-form-field *ngIf="registerForm.value.historiaMorbidaPregressa[droga.nome].tipoDeUso == 'Esporádico'">
-                  <input matInput placeholder="X na sem," formControlName="frequencia">
+                  <input matInput placeholder="X na sem," formControlName="frequencia" [required]="registerForm.value.historiaMorbidaPregressa[droga.nome].tipoDeUso == 'Esporádico'">
                 </mat-form-field>&nbsp;
               </div>
             </div>
@@ -304,6 +304,6 @@
     </form>
   </mat-card>
   <div style="display: flex; flex-direction: row-reverse; margin-top: 10px; margin-bottom: 10px;">
-    <button class="submit-button" (click)="submitForm()">Salvar</button>&nbsp;
+    <button class="submit-button" (click)="submitForm()" [disabled]="!registerForm.valid">Salvar</button>&nbsp;
   </div>
 </div>

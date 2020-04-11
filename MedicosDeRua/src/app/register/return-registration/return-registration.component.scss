@@ -107,6 +107,12 @@ input {
   opacity: 0.8;
 }
 
+.submit-button:disabled {
+  opacity: 1;
+  background: #dddddd;
+  cursor: auto;
+}
+
 .encaminhamento-item {
 	display: flex;
 	flex-direction: column;
