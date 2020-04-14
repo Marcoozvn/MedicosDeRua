@@ -15,23 +15,12 @@ label {
 	padding-top: 5px;
 }
 
-.background {
-	background: url('../../../assets/background.png');
-	position: fixed;
-	height: 100%;
-	width: 100%;
-	background-size: 50px;
-	background-repeat: space;
-	filter: opacity(0.03);
-	z-index: -3;
-  }
-
-  .assinatura {
-    border: 2px solid;
-    text-align: center;
-    width: 40%;
-    height: 100px;
-  }
+.assinatura {
+	border: 2px solid;
+	text-align: center;
+	width: 40%;
+	height: 100px;
+}
   
 .matInput {
 	width: 100%;
@@ -110,6 +99,69 @@ input {
 	flex-direction: row;
 }
 
+.avaliacao-nutricional {
+	display: flex;
+	flex-direction: column;
+
+	.medidas {
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+	}
+
+	.mastigacao {
+		display: grid; 
+		grid-template-columns: 1fr 1fr;
+	}
+
+	.mat-form-field {
+		max-width: 100%;
+	}
+
+	.mat-radio-group {
+		margin-top: 10px;
+	}
+
+	.peso-perdido {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+
+		.mat-form-field {
+			width: max-content !important;
+		}
+	}
+}
+
+.problemas-digestivos {
+	margin-top: 10px;
+
+	.problemas-digestivos-group {
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+	}
+}
+
+.ultima-semana {
+	margin-top: 10px;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+}
+
+.copos-dagua {
+	margin-top: 10px;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+}
+
+.sinais-vitais {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+
+	.mat-form-field {
+		max-width: 100%;
+	}
+}
+
 .submit-button {
   background: #7159c1;
   padding: 15px;
@@ -129,6 +181,43 @@ input {
 }
 
 @media(max-width: 600px) {
+	.avaliacao-nutricional .medidas {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+	}
+
+	.mastigacao {
+		margin-top: 5px;
+		display: flex !important;
+		flex-direction: column !important;
+	}
+
+	.peso-perdido {
+		margin-top: 5px;
+		display: flex !important;
+		flex-direction: column !important;
+		align-items: flex-start !important;
+	}
+
+	.ultima-semana {
+		margin-top: 5px;
+		display: flex !important;
+		flex-direction: column !important;
+		align-items: flex-start !important;
+	}
+
+	.problemas-digestivos-group {
+		display: grid;
+		grid-template-columns: 1fr 1fr !important;
+	}
+
+	.copos-dagua {
+		margin-top: 5px;
+		display: flex !important;
+		flex-direction: column !important;
+		align-items: flex-start !important;
+	}
+
 	.historia-morbida-container {
 		display: flex;
 		flex-direction: column;

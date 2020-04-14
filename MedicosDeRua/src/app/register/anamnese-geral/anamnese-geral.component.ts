@@ -53,13 +53,13 @@ export class AnamneseGeralComponent implements OnInit {
         seAcompanhado: this.fb.group({
           numeroAdultos: '',
           numeroCriancas: '',
-          ondeFicam:'',
+          ondeFicam: '',
           estudam: ''
         }),
         parentesEmCuritiba: '',
         localidadeParentes: '',
         temContato: '',
-        renda:'',
+        renda: '',
         carteiraAssinada: '',
         ocupacaoClt: ''
       }),
@@ -67,7 +67,7 @@ export class AnamneseGeralComponent implements OnInit {
         usoSubstancias: 'false',
         Alcool: this.fb.group({
           uso: false,
-          tipoDeUso: {value: '', disabled: false},
+          tipoDeUso: { value: '', disabled: false },
           quantidade: '',
           frequencia: ''
         }),
@@ -106,6 +106,51 @@ export class AnamneseGeralComponent implements OnInit {
           quantidade: '',
           frequencia: ''
         }),
+      }),
+      sinaisVitais: this.fb.group({
+        freqCardiaca: '',
+        freqRespiratoria: '',
+        pressaoArterial: '',
+        sat: '',
+        temperatura: ''
+      }),
+      avaliacaoNutricional: this.fb.group({
+        responsavel: '',
+        medidas : this.fb.group({
+          hemienvergadura: '',
+          alturaEstimada: '',
+          alturaRelatada: '',
+          pesoUsual: '',
+          pesoAferido: '',
+          imc: '',
+          cintura: '',
+          bracoDireito: ''
+        }),
+        problemasParaMastigar: '',
+        deixaDeComer: '',
+        naoCome: '',
+        pesoPerdido: '',
+        HAS: '',
+        DM: '',
+        problemasDigestivos: this.fb.group({
+          Azia: '',
+          Gases: '',
+          Diarreia: '',
+          Constipação: ''
+        }),
+        ultimaSemana: this.fb.group({
+          fiqueiSemComer: '',
+          diasSemComer: '',
+          cozinhei: '',
+          comoCozinhei: ''
+        }),
+        refeicoesOntem: '',
+        tomouAguaOntem: '',
+        fonteDaAgua: '',
+        qualidadeAlimentacao: '',
+        comoConsegueComida: '',
+        alimentosComuns: '',
+        alimentosDesejados: ''
       })
     })
   }
