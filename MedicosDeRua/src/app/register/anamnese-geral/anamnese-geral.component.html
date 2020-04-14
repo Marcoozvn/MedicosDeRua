@@ -274,9 +274,60 @@
                             </mat-form-field>
                         </div>
                     </div>
-                    <div class="matInput">
-                        <label>Aqui vai ficar a parte de uso de substantcias</label>
-                    </div>
+                    <section class="substancias-container" formGroupName="substancias">
+                        <div class="left">
+                          <div>
+                            <mat-radio-group formControlName="usoSubstancias">
+                              <label id="example-radio-group-label"><strong>Uso de substâncias:</strong></label>&nbsp;
+                              <mat-radio-button value="true" labelPosition="before">Sim</mat-radio-button>&nbsp;
+                              <mat-radio-button value="false" labelPosition="before" selected>Não</mat-radio-button>
+                            </mat-radio-group>
+                          </div>
+                          <div *ngIf="anamneseForm.value.substancias.usoSubstancias == 'true'">
+                            <div formGroupName="Alcool" class="substancia-item-container">
+                              <mat-checkbox class="" value="true" formControlName="uso">Álcool</mat-checkbox>&nbsp;
+                              <div *ngIf="anamneseForm.value.substancias.Alcool.uso" class="substancia-item-container">
+                                <mat-form-field>
+                                  <input matInput name="quantidade" placeholder="Quantidade (ex: 2 copos)"
+                                    formControlName="quantidade">
+                                </mat-form-field>&nbsp;
+                                <mat-radio-group formControlName="tipoDeUso">
+                                  <mat-radio-button value="Diário">Diário</mat-radio-button>
+                                  <mat-radio-button value="Esporádico" style="margin: 5px;">Esporádico</mat-radio-button>
+                                </mat-radio-group>
+                                <mat-form-field *ngIf="anamneseForm.value.substancias.Alcool.tipoDeUso == 'Esporádico'">
+                                  <input matInput name="quantidade" placeholder="x na sem." formControlName="frequencia" [required]="anamneseForm.value.substancias.Alcool.tipoDeUso == 'Esporádico'">
+                                </mat-form-field>&nbsp;
+                              </div>
+                            </div>
+                            <div formGroupName="Cigarro" class="substancia-item-container">
+                              <mat-checkbox class="" value="true" formControlName="uso">Cigarro</mat-checkbox>&nbsp;
+                              <div *ngIf="anamneseForm.value.substancias.Cigarro.uso">
+                                <mat-form-field>
+                                  <input matInput placeholder="Quantidade/Maços" formControlName="quantidade">
+                                </mat-form-field>&nbsp;
+                                <mat-form-field>
+                                  <input matInput placeholder="Tempo/Anos" formControlName="tempoDeUso">
+                                </mat-form-field>&nbsp;
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div *ngIf="anamneseForm.value.substancias.usoSubstancias == 'true'" style="display: flex; flex-direction: column;">
+                          <div *ngFor="let droga of drogas" [formGroupName]="droga.nome" class="substancia-item-container">
+                            <mat-checkbox formControlName="uso">{{droga?.nome}}</mat-checkbox>&nbsp;
+                            <div *ngIf="anamneseForm.value.substancias[droga.nome].uso">
+                              <mat-radio-group formControlName="tipoDeUso">
+                                <mat-radio-button value="Diário">Diário</mat-radio-button>&nbsp;
+                                <mat-radio-button value="Esporádico">Esporádico</mat-radio-button>&nbsp;
+                              </mat-radio-group>
+                              <mat-form-field *ngIf="anamneseForm.value.substancias[droga.nome].tipoDeUso == 'Esporádico'">
+                                <input matInput placeholder="X na sem," formControlName="frequencia" [required]="anamneseForm.value.substancias[droga.nome].tipoDeUso == 'Esporádico'">
+                              </mat-form-field>&nbsp;
+                            </div>
+                          </div>
+                        </div>
+                      </section>
                     <br>
                     <div>
                         <div>

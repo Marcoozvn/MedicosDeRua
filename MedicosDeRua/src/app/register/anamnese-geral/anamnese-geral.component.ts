@@ -62,6 +62,50 @@ export class AnamneseGeralComponent implements OnInit {
         renda:'',
         carteiraAssinada: '',
         ocupacaoClt: ''
+      }),
+      substancias: this.fb.group({
+        usoSubstancias: 'false',
+        Alcool: this.fb.group({
+          uso: false,
+          tipoDeUso: {value: '', disabled: false},
+          quantidade: '',
+          frequencia: ''
+        }),
+        Cigarro: this.fb.group({
+          uso: false,
+          quantidade: '',
+          tempoDeUso: ''
+        }),
+        Cocaína: this.fb.group({
+          uso: false,
+          tipoDeUso: '',
+          quantidade: '',
+          frequencia: ''
+        }),
+        Maconha: this.fb.group({
+          uso: false,
+          tipoDeUso: '',
+          quantidade: '',
+          frequencia: ''
+        }),
+        LSD: this.fb.group({
+          uso: false,
+          tipoDeUso: '',
+          quantidade: '',
+          frequencia: ''
+        }),
+        Ecstasy: this.fb.group({
+          uso: false,
+          tipoDeUso: '',
+          quantidade: '',
+          frequencia: ''
+        }),
+        'Lança perfume': this.fb.group({
+          uso: false,
+          tipoDeUso: '',
+          quantidade: '',
+          frequencia: ''
+        }),
       })
     })
   }
