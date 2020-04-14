@@ -176,6 +176,11 @@ input {
 	width: 150px;
 }
 
+.grid-2 {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+}
+
 .submit-button:hover {
   opacity: 0.8;
 }
@@ -200,6 +205,13 @@ input {
 	}
 
 	.ultima-semana {
+		margin-top: 5px;
+		display: flex !important;
+		flex-direction: column !important;
+		align-items: flex-start !important;
+	}
+
+	.grid-2 {
 		margin-top: 5px;
 		display: flex !important;
 		flex-direction: column !important;
