@@ -467,6 +467,7 @@
         </section>
       </mat-expansion-panel>
       <mat-divider></mat-divider>
+
       <!--Avaliação Nutricional-->
       <mat-expansion-panel>
         <mat-expansion-panel-header>
@@ -479,7 +480,8 @@
           <strong>Medidas:</strong>
           <div class="medidas" formGroupName="medidas">
             <mat-form-field class="matInput">
-              <input formControlName="hemienvergadura" matInput name="hemienvergadura" placeholder="Hemienvergadura (cm)">
+              <input formControlName="hemienvergadura" matInput name="hemienvergadura"
+                placeholder="Hemienvergadura (cm)">
             </mat-form-field>
             <mat-form-field class="matInput">
               <input formControlName="alturaEstimada" matInput name="alturaEstimada" placeholder="Altura estimada (cm)">
@@ -511,7 +513,8 @@
             </mat-radio-group>
             <div style="display: flex; flex-direction: column; justify-content: center;">
               <mat-radio-group aria-labelledby="example-radio-group-label" formControlName="deixaDeComer">
-                <label id="example-radio-group-label">Deixa de comer alguns alimentos por não conseguir mastigar?</label>&nbsp;
+                <label id="example-radio-group-label">Deixa de comer alguns alimentos por não conseguir
+                  mastigar?</label>&nbsp;
                 <mat-radio-button value="Sim" labelPosition="before">Sim</mat-radio-button>&nbsp;
                 <mat-radio-button value="Não" labelPosition="before">Não</mat-radio-button>
               </mat-radio-group>
@@ -529,8 +532,8 @@
           <div class="grid-2">
             <mat-radio-group aria-labelledby="example-radio-group-label" formControlName="HAS">
               <label id="example-radio-group-label">HAS?</label>&nbsp;
-              <mat-radio-button value="Sim" >Sim</mat-radio-button>&nbsp;
-              <mat-radio-button value="Não" >Não</mat-radio-button>&nbsp;
+              <mat-radio-button value="Sim">Sim</mat-radio-button>&nbsp;
+              <mat-radio-button value="Não">Não</mat-radio-button>&nbsp;
               <mat-radio-button value="Não sabe">Não sabe</mat-radio-button>
             </mat-radio-group>
             <mat-radio-group aria-labelledby="example-radio-group-label" formControlName="DM">
@@ -556,7 +559,8 @@
                 <mat-radio-button value="Sim" labelPosition="before">Sim</mat-radio-button>&nbsp;
                 <mat-radio-button value="Não" labelPosition="before">Não</mat-radio-button>
               </mat-radio-group>
-              <mat-form-field class="matInput" *ngIf="anamneseForm.value.avaliacaoNutricional.ultimaSemana.fiqueiSemComer == 'Sim'">
+              <mat-form-field class="matInput"
+                *ngIf="anamneseForm.value.avaliacaoNutricional.ultimaSemana.fiqueiSemComer == 'Sim'">
                 <input formControlName="diasSemComer" matInput name="diasSemComer" placeholder="Dias sem comer">
               </mat-form-field>
             </div>
@@ -566,7 +570,8 @@
                 <mat-radio-button value="Sim" labelPosition="before">Sim</mat-radio-button>&nbsp;
                 <mat-radio-button value="Não" labelPosition="before">Não</mat-radio-button>
               </mat-radio-group>
-              <mat-form-field class="matInput" *ngIf="anamneseForm.value.avaliacaoNutricional.ultimaSemana.cozinhei == 'Sim'">
+              <mat-form-field class="matInput"
+                *ngIf="anamneseForm.value.avaliacaoNutricional.ultimaSemana.cozinhei == 'Sim'">
                 <input formControlName="comoCozinhei" matInput name="comoCozinhei" placeholder="Como cozinhou?">
               </mat-form-field>
             </div>
@@ -594,16 +599,295 @@
             <mat-radio-button value="Ruim">Ruim</mat-radio-button>
           </mat-radio-group>
           <mat-form-field class="matInput">
-            <input formControlName="comoConsegueComida" matInput name="comoConsegueComida" placeholder="Como consigo comida normalmente?">
+            <input formControlName="comoConsegueComida" matInput name="comoConsegueComida"
+              placeholder="Como consigo comida normalmente?">
           </mat-form-field>
           <mat-form-field class="matInput">
-            <input formControlName="alimentosComuns" matInput name="alimentosComuns" placeholder="Quais alimentos como mais?">
+            <input formControlName="alimentosComuns" matInput name="alimentosComuns"
+              placeholder="Quais alimentos como mais?">
           </mat-form-field>
           <mat-form-field class="matInput">
-            <input formControlName="alimentosDesejados" matInput name="alimentosDesejados" placeholder="Quais alimentos sinto falta de comer?">
+            <input formControlName="alimentosDesejados" matInput name="alimentosDesejados"
+              placeholder="Quais alimentos sinto falta de comer?">
           </mat-form-field>
         </section>
       </mat-expansion-panel>
+      <mat-divider></mat-divider>
+
+      <!--Queixa Principal-->
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <h3>Queixa Principal</h3>
+        </mat-expansion-panel-header>
+        <section formGroupName="queixaPrincipal">
+          <mat-form-field class="full">
+            <input formControlName="descricao" matInput name="descricao" placeholder="Descrição">
+          </mat-form-field>
+          <div>
+            <mat-form-field class="matInput">
+              <input formControlName="quantoTempo" matInput name="quantoTempo" placeholder="Quanto Tempo?">
+            </mat-form-field>
+            <mat-form-field class="matInput">
+              <input formControlName="quandoComecou" matInput name="quandoComecou" placeholder="Quando Começou?">
+            </mat-form-field>
+          </div>
+        </section>
+      </mat-expansion-panel>
+      <mat-divider></mat-divider>
+
+      <!--Historia Morbida Atual-->
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <h3>Historia Mórbida Atual</h3>
+        </mat-expansion-panel-header>
+        <section formGroupName="historiaMorbidaAtual">
+          <div formGroupName="sintoma">
+            <mat-checkbox [formControlName]="sintoma" style="padding: 5px;" *ngFor="let sintoma of sintomas">
+              {{sintoma}}
+            </mat-checkbox>
+          </div>
+          <div>
+            <mat-form-field class="full">
+              <input formControlName="outros" matInput name="outros" placeholder="Outros">
+            </mat-form-field>
+          </div>
+          <div>
+            <mat-form-field class="full">
+              <textarea maxlength="1000" formControlName="detalhes" matInput formname="detalhes"
+                placeholder="Detalhar: local, início, tipo/característica, irradiação, periodicidade, duração, fatores de melhora/piora, intensidade, sintomas associados"></textarea>
+            </mat-form-field>
+          </div>
+        </section>
+      </mat-expansion-panel>
+      <mat-divider></mat-divider>
+
+      <!--Historia Morbida Progressa-->
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <h3>Historia Mórbida Progressa</h3>
+        </mat-expansion-panel-header>
+        <section formGroupName="historiaMorbidaProgressa">
+          <div formGroupName="doenca">
+            <mat-checkbox [formControlName]="doenca" style="padding: 5px;" *ngFor="let doenca of doencas">
+              {{doenca}}
+              <mat-form-field>
+                <input matInput name="outros" placeholder="Há quanto tempo?">
+              </mat-form-field>
+            </mat-checkbox>
+          </div>
+          <div>
+            <mat-form-field class="full">
+              <input formControlName="doencasInfancia" matInput name="doencasInfancia"
+                placeholder="Doenças da infância:">
+            </mat-form-field>
+
+            <mat-form-field class="full">
+              <input formControlName="convulsoes" matInput name="convulsoes"
+                placeholder="Convulsões (origem/causa/quantas - como ocorreu?):">
+            </mat-form-field>
+
+            <mat-form-field class="full">
+              <input formControlName="internacoesOuCirugias" matInput name="internacoesOuCirugias"
+                placeholder="Internações/Cirurgia (quando, motivo, tempo de internação e NOME DO HOSPITAL onde esteve internado):">
+            </mat-form-field>
+
+            <mat-form-field class="full">
+              <input formControlName="traumas" matInput name="traumas"
+                placeholder="Trauma, acidente ou algum tipo de violência?">
+            </mat-form-field>
+
+            <mat-form-field class="full">
+              <input formControlName="medContinuas" matInput name="medContinuas"
+                placeholder="Medicações de uso contínuo:">
+            </mat-form-field>
+
+            <mat-form-field class="full">
+              <input formControlName="alergias" matInput name="alergias"
+                placeholder="Alergias (qual agente e qual foi a reação alérgica):">
+            </mat-form-field>
+          </div>
+        </section>
+      </mat-expansion-panel>
+      <mat-divider></mat-divider>
+
+      <!--Historia Morbida Familiar-->
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <h3>Historia Mórbida Familiar</h3>
+        </mat-expansion-panel-header>
+        <section formGroupName="historiaMorbidaFamiliar">
+          <div>
+            <mat-form-field class="full">
+              <input formControlName="mae" matInput name="mae"
+                placeholder="Mãe (morbidades/viva/falecida – motivo do falecimento):">
+            </mat-form-field>
+
+            <mat-form-field class="full">
+              <input formControlName="pai" matInput name="pai"
+                placeholder="Pai (morbidades/viva/falecida – motivo do falecimento):">
+            </mat-form-field>
+
+            <mat-form-field class="full">
+              <input formControlName="irmaos" matInput name="irmaos"
+                placeholder="Irmãos (morbidades/viva/falecida – motivo do falecimento):">
+            </mat-form-field>
+          </div>
+        </section>
+      </mat-expansion-panel>
+      <mat-divider></mat-divider>
+
+      <!--Condções e Hábito de Vida-->
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <h3>Condções e Hábito de Vida</h3>
+        </mat-expansion-panel-header>
+        <section formGroupName="habitosDeVida">
+          <div>
+            <mat-radio-group formControlName="atividadeFisica" aria-labelledby="example-radio-group-label">
+              <label id="example-radio-group-label">Atividade física:</label>&nbsp;
+              <mat-radio-button value="Sedentario">Sedentário</mat-radio-button>&nbsp;
+              <mat-radio-button value="Ativo">Ativo</mat-radio-button>
+            </mat-radio-group>
+            <mat-form-field class="full">
+              <input formControlName="qualAtividade" matInput name="pratica" placeholder="O que pratica?">
+            </mat-form-field>
+          </div>
+          <div formGroupName="atividadeSexual">
+            <label>Atividade Sexual:</label>&nbsp;
+            <mat-checkbox value="Protegia" formControlName="protegida">Protegia</mat-checkbox>
+            <mat-checkbox value="desprotegida" formControlName="desprotegida">Desprotegida</mat-checkbox>
+            <mat-checkbox value="parceiroUnico" formControlName="parceiroUnico">Parceiro único</mat-checkbox>
+            <mat-checkbox value="multiplosParceiros" formControlName="multiplosParceiros">Múltiplos Parceiros
+            </mat-checkbox>
+          </div>
+          <br>
+          <div>
+            <mat-radio-group formControlName="testeDst" aria-labelledby="example-radio-group-label">
+              <label>Já fez teste para diagnósticode: HIV/ HEPATITE/ SÍFILIS?:</label>&nbsp;
+              <mat-radio-button value="S" labelPosition="before">S</mat-radio-button>&nbsp;
+              <mat-radio-button value="N" labelPosition="before">N</mat-radio-button>&nbsp;
+            </mat-radio-group>
+          </div>
+        </section>
+      </mat-expansion-panel>
+      <mat-divider></mat-divider>
+
+      <!--HISTÓRIA GINECOLOGICO-OBSTÉTRICA-->
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <h3>História Ginecologico - Obstétrica</h3>
+        </mat-expansion-panel-header>
+        <section formGroupName="historiaGinecologica">
+          <div>
+            <mat-form-field class="matInput">
+              <input formControlName="ultimoExame" matInput placeholder="Último exame ginecológico:">
+            </mat-form-field>
+
+            <mat-form-field class="matInput">
+              <input matInput formControlName="dum" placeholder="DUM">
+            </mat-form-field>
+
+            <div>
+              <mat-checkbox formControlName="idadeFertil" value="Protegia">Idade fértil</mat-checkbox>
+              <mat-checkbox formControlName="menopausa" value="desprotegida">Menopausa</mat-checkbox>
+            </div>
+
+          </div>
+          <br>
+          <div>
+            <mat-radio-group formControlName="cicloMenstrual">
+              <label>Ciclo Menstrual</label>&nbsp;
+              <mat-radio-button value="Regular" labelPosition="before">Regular</mat-radio-button>&nbsp;
+              <mat-radio-button value="Irregular" labelPosition="before">Irregular</mat-radio-button>&nbsp;
+            </mat-radio-group>
+          </div>
+          <div>
+            <mat-radio-group formControlName="usoAnticoncepcional">
+              <label>Faz uso de anticoncepcional?</label>&nbsp;
+              <mat-radio-button value="S" labelPosition="before">S</mat-radio-button>&nbsp;
+              <mat-radio-button value="N" labelPosition="before">N</mat-radio-button>&nbsp;
+            </mat-radio-group>
+            <mat-form-field class="matInput">
+              <input formControlName="ondeAcompanha" matInput placeholder="Qual e onde acompanha?">
+            </mat-form-field>
+          </div>
+          <div>
+            <mat-radio-group formControlName="doacaoAnticoncepcional">
+              <label>Aplicação/doação de anticoncepcional na ação?</label>&nbsp;
+              <mat-radio-button value="S" labelPosition="before">S</mat-radio-button>&nbsp;
+              <mat-radio-button value="N" labelPosition="before">N</mat-radio-button>&nbsp;
+            </mat-radio-group>
+            <mat-form-field class="matInput">
+              <input formControlName="qualAnticoncepcional" matInput placeholder="Qual?">
+            </mat-form-field>
+          </div>
+          <mat-form-field class="full">
+            <input matInput formControlName="quantFilhos" name="quantFilhos" placeholder="Tem quantos filhos?">
+          </mat-form-field>
+          <div class="medidas">
+            <mat-form-field class="matInput">
+              <input formControlName="vaginal" matInput name="vaginal" placeholder="Vaginal">
+            </mat-form-field>
+            <mat-form-field class="matInput">
+              <input matInput formControlName="cesarea" name="cesarea" placeholder="Cesárea">
+            </mat-form-field>
+            <mat-form-field class="matInput">
+              <input matInput formControlName="abortos" name="abortos" placeholder="Abortos:">
+            </mat-form-field>
+            <mat-form-field class="matInput">
+              <input matInput formControlName="complicParto" name="complicParto" placeholder="Complicações no parto?">
+            </mat-form-field>
+          </div>
+        </section>
+      </mat-expansion-panel>
+      <mat-divider></mat-divider>
+
+      <!--Exame Físico-->
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <h3>Exame Físico</h3>
+        </mat-expansion-panel-header>
+        <section formGroupName="exameFisico">
+          <mat-form-field class="full">
+            <input matInput formControlName="estadoGeral" name="estadoGeral"
+              placeholder="Estado geral, nível de consciência, hidratação, estado nutricional, mucosas, linfonodos:">
+          </mat-form-field>
+          <mat-form-field class="full">
+            <input matInput formControlName="cabeçaEPescoço" name="cabeçaEPescoço" placeholder="Cabeça e pescoço:">
+          </mat-form-field>
+          <mat-form-field class="full">
+            <input matInput formControlName="cardiopulmonar" name="cardiopulmonar" placeholder="Cardiopulmonar:">
+          </mat-form-field>
+          <mat-form-field class="full">
+            <input matInput formControlName="gastrintestinal" name="gastrintestinal" placeholder="Gastrintestinal:">
+          </mat-form-field>
+          <mat-form-field class="full">
+            <input matInput formControlName="neurologico" name="neurologico" placeholder="Neurológico:">
+          </mat-form-field>
+          <mat-form-field class="full">
+            <input matInput formControlName="dermatológico" name="dermatológico" placeholder="Dermatológico:">
+          </mat-form-field>
+          <mat-form-field class="full">
+            <input matInput formControlName="geniturinário" name="geniturinário" placeholder="Geniturinário:">
+          </mat-form-field>
+          <mat-form-field class="full">
+            <input matInput formControlName="outros" name="outros" placeholder="Outros:">
+          </mat-form-field>
+        </section>
+      </mat-expansion-panel>
+      <mat-divider></mat-divider>
+
+      <!--Exames Laboratoriais-->
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <h3>Exames Laboratoriais</h3>
+        </mat-expansion-panel-header>
+        <section formGroupName="examesLaboratoriais">
+
+        </section>
+      </mat-expansion-panel>
+      <mat-divider></mat-divider>
+
     </form>
   </mat-card>
   <div style="display: flex; flex-direction: row-reverse; margin-top: 10px; margin-bottom: 10px;">

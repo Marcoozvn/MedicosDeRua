@@ -10,9 +10,11 @@ import { FormBuilder, Validators } from '@angular/forms';
 export class AnamneseGeralComponent implements OnInit {
 
   anamneseForm: any;
-  docsPessoais = [] = ['RG', 'CPF', 'Cart.Trab', 'CNH', 'Cert.Nasc', 'Cert.Cas'];
-  drogas = [] = [{ nome: 'Cocaína' }, { nome: 'Maconha' }, { nome: 'LSD' }, { nome: 'Ecstasy' }, { nome: 'Lança perfume' }];
-  servicos = [] = ['FAS', 'CREAS', 'Albergue', 'Centro Pop', 'CRAS', 'Internamento', 'CAPS']
+  docsPessoais = ['RG', 'CPF', 'Cart.Trab', 'CNH', 'Cert.Nasc', 'Cert.Cas'];
+  drogas = [{ nome: 'Cocaína' }, { nome: 'Maconha' }, { nome: 'LSD' }, { nome: 'Ecstasy' }, { nome: 'Lança perfume' }];
+  servicos = ['FAS', 'CREAS', 'Albergue', 'Centro Pop', 'CRAS', 'Internamento', 'CAPS']
+  sintomas = ['Dor', 'Astenia', 'Náuseas', 'Diarreia', 'Edema', 'Lesões cutâneas', 'Prurido', 'Febre', 'Vertigem', 'Vômito', 'Constipação', 'Hemorragia', 'Dor de Dente']
+  doencas = ['HAS', 'AVC', 'DM', 'ICC', 'IAM', 'IRC', 'HIPOTIREOIDE', 'DPOC', 'HEPATITE', 'HIV', 'TB', 'DST', 'CÂNCER']
 
   constructor(private fb: FormBuilder) { }
 
@@ -116,7 +118,7 @@ export class AnamneseGeralComponent implements OnInit {
       }),
       avaliacaoNutricional: this.fb.group({
         responsavel: '',
-        medidas : this.fb.group({
+        medidas: this.fb.group({
           hemienvergadura: '',
           alturaEstimada: '',
           alturaRelatada: '',
@@ -151,10 +153,101 @@ export class AnamneseGeralComponent implements OnInit {
         comoConsegueComida: '',
         alimentosComuns: '',
         alimentosDesejados: ''
+      }),
+      queixaPrincipal: this.fb.group({
+        descricao: '',
+        quantoTempo: '',
+        quandoComecou: ''
+      }),
+      historiaMorbidaAtual: this.fb.group({
+        sintoma: this.fb.group({
+          Dor: [false],
+          Astenia: [false],
+          'Náuseas': [false],
+          Diarreia: [false],
+          Edema: [false],
+          'Lesões cutâneas': [false],
+          Prurido: [false],
+          Febre: [false],
+          Vertigem: [false],
+          'Vômito': [false],
+          'Constipação': [false],
+          Hemorragia: [false],
+          'Dor de Dente': [false]
+        }),
+        outros: '',
+        detalhes: ''
+      }),
+      historiaMorbidaProgressa: this.fb.group({
+        doenca: this.fb.group({
+          HAS: [false],
+          AVC: [false],
+          DM: [false],
+          ICC: [false],
+          IAM: [false],
+          IRC: [false],
+          HIPOTIREOIDE: [false],
+          DPOC: [false],
+          HEPATITE: [false],
+          HIV: [false],
+          TB: [false],
+          DST: [false],
+          'CÂNCER': [false]
+        }),
+        doencasInfancia: '',
+        convulsoes: '',
+        internacoesOuCirugias: '',
+        traumas: '',
+        medContinuas: '',
+        alergias: ''
+      }),
+      historiaMorbidaFamiliar: this.fb.group({
+        mae: '',
+        pai: '',
+        irmaos: ''
+      }),
+      habitosDeVida: this.fb.group({
+        atividadeFisica: '',
+        qualAtividade: '',
+        atividadeSexual: this.fb.group({
+          protegida: '',
+          desprotegida: '',
+          parceiroUnico: '',
+          multiplosParceiros: ''
+        }),
+        testeDst: ''
+      }),
+      historiaGinecologica: this.fb.group({
+        ultimoExame: '',
+        dum: '',
+        idadeFertil: '',
+        menopausa: '',
+        cicloMenstrual: '',
+        usoAnticoncepcional: '',
+        ondeAcompanha: '',
+        doacaoAnticoncepcional: '',
+        qualAnticoncepcional: '',
+        quantFilhos: '',
+        vaginal: '',
+        cesarea: '',
+        abortos: '',
+        complicParto: ''
+      }),
+      exameFisico: this.fb.group({
+        estadoGeral: '',
+        cabeçaEPescoço: '',
+        cardiopulmonar: '',
+        gastrintestinal: '',
+        neurologico: '',
+        dermatológico: '',
+        geniturinário: '',
+        outros: ''
+      }),
+      examesLaboratoriais: this.fb.group({
+        
       })
     })
   }
-
   submitForm() {
     console.log('Form: ', this.anamneseForm.value);
   }
