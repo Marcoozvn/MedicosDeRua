@@ -181,11 +181,26 @@ input {
 	grid-template-columns: 1fr 1fr;
 }
 
+.historia-morbida-atual {
+	display: flex;
+	flex-direction: column;
+}
+
+.historia-morbida-atual-group {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+}
+
 .submit-button:hover {
   opacity: 0.8;
 }
 
 @media(max-width: 600px) {
+	.historia-morbida-atual-group {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+	}
+	
 	.avaliacao-nutricional .medidas {
 		display: grid;
 		grid-template-columns: 1fr 1fr;
