@@ -581,8 +581,8 @@
             </mat-radio-group>
             <mat-radio-group aria-labelledby="example-radio-group-label" formControlName="tomouAguaOntem">
               <label id="example-radio-group-label">Tomei mais de 2 copos de água ontem?</label>&nbsp;
-              <mat-radio-button value="Sim">Sim</mat-radio-button>&nbsp;
-              <mat-radio-button value="Não">Não</mat-radio-button>
+              <mat-radio-button value="Sim" labelPosition="before">Sim</mat-radio-button>&nbsp;
+              <mat-radio-button value="Não" labelPosition="before">Não</mat-radio-button>
             </mat-radio-group>
           </div>
           <mat-form-field class="matInput">
@@ -603,6 +603,53 @@
             <input formControlName="alimentosDesejados" matInput name="alimentosDesejados" placeholder="Quais alimentos sinto falta de comer?">
           </mat-form-field>
         </section>
+      </mat-expansion-panel>
+      <mat-divider></mat-divider>
+      <mat-expansion-panel formGroupName="queixaPrincipal">
+        <mat-expansion-panel-header>
+          <h3>Queixa principal</h3>
+        </mat-expansion-panel-header>
+        <mat-form-field class="matInput">
+          <textarea formControlName="queixa" matInput name="queixa" placeholder="Queixa principal"></textarea>
+        </mat-form-field>
+        <mat-form-field class="matInput">
+          <textarea formControlName="comoComecou" matInput name="comoComecou" placeholder="Como começou?"></textarea>
+        </mat-form-field>
+        <mat-form-field class="matInput">
+          <input formControlName="duracao" matInput name="duracao" placeholder="Há quanto tempo?">
+        </mat-form-field>
+      </mat-expansion-panel>
+      <mat-divider></mat-divider>
+      <mat-expansion-panel formGroupName="historiaMorbidaAtual"> 
+        <mat-expansion-panel-header>
+          <h3>História mórbida atual</h3>
+        </mat-expansion-panel-header>
+        <div class="historia-morbida-atual">
+          <div class="historia-morbida-atual-group">
+            <mat-checkbox value=true formControlName="Dor">Dor</mat-checkbox>
+            <mat-checkbox value=true formControlName="Astenia">Astenia</mat-checkbox>
+            <mat-checkbox value=true formControlName="Náuseas">Náuseas</mat-checkbox>
+            <mat-checkbox value=true formControlName="Diarreia">Diarreia</mat-checkbox>
+            <mat-checkbox value=true formControlName="Edema">Edema</mat-checkbox>
+            <mat-checkbox value=true formControlName="Lesões cutâneas">Lesões cutâneas</mat-checkbox>
+            <mat-checkbox value=true formControlName="Prurido">Prurido</mat-checkbox>
+            <mat-checkbox value=true formControlName="Febre">Febre</mat-checkbox>
+            <mat-checkbox value=true formControlName="Vertigem">Vertigem</mat-checkbox>
+            <mat-checkbox value=true formControlName="Vômito">Vômito</mat-checkbox>
+            <mat-checkbox value=true formControlName="Constipação">Constipação</mat-checkbox>
+            <mat-checkbox value=true formControlName="Hemorragia">Hemorragia</mat-checkbox>
+          </div>
+          <mat-form-field class="matInput">
+            <textarea formControlName="descricao" matInput
+              placeholder="Detalhar: local, inicio, tipo/caracteristica, irradiação etc.."></textarea>
+          </mat-form-field>
+  
+          <mat-radio-group formControlName="dorDeDente" aria-labelledby="example-radio-group-label" class="matInput">
+            <label id="example-radio-group-label"><strong>Dor de dente?</strong></label>&nbsp;
+            <mat-radio-button value=true labelPosition="before">Sim</mat-radio-button>&nbsp;
+            <mat-radio-button value=false labelPosition="before">Não</mat-radio-button>
+          </mat-radio-group>
+        </div>
       </mat-expansion-panel>
     </form>
   </mat-card>

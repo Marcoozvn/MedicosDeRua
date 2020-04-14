@@ -151,6 +151,27 @@ export class AnamneseGeralComponent implements OnInit {
         comoConsegueComida: '',
         alimentosComuns: '',
         alimentosDesejados: ''
+      }),
+      queixaPrincipal: this.fb.group({
+        queixa: '',
+        duracao: '',
+        comoComecou: ''
+      }),
+      historiaMorbidaAtual: this.fb.group({
+        Dor: false,
+        Astenia: false,
+        Náuseas: false,
+        Diarreia: false,
+        Edema: false,
+        'Lesões cutâneas': false,
+        Prurido: false,
+        Febre: false,
+        Vertigem: false,
+        Vômito: false,
+        Constipação: false,
+        Hemorragia: false,
+        descricao: '',
+        dorDeDente: false
       })
     })
   }
