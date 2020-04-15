@@ -15,6 +15,21 @@ export class AnamneseGeralComponent implements OnInit {
   servicos = ['FAS', 'CREAS', 'Albergue', 'Centro Pop', 'CRAS', 'Internamento', 'CAPS']
   sintomas = ['Dor', 'Astenia', 'Náuseas', 'Diarreia', 'Edema', 'Lesões cutâneas', 'Prurido', 'Febre', 'Vertigem', 'Vômito', 'Constipação', 'Hemorragia', 'Dor de Dente']
   doencas = ['HAS', 'AVC', 'DM', 'ICC', 'IAM', 'IRC', 'HIPOTIREOIDE', 'DPOC', 'HEPATITE', 'HIV', 'TB', 'DST', 'CÂNCER']
+  materiais = ['Soro', 'Seringa 20 ml', 'Agulha', 'Esponja', 'Kit curativo', 'Gaze', 'Cobertura', 'Atadura', 'Micropore', 'Esparadrapo']
+  exames = [
+    { nome: 'Destro' },
+    { nome: 'Hemograma' },
+    { nome: 'Parcial de Urina' },
+    { nome: 'Ureia + Creatina' },
+    { nome: 'TGO + TGP' },
+    { nome: 'Bilirrubinas' },
+    { nome: 'Lipidograma' },
+    { nome: 'Hb glicada' },
+    { nome: 'Sífilis' },
+    { nome: 'HIV' },
+    { nome: 'Hepatite B' },
+    { nome: 'Hepatite C' },
+    { nome: 'Gravidez' }]
 
   constructor(private fb: FormBuilder) { }
 
@@ -244,10 +259,71 @@ export class AnamneseGeralComponent implements OnInit {
         outros: ''
       }),
       examesLaboratoriais: this.fb.group({
-        
+        Destro: [false],
+        Hemograma: [false],
+        'Parcial de Urina': [false],
+        'Ureia + Creatina': [false],
+        'TGO + TGP': [false],
+        Bilirrubinas: [false],
+        Lipidograma: [false],
+        'Hb glicada': [false],
+        Sífilis: [false],
+        HIV: [false],
+        'Hepatite B': [false],
+        'Hepatite C': [false],
+        Gravidez: [false],
+        Outros: ''
+      }),
+      procedimentosEnfermagem: this.fb.group({
+        'Soro': [false],
+        'Seringa 20 ml': [false],
+        Agulha: [false],
+        Esponja: [false],
+        'Kit curativo': [false],
+        Gaze: [false],
+        Cobertura: [false],
+        Atadura: [false],
+        Micropore: [false],
+        Esparadrapo: [false],
+        outros: '',
+        informacoesAdicionais: this.fb.group({
+          motivo: '',
+          localizacao: '',
+          descricao: '',
+          responsavel: ''
+        })
+      }),
+      medicacaoIntramuscular: this.fb.group({
+        medicamentoEdose: '',
+        local: '',
+        lado: '',
+        prescritor: '',
+        responsavel: ''
+      }),
+      medicamentos: this.fb.group({
+        sabiaDaPatologia: '',
+        jaUsouMedicacao: '',
+        houveNecessida: '',
+        foiExplicadoUso:'',
+        motivo: '',
+        dispensado: '',
+        medicacao: '', 
+        paAntesMedicacao: '',
+        paDepoisMedicacao:''
+      }),
+      encaminhamentosExternos: this.fb.group({
+        encUPA: '',
+        encUBS: '',
+        encCAPS: '',
+        outro:'',
+        assPaciente: '',
+        assAcademico: '',
+        assCarimboMedico: '',
+        assPacienteResp:''
       })
     })
   }
+
   submitForm() {
     console.log('Form: ', this.anamneseForm.value);
   }

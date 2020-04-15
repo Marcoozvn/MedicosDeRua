@@ -883,11 +883,233 @@
           <h3>Exames Laboratoriais</h3>
         </mat-expansion-panel-header>
         <section formGroupName="examesLaboratoriais">
-
+          <div class="laboratoriais-container">
+            <div *ngFor="let exame of exames">
+              <mat-checkbox style="padding:5px;" [formControlName]="exame.nome">
+                {{exame.nome}}
+              </mat-checkbox>
+            </div>
+          </div>
+          <div>
+            <mat-form-field class="full">
+              <input matInput formControlName="Outros" name="outros" placeholder="Outros:">
+            </mat-form-field>
+          </div>
         </section>
       </mat-expansion-panel>
       <mat-divider></mat-divider>
 
+      <!--Procedimentos de Enfermagem-->
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <h3>Procedimentos de Enfermagem</h3>
+        </mat-expansion-panel-header>
+        <strong>Curativo:</strong>
+        <br>
+        <section>
+          <div formGroupName="procedimentosEnfermagem">
+            <div formGroupName="informacoesAdicionais">
+              <mat-form-field class="full">
+                <input matInput formControlName="motivo" name="motivo" placeholder="Motivo:">
+              </mat-form-field>
+              <mat-form-field class="full">
+                <input matInput formControlName="localizacao" name="localizacao" placeholder="Localização:">
+              </mat-form-field>
+              <mat-form-field class="full">
+                <input matInput formControlName="descricao" name="descricao" placeholder="Descrição:">
+              </mat-form-field>
+              <mat-form-field class="full">
+                <input matInput formControlName="responsavel" name="responsavel" placeholder="Responsável:">
+              </mat-form-field>
+            </div>
+            <div class="laboratoriais-container">
+              <label>Materiais:</label>
+              <div *ngFor="let material of materiais">
+                <mat-checkbox style="padding: 5px;" [formControlName]="material">
+                  {{material}}
+                </mat-checkbox>
+              </div>
+              <mat-form-field class="full">
+                <input matInput formControlName="outros" name="outros" placeholder="Outros:">
+              </mat-form-field>
+            </div>
+          </div>
+        </section>
+      </mat-expansion-panel>
+      <mat-divider></mat-divider>
+
+      <!--Medicação Intramuscular-->
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <h3>Medicação Intramuscular</h3>
+        </mat-expansion-panel-header>
+        <section formGroupName="medicacaoIntramuscular">
+          <div>
+            <mat-form-field class="full">
+              <input matInput formControlName="medicamentoEdose" name="outros" placeholder="Medicamento e Dose:">
+            </mat-form-field>
+            <div style="display: flex;">
+              <mat-radio-group formControlName="local" class="matInput">
+                <label id="example-radio-group-label">Local:</label>&nbsp;
+                <mat-radio-button value="Delt" labelPosition="before">Delt</mat-radio-button>&nbsp;
+                <mat-radio-button value="Glut" labelPosition="before">Glut</mat-radio-button>&nbsp;
+                <mat-radio-button value="Ventro-glut." labelPosition="before">Ventro-glut</mat-radio-button>&nbsp;
+              </mat-radio-group>
+
+              <mat-radio-group formControlName="lado" class="matInput">
+                <label id="example-radio-group-label">Lado:</label>&nbsp;
+                <mat-radio-button value="direito" labelPosition="before">D</mat-radio-button>&nbsp;
+                <mat-radio-button value="esquerdo" labelPosition="before">E</mat-radio-button>&nbsp;
+              </mat-radio-group>
+            </div>
+          </div>
+          <div>
+            <mat-form-field class="matInput">
+              <input matInput formControlName="prescritor" name="prescritor" placeholder="Prescritor">
+            </mat-form-field>
+            <mat-form-field class="matInput">
+              <input matInput formControlName="responsavel" name="responsavel" placeholder="Responsável">
+            </mat-form-field>
+          </div>
+        </section>
+      </mat-expansion-panel>
+      <mat-divider></mat-divider>
+
+      <!--Medicamentos-->
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <h3>Medicamentos</h3>
+        </mat-expansion-panel-header>
+        <section formGroupName="medicamentos">
+          <div style="display: flex;">
+            <mat-radio-group formControlName="sabiaDaPatologia" class="matInput">
+              <label id="example-radio-group-label">O paciente já sabia que tinha essa patologia:</label>&nbsp;
+              <mat-radio-button value="S" labelPosition="before">S</mat-radio-button>&nbsp;
+              <mat-radio-button value="N" labelPosition="before">N</mat-radio-button>&nbsp;
+            </mat-radio-group>
+
+            <mat-radio-group formControlName="jaUsouMedicacao" class="matInput">
+              <label id="example-radio-group-label">Já faz uso dessa medicação:</label>&nbsp;
+              <mat-radio-button value="S" labelPosition="before">S</mat-radio-button>&nbsp;
+              <mat-radio-button value="N" labelPosition="before">N</mat-radio-button>&nbsp;
+            </mat-radio-group>
+          </div>
+          <br>
+          <div style="display: flex;">
+            <mat-radio-group formControlName="houveNecessida" class="matInput">
+              <label id="example-radio-group-label">Houve necessidade de medicação:</label>&nbsp;
+              <mat-radio-button value="S" labelPosition="before">S</mat-radio-button>&nbsp;
+              <mat-radio-button value="N" labelPosition="before">N</mat-radio-button>&nbsp;
+            </mat-radio-group>
+
+            <mat-radio-group formControlName="foiExplicadoUso" class="matInput">
+              <label id="example-radio-group-label">Foi explicado como usar a medicação:</label>&nbsp;
+              <mat-radio-button value="S" labelPosition="before">S</mat-radio-button>&nbsp;
+              <mat-radio-button value="N" labelPosition="before">N</mat-radio-button>&nbsp;
+            </mat-radio-group>
+          </div>
+          <div>
+            <mat-form-field class="matInput">
+              <input matInput formControlName="motivo" name="motivo" placeholder="Motivo:">
+            </mat-form-field>
+
+            <mat-form-field class="matInput">
+              <input matInput formControlName="dispensado" name="dispensado"
+                placeholder="Foi dispensada a seguinte quantidade de medicação:">
+            </mat-form-field>
+          </div>
+          <div>
+            <mat-form-field class="full">
+              <input matInput formControlName="medicacao" name="medicacao" placeholder="Medicação:">
+            </mat-form-field>
+          </div>
+          <div>
+            <mat-form-field class="matInput">
+              <input matInput formControlName="paAntesMedicacao" name="paAntesMedicacao"
+                placeholder="PA ANTES do medicamento:">
+            </mat-form-field>
+
+            <mat-form-field class="matInput">
+              <input matInput formControlName="paDepoisMedicacao" name="paDepoisMedicacao"
+                placeholder="PA DEPOIS do medicamento">
+            </mat-form-field>
+          </div>
+        </section>
+      </mat-expansion-panel>
+      <mat-divider></mat-divider>
+
+      <!--Encaminhamentos Externos-->
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <h3>Exames Laboratoriais</h3>
+        </mat-expansion-panel-header>
+        <section formGroupName="encaminhamentosExternos">
+          <div style="display: flex;">
+            <mat-radio-group formControlName="encUBS" class="matInput">
+              <label id="example-radio-group-label">Encaminhamento para UBS:</label>&nbsp;
+              <mat-radio-button value="S" labelPosition="before">S</mat-radio-button>&nbsp;
+              <mat-radio-button value="N" labelPosition="before">N</mat-radio-button>&nbsp;
+            </mat-radio-group>
+
+            <mat-radio-group formControlName="encUPA" class="matInput">
+              <label id="example-radio-group-label">Encaminhamento para UPA</label>&nbsp;
+              <mat-radio-button value="S" labelPosition="before">S</mat-radio-button>&nbsp;
+              <mat-radio-button value="N" labelPosition="before">N</mat-radio-button>&nbsp;
+            </mat-radio-group>
+          </div>
+          <div>
+            <br>
+            <div style="display: flex;">
+              <mat-radio-group formControlName="encCAPS" class="matInput">
+                <label id="example-radio-group-label">Encaminhamento para CAPS</label>&nbsp;
+                <mat-radio-button value="S" labelPosition="before">S</mat-radio-button>&nbsp;
+                <mat-radio-button value="N" labelPosition="before">N</mat-radio-button>&nbsp;
+              </mat-radio-group>
+
+              <mat-form-field class="matInput" style="margin-top: -15px;">
+                <input matInput formControlName="outro" name="outro" placeholder="Outro? Qual?:">
+              </mat-form-field>
+            </div>
+          </div>
+          <div>
+            <p>
+              Autorizo desde já o uso de minha imagem, bem como do(s) menor (es) pelo(s) qual(is) sou responsável, para
+              fins
+              de divulgação, seja por fotos, vídeos e/ou entrevistas em qualquer meio de comunicação, sem geração de
+              ônus para a
+              organização, mídia, apoiadores, colaboradores e patrocinadores. A presente autorização é concedida por
+              tempo
+              indeterminado, a título gratuito, abrangendo o uso da imagem em todo território nacional e no exterior.
+            </p>
+            <mat-form-field class="full">
+              <input matInput formControlName="assPaciente" name="assPaciente"
+                placeholder="Assinatura do paciente ou responsável">
+            </mat-form-field>
+          </div>
+          <div>
+            <p>
+              O paciente/responsável declara ter recebido esclarecimentos completos e estar ciente de todas as
+              implicações
+              decorrentes dos procedimentos e tratamentos a serem realizados, sejam eles invasivos ou não, estando de
+              acordo e
+              autorizando suas realizações.
+            </p>
+            <mat-form-field class="full">
+              <input matInput formControlName="assAcademico" name="assAcademico"
+                placeholder="Assinatura do acadêmico">
+            </mat-form-field>
+            <mat-form-field class="full">
+              <input matInput formControlName="assCarimboMedico" name="assCarimboMedico"
+                placeholder="Assinatura e Carimbo do médico">
+            </mat-form-field>
+            <mat-form-field class="full">
+              <input matInput formControlName="assPacienteResp" name="assPacienteResp"
+                placeholder="Assinatura do paciente ou responsável">
+            </mat-form-field>
+          </div>
+        </section>
+      </mat-expansion-panel>
+      <mat-divider></mat-divider>
     </form>
   </mat-card>
   <div style="display: flex; flex-direction: row-reverse; margin-top: 10px; margin-bottom: 10px;">

@@ -22,7 +22,7 @@ export class ReturnRegistrationComponent implements OnInit {
 
   drogas = [] = [{ nome: 'Cocaína' }, { nome: 'Maconha' }, { nome: 'LSD' }, { nome: 'Ecstasy' }, { nome: 'Lança perfume' }]
 
-  exames = [] = [
+  exames = [
     { nome: 'Destro' },
     { nome: 'Hemograma' },
     { nome: 'Parcial de Urina' },
