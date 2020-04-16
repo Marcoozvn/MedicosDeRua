@@ -641,7 +641,7 @@
           <h3>Historia Mórbida Atual</h3>
         </mat-expansion-panel-header>
         <section formGroupName="historiaMorbidaAtual">
-          <div formGroupName="sintoma">
+          <div formGroupName="sintoma" class="historia-morbida-atual-group">
             <mat-checkbox [formControlName]="sintoma" style="padding: 5px;" *ngFor="let sintoma of sintomas">
               {{sintoma}}
             </mat-checkbox>
@@ -664,16 +664,18 @@
       <!--Historia Morbida Progressa-->
       <mat-expansion-panel>
         <mat-expansion-panel-header>
-          <h3>Historia Mórbida Progressa</h3>
+          <h3>Historia Mórbida Pregressa</h3>
         </mat-expansion-panel-header>
-        <section formGroupName="historiaMorbidaProgressa">
-          <div formGroupName="doenca">
-            <mat-checkbox [formControlName]="doenca" style="padding: 5px;" *ngFor="let doenca of doencas">
-              {{doenca}}
-              <mat-form-field>
-                <input matInput name="outros" placeholder="Há quanto tempo?">
+        <section formGroupName="historiaMorbidaPregressa">
+          <div class="historia-morbida-pregressa">
+            <div *ngFor="let doenca of doencas" [formGroupName]="doenca" style="display: flex; align-items: center;">
+              <mat-checkbox formControlName="possui" value=true style="padding: 5px;">
+                {{doenca}}
+              </mat-checkbox>
+              <mat-form-field *ngIf="anamneseForm.value.historiaMorbidaPregressa[doenca].possui">
+                <input matInput name="outros" formControlName="duracao" placeholder="Há quanto tempo?">
               </mat-form-field>
-            </mat-checkbox>
+            </div>
           </div>
           <div>
             <mat-form-field class="full">
@@ -739,7 +741,7 @@
       <!--Condções e Hábito de Vida-->
       <mat-expansion-panel>
         <mat-expansion-panel-header>
-          <h3>Condções e Hábito de Vida</h3>
+          <h3>Condições e Hábito de Vida</h3>
         </mat-expansion-panel-header>
         <section formGroupName="habitosDeVida">
           <div>
@@ -754,11 +756,14 @@
           </div>
           <div formGroupName="atividadeSexual">
             <label>Atividade Sexual:</label>&nbsp;
-            <mat-checkbox value="Protegia" formControlName="protegida">Protegia</mat-checkbox>
-            <mat-checkbox value="desprotegida" formControlName="desprotegida">Desprotegida</mat-checkbox>
-            <mat-checkbox value="parceiroUnico" formControlName="parceiroUnico">Parceiro único</mat-checkbox>
-            <mat-checkbox value="multiplosParceiros" formControlName="multiplosParceiros">Múltiplos Parceiros
-            </mat-checkbox>
+            <mat-radio-group formControlName="protegida">
+              <mat-radio-button value=true>Protegida</mat-radio-button>&nbsp;
+              <mat-radio-button value=false>Desprotegida</mat-radio-button>&nbsp;
+            </mat-radio-group>
+            <mat-radio-group formControlName="parceiroUnico">
+              <mat-radio-button value=true>Parceiro(a) único(a)</mat-radio-button>&nbsp;
+              <mat-radio-button value=false>Múltiplos(as) parceiros(as)</mat-radio-button>
+            </mat-radio-group>
           </div>
           <br>
           <div>
@@ -787,10 +792,10 @@
               <input matInput formControlName="dum" placeholder="DUM">
             </mat-form-field>
 
-            <div>
-              <mat-checkbox formControlName="idadeFertil" value="Protegia">Idade fértil</mat-checkbox>
-              <mat-checkbox formControlName="menopausa" value="desprotegida">Menopausa</mat-checkbox>
-            </div>
+            <mat-radio-group formControlName="fertilidade">
+              <mat-radio-button value="Idade Fertil">Idade fértil</mat-radio-button>&nbsp;
+              <mat-radio-button value="Menopausa">Menopausa</mat-radio-button>
+            </mat-radio-group>
 
           </div>
           <br>
@@ -922,9 +927,9 @@
                 <input matInput formControlName="responsavel" name="responsavel" placeholder="Responsável:">
               </mat-form-field>
             </div>
+            <label>Materiais:</label>
             <div class="laboratoriais-container">
-              <label>Materiais:</label>
-              <div *ngFor="let material of materiais">
+              <div *ngFor="let material of materiais" style="display: flex; align-items: center;">
                 <mat-checkbox style="padding: 5px;" [formControlName]="material">
                   {{material}}
                 </mat-checkbox>
@@ -981,31 +986,28 @@
           <h3>Medicamentos</h3>
         </mat-expansion-panel-header>
         <section formGroupName="medicamentos">
-          <div style="display: flex;">
+          <div class="medicamentos">
             <mat-radio-group formControlName="sabiaDaPatologia" class="matInput">
-              <label id="example-radio-group-label">O paciente já sabia que tinha essa patologia:</label>&nbsp;
-              <mat-radio-button value="S" labelPosition="before">S</mat-radio-button>&nbsp;
-              <mat-radio-button value="N" labelPosition="before">N</mat-radio-button>&nbsp;
+              <label id="example-radio-group-label">O paciente já sabia que tinha essa patologia:</label><br>
+              <mat-radio-button value="S" labelPosition="before">Sim</mat-radio-button>&nbsp;
+              <mat-radio-button value="N" labelPosition="before">Não</mat-radio-button>&nbsp;
             </mat-radio-group>
 
             <mat-radio-group formControlName="jaUsouMedicacao" class="matInput">
-              <label id="example-radio-group-label">Já faz uso dessa medicação:</label>&nbsp;
-              <mat-radio-button value="S" labelPosition="before">S</mat-radio-button>&nbsp;
-              <mat-radio-button value="N" labelPosition="before">N</mat-radio-button>&nbsp;
+              <label id="example-radio-group-label">Já faz uso dessa medicação:</label><br>
+              <mat-radio-button value="S" labelPosition="before">Sim</mat-radio-button>&nbsp;
+              <mat-radio-button value="N" labelPosition="before">Não</mat-radio-button>&nbsp;
             </mat-radio-group>
-          </div>
-          <br>
-          <div style="display: flex;">
             <mat-radio-group formControlName="houveNecessida" class="matInput">
-              <label id="example-radio-group-label">Houve necessidade de medicação:</label>&nbsp;
-              <mat-radio-button value="S" labelPosition="before">S</mat-radio-button>&nbsp;
-              <mat-radio-button value="N" labelPosition="before">N</mat-radio-button>&nbsp;
+              <label id="example-radio-group-label">Houve necessidade de medicação:</label><br>
+              <mat-radio-button value="S" labelPosition="before">Sim</mat-radio-button>&nbsp;
+              <mat-radio-button value="N" labelPosition="before">Não</mat-radio-button>&nbsp;
             </mat-radio-group>
 
             <mat-radio-group formControlName="foiExplicadoUso" class="matInput">
-              <label id="example-radio-group-label">Foi explicado como usar a medicação:</label>&nbsp;
-              <mat-radio-button value="S" labelPosition="before">S</mat-radio-button>&nbsp;
-              <mat-radio-button value="N" labelPosition="before">N</mat-radio-button>&nbsp;
+              <label id="example-radio-group-label">Foi explicado como usar a medicação:</label><br>
+              <mat-radio-button value="S" labelPosition="before">Sim</mat-radio-button>&nbsp;
+              <mat-radio-button value="N" labelPosition="before">Não</mat-radio-button>&nbsp;
             </mat-radio-group>
           </div>
           <div>
@@ -1043,7 +1045,7 @@
         <mat-expansion-panel-header>
           <h3>Exames Laboratoriais</h3>
         </mat-expansion-panel-header>
-        <section formGroupName="encaminhamentosExternos">
+        <section formGroupName="encaminhamentosExternos" class="encaminhamentos-externos">
           <div style="display: flex;">
             <mat-radio-group formControlName="encUBS" class="matInput">
               <label id="example-radio-group-label">Encaminhamento para UBS:</label>&nbsp;
@@ -1071,45 +1073,8 @@
               </mat-form-field>
             </div>
           </div>
-          <div>
-            <p>
-              Autorizo desde já o uso de minha imagem, bem como do(s) menor (es) pelo(s) qual(is) sou responsável, para
-              fins
-              de divulgação, seja por fotos, vídeos e/ou entrevistas em qualquer meio de comunicação, sem geração de
-              ônus para a
-              organização, mídia, apoiadores, colaboradores e patrocinadores. A presente autorização é concedida por
-              tempo
-              indeterminado, a título gratuito, abrangendo o uso da imagem em todo território nacional e no exterior.
-            </p>
-            <mat-form-field class="full">
-              <input matInput formControlName="assPaciente" name="assPaciente"
-                placeholder="Assinatura do paciente ou responsável">
-            </mat-form-field>
-          </div>
-          <div>
-            <p>
-              O paciente/responsável declara ter recebido esclarecimentos completos e estar ciente de todas as
-              implicações
-              decorrentes dos procedimentos e tratamentos a serem realizados, sejam eles invasivos ou não, estando de
-              acordo e
-              autorizando suas realizações.
-            </p>
-            <mat-form-field class="full">
-              <input matInput formControlName="assAcademico" name="assAcademico"
-                placeholder="Assinatura do acadêmico">
-            </mat-form-field>
-            <mat-form-field class="full">
-              <input matInput formControlName="assCarimboMedico" name="assCarimboMedico"
-                placeholder="Assinatura e Carimbo do médico">
-            </mat-form-field>
-            <mat-form-field class="full">
-              <input matInput formControlName="assPacienteResp" name="assPacienteResp"
-                placeholder="Assinatura do paciente ou responsável">
-            </mat-form-field>
-          </div>
         </section>
       </mat-expansion-panel>
-      <mat-divider></mat-divider>
     </form>
   </mat-card>
   <div style="display: flex; flex-direction: row-reverse; margin-top: 10px; margin-bottom: 10px;">

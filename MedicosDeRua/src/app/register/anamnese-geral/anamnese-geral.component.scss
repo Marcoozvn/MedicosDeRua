@@ -70,10 +70,8 @@ input {
 }
 
 .laboratoriais-container {
-	display: flex; 
-	flex-direction: row;
-	max-width: 100%;
-	flex-wrap: wrap;
+	display: grid; 
+	grid-template-columns: repeat(4, 1fr);
 	line-height: 1.5rem;
 }
 
@@ -188,14 +186,39 @@ input {
 
 .historia-morbida-atual-group {
 	display: grid;
-	grid-template-columns: repeat(4, 1fr);
+	grid-template-columns: repeat(5, 1fr);
+}
+
+.historia-morbida-pregressa {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
 }
 
 .submit-button:hover {
   opacity: 0.8;
 }
 
+.medicamentos {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+
+	.matInput {
+		max-width: 100% !important;
+		margin-top: 5px;
+	}
+}
+
 @media(max-width: 600px) {
+	.medicamentos {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.historia-morbida-pregressa {
+		display: flex;
+		flex-direction: column;
+	}
+
 	.historia-morbida-atual-group {
 		display: grid;
 		grid-template-columns: 1fr 1fr;

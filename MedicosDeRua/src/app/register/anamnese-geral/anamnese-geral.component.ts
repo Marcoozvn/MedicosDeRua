@@ -14,7 +14,7 @@ export class AnamneseGeralComponent implements OnInit {
   drogas = [{ nome: 'Cocaína' }, { nome: 'Maconha' }, { nome: 'LSD' }, { nome: 'Ecstasy' }, { nome: 'Lança perfume' }];
   servicos = ['FAS', 'CREAS', 'Albergue', 'Centro Pop', 'CRAS', 'Internamento', 'CAPS']
   sintomas = ['Dor', 'Astenia', 'Náuseas', 'Diarreia', 'Edema', 'Lesões cutâneas', 'Prurido', 'Febre', 'Vertigem', 'Vômito', 'Constipação', 'Hemorragia', 'Dor de Dente']
-  doencas = ['HAS', 'AVC', 'DM', 'ICC', 'IAM', 'IRC', 'HIPOTIREOIDE', 'DPOC', 'HEPATITE', 'HIV', 'TB', 'DST', 'CÂNCER']
+  doencas = ['HAS', 'AVC', 'DM', 'ICC', 'IAM', 'IRC', 'Hipotireoide', 'DPOC', 'Hepatite', 'HIV', 'TB', 'DST', 'Câncer']
   materiais = ['Soro', 'Seringa 20 ml', 'Agulha', 'Esponja', 'Kit curativo', 'Gaze', 'Cobertura', 'Atadura', 'Micropore', 'Esparadrapo']
   exames = [
     { nome: 'Destro' },
@@ -193,21 +193,58 @@ export class AnamneseGeralComponent implements OnInit {
         outros: '',
         detalhes: ''
       }),
-      historiaMorbidaProgressa: this.fb.group({
-        doenca: this.fb.group({
-          HAS: [false],
-          AVC: [false],
-          DM: [false],
-          ICC: [false],
-          IAM: [false],
-          IRC: [false],
-          HIPOTIREOIDE: [false],
-          DPOC: [false],
-          HEPATITE: [false],
-          HIV: [false],
-          TB: [false],
-          DST: [false],
-          'CÂNCER': [false]
+      historiaMorbidaPregressa: this.fb.group({
+        HAS: this.fb.group({
+          possui: false,
+          duracao: ''
+        }),
+        AVC: this.fb.group({
+          possui: false,
+          duracao: ''
+        }),
+        DM: this.fb.group({
+          possui: false,
+          duracao: ''
+        }),
+        ICC: this.fb.group({
+          possui: false,
+          duracao: ''
+        }),
+        IAM: this.fb.group({
+          possui: false,
+          duracao: ''
+        }),
+        IRC: this.fb.group({
+          possui: false,
+          duracao: ''
+        }),
+        Hipotireoide: this.fb.group({
+          possui: false,
+          duracao: ''
+        }),
+        DPOC: this.fb.group({
+          possui: false,
+          duracao: ''
+        }),
+        Hepatite: this.fb.group({
+          possui: false,
+          duracao: ''
+        }),
+        HIV: this.fb.group({
+          possui: false,
+          duracao: ''
+        }),
+        TB: this.fb.group({
+          possui: false,
+          duracao: ''
+        }),
+        DST: this.fb.group({
+          possui: false,
+          duracao: ''
+        }),
+        Câncer: this.fb.group({
+          possui: false,
+          duracao: ''
         }),
         doencasInfancia: '',
         convulsoes: '',
@@ -226,17 +263,14 @@ export class AnamneseGeralComponent implements OnInit {
         qualAtividade: '',
         atividadeSexual: this.fb.group({
           protegida: '',
-          desprotegida: '',
           parceiroUnico: '',
-          multiplosParceiros: ''
         }),
         testeDst: ''
       }),
       historiaGinecologica: this.fb.group({
         ultimoExame: '',
         dum: '',
-        idadeFertil: '',
-        menopausa: '',
+        fertilidade: '',
         cicloMenstrual: '',
         usoAnticoncepcional: '',
         ondeAcompanha: '',
