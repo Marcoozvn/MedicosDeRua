@@ -11,8 +11,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-  private loginForm: any;
-  private error: boolean;
+  public loginForm: any;
+  public error: boolean;
 
   constructor(private formBuilder: FormBuilder, private authService: AuthService, private router: Router) { }
 
