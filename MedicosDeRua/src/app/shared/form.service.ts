@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-
-const API = 'http://localhost:3333';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -22,10 +21,10 @@ export class FormService {
   }
 
   public saveForm(type: string, form: any) {
-    return this.http.post(`${API}/form/${type}`, form);
+    return this.http.post(`${environment.API_HOST}/form/${type}`, form);
   }
 
   public updateForm(type: string, form: any, id: string) {
-    return this.http.put(`${API}/form/${type}/${id}`, form);
+    return this.http.put(`${environment.API_HOST}/form/${type}/${id}`, form);
   }
 }
