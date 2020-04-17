@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  API_HOST: 'https://medicosderua-backend.herokuapp.com/'
+  API_HOST: 'https://medicosderua-backend.herokuapp.com'
 };
 
 /*
