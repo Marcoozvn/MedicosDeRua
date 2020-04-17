@@ -2,8 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, BehaviorSubject } from 'rxjs';
 import { map } from 'rxjs/operators';
-
-const API = 'http://localhost:3333';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -18,7 +17,7 @@ export class AuthService {
   }
 
   private authenticate(username: string, password: string): Observable<any> {
-    return this.http.post(`${API}/login`, { username, password });
+    return this.http.post(`${environment.API_HOST}/login`, { username, password });
   }
 
   public isAuthenticated(): boolean {
