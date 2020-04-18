@@ -261,20 +261,20 @@
         <mat-expansion-panel-header>
           <h3>Perfil Psicossocial</h3>
         </mat-expansion-panel-header>
-        <section>
-          <div class="dsip-flex-row">
+        <section >
+          <div  formGroupName="perfilPsicosocial" class="dsip-flex-row">
             <div class="matInput">
               <label> Motivo pelo qual está na rua:</label>
-              <mat-checkbox>Desemprego</mat-checkbox>
-              <mat-checkbox>Uso de substancias</mat-checkbox>
+              <mat-checkbox value="Desemprego" formControlName="motivoRua">Desemprego</mat-checkbox>
+              <mat-checkbox value="Uso de Substancias" formControlName="motivoRua">Uso de substancias</mat-checkbox>
               <mat-form-field>
-                <input matInput name="outro" placeholder="Outros">
+                <input matInput formControlName="outrosMotivos" name="outro" placeholder="Outros">
               </mat-form-field>
             </div>
             <div class="matInput">
               <mat-checkbox>Conflito Familiar</mat-checkbox>
               <mat-form-field>
-                <input matInput name="conflitoFam" placeholder="Se Conflito familiar, qual?">
+                <input matInput name="conflitoFamiliar" placeholder="Se Conflito familiar, qual?">
               </mat-form-field>
             </div>
           </div>
@@ -341,99 +341,101 @@
             </div>
           </section>
           <br>
-          <div>
+          <div formGroupName="perfilPsicosocial">
             <div>
-              <mat-radio-group aria-labelledby="example-radio-group-label" class="matInput">
-                <label id="example-radio-group-label">Já ficou abstinente?</label>&nbsp;
-                <mat-radio-button value="S" labelPosition="before">S</mat-radio-button>&nbsp;
-                <mat-radio-button value="N" labelPosition="before">N?</mat-radio-button>
-
-              </mat-radio-group>
-            </div>
-            <div>
-              <mat-form-field class="matInput">
-                <input matInput name="" placeholder="De qual substância?">
-              </mat-form-field>
-              <mat-form-field class="matInput">
-                <input matInput name="" placeholder="Por quanto tempo?">
-              </mat-form-field>
-            </div>
-          </div>
-          <div>
-            <mat-radio-group aria-labelledby="example-radio-group-label">
-              <label id="example-radio-group-label">Já tratou?</label>&nbsp;
-              <mat-radio-button value="S" labelPosition="before">S</mat-radio-button>&nbsp;
-              <mat-radio-button value="N" labelPosition="before">N?</mat-radio-button>
-            </mat-radio-group>
-
-            <div>
-              <mat-form-field class="full">
-                <input matInput name="" placeholder="Como?">
-              </mat-form-field>
-            </div>
-          </div>
-          <div style="display: flex;">
-            <div class="matInput">
-              <mat-radio-group aria-labelledby="example-radio-group-label">
-                <label id="example-radio-group-label">Tem algum problema mental?</label>&nbsp;
-                <mat-radio-button value="S" labelPosition="before">S</mat-radio-button>&nbsp;
-                <mat-radio-button value="N" labelPosition="before">N?</mat-radio-button>
-              </mat-radio-group>
-            </div>
-            <div class="matInput">
-              <mat-radio-group aria-labelledby="example-radio-group-label">
-                <label id="example-radio-group-label">Ja foi atendido por:</label>&nbsp;
-                <mat-radio-button value="S" labelPosition="before">Psicólogo?</mat-radio-button>&nbsp;
-                <mat-radio-button value="N" labelPosition="before">Psiquiatra?</mat-radio-button>
-              </mat-radio-group>
-            </div>
-          </div>
-          <br>
-          <div>
-            <label>Qual?</label>
-            <mat-checkbox>Depressão</mat-checkbox>
-            <mat-checkbox>Esquizofrenia</mat-checkbox>
-            <mat-checkbox>Transt. do pânico</mat-checkbox>&nbsp;
-            <mat-form-field class="full">
-              <input matInput name="outro" placeholder="Outros:">
-            </mat-form-field>
-          </div>
-
-          <div>
-            <mat-radio-group aria-labelledby="example-radio-group-label">
-              <label id="example-radio-group-label">Já tratou?</label>&nbsp;
-              <mat-radio-button value="S" labelPosition="before">S</mat-radio-button>&nbsp;
-              <mat-radio-button value="N" labelPosition="before">N?</mat-radio-button>
-            </mat-radio-group>
-            <div>
-              <mat-form-field class="full">
-                <input matInput name="" placeholder="Como?">
-              </mat-form-field>
-            </div>
-          </div>
-          <div>
-            <label>Já ultilizou algum desses serviços?</label>
-            <div *ngFor="let servico of servicos">
-              <mat-checkbox>{{servico}}</mat-checkbox>
-              <div *ngIf="true">
+              <div>
+                <mat-radio-group  formControlName="abstinente" aria-labelledby="example-radio-group-label" class="matInput">
+                  <label id="example-radio-group-label">Já ficou abstinente?</label>&nbsp;
+                  <mat-radio-button value="S" labelPosition="before">S</mat-radio-button>&nbsp;
+                  <mat-radio-button value="N" labelPosition="before">N?</mat-radio-button>
+  
+                </mat-radio-group>
+              </div>
+              <div>
                 <mat-form-field class="matInput">
-                  <input matInput name="" placeholder="Qual?">
+                  <input matInput name="" placeholder="De qual substância?">
                 </mat-form-field>
                 <mat-form-field class="matInput">
-                  <input matInput name="" placeholder="Onde?">
+                  <input matInput name="" placeholder="Por quanto tempo?">
                 </mat-form-field>
               </div>
             </div>
-          </div>
-          <div>
-            <mat-form-field class="full">
-              <input matInput name="" placeholder="Onde busca ajuda quando tem problema de saúde?">
-            </mat-form-field>
-          </div>
-          <div>
-            <mat-form-field class="full">
-              <input matInput name="" placeholder="Como podemos te ajudar a sair das ruas?">
-            </mat-form-field>
+            <div>
+              <mat-radio-group aria-labelledby="example-radio-group-label">
+                <label id="example-radio-group-label">Já tratou?</label>&nbsp;
+                <mat-radio-button value="S" labelPosition="before">S</mat-radio-button>&nbsp;
+                <mat-radio-button value="N" labelPosition="before">N?</mat-radio-button>
+              </mat-radio-group>
+  
+              <div>
+                <mat-form-field class="full">
+                  <input matInput name="" placeholder="Como?">
+                </mat-form-field>
+              </div>
+            </div>
+            <div style="display: flex;">
+              <div class="matInput">
+                <mat-radio-group aria-labelledby="example-radio-group-label">
+                  <label id="example-radio-group-label">Tem algum problema mental?</label>&nbsp;
+                  <mat-radio-button value="S" labelPosition="before">S</mat-radio-button>&nbsp;
+                  <mat-radio-button value="N" labelPosition="before">N?</mat-radio-button>
+                </mat-radio-group>
+              </div>
+              <div class="matInput">
+                <mat-radio-group aria-labelledby="example-radio-group-label">
+                  <label id="example-radio-group-label">Ja foi atendido por:</label>&nbsp;
+                  <mat-radio-button value="S" labelPosition="before">Psicólogo?</mat-radio-button>&nbsp;
+                  <mat-radio-button value="N" labelPosition="before">Psiquiatra?</mat-radio-button>
+                </mat-radio-group>
+              </div>
+            </div>
+            <br>
+            <div>
+              <label>Qual?</label>
+              <mat-checkbox>Depressão</mat-checkbox>
+              <mat-checkbox>Esquizofrenia</mat-checkbox>
+              <mat-checkbox>Transt. do pânico</mat-checkbox>&nbsp;
+              <mat-form-field class="full">
+                <input matInput name="outro" placeholder="Outros:">
+              </mat-form-field>
+            </div>
+  
+            <div>
+              <mat-radio-group aria-labelledby="example-radio-group-label">
+                <label id="example-radio-group-label">Já tratou?</label>&nbsp;
+                <mat-radio-button value="S" labelPosition="before">S</mat-radio-button>&nbsp;
+                <mat-radio-button value="N" labelPosition="before">N?</mat-radio-button>
+              </mat-radio-group>
+              <div>
+                <mat-form-field class="full">
+                  <input matInput name="" placeholder="Como?">
+                </mat-form-field>
+              </div>
+            </div>
+            <div>
+              <label>Já ultilizou algum desses serviços?</label>
+              <div *ngFor="let servico of servicos">
+                <mat-checkbox>{{servico}}</mat-checkbox>
+                <div *ngIf="true">
+                  <mat-form-field class="matInput">
+                    <input matInput name="" placeholder="Qual?">
+                  </mat-form-field>
+                  <mat-form-field class="matInput">
+                    <input matInput name="" placeholder="Onde?">
+                  </mat-form-field>
+                </div>
+              </div>
+            </div>
+            <div>
+              <mat-form-field class="full">
+                <input matInput name="" placeholder="Onde busca ajuda quando tem problema de saúde?">
+              </mat-form-field>
+            </div>
+            <div>
+              <mat-form-field class="full">
+                <input matInput name="" placeholder="Como podemos te ajudar a sair das ruas?">
+              </mat-form-field>
+            </div>
           </div>
         </section>
       </mat-expansion-panel>
@@ -757,12 +759,10 @@
           <div formGroupName="atividadeSexual">
             <label>Atividade Sexual:</label>&nbsp;
             <mat-radio-group formControlName="protegida">
-              <mat-radio-button value=true>Protegida</mat-radio-button>&nbsp;
-              <mat-radio-button value=false>Desprotegida</mat-radio-button>&nbsp;
-            </mat-radio-group>
-            <mat-radio-group formControlName="parceiroUnico">
-              <mat-radio-button value=true>Parceiro(a) único(a)</mat-radio-button>&nbsp;
-              <mat-radio-button value=false>Múltiplos(as) parceiros(as)</mat-radio-button>
+              <mat-radio-button value="Protegida">Protegida</mat-radio-button>&nbsp;
+              <mat-radio-button value="Desprotegida">Desprotegida</mat-radio-button>&nbsp;
+              <mat-radio-button value="parceiroUnico">Parceiro(a) único(a)</mat-radio-button>&nbsp;
+              <mat-radio-button value="multiplosParceiros">Múltiplos(as) parceiros(as)</mat-radio-button>
             </mat-radio-group>
           </div>
           <br>
