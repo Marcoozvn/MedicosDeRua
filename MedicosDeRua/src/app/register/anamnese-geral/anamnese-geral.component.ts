@@ -80,6 +80,26 @@ export class AnamneseGeralComponent implements OnInit {
         carteiraAssinada: '',
         ocupacaoClt: ''
       }),
+      perfilPsicosocial: this.fb.group({
+        motivoRua: '',
+        outrosMotivos: '',
+        conflitoFamiliar: '',
+        motivoConflito: '',
+        usoSubstancias: '',
+        abstinente: '',
+        qualSubstancia: '',
+        tempoAbstinencia: '',
+        tratou: '',
+        comoTratou: '',
+        atendidoPor: '',
+        problemaMental: '',
+        qualProblemaMental: '',
+        servicos: '',
+        quaisServicos: '',
+        ondeBuscaAjuda: '',
+        comoPodemosAjudar: ''
+
+      }),
       substancias: this.fb.group({
         usoSubstancias: 'false',
         Alcool: this.fb.group({
@@ -263,7 +283,9 @@ export class AnamneseGeralComponent implements OnInit {
         qualAtividade: '',
         atividadeSexual: this.fb.group({
           protegida: '',
+          desprotegida: '',
           parceiroUnico: '',
+          multiplosParceiros: ''
         }),
         testeDst: ''
       }),
@@ -338,22 +360,22 @@ export class AnamneseGeralComponent implements OnInit {
         sabiaDaPatologia: '',
         jaUsouMedicacao: '',
         houveNecessida: '',
-        foiExplicadoUso:'',
+        foiExplicadoUso: '',
         motivo: '',
         dispensado: '',
-        medicacao: '', 
+        medicacao: '',
         paAntesMedicacao: '',
-        paDepoisMedicacao:''
+        paDepoisMedicacao: ''
       }),
       encaminhamentosExternos: this.fb.group({
         encUPA: '',
         encUBS: '',
         encCAPS: '',
-        outro:'',
+        outro: '',
         assPaciente: '',
         assAcademico: '',
         assCarimboMedico: '',
-        assPacienteResp:''
+        assPacienteResp: ''
       })
     })
   }
