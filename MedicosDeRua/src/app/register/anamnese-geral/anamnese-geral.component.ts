@@ -64,7 +64,6 @@ export class AnamneseGeralComponent implements OnInit {
         nomeDarua: '',
         outrosRua: '',
         comQuemEstaNaRua: '',
-        outrosCompainha: '',
         seAcompanhado: this.fb.group({
           numeroAdultos: '',
           numeroCriancas: '',

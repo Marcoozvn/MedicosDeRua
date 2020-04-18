@@ -122,6 +122,13 @@ input {
 	}
 }
 
+.onde-vive {
+	.matInput {
+		min-width: auto;
+		width: auto;
+	}
+}
+
 .na-rua {
 	display: flex;
 	align-items: baseline;
@@ -246,6 +253,21 @@ input {
 		align-items: flex-start !important;
 	}
 
+	.na-rua {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.onde-vive {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.tempo-na-rua {
+		display: flex;
+		flex-direction: column;
+	}
+
 	.grid-2 {
 		margin-top: 5px;
 		display: flex !important;
@@ -304,6 +326,16 @@ input {
 	.submit-button {
 		width: 100%;
 	}    
+
+	.col {
+		display: flex;
+		flex-direction: column;
+
+		.matInput {
+			max-width: 100% !important;
+		}
+		
+	}
 }
 
 .dsip-flex-row {
