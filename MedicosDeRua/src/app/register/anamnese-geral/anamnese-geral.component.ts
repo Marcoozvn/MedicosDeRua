@@ -45,8 +45,6 @@ export class AnamneseGeralComponent implements OnInit {
         orientacao: '',
         situacaoConjugal: '',
         escolaridade: '',
-        qualCursoTec: '',
-        qualCursoSup: '',
         cidade: '',
         ultimaCidade: '',
         temDocsPessoais: '',
@@ -81,68 +79,111 @@ export class AnamneseGeralComponent implements OnInit {
         ocupacaoClt: ''
       }),
       perfilPsicosocial: this.fb.group({
-        motivoRua: '',
-        outrosMotivos: '',
-        conflitoFamiliar: '',
-        motivoConflito: '',
-        usoSubstancias: '',
-        abstinente: '',
-        qualSubstancia: '',
-        tempoAbstinencia: '',
-        tratou: '',
-        comoTratou: '',
+        motivoRua: this.fb.group({
+          usoSubstancias: '',
+          conflitoFamiliar: '',
+          desemprego: '',
+          outrosMotivos: ''
+        }),
+        usoSubstancias: this.fb.group({
+          uso: 'false',
+          Alcool: this.fb.group({
+            uso: false,
+            tipoDeUso: { value: '', disabled: false },
+            quantidade: '',
+            frequencia: ''
+          }),
+          Cigarro: this.fb.group({
+            uso: false,
+            quantidade: '',
+            tempoDeUso: ''
+          }),
+          Cocaína: this.fb.group({
+            uso: false,
+            tipoDeUso: '',
+            quantidade: '',
+            frequencia: ''
+          }),
+          Maconha: this.fb.group({
+            uso: false,
+            tipoDeUso: '',
+            quantidade: '',
+            frequencia: ''
+          }),
+          LSD: this.fb.group({
+            uso: false,
+            tipoDeUso: '',
+            quantidade: '',
+            frequencia: ''
+          }),
+          Ecstasy: this.fb.group({
+            uso: false,
+            tipoDeUso: '',
+            quantidade: '',
+            frequencia: ''
+          }),
+          'Lança perfume': this.fb.group({
+            uso: false,
+            tipoDeUso: '',
+            quantidade: '',
+            frequencia: ''
+          }),
+          abstinente: '',
+          qualSubstancia: '',
+          tempoAbstinencia: '',
+          tratou: '',
+          comoTratou: '',
+        }),
+        problemaMental: this.fb.group({
+          possui: '',
+          Depressão: '',
+          Esquizofrenia: '',
+          'Transtorno do Pânico': '',
+          Outro: '',
+          tratou: '',
+          comoTratou: ''
+        }),
         atendidoPor: '',
-        problemaMental: '',
-        qualProblemaMental: '',
-        servicos: '',
-        quaisServicos: '',
+        servicos: this.fb.group({
+          FAS: this.fb.group({
+            usou: '',
+            qual: '',
+            onde: ''
+          }),
+          CREAS: this.fb.group({
+            usou: '',
+            qual: '',
+            onde: ''
+          }),
+          Albergue: this.fb.group({
+            usou: '',
+            qual: '',
+            onde: ''
+          }),
+          'Centro Pop': this.fb.group({
+            usou: '',
+            qual: '',
+            onde: ''
+          }),
+          CRAS: this.fb.group({
+            usou: '',
+            qual: '',
+            onde: ''
+          }),
+          Internamento: this.fb.group({
+            usou: '',
+            qual: '',
+            onde: ''
+          }),
+          CAPS: this.fb.group({
+            usou: '',
+            qual: '',
+            onde: ''
+          })
+        }),
         ondeBuscaAjuda: '',
         comoPodemosAjudar: ''
 
-      }),
-      substancias: this.fb.group({
-        usoSubstancias: 'false',
-        Alcool: this.fb.group({
-          uso: false,
-          tipoDeUso: { value: '', disabled: false },
-          quantidade: '',
-          frequencia: ''
-        }),
-        Cigarro: this.fb.group({
-          uso: false,
-          quantidade: '',
-          tempoDeUso: ''
-        }),
-        Cocaína: this.fb.group({
-          uso: false,
-          tipoDeUso: '',
-          quantidade: '',
-          frequencia: ''
-        }),
-        Maconha: this.fb.group({
-          uso: false,
-          tipoDeUso: '',
-          quantidade: '',
-          frequencia: ''
-        }),
-        LSD: this.fb.group({
-          uso: false,
-          tipoDeUso: '',
-          quantidade: '',
-          frequencia: ''
-        }),
-        Ecstasy: this.fb.group({
-          uso: false,
-          tipoDeUso: '',
-          quantidade: '',
-          frequencia: ''
-        }),
-        'Lança perfume': this.fb.group({
-          uso: false,
-          tipoDeUso: '',
-          quantidade: '',
-          frequencia: ''
-        }),
       }),
       sinaisVitais: this.fb.group({
         freqCardiaca: '',

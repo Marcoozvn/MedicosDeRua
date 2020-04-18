@@ -41,18 +41,18 @@
           <div class="dsip-flex-row">
             <mat-radio-group formControlName="etnia" aria-labelledby="example-radio-group-label" class="matInput">
               <label id="example-radio-group-label">Etnia:</label>&nbsp;
-              <mat-radio-button value="Branco" labelPosition="before">Branco</mat-radio-button>&nbsp;
-              <mat-radio-button value="Pardo" labelPosition="before">Pardo</mat-radio-button>&nbsp;
-              <mat-radio-button value="Negro" labelPosition="before">Negro</mat-radio-button>&nbsp;
-              <mat-radio-button value="Amarelo" labelPosition="before">Amarelo</mat-radio-button>&nbsp;
-              <mat-radio-button value="Indigena" labelPosition="before">Indígena</mat-radio-button>
+              <mat-radio-button value="Branco">Branco</mat-radio-button>&nbsp;
+              <mat-radio-button value="Pardo">Pardo</mat-radio-button>&nbsp;
+              <mat-radio-button value="Negro">Negro</mat-radio-button>&nbsp;
+              <mat-radio-button value="Amarelo">Amarelo</mat-radio-button>&nbsp;
+              <mat-radio-button value="Indigena">Indígena</mat-radio-button>
             </mat-radio-group>
 
             <mat-radio-group formControlName="sexo" aria-labelledby="example-radio-group-label" class="matInput">
               <label id="example-radio-group-label">Sexo:</label>&nbsp;
-              <mat-radio-button value="M" labelPosition="before">M</mat-radio-button>&nbsp;
-              <mat-radio-button value="F" labelPosition="before">F</mat-radio-button>&nbsp;
-              <mat-radio-button value="Trans" labelPosition="before">Trans</mat-radio-button>
+              <mat-radio-button value="M">M</mat-radio-button>&nbsp;
+              <mat-radio-button value="F">F</mat-radio-button>&nbsp;
+              <mat-radio-button value="Trans">Trans</mat-radio-button>
             </mat-radio-group>
           </div>
           <br>
@@ -60,18 +60,18 @@
           <div class="dsip-flex-row">
             <mat-radio-group formControlName="orientacao" aria-labelledby="example-radio-group-label" class="matInput">
               <label id="example-radio-group-label">Orientação:</label>&nbsp;
-              <mat-radio-button value="hetero" labelPosition="before">Hetero</mat-radio-button>&nbsp;
-              <mat-radio-button value="homo" labelPosition="before">Homo</mat-radio-button>&nbsp;
-              <mat-radio-button value="trans" labelPosition="before">Trans</mat-radio-button>
+              <mat-radio-button value="hetero">Hetero</mat-radio-button>&nbsp;
+              <mat-radio-button value="homo">Homo</mat-radio-button>&nbsp;
+              <mat-radio-button value="trans">Trans</mat-radio-button>
             </mat-radio-group>
 
             <mat-radio-group formControlName="situacaoConjugal" aria-labelledby="example-radio-group-label"
               class="matInput">
               <label id="example-radio-group-label">Sit. conjugal:</label>&nbsp;
-              <mat-radio-button value="solteiro" labelPosition="before">Solteiro</mat-radio-button>&nbsp;
-              <mat-radio-button value="casado" labelPosition="before">Casado</mat-radio-button>&nbsp;
-              <mat-radio-button value="divorciado" labelPosition="before">Divorciado</mat-radio-button>
-              <mat-radio-button value="viuvo" labelPosition="before">Viúvo</mat-radio-button>
+              <mat-radio-button value="solteiro">Solteiro</mat-radio-button>&nbsp;
+              <mat-radio-button value="casado">Casado</mat-radio-button>&nbsp;
+              <mat-radio-button value="divorciado">Divorciado</mat-radio-button>
+              <mat-radio-button value="viuvo">Viúvo</mat-radio-button>
             </mat-radio-group>
           </div>
           <br>
@@ -81,59 +81,53 @@
               <mat-radio-group formControlName="escolaridade" aria-labelledby="example-radio-group-label"
                 class="matInput">
                 <label id="example-radio-group-label">Escolaridade:</label>&nbsp;
-                <mat-radio-button value="analfabeto" labelPosition="before">Analfabeto
+                <mat-radio-button value="analfabeto">Analfabeto
                 </mat-radio-button>
                 &nbsp;
-                <mat-radio-button value="tecnico" labelPosition="before">Só lê e escreve
+                <mat-radio-button value="le&escreve">Só lê e escreve
                 </mat-radio-button>
                 &nbsp;
-                <mat-radio-button value="ens.medio" labelPosition="before">Ensino Fundamental
+                <mat-radio-button value="ens.medio">Ensino Fundamental
                 </mat-radio-button>
                 &nbsp;
-                <mat-radio-button value="ens.fund" labelPosition="before">Ensino Medio
+                <mat-radio-button value="ens.fund">Ensino Medio
                 </mat-radio-button>
                 &nbsp;
-                <mat-radio-button value="tecnico" labelPosition="before">Técnico
+                <mat-radio-button value="tecnico">Técnico
                 </mat-radio-button>&nbsp;
-                <mat-form-field>
-                  <input formControlName="qualCursoTec" matInput name="ens.tec" placeholder="Qual?">
-                </mat-form-field>&nbsp;
-                <mat-radio-button value="ens.sup" labelPosition="before">Ensino Superior
+                <mat-radio-button value="ens.sup">Ensino Superior
                 </mat-radio-button>&nbsp;
-                <mat-form-field>
-                  <input formControlName="qualCursoSup" matInput name="ens.tec" placeholder="Qual?">
-                </mat-form-field>
               </mat-radio-group>
             </div>
           </div>
 
           <div>
             <mat-form-field class="matInput">
-              <input formControlName="cidade" matInput name="nome" placeholder="Cidade e estado onde nasceu:">
+              <input formControlName="cidade" matInput name="nome" placeholder="Cidade e estado onde nasceu">
             </mat-form-field>
 
             <mat-form-field class="matInput">
               <input formControlName="ultimaCidade" matInput name="idade"
-                placeholder="Última cidade e estado em que morou:">
+                placeholder="Última cidade e estado em que morou">
             </mat-form-field>
           </div>
 
           <div class="dsip-flex-row">
             <mat-radio-group formControlName="temDocsPessoais" aria-labelledby="example-radio-group-label"
               class="matInput">
-              <label id="example-radio-group-label">Tem documentos pessoais?:</label>&nbsp;
-              <mat-radio-button value="sim" labelPosition="before">S</mat-radio-button>
+              <label id="example-radio-group-label">Tem documentos pessoais?</label>&nbsp;
+              <mat-radio-button value="sim">Sim</mat-radio-button>
               &nbsp;
-              <mat-radio-button value="nao" labelPosition="before">N</mat-radio-button>
+              <mat-radio-button value="nao">Não</mat-radio-button>
             </mat-radio-group>
 
-            <mat-radio-group formGroupName="documentosPessoais" aria-labelledby="example-radio-group-label"
-              class="matInput">
+            <div formGroupName="documentosPessoais" aria-labelledby="example-radio-group-label"
+              *ngIf="anamneseForm.value.paciente.temDocsPessoais == 'sim'" class="matInput">
               <label id="example-radio-group-label">Quais?</label>&nbsp;
               <mat-checkbox [formControlName]="documento" style="padding: 5px;" class=""
                 *ngFor="let documento of docsPessoais">
                 {{documento}}</mat-checkbox>
-            </mat-radio-group>
+            </div>
           </div>
 
           <div>
@@ -154,39 +148,39 @@
         <section formGroupName="perfilSocioeconomico">
           <div>
             <mat-radio-group formControlName="tempoDeRua" aria-labelledby="example-radio-group-label" class="matInput">
-              <label id="example-radio-group-label">Há quanto tempo está na rua:</label>&nbsp;
-              <mat-radio-button value="1" labelPosition="before"> 1 ano </mat-radio-button>&nbsp;
-              <mat-radio-button value="1-2" labelPosition="before"> 1-2 anos </mat-radio-button>&nbsp;
-              <mat-radio-button value="3-5" labelPosition="before"> 3-5 anos </mat-radio-button>&nbsp;
-              <mat-radio-button value="+5" labelPosition="before"> +5 anos </mat-radio-button>&nbsp;
+              <label id="example-radio-group-label">Há quanto tempo está na rua?</label>&nbsp;
+              <mat-radio-button value="1"> 1 ano </mat-radio-button>&nbsp;
+              <mat-radio-button value="1-2"> 1-2 anos </mat-radio-button>&nbsp;
+              <mat-radio-button value="3-5"> 3-5 anos </mat-radio-button>&nbsp;
+              <mat-radio-button value="+5"> +5 anos </mat-radio-button>&nbsp;
             </mat-radio-group>
           </div>
           <br>
           <div>
             <mat-radio-group formControlName="ondevive" aria-labelledby="example-radio-group-label" class="matInput">
               <label id="example-radio-group-label">Onde costuma dormir?</label>&nbsp;
-              <mat-radio-button value="rua" labelPosition="before">Rua?</mat-radio-button>&nbsp;
+              <mat-radio-button value="rua">Rua?</mat-radio-button>&nbsp;
               <mat-form-field>
                 <input formControlName="nomeDarua" matInput name="qualRua" placeholder="Qual?">
               </mat-form-field>
-              <mat-radio-button value="albergue" labelPosition="before">Albergue</mat-radio-button>&nbsp;
-              <mat-radio-button value="pousoPago" labelPosition="before">Pouso pago</mat-radio-button>
+              <mat-radio-button value="albergue">Albergue</mat-radio-button>&nbsp;
+              <mat-radio-button value="pousoPago">Pouso pago</mat-radio-button>
               &nbsp;
               <mat-form-field class="matInput">
                 <input formControlName="outrosRua" matInput name="outro" placeholder="Outro:">
               </mat-form-field>
             </mat-radio-group>
           </div>
-          <div>
-            <mat-radio-group formControlName="comQuemEstaNaRua" aria-labelledby="example-radio-group-label"
+          <div class="na-rua">
+            <mat-radio-group formControlName="comQuemEstaNaRua" aria-labelledby="example-radio-group-label" 
               class="matInput">
               <label id="example-radio-group-label">Está na rua:</label>&nbsp;
-              <mat-radio-button value="sozinho" labelPosition="before">Sozinho?</mat-radio-button>
+              <mat-radio-button value="sozinho">Sozinho?</mat-radio-button>
               &nbsp;
-              <mat-radio-button value="comFamilia" labelPosition="before">Com familia?
+              <mat-radio-button value="comFamilia">Com familia?
               </mat-radio-button>
               &nbsp;
-              <mat-radio-button value="comAmigos" labelPosition="before">Com amigos?
+              <mat-radio-button value="comAmigos">Com amigos?
               </mat-radio-button>
               &nbsp;
             </mat-radio-group>
@@ -211,8 +205,8 @@
               </mat-form-field>&nbsp;
               <mat-radio-group formControlName="estudam" aria-labelledby="example-radio-group-label" class="matInput">
                 <label id="example-radio-group-label">Se estudam?</label>&nbsp;
-                <mat-radio-button value="S" labelPosition="before">S</mat-radio-button>&nbsp;
-                <mat-radio-button value="N" labelPosition="before">N?</mat-radio-button>
+                <mat-radio-button value="S">Sim</mat-radio-button>&nbsp;
+                <mat-radio-button value="N">Não</mat-radio-button>
               </mat-radio-group>
             </div>
           </div>
@@ -220,17 +214,17 @@
             <mat-radio-group formControlName="parentesEmCuritiba" aria-labelledby="example-radio-group-label"
               class="matInput">
               <label id="example-radio-group-label">Parentes moram em Curitiba?</label>&nbsp;
-              <mat-radio-button value="S" labelPosition="before">S</mat-radio-button>&nbsp;
-              <mat-radio-button value="N" labelPosition="before">N?</mat-radio-button>
+              <mat-radio-button value="S">Sim</mat-radio-button>&nbsp;
+              <mat-radio-button value="N">Não</mat-radio-button>
             </mat-radio-group>&nbsp;&nbsp;
-            <mat-form-field class="matInput">
+            <mat-form-field class="matInput" *ngIf="anamneseForm.value.perfilSocioeconomico.parentesEmCuritiba == 'N'">
               <input formControlName="localidadeParentes" matInput name="outro" placeholder="Se não, onde?">
             </mat-form-field>&nbsp;
 
             <mat-radio-group formControlName="temContato" aria-labelledby="example-radio-group-label" class="matInput">
               <label id="example-radio-group-label">Tem contato com eles?</label>&nbsp;
-              <mat-radio-button value="S" labelPosition="before">S</mat-radio-button>&nbsp;
-              <mat-radio-button value="N" labelPosition="before">N?</mat-radio-button>
+              <mat-radio-button value="S">Sim</mat-radio-button>&nbsp;
+              <mat-radio-button value="N">Não</mat-radio-button>
             </mat-radio-group>
           </div>
           <div>
@@ -244,8 +238,8 @@
               class="matInput">
               <label id="example-radio-group-label">Já teve emprego formal/carteira
                 assinada?</label>&nbsp;
-              <mat-radio-button value="S" labelPosition="before">S</mat-radio-button>&nbsp;
-              <mat-radio-button value="N" labelPosition="before">N?</mat-radio-button>
+              <mat-radio-button value="S">Sim</mat-radio-button>&nbsp;
+              <mat-radio-button value="N">Não</mat-radio-button>
             </mat-radio-group>
             <div>
               <mat-form-field style="width: 100%;">
@@ -261,27 +255,24 @@
         <mat-expansion-panel-header>
           <h3>Perfil Psicossocial</h3>
         </mat-expansion-panel-header>
-        <section >
-          <div  formGroupName="perfilPsicosocial" class="dsip-flex-row">
-            <div class="matInput">
-              <label> Motivo pelo qual está na rua:</label>
-              <mat-checkbox value="Desemprego" formControlName="motivoRua">Desemprego</mat-checkbox>
-              <mat-checkbox value="Uso de Substancias" formControlName="motivoRua">Uso de substancias</mat-checkbox>
+        <section formGroupName="perfilPsicosocial">
+          <div style="display: flex; flex-direction: column;">
+            <label> Motivo pelo qual está na rua:</label>
+            <div formGroupName="motivoRua" style="display: grid; grid-template-columns: 1fr 1fr;">
+              <mat-checkbox value="Sim" formControlName="desemprego" class="display-center">Desemprego</mat-checkbox>
+              <mat-checkbox value="Sim" formControlName="usoSubstancias" class="display-center">Uso de substancias
+              </mat-checkbox>
+              <mat-checkbox value="Sim" formControlName="conflitoFamiliar" class="display-center">Conflito Familiar
+              </mat-checkbox>
               <mat-form-field>
-                <input matInput formControlName="outrosMotivos" name="outro" placeholder="Outros">
-              </mat-form-field>
-            </div>
-            <div class="matInput">
-              <mat-checkbox>Conflito Familiar</mat-checkbox>
-              <mat-form-field>
-                <input matInput name="conflitoFamiliar" placeholder="Se Conflito familiar, qual?">
+                <input matInput name="outrosMotivos" placeholder="Outros" formControlName="outrosMotivos">
               </mat-form-field>
             </div>
           </div>
-          <section class="substancias-container" formGroupName="substancias">
+          <div class="substancias-container" formGroupName="usoSubstancias">
             <div class="left">
               <div>
-                <mat-radio-group formControlName="usoSubstancias">
+                <mat-radio-group formControlName="uso">
                   <label id="example-radio-group-label"><strong>Uso de
                       substâncias:</strong></label>&nbsp;
                   <mat-radio-button value="true" labelPosition="before">Sim</mat-radio-button>&nbsp;
@@ -289,153 +280,139 @@
                   </mat-radio-button>
                 </mat-radio-group>
               </div>
-              <div *ngIf="anamneseForm.value.substancias.usoSubstancias == 'true'">
+              <div *ngIf="anamneseForm.value.perfilPsicosocial.usoSubstancias.uso == 'true'">
                 <div formGroupName="Alcool" class="substancia-item-container">
                   <mat-checkbox class="" value="true" formControlName="uso">Álcool</mat-checkbox>
-                  &nbsp;
-                  <div *ngIf="anamneseForm.value.substancias.Alcool.uso" class="substancia-item-container">
+                  <div *ngIf="anamneseForm.value.perfilPsicosocial.usoSubstancias.Alcool.uso"
+                    class="substancia-item-container">
                     <mat-form-field>
                       <input matInput name="quantidade" placeholder="Quantidade (ex: 2 copos)"
                         formControlName="quantidade">
-                    </mat-form-field>&nbsp;
+                    </mat-form-field>
                     <mat-radio-group formControlName="tipoDeUso">
                       <mat-radio-button value="Diário">Diário</mat-radio-button>
                       <mat-radio-button value="Esporádico" style="margin: 5px;">Esporádico
                       </mat-radio-button>
                     </mat-radio-group>
-                    <mat-form-field *ngIf="anamneseForm.value.substancias.Alcool.tipoDeUso == 'Esporádico'">
+                    <mat-form-field
+                      *ngIf="anamneseForm.value.perfilPsicosocial.usoSubstancias.Alcool.tipoDeUso == 'Esporádico'">
                       <input matInput name="quantidade" placeholder="x na sem." formControlName="frequencia"
-                        [required]="anamneseForm.value.substancias.Alcool.tipoDeUso == 'Esporádico'">
-                    </mat-form-field>&nbsp;
+                        [required]="anamneseForm.value.perfilPsicosocial.usoSubstancias.Alcool.tipoDeUso == 'Esporádico'">
+                    </mat-form-field>
                   </div>
                 </div>
                 <div formGroupName="Cigarro" class="substancia-item-container">
                   <mat-checkbox class="" value="true" formControlName="uso">Cigarro</mat-checkbox>
-                  &nbsp;
-                  <div *ngIf="anamneseForm.value.substancias.Cigarro.uso">
+                  <div *ngIf="anamneseForm.value.perfilPsicosocial.usoSubstancias.Cigarro.uso">
                     <mat-form-field>
                       <input matInput placeholder="Quantidade/Maços" formControlName="quantidade">
-                    </mat-form-field>&nbsp;
+                    </mat-form-field>
                     <mat-form-field>
                       <input matInput placeholder="Tempo/Anos" formControlName="tempoDeUso">
-                    </mat-form-field>&nbsp;
+                    </mat-form-field>
                   </div>
                 </div>
               </div>
             </div>
-            <div *ngIf="anamneseForm.value.substancias.usoSubstancias == 'true'"
+            <div *ngIf="anamneseForm.value.perfilPsicosocial.usoSubstancias.uso == 'true'"
               style="display: flex; flex-direction: column;">
               <div *ngFor="let droga of drogas" [formGroupName]="droga.nome" class="substancia-item-container">
-                <mat-checkbox formControlName="uso">{{droga?.nome}}</mat-checkbox>&nbsp;
-                <div *ngIf="anamneseForm.value.substancias[droga.nome].uso">
+                <mat-checkbox formControlName="uso">{{droga?.nome}}</mat-checkbox>
+                <div *ngIf="anamneseForm.value.perfilPsicosocial.usoSubstancias[droga.nome].uso">
                   <mat-radio-group formControlName="tipoDeUso">
-                    <mat-radio-button value="Diário">Diário</mat-radio-button>&nbsp;
-                    <mat-radio-button value="Esporádico">Esporádico</mat-radio-button>&nbsp;
+                    <mat-radio-button value="Diário">Diário</mat-radio-button>
+                    <mat-radio-button value="Esporádico">Esporádico</mat-radio-button>
                   </mat-radio-group>
-                  <mat-form-field *ngIf="anamneseForm.value.substancias[droga.nome].tipoDeUso == 'Esporádico'">
+                  <mat-form-field
+                    *ngIf="anamneseForm.value.perfilPsicosocial.usoSubstancias[droga.nome].tipoDeUso == 'Esporádico'">
                     <input matInput placeholder="X na sem," formControlName="frequencia"
-                      [required]="anamneseForm.value.substancias[droga.nome].tipoDeUso == 'Esporádico'">
-                  </mat-form-field>&nbsp;
+                      [required]="anamneseForm.value.perfilPsicosocial.usoSubstancias[droga.nome].tipoDeUso == 'Esporádico'">
+                  </mat-form-field>
                 </div>
               </div>
             </div>
-          </section>
-          <br>
-          <div formGroupName="perfilPsicosocial">
-            <div>
-              <div>
-                <mat-radio-group  formControlName="abstinente" aria-labelledby="example-radio-group-label" class="matInput">
-                  <label id="example-radio-group-label">Já ficou abstinente?</label>&nbsp;
-                  <mat-radio-button value="S" labelPosition="before">S</mat-radio-button>&nbsp;
-                  <mat-radio-button value="N" labelPosition="before">N?</mat-radio-button>
-  
-                </mat-radio-group>
-              </div>
-              <div>
+            <div style="margin-top: 10px;">
+              <mat-radio-group formControlName="abstinente" aria-labelledby="example-radio-group-label">
+                <label id="example-radio-group-label">Já ficou abstinente?</label>&nbsp;
+                <mat-radio-button value="S" labelPosition="before">S</mat-radio-button>&nbsp;
+                <mat-radio-button value="N" labelPosition="before">N?</mat-radio-button>
+              </mat-radio-group>
+              <div *ngIf="anamneseForm.value.perfilPsicosocial.usoSubstancias.abstinente == 'S'">
                 <mat-form-field class="matInput">
-                  <input matInput name="" placeholder="De qual substância?">
+                  <input matInput name="" placeholder="De qual substância?" formControlName="qualSubstancia">
                 </mat-form-field>
                 <mat-form-field class="matInput">
-                  <input matInput name="" placeholder="Por quanto tempo?">
+                  <input matInput name="" placeholder="Por quanto tempo?" formControlName="tempoAbstinencia">
                 </mat-form-field>
               </div>
             </div>
-            <div>
-              <mat-radio-group aria-labelledby="example-radio-group-label">
+            <div style="margin-top: 10px; margin-bottom: 10px;">
+              <mat-radio-group aria-labelledby="example-radio-group-label" formControlName="tratou">
                 <label id="example-radio-group-label">Já tratou?</label>&nbsp;
                 <mat-radio-button value="S" labelPosition="before">S</mat-radio-button>&nbsp;
                 <mat-radio-button value="N" labelPosition="before">N?</mat-radio-button>
               </mat-radio-group>
-  
-              <div>
-                <mat-form-field class="full">
-                  <input matInput name="" placeholder="Como?">
-                </mat-form-field>
-              </div>
-            </div>
-            <div style="display: flex;">
-              <div class="matInput">
-                <mat-radio-group aria-labelledby="example-radio-group-label">
-                  <label id="example-radio-group-label">Tem algum problema mental?</label>&nbsp;
-                  <mat-radio-button value="S" labelPosition="before">S</mat-radio-button>&nbsp;
-                  <mat-radio-button value="N" labelPosition="before">N?</mat-radio-button>
-                </mat-radio-group>
-              </div>
-              <div class="matInput">
-                <mat-radio-group aria-labelledby="example-radio-group-label">
-                  <label id="example-radio-group-label">Ja foi atendido por:</label>&nbsp;
-                  <mat-radio-button value="S" labelPosition="before">Psicólogo?</mat-radio-button>&nbsp;
-                  <mat-radio-button value="N" labelPosition="before">Psiquiatra?</mat-radio-button>
-                </mat-radio-group>
-              </div>
-            </div>
-            <br>
-            <div>
-              <label>Qual?</label>
-              <mat-checkbox>Depressão</mat-checkbox>
-              <mat-checkbox>Esquizofrenia</mat-checkbox>
-              <mat-checkbox>Transt. do pânico</mat-checkbox>&nbsp;
-              <mat-form-field class="full">
-                <input matInput name="outro" placeholder="Outros:">
+
+              <mat-form-field class="full" *ngIf="anamneseForm.value.perfilPsicosocial.usoSubstancias.tratou == 'S'">
+                <input matInput name="como" placeholder="Como?" formControlName="comoTratou">
               </mat-form-field>
             </div>
-  
-            <div>
-              <mat-radio-group aria-labelledby="example-radio-group-label">
-                <label id="example-radio-group-label">Já tratou?</label>&nbsp;
+          </div>
+          <mat-radio-group aria-labelledby="example-radio-group-label" formControlName="atendidoPor">
+            <label id="example-radio-group-label">Ja foi atendido por:</label>&nbsp;
+            <mat-radio-button value="Psicólogo" labelPosition="before">Psicólogo</mat-radio-button>&nbsp;
+            <mat-radio-button value="Psiquiatra" labelPosition="before">Psiquiatra</mat-radio-button>
+          </mat-radio-group>
+          <div>
+            <div formGroupName="problemaMental" style="margin-top: 10px">
+              <mat-radio-group aria-labelledby="example-radio-group-label" formControlName="possui">
+                <label id="example-radio-group-label">Tem algum problema mental?</label>&nbsp;
                 <mat-radio-button value="S" labelPosition="before">S</mat-radio-button>&nbsp;
                 <mat-radio-button value="N" labelPosition="before">N?</mat-radio-button>
               </mat-radio-group>
-              <div>
+              <div *ngIf="anamneseForm.value.perfilPsicosocial.problemaMental.possui == 'S'" style="margin-top: 10px;">
+                <label>Qual?</label>
+                <mat-checkbox formControlName="Depressão" value="S">Depressão</mat-checkbox>
+                <mat-checkbox formControlName="Esquizofrenia" value="S">Esquizofrenia</mat-checkbox>
+                <mat-checkbox formControlName="Transtorno do Pânico" value="S">Transt. do pânico</mat-checkbox>&nbsp;
                 <mat-form-field class="full">
-                  <input matInput name="" placeholder="Como?">
+                  <input matInput name="outro" placeholder="Outros:" forControlName="Outro">
+                </mat-form-field>
+              </div>
+              <div style="margin-top: 10px;">
+                <mat-radio-group aria-labelledby="example-radio-group-label" formControlName="tratou">
+                  <label id="example-radio-group-label">Já tratou?</label>&nbsp;
+                  <mat-radio-button value="S" labelPosition="before">S</mat-radio-button>&nbsp;
+                  <mat-radio-button value="N" labelPosition="before">N?</mat-radio-button>
+                </mat-radio-group>
+                <mat-form-field class="full" *ngIf="anamneseForm.value.perfilPsicosocial.problemaMental.tratou == 'S'">
+                  <input matInput name="comoTratou" placeholder="Como?" formControlName="comoTratou">
                 </mat-form-field>
               </div>
             </div>
-            <div>
+
+            <div style="margin-top: 10px;" formGroupName="servicos">
               <label>Já ultilizou algum desses serviços?</label>
-              <div *ngFor="let servico of servicos">
-                <mat-checkbox>{{servico}}</mat-checkbox>
-                <div *ngIf="true">
+              <div *ngFor="let servico of servicos" [formGroupName]="servico">
+                <mat-checkbox value="sim" formControlName="usou">{{servico}}</mat-checkbox>
+                <div *ngIf="anamneseForm.value.perfilPsicosocial.servicos[servico].usou">
                   <mat-form-field class="matInput">
-                    <input matInput name="" placeholder="Qual?">
+                    <input matInput name="" placeholder="Qual?" formControlName="qual">
                   </mat-form-field>
                   <mat-form-field class="matInput">
-                    <input matInput name="" placeholder="Onde?">
+                    <input matInput name="" placeholder="Onde?" formControlName="onde">
                   </mat-form-field>
                 </div>
               </div>
             </div>
-            <div>
-              <mat-form-field class="full">
-                <input matInput name="" placeholder="Onde busca ajuda quando tem problema de saúde?">
-              </mat-form-field>
-            </div>
-            <div>
-              <mat-form-field class="full">
-                <input matInput name="" placeholder="Como podemos te ajudar a sair das ruas?">
-              </mat-form-field>
-            </div>
+            <mat-form-field class="full">
+              <input matInput name="" placeholder="Onde busca ajuda quando tem problema de saúde?"
+                formControlName="ondeBuscaAjuda">
+            </mat-form-field>
+            <mat-form-field class="full">
+              <input matInput name="" placeholder="Como podemos te ajudar a sair das ruas?"
+                formControlName="comoPodemosAjudar">
+            </mat-form-field>
           </div>
         </section>
       </mat-expansion-panel>
@@ -759,10 +736,12 @@
           <div formGroupName="atividadeSexual">
             <label>Atividade Sexual:</label>&nbsp;
             <mat-radio-group formControlName="protegida">
-              <mat-radio-button value="Protegida">Protegida</mat-radio-button>&nbsp;
-              <mat-radio-button value="Desprotegida">Desprotegida</mat-radio-button>&nbsp;
-              <mat-radio-button value="parceiroUnico">Parceiro(a) único(a)</mat-radio-button>&nbsp;
-              <mat-radio-button value="multiplosParceiros">Múltiplos(as) parceiros(as)</mat-radio-button>
+              <mat-radio-button value=true>Protegida</mat-radio-button>&nbsp;
+              <mat-radio-button value=false>Desprotegida</mat-radio-button>&nbsp;
+            </mat-radio-group>
+            <mat-radio-group formControlName="parceiroUnico">
+              <mat-radio-button value=true>Parceiro(a) único(a)</mat-radio-button>&nbsp;
+              <mat-radio-button value=false>Múltiplos(as) parceiros(as)</mat-radio-button>
             </mat-radio-group>
           </div>
           <br>
