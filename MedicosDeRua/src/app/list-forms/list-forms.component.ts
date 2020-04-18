@@ -40,7 +40,13 @@ export class ListFormsComponent implements OnInit {
   }
 
   editForm(form: any) {
-    this.router.navigate(['app/return-registration'], { state: form });
+    if (form.type === 'return') {
+      this.router.navigate(['app/return-registration'], { state: form });
+    }
+
+    if (form.type === 'anamnese') {
+      this.router.navigate(['app/anamnese-geral'], { state: form });
+    }
   }
 
 }

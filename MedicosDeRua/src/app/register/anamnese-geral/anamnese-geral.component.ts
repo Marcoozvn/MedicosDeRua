@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { FormService } from 'src/app/shared/form.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -9,6 +11,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 })
 export class AnamneseGeralComponent implements OnInit {
 
+  form: any;
   anamneseForm: any;
   docsPessoais = ['RG', 'CPF', 'Cart.Trab', 'CNH', 'Cert.Nasc', 'Cert.Cas'];
   drogas = [{ nome: 'Cocaína' }, { nome: 'Maconha' }, { nome: 'LSD' }, { nome: 'Ecstasy' }, { nome: 'Lança perfume' }];
@@ -31,7 +34,11 @@ export class AnamneseGeralComponent implements OnInit {
     { nome: 'Hepatite C' },
     { nome: 'Gravidez' }]
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder, private formService: FormService, private router: Router) {
+    if (this.router.getCurrentNavigation().extras.state) {
+      this.form = this.router.getCurrentNavigation().extras.state;
+    }
+  }
 
   ngOnInit() {
     this.anamneseForm = this.fb.group({
@@ -323,9 +330,7 @@ export class AnamneseGeralComponent implements OnInit {
         qualAtividade: '',
         atividadeSexual: this.fb.group({
           protegida: '',
-          desprotegida: '',
           parceiroUnico: '',
-          multiplosParceiros: ''
         }),
         testeDst: ''
       }),
@@ -421,7 +426,22 @@ export class AnamneseGeralComponent implements OnInit {
   }
 
   submitForm() {
-    console.log('Form: ', this.anamneseForm.value);
+    if (this.form) {
+      this.formService.updateForm('anamnese', this.anamneseForm.value, this.form._id).subscribe(
+        data => {
+          alert('Formulário atualizado com sucesso');
+          this.router.navigate(['/app']);
+        },
+        error => alert('Ocorreu um erro ' + error)
+      );
+    } else {
+      this.formService.saveForm('anamnese', this.anamneseForm.value).subscribe(
+        data => {
+          alert('Formulário salvo com sucesso');
+          this.router.navigate(['/app']);
+        },
+        error => alert('Ocorreu um erro ' + error));
+    }
   }
 
 }
