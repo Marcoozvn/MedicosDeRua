@@ -40,11 +40,12 @@ export class ListFormsComponent implements OnInit {
   }
 
   editForm(form: any) {
-    if (form.type === 'return') {
+    console.log(form.type);
+    if (form.type === 'Retorno') {
       this.router.navigate(['app/return-registration'], { state: form });
     }
 
-    if (form.type === 'anamnese') {
+    if (form.type === 'Anamnese inicial') {
       this.router.navigate(['app/anamnese-geral'], { state: form });
     }
   }

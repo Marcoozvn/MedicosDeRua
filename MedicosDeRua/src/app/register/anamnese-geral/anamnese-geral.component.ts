@@ -422,11 +422,22 @@ export class AnamneseGeralComponent implements OnInit {
         assCarimboMedico: '',
         assPacienteResp: ''
       })
-    })
+    });
+
+    if (this.form) {
+      console.log(this.form);
+      this.initializeFormValues();
+    }
+  }
+
+  initializeFormValues() {
+    this.anamneseForm.patchValue(this.form);
+    this.anamneseForm.get('paciente').get('nome').disable();
   }
 
   submitForm() {
     if (this.form) {
+      this.anamneseForm.value.paciente = { ...this.anamneseForm.value.paciente, nome: this.form.paciente.nome };
       this.formService.updateForm('anamnese', this.anamneseForm.value, this.form._id).subscribe(
         data => {
           alert('Formulário atualizado com sucesso');
