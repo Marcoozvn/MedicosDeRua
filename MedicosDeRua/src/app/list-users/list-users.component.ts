@@ -25,11 +25,14 @@ export class ListUsersComponent implements OnInit {
 
   ngOnInit() {
     this.userService.getUsers().subscribe(res => {
+      console.log(this.users);
+      /*
       this.users = res;
 
       if (!this.users) {
         this.route.navigate(['/app']);
       }
+      */
     });
   }
 

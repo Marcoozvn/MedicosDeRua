@@ -5,7 +5,7 @@
     </span>
     Voltar para a busca
   </a>
-  <div class="list-users-container">
+  <div class="list-users-container" *ngIf="users.length > 0">
     <h2>Usuários assistidos</h2>
     <div class="list-header">
       <span>Nome</span>
@@ -21,6 +21,14 @@
         </div>
       </li>
     </ul>
+  </div>
+  <div class="not-found" *ngIf="users.length == 0">
+    <h3>
+      Nenhum usuário encontrado
+    </h3>
+    <span class="material-icons" style="margin-top: 5px;">
+      sentiment_very_dissatisfied
+    </span>
   </div>
 
 </div>
