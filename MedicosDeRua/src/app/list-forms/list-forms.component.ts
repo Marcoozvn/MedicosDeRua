@@ -35,8 +35,9 @@ export class ListFormsComponent implements OnInit {
   }
 
   deleteForm(event: Event, form: any) {
-    event.preventDefault();
-    console.log('deletar form ', form);
+    const type = form.type === 'Retorno' ? 'return' : 'anamnese';
+    this.formsService.deleteForm(type, form._id).subscribe( res => console.log(res));
+    this.formsService.setForms(this.forms.filter(item => form._id !== item._id));
   }
 
   editForm(form: any) {

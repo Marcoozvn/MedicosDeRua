@@ -27,4 +27,8 @@ export class FormService {
   public updateForm(type: string, form: any, id: string) {
     return this.http.put(`${environment.API_HOST}/form/${type}/${id}`, form);
   }
+
+  public deleteForm(type: string, id: string) {
+    return this.http.delete(`${environment.API_HOST}/form/${type}/${id}`);
+  }
 }

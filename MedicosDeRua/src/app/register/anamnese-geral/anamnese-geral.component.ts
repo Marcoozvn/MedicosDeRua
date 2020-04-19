@@ -13,7 +13,7 @@ export class AnamneseGeralComponent implements OnInit {
 
   form: any;
   anamneseForm: any;
-  docsPessoais = ['RG', 'CPF', 'Cart.Trab', 'CNH', 'Cert.Nasc', 'Cert.Cas'];
+  docsPessoais = ['RG', 'CPF', 'Carteira de Trabalho', 'CNH', 'Certidão de Nascimento', 'Certidão de Casamento'];
   drogas = [{ nome: 'Cocaína' }, { nome: 'Maconha' }, { nome: 'LSD' }, { nome: 'Ecstasy' }, { nome: 'Lança perfume' }];
   servicos = ['FAS', 'CREAS', 'Albergue', 'Centro Pop', 'CRAS', 'Internamento', 'CAPS']
   sintomas = ['Dor', 'Astenia', 'Náuseas', 'Diarreia', 'Edema', 'Lesões cutâneas', 'Prurido', 'Febre', 'Vertigem', 'Vômito', 'Constipação', 'Hemorragia', 'Dor de Dente']
@@ -58,10 +58,10 @@ export class AnamneseGeralComponent implements OnInit {
         documentosPessoais: this.fb.group({
           RG: [false],
           CPF: [false],
-          'Cart.Trab': [false],
+          'Carteira de Trabalho': [false],
           CNH: [false],
-          'Cert.Nasc': [false],
-          'Cert.Cas': [false]
+          'Certidão de Nascimento': [false],
+          'Certidão de Casamento': [false]
         }),
         contato: ''
       }),

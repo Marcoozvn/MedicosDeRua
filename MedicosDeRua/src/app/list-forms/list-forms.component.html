@@ -15,7 +15,7 @@
     <li *ngFor="let form of forms">
       <div class="form-card">
         <span>{{form.type}}</span>
-        <span>{{form.data | date: 'dd/MM/yyyy'}}</span>
+        <span>{{form.createdAt | date: 'dd/MM/yyyy'}}</span>
         <div class="card-actions">
           <span class="material-icons" (click)="deleteForm($event, form)">
             delete
