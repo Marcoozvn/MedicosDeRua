@@ -212,7 +212,17 @@ input {
 	}
 }
 
+.docs-pessoais {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+}
+
 @media(max-width: 600px) {
+	.docs-pessoais {
+		display: flex;
+		flex-direction: column;
+	}
+
 	.medicamentos {
 		display: flex;
 		flex-direction: column;

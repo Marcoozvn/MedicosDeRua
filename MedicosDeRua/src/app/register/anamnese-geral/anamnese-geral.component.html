@@ -38,100 +38,107 @@
             </mat-form-field>
           </div>
 
-          <div class="dsip-flex-row">
-            <mat-radio-group formControlName="etnia" aria-labelledby="example-radio-group-label" class="matInput">
-              <label id="example-radio-group-label">Etnia:</label>&nbsp;
-              <mat-radio-button value="Branco">Branco</mat-radio-button>&nbsp;
-              <mat-radio-button value="Pardo">Pardo</mat-radio-button>&nbsp;
-              <mat-radio-button value="Negro">Negro</mat-radio-button>&nbsp;
-              <mat-radio-button value="Amarelo">Amarelo</mat-radio-button>&nbsp;
-              <mat-radio-button value="Indigena">Indígena</mat-radio-button>
-            </mat-radio-group>
+          <div class="grid-2">
+            <div class="col">
+              <label id="example-radio-group-label">Etnia:&nbsp;</label>
+              <mat-radio-group formControlName="etnia" aria-labelledby="example-radio-group-label" class="matInput">
+                <mat-radio-button value="Branco">Branco</mat-radio-button>&nbsp;
+                <mat-radio-button value="Pardo">Pardo</mat-radio-button>&nbsp;
+                <mat-radio-button value="Negro">Negro</mat-radio-button>&nbsp;
+                <mat-radio-button value="Amarelo">Amarelo</mat-radio-button>&nbsp;
+                <mat-radio-button value="Indigena">Indígena</mat-radio-button>
+              </mat-radio-group>
+              &nbsp;
+            </div>
 
-            <mat-radio-group formControlName="sexo" aria-labelledby="example-radio-group-label" class="matInput">
-              <label id="example-radio-group-label">Sexo:</label>&nbsp;
-              <mat-radio-button value="M">M</mat-radio-button>&nbsp;
-              <mat-radio-button value="F">F</mat-radio-button>&nbsp;
-              <mat-radio-button value="Trans">Trans</mat-radio-button>
-            </mat-radio-group>
+            <div class="col">
+              <label id="example-radio-group-label">Sexo:&nbsp;</label>
+              <mat-radio-group formControlName="sexo" aria-labelledby="example-radio-group-label" class="matInput">
+                <mat-radio-button value="M">M</mat-radio-button>&nbsp;
+                <mat-radio-button value="F">F</mat-radio-button>&nbsp;
+                <mat-radio-button value="Trans">Trans</mat-radio-button>
+              </mat-radio-group>
+              &nbsp;
+            </div>
           </div>
-          <br>
 
-          <div class="dsip-flex-row">
-            <mat-radio-group formControlName="orientacao" aria-labelledby="example-radio-group-label" class="matInput">
-              <label id="example-radio-group-label">Orientação:</label>&nbsp;
-              <mat-radio-button value="hetero">Hetero</mat-radio-button>&nbsp;
-              <mat-radio-button value="homo">Homo</mat-radio-button>&nbsp;
-              <mat-radio-button value="trans">Trans</mat-radio-button>
-            </mat-radio-group>
+          <div class="grid-2">
+            <div class="col">
+              <label id="example-radio-group-label">Orientação:&nbsp;</label>
+              <mat-radio-group formControlName="orientacao" aria-labelledby="example-radio-group-label">
+                <mat-radio-button value="hetero">Hetero</mat-radio-button>&nbsp;
+                <mat-radio-button value="homo">Homo</mat-radio-button>&nbsp;
+                <mat-radio-button value="trans">Trans</mat-radio-button>
+              </mat-radio-group>
+              &nbsp;
+            </div>
 
-            <mat-radio-group formControlName="situacaoConjugal" aria-labelledby="example-radio-group-label"
-              class="matInput">
-              <label id="example-radio-group-label">Sit. conjugal:</label>&nbsp;
-              <mat-radio-button value="solteiro">Solteiro</mat-radio-button>&nbsp;
-              <mat-radio-button value="casado">Casado</mat-radio-button>&nbsp;
-              <mat-radio-button value="divorciado">Divorciado</mat-radio-button>
-              <mat-radio-button value="viuvo">Viúvo</mat-radio-button>
-            </mat-radio-group>
+            <div class="col">
+              <label id="example-radio-group-label">Sit. conjugal:&nbsp;</label>
+              <mat-radio-group formControlName="situacaoConjugal" aria-labelledby="example-radio-group-label">
+                <mat-radio-button value="solteiro">Solteiro</mat-radio-button>&nbsp;
+                <mat-radio-button value="casado">Casado</mat-radio-button>&nbsp;
+                <mat-radio-button value="divorciado">Divorciado</mat-radio-button>
+                <mat-radio-button value="viuvo">Viúvo</mat-radio-button>
+              </mat-radio-group>
+              &nbsp;
+            </div>
           </div>
-          <br>
 
           <div>
-            <div class="full">
+            <div class="full col">
+              <label id="example-radio-group-label">Escolaridade:&nbsp;</label>
               <mat-radio-group formControlName="escolaridade" aria-labelledby="example-radio-group-label"
-                class="matInput">
-                <label id="example-radio-group-label">Escolaridade:</label>&nbsp;
-                <mat-radio-button value="analfabeto">Analfabeto
+                class="col">
+                <mat-radio-button value="analfabeto">Analfabeto&nbsp;
                 </mat-radio-button>
-                &nbsp;
-                <mat-radio-button value="le&escreve">Só lê e escreve
+                <mat-radio-button value="le&escreve">Só lê e escreve&nbsp;
                 </mat-radio-button>
-                &nbsp;
-                <mat-radio-button value="ens.medio">Ensino Fundamental
+                <mat-radio-button value="ens.medio">Ensino Fundamental&nbsp;
                 </mat-radio-button>
-                &nbsp;
-                <mat-radio-button value="ens.fund">Ensino Medio
+                <mat-radio-button value="ens.fund">Ensino Medio&nbsp;
                 </mat-radio-button>
-                &nbsp;
-                <mat-radio-button value="tecnico">Técnico
-                </mat-radio-button>&nbsp;
-                <mat-radio-button value="ens.sup">Ensino Superior
-                </mat-radio-button>&nbsp;
+                <mat-radio-button value="tecnico">Técnico&nbsp;
+                </mat-radio-button>
+                <mat-radio-button value="ens.sup">Ensino Superior&nbsp;
+                </mat-radio-button>
               </mat-radio-group>
             </div>
           </div>
 
           <div>
-            <mat-form-field class="matInput">
+            <mat-form-field class="matInput" style="margin-top: 5px;">
               <input formControlName="cidade" matInput name="nome" placeholder="Cidade e estado onde nasceu">
             </mat-form-field>
 
-            <mat-form-field class="matInput">
+            <mat-form-field class="matInput" style="margin-top: 5px;">
               <input formControlName="ultimaCidade" matInput name="idade"
                 placeholder="Última cidade e estado em que morou">
             </mat-form-field>
           </div>
 
-          <div class="dsip-flex-row">
-            <mat-radio-group formControlName="temDocsPessoais" aria-labelledby="example-radio-group-label"
-              class="matInput">
-              <label id="example-radio-group-label">Tem documentos pessoais?</label>&nbsp;
-              <mat-radio-button value="sim">Sim</mat-radio-button>
-              &nbsp;
-              <mat-radio-button value="nao">Não</mat-radio-button>
-            </mat-radio-group>
+          <div class="docs-pessoais">
+            <div class="col">
+              <label id="example-radio-group-label">Tem documentos pessoais?&nbsp;</label>
+              <mat-radio-group formControlName="temDocsPessoais" aria-labelledby="example-radio-group-label" class="col">
+                <mat-radio-button value="sim">Sim</mat-radio-button>
+                &nbsp;
+                <mat-radio-button value="nao">Não</mat-radio-button>
+              </mat-radio-group>
+            </div>
 
-            <div formGroupName="documentosPessoais" aria-labelledby="example-radio-group-label"
-              *ngIf="anamneseForm.value.paciente.temDocsPessoais == 'sim'" class="matInput">
-              <label id="example-radio-group-label">Quais?</label>&nbsp;
-              <mat-checkbox [formControlName]="documento" style="padding: 5px;" class=""
-                *ngFor="let documento of docsPessoais">
-                {{documento}}</mat-checkbox>
+            <div class="col" *ngIf="anamneseForm.value.paciente.temDocsPessoais == 'sim'">
+              <label id="example-radio-group-label">Quais?</label>
+              <div formGroupName="documentosPessoais" aria-labelledby="example-radio-group-label" class="col">
+                <mat-checkbox [formControlName]="documento" style="padding: 5px;" class=""
+                  *ngFor="let documento of docsPessoais">
+                  {{documento}}</mat-checkbox>
+              </div>
             </div>
           </div>
 
           <div>
-            <mat-form-field style="width: 100%;">
+            <mat-form-field style="width: 100%; margin-top: 5px;">
               <input matInput formControlName="contato" name="contato"
                 placeholder="Se precisarmos entrar em contato com você, como podemos te encontrar?">
             </mat-form-field>
