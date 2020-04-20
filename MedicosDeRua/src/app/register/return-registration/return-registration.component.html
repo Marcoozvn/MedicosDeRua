@@ -182,15 +182,13 @@
             </div>
           </div>
         </section>
-        <section>
+        <section formGroupName="historiaMorbidaPregressa">
           <mat-form-field class="matInput full">
-            <label>Medicações de uso contínuo (listar quais e motivo):</label>
-            <textarea matInput></textarea>
+            <input matInput formControlName="medicacoesUsoContinuo" placeholder="Medicações de uso contínuo (listar quais e motivo)">
           </mat-form-field>
 
           <mat-form-field class="matInput full">
-            <label>Alergias (qual agente e qual a reação alergica):</label>
-            <textarea matInput></textarea>
+            <input matInput formControlName="alergias" placeholder="Alergias (qual agente e qual a reação alergica)">
           </mat-form-field>
         </section>
       </mat-expansion-panel>

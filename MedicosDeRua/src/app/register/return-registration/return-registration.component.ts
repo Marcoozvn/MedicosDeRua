@@ -119,6 +119,8 @@ export class ReturnRegistrationComponent implements OnInit {
           quantidade: '',
           frequencia: ''
         }),
+        medicacoesUsoContinuo: '',
+        alergias: ''
       }),
       exameFisico: this.fb.group({
         descricao: '',
@@ -169,6 +171,7 @@ export class ReturnRegistrationComponent implements OnInit {
 
   submitForm() {
     if (this.form) {
+      this.registerForm.value.paciente = { ...this.registerForm.value.paciente, nome: this.form.paciente.nome };
       this.formService.updateForm('return', this.registerForm.value, this.form._id).subscribe(
         data => {
           alert('Formulário atualizado com sucesso');
