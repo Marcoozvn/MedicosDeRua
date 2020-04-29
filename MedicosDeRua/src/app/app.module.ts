@@ -21,6 +21,12 @@ import { AnamneseGeralComponent } from './register/anamnese-geral/anamnese-geral
 import localePtBr from '@angular/common/locales/pt';
 import { registerLocaleData } from '@angular/common';
 
+import { NgxMaskModule, IConfig } from 'ngx-mask'
+
+const maskConfig: Partial<IConfig> = {
+  validation: false,
+};
+
 registerLocaleData(localePtBr);
 
 @NgModule({
@@ -41,7 +47,8 @@ registerLocaleData(localePtBr);
     BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule,
-    SharedModule
+    SharedModule,
+    NgxMaskModule.forRoot(maskConfig),
   ],
   providers: [AuthGuardService, { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true }],
   bootstrap: [AppComponent]
