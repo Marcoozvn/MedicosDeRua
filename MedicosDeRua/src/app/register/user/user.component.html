@@ -1,0 +1,33 @@
+<a class="back-button" [routerLink]="['/app']">
+  <span class="material-icons">
+    arrow_back
+  </span>
+  Voltar para a busca
+</a>
+<div class="new-user-container">
+  <mat-card class="card">
+    <section class="card-left">
+      <img src="../../assets/new-user.svg" alt="Logo"/>
+      <h3>Cadastro</h3>
+      <p>Informe os dados de acesso, o papel, e venha fazer parte da nossa ONG!</p>
+    </section>
+    <form [formGroup]="userForm">
+      <div class="login-error" *ngIf="error">
+        <span>{{error}}</span>
+      </div>
+      <input placeholder="Nome" formControlName="nome">
+      <input placeholder="Login" formControlName="login">
+      <input placeholder="Senha (No mínimo 8 caracteres)" type="password" formControlName="password">
+      <input placeholder="Confirme a senha" type="password" formControlName="confirmPassword">
+      <select name="papel" formControlName="papel">
+        <option disabled selected value="">Defina o papel do usuário</option>
+        <option *ngFor="let papel of papeis" [value]=papel>
+          {{papel}}
+        </option>
+      </select>
+
+      <button class="button-add" (click)="salvarUsuario()" [disabled]="!userForm.valid">Salvar</button>
+    </form>
+    
+  </mat-card>
+</div>

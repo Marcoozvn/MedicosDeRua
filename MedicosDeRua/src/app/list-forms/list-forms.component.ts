@@ -41,7 +41,6 @@ export class ListFormsComponent implements OnInit {
   }
 
   editForm(form: any) {
-    console.log(form.type);
     if (form.type === 'Retorno') {
       this.router.navigate(['app/return-registration'], { state: form });
     }

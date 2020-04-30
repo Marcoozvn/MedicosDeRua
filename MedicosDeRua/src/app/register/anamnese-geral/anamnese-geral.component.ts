@@ -425,7 +425,6 @@ export class AnamneseGeralComponent implements OnInit {
     });
 
     if (this.form) {
-      console.log(this.form);
       this.initializeFormValues();
     }
   }

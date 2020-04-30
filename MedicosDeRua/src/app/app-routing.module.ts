@@ -9,6 +9,7 @@ import { ListUsersComponent } from './list-users/list-users.component';
 import { ListFormsComponent } from './list-forms/list-forms.component';
 import { ReturnRegistrationComponent } from './register/return-registration/return-registration.component';
 import { AnamneseGeralComponent } from './register/anamnese-geral/anamnese-geral.component';
+import { UserComponent } from './register/user/user.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -19,6 +20,7 @@ const routes: Routes = [
       { path: 'forms', component: ListFormsComponent },
       { path: 'anamnese-geral', component: AnamneseGeralComponent },
       { path: 'return-registration', component: ReturnRegistrationComponent },
+      { path: 'new-user', component: UserComponent },
       { path: '**', component: SearchComponent }
     ]
   },

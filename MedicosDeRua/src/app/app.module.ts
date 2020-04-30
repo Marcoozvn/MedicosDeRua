@@ -20,6 +20,7 @@ import { ReturnRegistrationComponent } from './register/return-registration/retu
 import { AnamneseGeralComponent } from './register/anamnese-geral/anamnese-geral.component';
 import localePtBr from '@angular/common/locales/pt';
 import { registerLocaleData } from '@angular/common';
+import { UserComponent } from './register/user/user.component';
 
 registerLocaleData(localePtBr);
 
@@ -34,6 +35,7 @@ registerLocaleData(localePtBr);
     ListFormsComponent,
     ReturnRegistrationComponent,
     AnamneseGeralComponent,
+    UserComponent,
 
   ],
   imports: [

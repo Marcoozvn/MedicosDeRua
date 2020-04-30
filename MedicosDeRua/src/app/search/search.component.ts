@@ -27,7 +27,6 @@ export class SearchComponent implements OnInit {
   }
 
   search() {
-    console.log(this.searchForm);
     this.searchService.findUsers(this.searchForm.value.type, this.searchForm.value.input).subscribe(
       res => {
         this.userService.setUsers(res);
