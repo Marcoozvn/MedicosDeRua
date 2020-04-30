@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { FormService } from 'src/app/shared/form.service';
 import { Router } from '@angular/router';
+import { ListUsersService } from 'src/app/list-users/list-users.service';
+import { v4 as uuidv4 } from 'uuid';
 
 @Component({
   selector: 'app-return-registration',
@@ -13,8 +15,20 @@ export class ReturnRegistrationComponent implements OnInit {
   usoDeSubstancias: any;
   registerForm: any;
   form: any;
+  paciente: any;
+  prontuario: string;
 
-  constructor(private fb: FormBuilder, private formService: FormService, private router: Router) {
+  // tslint:disable-next-line: max-line-length
+  constructor(private fb: FormBuilder, private formService: FormService, private router: Router, private listUsersService: ListUsersService) {
+    this.listUsersService.getSelectedUser().subscribe( user => {
+      if (user == null) {
+        this.router.navigate(['/app']);
+      } else {
+        this.prontuario = uuidv4();
+        this.paciente = {user: user.nome, dataNascimento: user.dataNascimento};
+      }
+    });
+
     if (this.router.getCurrentNavigation().extras.state) {
       this.form = this.router.getCurrentNavigation().extras.state;
     }
@@ -53,7 +67,7 @@ export class ReturnRegistrationComponent implements OnInit {
 
   ngOnInit() {
     this.registerForm = this.fb.group({
-      prontuario: [''],
+      prontuario: '',
       data: '',
       paciente: this.fb.group({
         nome: ['', Validators.required],
@@ -158,20 +172,20 @@ export class ReturnRegistrationComponent implements OnInit {
       })
     });
 
+    this.registerForm.get('paciente').patchValue(this.paciente);
+    this.registerForm.get('prontuario').patchValue(this.prontuario);
+    this.registerForm.get('prontuario').disable();
+    this.registerForm.get('paciente').disable();
+
     if (this.form) {
-      this.initializeFormValues();
+      this.registerForm.patchValue(this.form);
     }
   }
 
-  initializeFormValues() {
-    this.registerForm.patchValue(this.form);
-    this.registerForm.get('prontuario').disable();
-    this.registerForm.get('paciente').disable();
-  }
-
   submitForm() {
+    this.registerForm.value = { ...this.registerForm.value, paciente: this.paciente, prontuario: this.prontuario };
+
     if (this.form) {
-      this.registerForm.value.paciente = { ...this.registerForm.value.paciente, nome: this.form.paciente.nome };
       this.formService.updateForm('return', this.registerForm.value, this.form._id).subscribe(
         data => {
           alert('Formulário atualizado com sucesso');

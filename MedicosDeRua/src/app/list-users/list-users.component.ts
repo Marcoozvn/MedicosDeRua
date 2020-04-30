@@ -20,9 +20,9 @@ export class ListUsersComponent implements OnInit {
               private formService: FormService) {}
 
   ngOnInit() {
+    this.listUsersService.selectUser(null);
     this.userService.getUsers().subscribe(res => {
       this.users = res;
-
       if (!this.users) {
         this.route.navigate(['/app']);
       }
@@ -30,6 +30,8 @@ export class ListUsersComponent implements OnInit {
   }
 
   searchForm(user: any) {
+    this.listUsersService.selectUser(user);
+
     this.listUsersService.findForms(user._id).subscribe( res => {
       this.formService.setForms(res);
       this.route.navigate(['../forms'], { relativeTo: this.activatedRoute });

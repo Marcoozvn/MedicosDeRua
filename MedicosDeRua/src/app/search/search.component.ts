@@ -3,7 +3,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { SearchService } from './search.service';
 import { UserService } from '../shared/user.service';
-import { min } from 'rxjs/operators';
+import { ListUsersService } from '../list-users/list-users.service';
 
 @Component({
   selector: 'app-search',
@@ -21,7 +21,9 @@ export class SearchComponent implements OnInit {
               private activatedRoute: ActivatedRoute,
               private formBuilder: FormBuilder,
               private searchService: SearchService,
-              private userService: UserService) {
+              private userService: UserService,
+              private listUsersService: ListUsersService) {
+    this.listUsersService.selectUser(null);
     this.searchForm = this.formBuilder.group({
       input: ['', Validators.required],
       type: ['nome', Validators.required]

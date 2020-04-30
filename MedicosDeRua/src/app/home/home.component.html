@@ -10,7 +10,7 @@
       <div style="display: flex; flex-direction: row;">
         <button class="button-add button-header" [routerLink]="['/app/new-user']">Novo usuário</button>
         <button class="button-add button-header" [routerLink]="['/app/anamnese-geral']">Nova anamnese</button>
-        <button class="button-add button-header" [routerLink]="['/app/return-registration']">Novo retorno</button>
+        <button *ngIf="selectedUser" class="button-add button-header" [routerLink]="['/app/return-registration']">Novo retorno</button>
       </div>
       <button class="button-logout button-header" (click)="logout()">
         <span class="material-icons">

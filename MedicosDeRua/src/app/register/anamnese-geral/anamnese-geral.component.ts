@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { FormService } from 'src/app/shared/form.service';
 import { Router } from '@angular/router';
+import { ListUsersService } from 'src/app/list-users/list-users.service';
 
 
 @Component({
@@ -34,7 +35,11 @@ export class AnamneseGeralComponent implements OnInit {
     { nome: 'Hepatite C' },
     { nome: 'Gravidez' }]
 
-  constructor(private fb: FormBuilder, private formService: FormService, private router: Router) {
+  constructor(private fb: FormBuilder,
+              private formService: FormService,
+              private router: Router,
+              private listUsersService: ListUsersService) {
+    this.listUsersService.selectUser(null);
     if (this.router.getCurrentNavigation().extras.state) {
       this.form = this.router.getCurrentNavigation().extras.state;
     }
@@ -44,7 +49,7 @@ export class AnamneseGeralComponent implements OnInit {
     this.anamneseForm = this.fb.group({
       paciente: this.fb.group({
         nome: ['', Validators.required],
-        idade: '',
+        cpf: ['', Validators.minLength(11)],
         dataNascimento: '',
         religiao: '',
         etnia: '',

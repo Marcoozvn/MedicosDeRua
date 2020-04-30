@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
+import { ListUsersService } from 'src/app/list-users/list-users.service';
 
 @Component({
   selector: 'app-user',
@@ -14,7 +15,9 @@ export class UserComponent implements OnInit {
   papeis: string[] = ['Acadêmico', 'Médico', 'Jurídico', 'Odontologia', 'Nutrição', 'Enfermagem', 'Veterinária', 'Psicologia',
                       'Fisioterapia', 'Tutor'];
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder, private listUsersService: ListUsersService) {
+    this.listUsersService.selectUser(null);
+   }
 
   ngOnInit() {
     this.userForm = this.fb.group({
