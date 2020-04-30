@@ -1,12 +1,13 @@
 <div class="home-body">
-  <h2>Busca por usuário assistido</h2>
+  <h2>Busca por Paciente</h2>
   <form [formGroup]="searchForm" (submit)=search()>
-    <mat-radio-group class="radio-group" formControlName="type">
+    <mat-radio-group class="radio-group" formControlName="type" (change)="changeMask()">
       <mat-radio-button value="nome">Nome</mat-radio-button>
       <mat-radio-button value="cpf">CPF</mat-radio-button>
       <mat-radio-button value="dataNascimento">Data de Nascimento</mat-radio-button>
     </mat-radio-group>
-    <input type="text" placeholder="Digite a informação aqui" formControlName="input">
+    <input type="text" [placeholder]="placeholder" [mask]="mask" formControlName="input">
     <button class="button-add" type="submit" [disabled]="!searchForm.valid">Buscar</button>
   </form>
 </div>
+       

@@ -34,7 +34,6 @@ export class UserComponent implements OnInit {
   }
 
   salvarUsuario() {
-    console.log(this.userForm)
     if (!this.checkPasswords()) {
       this.error = 'As senhas não coincidem';
     } else {
