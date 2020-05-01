@@ -37,7 +37,7 @@
               <input formControlName="religiao" matInput name="religiao" placeholder="Religião">
             </mat-form-field>
           </div>
- 
+
           <div class="grid-2">
             <div class="col">
               <label id="example-radio-group-label">Etnia:&nbsp;</label>
@@ -88,8 +88,7 @@
           <div>
             <div class="full col">
               <label id="example-radio-group-label">Escolaridade:&nbsp;</label>
-              <mat-radio-group formControlName="escolaridade" aria-labelledby="example-radio-group-label"
-                class="col">
+              <mat-radio-group formControlName="escolaridade" aria-labelledby="example-radio-group-label" class="col">
                 <mat-radio-button value="analfabeto">Analfabeto&nbsp;
                 </mat-radio-button>
                 <mat-radio-button value="le&escreve">Só lê e escreve&nbsp;
@@ -120,7 +119,8 @@
           <div class="docs-pessoais">
             <div class="col">
               <label id="example-radio-group-label">Tem documentos pessoais?&nbsp;</label>
-              <mat-radio-group formControlName="temDocsPessoais" aria-labelledby="example-radio-group-label" class="col">
+              <mat-radio-group formControlName="temDocsPessoais" aria-labelledby="example-radio-group-label"
+                class="col">
                 <mat-radio-button value="sim">Sim</mat-radio-button>
                 &nbsp;
                 <mat-radio-button value="nao">Não</mat-radio-button>
@@ -178,7 +178,7 @@
             </mat-form-field>
           </div>
           <div class="na-rua">
-            <label id="example-radio-group-label">Está na rua:</label>&nbsp;
+            <label>Está na rua:</label>&nbsp;
             <mat-radio-group formControlName="comQuemEstaNaRua" aria-labelledby="example-radio-group-label">
               <mat-radio-button value="sozinho">Sozinho?</mat-radio-button>
               &nbsp;
@@ -187,20 +187,20 @@
               &nbsp;
               <mat-radio-button value="comAmigos">Com amigos?
               </mat-radio-button>
-
             </mat-radio-group> &nbsp;
           </div>
           <div class="col" formGroupName="seAcompanhado">
             <div>
               <label id="example-radio-group-label">Se acompanhado:</label>&nbsp;
               <mat-form-field style="margin-right: 5px;">
-                <input formControlName="numeroAdultos" matInput name="outro" placeholder="Nº de adultos:">
+                <input type="number" formControlName="numeroAdultos" matInput name="outro" placeholder="Nº de adultos:">
               </mat-form-field>
               <mat-form-field>
-                <input formControlName="numeroCriancas" matInput name="outro" placeholder="Nº de crianças:">
+                <input type="number" #criancas formControlName="numeroCriancas" matInput name="outro"
+                  placeholder="Nº de crianças:">
               </mat-form-field>
             </div>
-            <div class="col">
+            <div class="col" *ngIf="criancas.value > 0">
               <label id="example-radio-group-label" style="margin-right: 5px;">Se com crianças:</label>
               <mat-form-field>
                 <input formControlName="ondeFicam" matInput name="outro" placeholder="Onde ficam?:">
@@ -241,7 +241,8 @@
               <mat-radio-button value="S">Sim</mat-radio-button>&nbsp;
               <mat-radio-button value="N">Não</mat-radio-button>
             </mat-radio-group>
-            <mat-form-field style="width: 100%;" *ngIf="anamneseForm.value.perfilSocioeconomico.carteiraAssinada == 'S'">
+            <mat-form-field style="width: 100%;"
+              *ngIf="anamneseForm.value.perfilSocioeconomico.carteiraAssinada == 'S'">
               <input formControlName="ocupacaoClt" matInput name="ocupacao" placeholder="Com qual ocupação?">
             </mat-form-field>
           </div>
