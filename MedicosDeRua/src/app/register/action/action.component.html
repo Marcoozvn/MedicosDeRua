@@ -1,0 +1,26 @@
+<a class="back-button" [routerLink]="['/app']">
+  <span class="material-icons">
+    arrow_back
+  </span>
+  Voltar para a busca
+</a>
+<div class="action-container">
+  <button class="new">
+    <span class="material-icons">
+      add
+    </span>
+    Criar ação
+  </button>
+  <ul class="actions-list">
+    <div class="item-header">
+      <span>Nome</span>
+      <span>Data Início</span>
+      <span>Data Final</span>
+    </div>
+    <li class="action-item" *ngFor="let acao of acoes">
+      <span>{{acao.nome}}</span>
+      <span>{{acao.dataInicio}}</span>
+      <span>{{acao.dataFinal}}</span>
+    </li>
+  </ul>
+</div>

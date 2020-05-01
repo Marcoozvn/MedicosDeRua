@@ -68,7 +68,7 @@ export class ReturnRegistrationComponent implements OnInit {
     }
     this.registerForm = this.fb.group({
       prontuario: '',
-      data: Date.now(),
+      data: '',
       paciente: this.fb.group({
         nome: ['', Validators.required],
         dataNascimento: '',

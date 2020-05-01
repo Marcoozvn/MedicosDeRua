@@ -22,7 +22,8 @@ import localePtBr from '@angular/common/locales/pt';
 import { registerLocaleData } from '@angular/common';
 import { UserComponent } from './register/user/user.component';
 
-import { NgxMaskModule, IConfig } from 'ngx-mask'
+import { NgxMaskModule, IConfig } from 'ngx-mask';
+import { ActionComponent } from './register/action/action.component'
 
 const maskConfig: Partial<IConfig> = {
   validation: false,
@@ -42,6 +43,7 @@ registerLocaleData(localePtBr);
     ReturnRegistrationComponent,
     AnamneseGeralComponent,
     UserComponent,
+    ActionComponent,
 
   ],
   imports: [
