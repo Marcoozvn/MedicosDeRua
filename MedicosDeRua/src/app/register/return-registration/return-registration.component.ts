@@ -21,14 +21,11 @@ export class ReturnRegistrationComponent implements OnInit {
   // tslint:disable-next-line: max-line-length
   constructor(private fb: FormBuilder, private formService: FormService, private router: Router, private listUsersService: ListUsersService) {
     this.listUsersService.getSelectedUser().subscribe( user => {
-      if (user == null) {
-        this.router.navigate(['/app']);
-      } else {
+      if (user) {
         this.prontuario = uuidv4();
-        this.paciente = {user: user.nome, dataNascimento: user.dataNascimento};
+        this.paciente = {nome: user.nome, dataNascimento: user.dataNascimento};
       }
     });
-
     if (this.router.getCurrentNavigation().extras.state) {
       this.form = this.router.getCurrentNavigation().extras.state;
     }
@@ -66,9 +63,12 @@ export class ReturnRegistrationComponent implements OnInit {
   }]
 
   ngOnInit() {
+    if (!this.paciente) {
+      this.router.navigate(['/app']);
+    }
     this.registerForm = this.fb.group({
       prontuario: '',
-      data: '',
+      data: Date.now(),
       paciente: this.fb.group({
         nome: ['', Validators.required],
         dataNascimento: '',
