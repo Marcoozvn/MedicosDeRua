@@ -5,7 +5,7 @@
   Voltar para a busca
 </a>
 <div class="action-container">
-  <button class="new">
+  <button class="new" (click)="newAction()">
     <span class="material-icons">
       add
     </span>
@@ -18,9 +18,9 @@
       <span>Data Final</span>
     </div>
     <li class="action-item" *ngFor="let acao of acoes">
-      <span>{{acao.nome}}</span>
-      <span>{{acao.dataInicio}}</span>
-      <span>{{acao.dataFinal}}</span>
+      <span>{{acao.titulo}}</span>
+      <span>{{acao.dataInicio | date: 'dd/MM/yyyy'}}</span>
+      <span>{{acao.dataFinal | date: 'dd/MM/yyyy'}}</span>
     </li>
   </ul>
 </div>

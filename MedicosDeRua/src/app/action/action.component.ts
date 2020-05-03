@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { ActionService } from './action.service';
+import Acao from '../models/acao';
+import { Router } from '@angular/router';
+import { ListUsersService } from '../list-users/list-users.service';
 
 @Component({
   selector: 'app-action',
@@ -7,26 +11,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ActionComponent implements OnInit {
 
-  acoes = [
-    {nome: 'Ação 1', dataInicio: '01/05/2020', dataFinal: '10/05/2020'},
-    {nome: 'Ação 2', dataInicio: '11/05/2020', dataFinal: '20/05/2020'},
-    {nome: 'Ação 3', dataInicio: '21/05/2020', dataFinal: '30/05/2020'},
-    {nome: 'Ação 3', dataInicio: '21/05/2020', dataFinal: '30/05/2020'},
-    {nome: 'Ação 3', dataInicio: '21/05/2020', dataFinal: '30/05/2020'},
-    {nome: 'Ação 3', dataInicio: '21/05/2020', dataFinal: '30/05/2020'},
-    {nome: 'Ação 3', dataInicio: '21/05/2020', dataFinal: '30/05/2020'},
-    {nome: 'Ação 3', dataInicio: '21/05/2020', dataFinal: '30/05/2020'},
-    {nome: 'Ação 3', dataInicio: '21/05/2020', dataFinal: '30/05/2020'},
-    {nome: 'Ação 3', dataInicio: '21/05/2020', dataFinal: '30/05/2020'},
-    {nome: 'Ação 3', dataInicio: '21/05/2020', dataFinal: '30/05/2020'},
-    {nome: 'Ação 3', dataInicio: '21/05/2020', dataFinal: '30/05/2020'},
-    {nome: 'Ação 3', dataInicio: '21/05/2020', dataFinal: '30/05/2020'},
-    {nome: 'Ação 4', dataInicio: '31/05/2020', dataFinal: '10/06/2020'}
-  ]
+  acoes: Acao[];
 
-  constructor() { }
+  constructor(private actionService: ActionService, private router: Router, private listUsersService: ListUsersService) { 
+    this.listUsersService.selectUser(null);
+  }
 
   ngOnInit() {
+    this.actionService.listActions().subscribe(
+      res => {
+        this.acoes = res;
+      }
+    );
+  }
+
+  newAction() {
+    this.router.navigate(['./app/new-action']);
   }
 
 }

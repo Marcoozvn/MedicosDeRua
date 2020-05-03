@@ -11,8 +11,8 @@
       <span>Nova ação</span>
       <p>Crie uma nova ação incrível e nos ajude a melhorar o mundo cuidando das pessoas!</p>
     </section>
-    <form>
-      <input type="text" placeholder="Título">
+    <form [formGroup]="actionForm">
+      <input type="text" placeholder="Título" formControlName="titulo">
       <div class="full">
         <ngb-datepicker #dp (dateSelect)="onDateSelection($event)" [displayMonths]="2" [dayTemplate]="t" outsideDays="hidden">
         </ngb-datepicker>
@@ -43,6 +43,9 @@
           </span>
         </ng-template>
       </div>
+      <button class="add-action" (click)="submit()" [disabled]="!actionForm.valid">
+        Salvar
+      </button>
     </form>
   </div>
 </div>

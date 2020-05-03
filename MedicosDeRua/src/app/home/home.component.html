@@ -8,6 +8,7 @@
     
     <div class="buttons-container">
       <div style="display: flex; flex-direction: row;">
+        <button class="button-add button-header" [routerLink]="['/app/action']">Ações</button>
         <button class="button-add button-header" [routerLink]="['/app/new-user']">Novo usuário</button>
         <button class="button-add button-header" [routerLink]="['/app/anamnese-geral']">Nova anamnese</button>
         <button *ngIf="selectedUser" class="button-add button-header" [routerLink]="['/app/return-registration']">Novo retorno</button>
