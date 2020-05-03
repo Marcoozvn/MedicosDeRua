@@ -22,7 +22,6 @@ export class HomeComponent {
 
   constructor(private breakpointObserver: BreakpointObserver, private router: Router, private listUsersService: ListUsersService) {
     this.listUsersService.getSelectedUser().subscribe( user => {
-      console.log(user);
       this.selectedUser = user;
     });
   }

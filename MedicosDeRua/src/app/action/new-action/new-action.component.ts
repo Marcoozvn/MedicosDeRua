@@ -60,7 +60,7 @@ export class NewActionComponent implements OnInit {
     this.actionService.createAction(action).subscribe(
       res => {
         alert('Ação criada com sucesso');
-        this.router.navigate(['/app']);
+        this.router.navigate(['/app/action']);
       },
       error => alert('Ocorreu um erro: ' + error.error.message)
     );

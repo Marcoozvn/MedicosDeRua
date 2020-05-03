@@ -2,7 +2,7 @@
   <div class="login-body">
     <img src="../../assets/logo.png" alt="Logo" width="200"/>
     <div class="login-error" *ngIf="error">
-      <span>Login/Senha incorretos!</span>
+      <span>{{ error }}</span>
     </div>
     <form action="submit" (ngSubmit)="submit()" [formGroup]="loginForm">
       <input type="text" placeholder="Usuário" formControlName="login">

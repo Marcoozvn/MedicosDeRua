@@ -4,6 +4,7 @@ import { AuthService } from '../auth/auth.service';
 
 import { first } from 'rxjs/operators';
 import { Router } from '@angular/router';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-login',
@@ -12,7 +13,7 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
   public loginForm: any;
-  public error: boolean;
+  public error: string;
 
   constructor(private formBuilder: FormBuilder, private authService: AuthService, private router: Router) { }
 
@@ -21,7 +22,7 @@ export class LoginComponent implements OnInit {
       login: ['', Validators.required],
       password: ['', Validators.required]
     });
-    this.error = false;
+    this.error = null;
   }
 
   public submit(): void {
@@ -29,8 +30,8 @@ export class LoginComponent implements OnInit {
       .pipe(first())
       .subscribe(
         data => this.router.navigate(['/app']),
-        error => {
-          this.error = true;
+        (error: HttpErrorResponse) => {
+          this.error = error.error.message;
           this.loginForm.reset();
         }
       );
