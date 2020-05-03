@@ -23,7 +23,9 @@ import { registerLocaleData } from '@angular/common';
 import { UserComponent } from './register/user/user.component';
 
 import { NgxMaskModule, IConfig } from 'ngx-mask';
-import { ActionComponent } from './register/action/action.component'
+import { ActionComponent } from './action/action.component'
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NewActionComponent } from './action/new-action/new-action.component';
 
 const maskConfig: Partial<IConfig> = {
   validation: false,
@@ -44,6 +46,7 @@ registerLocaleData(localePtBr);
     AnamneseGeralComponent,
     UserComponent,
     ActionComponent,
+    NewActionComponent,
 
   ],
   imports: [
@@ -52,6 +55,7 @@ registerLocaleData(localePtBr);
     AppRoutingModule,
     HttpClientModule,
     SharedModule,
+    NgbModule,
     NgxMaskModule.forRoot(maskConfig),
   ],
   providers: [AuthGuardService, { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true }],

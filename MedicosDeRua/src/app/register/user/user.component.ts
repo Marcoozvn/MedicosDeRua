@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { ListUsersService } from 'src/app/list-users/list-users.service';
+import { UserService } from 'src/app/shared/user.service';
+import Usuario from 'src/app/models/usuario';
+import { Router } from '@angular/router';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-user',
@@ -15,7 +19,8 @@ export class UserComponent implements OnInit {
   papeis: string[] = ['Acadêmico', 'Médico', 'Jurídico', 'Odontologia', 'Nutrição', 'Enfermagem', 'Veterinária', 'Psicologia',
                       'Fisioterapia', 'Tutor'];
 
-  constructor(private fb: FormBuilder, private listUsersService: ListUsersService) {
+  // tslint:disable-next-line: max-line-length
+  constructor(private fb: FormBuilder, private listUsersService: ListUsersService, private userService: UserService, private router: Router) {
     this.listUsersService.selectUser(null);
    }
 
@@ -41,6 +46,15 @@ export class UserComponent implements OnInit {
       this.error = 'As senhas não coincidem';
     } else {
       this.error = '';
+      const { nome, login, password, papel } = this.userForm.value;
+
+      this.userService.createUser(new Usuario(nome, login, password, papel)).subscribe(
+        () => {
+          alert('Usuário criado com sucesso');
+          this.router.navigate(['/app']);
+        },
+        (error: HttpErrorResponse) => alert('Ocorreu um erro: ' + error.error.message)
+      );
     }
   }
 

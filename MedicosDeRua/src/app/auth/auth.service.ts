@@ -16,8 +16,8 @@ export class AuthService {
     this.currentUser = this.currentUserSubject.asObservable();
   }
 
-  private authenticate(username: string, password: string): Observable<any> {
-    return this.http.post(`${environment.API_HOST}/login`, { username, password });
+  private authenticate(login: string, password: string): Observable<any> {
+    return this.http.post(`${environment.API_HOST}/login`, { login, password });
   }
 
   public isAuthenticated(): boolean {
@@ -28,8 +28,8 @@ export class AuthService {
     return localStorage.getItem('token');
   }
 
-  public login(username: string, password: string): Observable<any> {
-    return this.authenticate(username, password).pipe(
+  public login(login: string, password: string): Observable<any> {
+    return this.authenticate(login, password).pipe(
       map(response => {
         localStorage.setItem('token', response.token);
         this.currentUserSubject.next(response.token);

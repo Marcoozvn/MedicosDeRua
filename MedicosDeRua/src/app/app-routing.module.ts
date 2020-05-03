@@ -10,7 +10,8 @@ import { ListFormsComponent } from './list-forms/list-forms.component';
 import { ReturnRegistrationComponent } from './register/return-registration/return-registration.component';
 import { AnamneseGeralComponent } from './register/anamnese-geral/anamnese-geral.component';
 import { UserComponent } from './register/user/user.component';
-import { ActionComponent } from './register/action/action.component';
+import { ActionComponent } from './action/action.component';
+import { NewActionComponent } from './action/new-action/new-action.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -22,7 +23,8 @@ const routes: Routes = [
       { path: 'anamnese-geral', component: AnamneseGeralComponent },
       { path: 'return-registration', component: ReturnRegistrationComponent },
       { path: 'new-user', component: UserComponent },
-      { path: 'action', component: ActionComponent},
+      { path: 'action', component: ActionComponent },
+      { path: 'new-action', component: NewActionComponent},
       { path: '**', component: SearchComponent }
     ]
   },
