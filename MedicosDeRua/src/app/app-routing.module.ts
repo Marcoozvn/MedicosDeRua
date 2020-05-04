@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AuthGuardService as AuthGuard } from './auth/auth-guard.service';
+import { ProfileGuardService } from './auth/profile-guard.service';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { NotFoundComponent } from './not-found/not-found.component';
@@ -22,9 +23,9 @@ const routes: Routes = [
       { path: 'forms', component: ListFormsComponent },
       { path: 'anamnese-geral', component: AnamneseGeralComponent },
       { path: 'return-registration', component: ReturnRegistrationComponent },
-      { path: 'new-user', component: UserComponent },
-      { path: 'action', component: ActionComponent },
-      { path: 'new-action', component: NewActionComponent},
+      { path: 'new-user', component: UserComponent, canActivate: [ProfileGuardService] },
+      { path: 'action', component: ActionComponent, canActivate: [ProfileGuardService] },
+      { path: 'new-action', component: NewActionComponent, canActivate: [ProfileGuardService] },
       { path: '**', component: SearchComponent }
     ]
   },

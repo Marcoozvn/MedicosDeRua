@@ -5,6 +5,8 @@ import { map, shareReplay } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import { ListUsersService } from '../list-users/list-users.service';
 import Paciente from '../models/paciente';
+import Usuario from '../models/usuario';
+import { AuthService } from '../auth/auth.service';
 
 @Component({
   selector: 'app-home',
@@ -19,8 +21,11 @@ export class HomeComponent {
       shareReplay()
     );
   selectedUser: Paciente;
+  loggedUser: Usuario;
 
-  constructor(private breakpointObserver: BreakpointObserver, private router: Router, private listUsersService: ListUsersService) {
+  // tslint:disable-next-line: max-line-length
+  constructor(private breakpointObserver: BreakpointObserver, private router: Router, private listUsersService: ListUsersService, private authService: AuthService) {
+    this.loggedUser = this.authService.getCurrentUser();
     this.listUsersService.getSelectedUser().subscribe( user => {
       this.selectedUser = user;
     });

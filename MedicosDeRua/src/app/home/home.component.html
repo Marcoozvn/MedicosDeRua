@@ -3,13 +3,13 @@
   <div class="home-header">
     <div class="logo-container">
       <img src="../../assets/logo.png" alt="Logo"/>
-      <span>Seja bem vindo, Marcos</span>
+      <span>Seja bem vindo, {{ loggedUser.nome }}</span>
     </div>
     
     <div class="buttons-container">
       <div style="display: flex; flex-direction: row;">
-        <button class="button-add button-header" [routerLink]="['/app/action']">Ações</button>
-        <button class="button-add button-header" [routerLink]="['/app/new-user']">Novo usuário</button>
+        <button *ngIf="loggedUser.papel === 'Tutor'" class="button-add button-header" [routerLink]="['/app/action']">Ações</button>
+        <button *ngIf="loggedUser.papel === 'Tutor'" class="button-add button-header" [routerLink]="['/app/new-user']">Novo usuário</button>
         <button class="button-add button-header" [routerLink]="['/app/anamnese-geral']">Nova anamnese</button>
         <button *ngIf="selectedUser" class="button-add button-header" [routerLink]="['/app/return-registration']">Novo retorno</button>
       </div>

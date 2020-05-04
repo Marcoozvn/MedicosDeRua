@@ -1,20 +1,18 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, BehaviorSubject } from 'rxjs';
+import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
+import { CryptoService } from './crypto.service';
+import * as jwt_decode from 'jwt-decode';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  private currentUserSubject: BehaviorSubject<string>;
-  public currentUser: Observable<string>;
 
-  constructor(private http: HttpClient) {
-    this.currentUserSubject = new BehaviorSubject<any>(JSON.parse(localStorage.getItem('currentUser')));
-    this.currentUser = this.currentUserSubject.asObservable();
-  }
+  constructor(private http: HttpClient, private cryptoService: CryptoService) { }
 
   private authenticate(login: string, password: string): Observable<any> {
     return this.http.post(`${environment.API_HOST}/login`, { login, password });
@@ -24,15 +22,20 @@ export class AuthService {
     return localStorage.getItem('token') != null;
   }
 
-  public getCurrentUser(): string {
-    return localStorage.getItem('token');
+  public getCurrentUser() {
+    const token = this.cryptoService.decypher(localStorage.getItem('token'));
+    return jwt_decode(token);
   }
+
+  public getSessionVariable(key: string): string {
+    const value = localStorage.getItem(key);
+    return (value) ? this.cryptoService.decypher(value) : null;
+}
 
   public login(login: string, password: string): Observable<any> {
     return this.authenticate(login, password).pipe(
       map(response => {
-        localStorage.setItem('token', response.token);
-        this.currentUserSubject.next(response.token);
+        localStorage.setItem('token', this.cryptoService.cypher(response.token));
         return response.token;
       })
     );
@@ -40,6 +43,5 @@ export class AuthService {
 
   public logout() {
     localStorage.removeItem('token');
-    this.currentUserSubject.next(null);
   }
 }
