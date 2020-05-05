@@ -17,11 +17,14 @@
         <span>{{form.type}}</span>
         <span>{{form.createdAt | date: 'dd/MM/yyyy'}}</span>
         <div class="card-actions">
-          <span class="material-icons" (click)="deleteForm($event, form)">
+          <span  style="padding: 0 10px 0 0;" title="Deletar" class="material-icons" (click)="deleteForm($event, form)">
             delete
           </span>
-          <span class="material-icons" (click)="editForm(form)">
+          <span style="padding: 0 10px 0 0;"  title="Editar" class="material-icons" (click)="editForm(form)">
             edit
+          </span>
+          <span style="padding: 0 10px 0 0;"  title="Visualizar" class="material-icons" (click)="viewForm(form)">
+            info
           </span>
         </div>
       </div>

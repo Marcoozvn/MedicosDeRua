@@ -15,19 +15,23 @@ export class ReturnRegistrationComponent implements OnInit {
   usoDeSubstancias: any;
   registerForm: any;
   form: any;
+  onlyView: boolean = false;
   paciente: any;
   prontuario: string;
 
   // tslint:disable-next-line: max-line-length
   constructor(private fb: FormBuilder, private formService: FormService, private router: Router, private listUsersService: ListUsersService) {
-    this.listUsersService.getSelectedUser().subscribe( user => {
+    this.listUsersService.getSelectedUser().subscribe(user => {
       if (user) {
         this.prontuario = uuidv4();
-        this.paciente = {nome: user.nome, dataNascimento: user.dataNascimento};
+        this.paciente = { nome: user.nome, dataNascimento: user.dataNascimento };
       }
     });
     if (this.router.getCurrentNavigation().extras.state) {
       this.form = this.router.getCurrentNavigation().extras.state;
+      if (this.router.getCurrentNavigation().extras.state.length > 1) {
+        this.onlyView = true;
+      }
     }
   }
 
@@ -94,7 +98,7 @@ export class ReturnRegistrationComponent implements OnInit {
         usoSubstancias: 'false',
         Alcool: this.fb.group({
           uso: false,
-          tipoDeUso: {value: '', disabled: false},
+          tipoDeUso: { value: '', disabled: false },
           quantidade: '',
           frequencia: ''
         }),
@@ -180,6 +184,11 @@ export class ReturnRegistrationComponent implements OnInit {
     if (this.form) {
       this.registerForm.patchValue(this.form);
     }
+
+    if (this.onlyView) {
+      this.registerForm.disable();
+    }
+
   }
 
   submitForm() {
@@ -200,7 +209,7 @@ export class ReturnRegistrationComponent implements OnInit {
           this.router.navigate(['/app']);
         },
         error => alert('Ocorreu um erro ' + error));
-      }
+    }
   }
 
 

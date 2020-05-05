@@ -5,7 +5,7 @@
     </span>
     Voltar para a busca
   </a>
-  <div class="list-users-container" *ngIf="users.length > 0">
+  <div class="list-users-container" *ngIf="users?.length > 0">
     <h2>Pacientes</h2>
     <div class="list-header">
       <span>Nome</span>
@@ -22,7 +22,7 @@
       </li>
     </ul>
   </div>
-  <div class="not-found" *ngIf="users.length == 0">
+  <div class="not-found" *ngIf="users?.length == 0">
     <h3>
       Nenhum usuário encontrado
     </h3>

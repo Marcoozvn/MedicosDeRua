@@ -9,19 +9,10 @@ import { Router } from '@angular/router';
 })
 export class ListFormsComponent implements OnInit {
 
-  // Remover o mock depois
-  /*
-  mock = [
-    { tipo: 'Anamnese', createdAt: '20/03/2020' },
-    { tipo: 'Retorno', createdAt: '01/04/2020' },
-    { tipo: 'Retorno', createdAt: '02/04/2020' },
-    { tipo: 'Retorno', createdAt: '03/04/2020' }
-  ];
-  */
-
   // Isso aqui vai ser utilizado para listar os forms
   forms: any[];
-
+  onlyView = true;
+  
   constructor(private formsService: FormService, private router: Router) { }
 
   ngOnInit() {
@@ -47,6 +38,16 @@ export class ListFormsComponent implements OnInit {
 
     if (form.type === 'Anamnese inicial') {
       this.router.navigate(['app/anamnese-geral'], { state: form });
+    }
+  }
+
+  viewForm(form: any) {
+    if (form.type === 'Retorno') {
+      this.router.navigate(['app/return-registration'], { state: [form, this.onlyView] });
+    }
+
+    if (form.type === 'Anamnese inicial') {
+      this.router.navigate(['app/anamnese-geral'], { state: [form, this.onlyView]});
     }
   }
 

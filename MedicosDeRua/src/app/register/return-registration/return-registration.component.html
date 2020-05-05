@@ -302,6 +302,6 @@
     </form>
   </mat-card>
   <div style="display: flex; flex-direction: row-reverse; margin-top: 10px; margin-bottom: 10px;">
-    <button class="submit-button" (click)="submitForm()" [disabled]="!registerForm.valid">Salvar</button>&nbsp;
+    <button *ngIf="!onlyView" class="submit-button" (click)="submitForm()" [disabled]="!registerForm.valid">Salvar</button>&nbsp;
   </div>
 </div>

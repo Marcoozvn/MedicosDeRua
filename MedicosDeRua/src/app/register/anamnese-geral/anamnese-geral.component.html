@@ -180,16 +180,18 @@
           <div class="na-rua">
             <label>Está na rua:</label>&nbsp;
             <mat-radio-group formControlName="comQuemEstaNaRua" aria-labelledby="example-radio-group-label">
-              <mat-radio-button value="sozinho">Sozinho?</mat-radio-button>
+              <mat-radio-button value="sozinho">Sozinho ?</mat-radio-button>
               &nbsp;
-              <mat-radio-button value="comFamilia">Com familia?
+              <mat-radio-button value="comFamilia">Com familia ?
               </mat-radio-button>
               &nbsp;
-              <mat-radio-button value="comAmigos">Com amigos?
+              <mat-radio-button value="comAmigos">Com amigos? 
               </mat-radio-button>
             </mat-radio-group> &nbsp;
+            <br>
+            <br>
           </div>
-          <div class="col" formGroupName="seAcompanhado">
+          <div class="col" formGroupName="seAcompanhado" *ngIf="anamneseForm.value.perfilSocioeconomico.comQuemEstaNaRua === 'comFamilia' || anamneseForm.value.perfilSocioeconomico.comQuemEstaNaRua === 'comAmigos'">
             <div>
               <label id="example-radio-group-label">Se acompanhado:</label>&nbsp;
               <mat-form-field style="margin-right: 5px;">
@@ -1056,6 +1058,6 @@
     </form>
   </mat-card>
   <div style="display: flex; flex-direction: row-reverse; margin-top: 10px; margin-bottom: 10px;">
-    <button class="submit-button" (click)="submitForm()" [disabled]="!anamneseForm.valid">Salvar</button>&nbsp;
+    <button *ngIf="!onlyView" class="submit-button" (click)="submitForm()" [disabled]="!anamneseForm.valid">Salvar</button>&nbsp;
   </div>
 </div>

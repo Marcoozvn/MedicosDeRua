@@ -14,6 +14,8 @@ export class AnamneseGeralComponent implements OnInit {
 
   form: any;
   anamneseForm: any;
+  onlyView: boolean = false;
+  
   docsPessoais = ['RG', 'CPF', 'Carteira de Trabalho', 'CNH', 'Certidão de Nascimento', 'Certidão de Casamento'];
   drogas = [{ nome: 'Cocaína' }, { nome: 'Maconha' }, { nome: 'LSD' }, { nome: 'Ecstasy' }, { nome: 'Lança perfume' }];
   servicos = ['FAS', 'CREAS', 'Albergue', 'Centro Pop', 'CRAS', 'Internamento', 'CAPS']
@@ -36,13 +38,18 @@ export class AnamneseGeralComponent implements OnInit {
     { nome: 'Gravidez' }]
 
   constructor(private fb: FormBuilder,
-              private formService: FormService,
-              private router: Router,
-              private listUsersService: ListUsersService) {
+    private formService: FormService,
+    private router: Router,
+    private listUsersService: ListUsersService) {
     this.listUsersService.selectUser(null);
     if (this.router.getCurrentNavigation().extras.state) {
       this.form = this.router.getCurrentNavigation().extras.state;
+
+      if (this.router.getCurrentNavigation().extras.state.length > 1) {
+        this.onlyView = true;
+      }
     }
+
   }
 
   ngOnInit() {
@@ -432,6 +439,10 @@ export class AnamneseGeralComponent implements OnInit {
     if (this.form) {
       this.initializeFormValues();
     }
+    if (this.onlyView) {
+      this.anamneseForm.disable();
+    }
+
   }
 
   initializeFormValues() {
