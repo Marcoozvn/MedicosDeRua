@@ -7,7 +7,7 @@
     </div>
     
     <div class="buttons-container">
-      <div style="display: flex; flex-direction: row;">
+      <div [ngClass]="{'action': true, 'grid': loggedUser.papel === 'Tutor'}">
         <button *ngIf="loggedUser.papel === 'Tutor'" class="button-add button-header" [routerLink]="['/app/action']">Ações</button>
         <button *ngIf="loggedUser.papel === 'Tutor'" class="button-add button-header" [routerLink]="['/app/new-user']">Novo usuário</button>
         <button class="button-add button-header" [routerLink]="['/app/anamnese-geral']">Nova anamnese</button>
