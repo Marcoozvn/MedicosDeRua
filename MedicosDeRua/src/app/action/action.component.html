@@ -11,7 +11,7 @@
     </span>
     Criar ação
   </button>
-  <ul class="actions-list" *ngIf="acoes">
+  <ul class="actions-list" *ngIf="acoes && acoes.length > 0">
     <div class="item-header">
       <span>Nome</span>
       <span>Data Início</span>
@@ -23,7 +23,7 @@
       <span>{{acao.dataFinal | date: 'dd/MM/yyyy'}}</span>
     </li>
   </ul>
-  <div class="not-found" *ngIf="!acoes">
+  <div class="not-found" *ngIf="acoes && acoes.length == 0">
     <h3>
       Nenhuma ação criada
     </h3>
