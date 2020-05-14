@@ -16,7 +16,7 @@
       <li *ngFor="let user of users">
         <div class="user-card" (click)="searchForm(user)">
           <span>{{user.nome ? user.nome : 'Não informado'}}</span>
-          <span>{{user.cpf ? user.cpf : 'Não informado'}}</span>
+          <span>{{user.cpf ? (user.cpf | CPF ) : 'Não informado'}}</span>
           <span>{{user.dataNascimento | date: 'dd/MM/yyyy'}}</span>
         </div>
       </li>

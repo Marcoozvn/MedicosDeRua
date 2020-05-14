@@ -12,12 +12,13 @@ export class ListFormsComponent implements OnInit {
   // Isso aqui vai ser utilizado para listar os forms
   forms: any[];
   onlyView = true;
-  
+
   constructor(private formsService: FormService, private router: Router) { }
 
   ngOnInit() {
     this.formsService.getForms().subscribe( res => {
       this.forms = res;
+      console.log(this.forms);
 
       if (!this.forms) {
         this.router.navigate(['/app']);
@@ -26,12 +27,14 @@ export class ListFormsComponent implements OnInit {
   }
 
   deleteForm(event: Event, form: any) {
+    event.preventDefault();
     const type = form.type === 'Retorno' ? 'return' : 'anamnese';
     this.formsService.deleteForm(type, form._id).subscribe( res => console.log(res));
     this.formsService.setForms(this.forms.filter(item => form._id !== item._id));
   }
 
-  editForm(form: any) {
+  editForm(event: Event, form: any) {
+    event.preventDefault();
     if (form.type === 'Retorno') {
       this.router.navigate(['app/return-registration'], { state: form });
     }

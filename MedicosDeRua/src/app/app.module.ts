@@ -26,6 +26,7 @@ import { NgxMaskModule, IConfig } from 'ngx-mask';
 import { ActionComponent } from './action/action.component'
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NewActionComponent } from './action/new-action/new-action.component';
+import { CpfPipe } from './shared/cpf.pipe';
 
 const maskConfig: Partial<IConfig> = {
   validation: false,
@@ -47,7 +48,7 @@ registerLocaleData(localePtBr);
     UserComponent,
     ActionComponent,
     NewActionComponent,
-
+    CpfPipe
   ],
   imports: [
     BrowserModule,
