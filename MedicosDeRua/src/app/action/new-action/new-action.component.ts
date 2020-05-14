@@ -25,10 +25,18 @@ export class NewActionComponent implements OnInit {
 
   ngOnInit() {
     this.actionForm = this.fb.group({
-      titulo: ['', Validators.required]
+      titulo: ['', Validators.required],
+      dataAcao: ['', Validators.required],
+      inicioAcao: ['', Validators.required],
+      fimAcao: ['', Validators.required]
+
     });
   }
 
+  timeValidade() {
+    return this.actionForm.value.inicioAcao < this.actionForm.value.fimAcao
+  }
+  
   onDateSelection(date: NgbDate) {
     if (!this.fromDate && !this.toDate) {
       this.fromDate = date;

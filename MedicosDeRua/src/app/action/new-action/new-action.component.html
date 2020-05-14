@@ -7,43 +7,23 @@
 <div class="new-action-container">
   <div class="card">
     <section class="card-left">
-      <img src="../../assets/new-action.svg" alt="Logo"/>
+      <img src="../../assets/new-action.svg" alt="Logo" />
       <span>Nova ação</span>
       <p>Crie uma nova ação incrível e nos ajude a melhorar o mundo cuidando das pessoas!</p>
     </section>
     <form [formGroup]="actionForm">
       <input type="text" placeholder="Título" formControlName="titulo">
-      <div class="full">
-        <ngb-datepicker #dp (dateSelect)="onDateSelection($event)" [displayMonths]="2" [dayTemplate]="t" outsideDays="hidden">
-        </ngb-datepicker>
-        
-        <ng-template #t let-date let-focused="focused">
-          <span class="custom-day"
-                [class.focused]="focused"
-                [class.range]="isRange(date)"
-                [class.faded]="isHovered(date) || isInside(date)"
-                (mouseenter)="hoveredDate = date"
-                (mouseleave)="hoveredDate = null">
-            {{ date.day }}
-          </span>
-        </ng-template>
+      <div>
+        <input style="width: 91%;" formControlName="dataAcao" matInput [matDatepicker]="picker" name="data"
+          placeholder="Data da ação:">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
       </div>
-      <div class="mobile">
-        <ngb-datepicker #dp (dateSelect)="onDateSelection($event)" [displayMonths]="1" [dayTemplate]="t" outsideDays="hidden">
-        </ngb-datepicker>
-        
-        <ng-template #t let-date let-focused="focused">
-          <span class="custom-day"
-                [class.focused]="focused"
-                [class.range]="isRange(date)"
-                [class.faded]="isHovered(date) || isInside(date)"
-                (mouseenter)="hoveredDate = date"
-                (mouseleave)="hoveredDate = null">
-            {{ date.day }}
-          </span>
-        </ng-template>
+      <div class="input-container" style="display: flex; justify-content: space-between;">
+        <input type="text" mask="99:99" placeholder="Horário inicial" formControlName="inicioAcao">
+        <input type="text" mask="99:99" placeholder="Horário final" formControlName="fimAcao">
       </div>
-      <button class="add-action" (click)="submit()" [disabled]="!actionForm.valid">
+      <button class="add-action" (click)="submit()" [disabled]="!actionForm.valid || !timeValidade()">
         Salvar
       </button>
     </form>
