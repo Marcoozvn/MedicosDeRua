@@ -14,56 +14,45 @@ export class NewActionComponent implements OnInit {
 
   actionForm: FormGroup;
 
-  hoveredDate: NgbDate | null = null;
-  fromDate: NgbDate;
-  toDate: NgbDate | null = null;
-
-  constructor(calendar: NgbCalendar, private fb: FormBuilder, private actionService: ActionService, private router: Router) {
-    this.fromDate = calendar.getToday();
-    this.toDate = calendar.getNext(calendar.getToday(), 'd', 10);
-  }
+  constructor(private fb: FormBuilder, private actionService: ActionService, private router: Router) { }
 
   ngOnInit() {
     this.actionForm = this.fb.group({
       titulo: ['', Validators.required],
       dataAcao: ['', Validators.required],
-      inicioAcao: ['', Validators.required],
-      fimAcao: ['', Validators.required]
+      inicioAcao: ['', [Validators.required, Validators.minLength(4)]],
+      fimAcao: ['', [Validators.required, Validators.minLength(4)]]
 
     });
   }
 
   timeValidade() {
-    return this.actionForm.value.inicioAcao < this.actionForm.value.fimAcao
-  }
-  
-  onDateSelection(date: NgbDate) {
-    if (!this.fromDate && !this.toDate) {
-      this.fromDate = date;
-    } else if (this.fromDate && !this.toDate && date.after(this.fromDate)) {
-      this.toDate = date;
-    } else {
-      this.toDate = null;
-      this.fromDate = date;
+    if (!this.actionForm.value.inicioAcao || !this.actionForm.value.fimAcao) {
+      return false;
     }
-  }
 
-  isHovered(date: NgbDate) {
-    return this.fromDate && !this.toDate && this.hoveredDate && date.after(this.fromDate) && date.before(this.hoveredDate);
-  }
+    const hhInicio = this.actionForm.value.inicioAcao.substring(0, 2);
+    const mmInicio = this.actionForm.value.inicioAcao.substring(2, 4);
 
-  isInside(date: NgbDate) {
-    return this.toDate && date.after(this.fromDate) && date.before(this.toDate);
-  }
+    const hhFim = this.actionForm.value.fimAcao.substring(0, 2);
+    const mmFim = this.actionForm.value.fimAcao.substring(2, 4);
 
-  isRange(date: NgbDate) {
-    return date.equals(this.fromDate) || (this.toDate && date.equals(this.toDate)) || this.isInside(date) || this.isHovered(date);
+    const hhValid = (+hhInicio >= 0 && +hhInicio <= 23) && (+hhFim >= 0 && +hhFim <= 23);
+    const mmValid = (+mmInicio >= 0 && +mmInicio <= 59) && (+mmFim >= 0 && +mmFim <= 59);
+
+    return (this.actionForm.value.inicioAcao < this.actionForm.value.fimAcao) && hhValid && mmValid;
   }
 
   submit() {
-    const action = new Acao(this.actionForm.get('titulo').value,
-      new Date(this.fromDate.year, this.fromDate.month, this.fromDate.day),
-      new Date(this.toDate.year, this.toDate.month, this.toDate.day));
+    const data = this.actionForm.value.dataAcao as Date;
+    const inicio = this.actionForm.value.inicioAcao;
+    const fim = this.actionForm.value.fimAcao;
+
+    const dataInicio = new Date(data.getFullYear(), data.getMonth() + 1, data.getDate(), inicio.substring(0, 2), inicio.substring(2, 4));
+    const dataFim = new Date(data.getFullYear(), data.getMonth() + 1, data.getDate(), fim.substring(0, 2), fim.substring(2, 4));
+
+    const action = new Acao(this.actionForm.get('titulo').value, dataInicio, dataFim);
+    console.log(action);
 
     this.actionService.createAction(action).subscribe(
       res => {

@@ -82,6 +82,12 @@
       background: #dddddd;
       cursor: auto;
     }
+
+    .input-container {
+      display: flex;
+      flex-direction: row;
+      width: 100%;
+    }
   }
 
   .custom-day {

@@ -19,8 +19,8 @@
     </div>
     <li class="action-item" *ngFor="let acao of acoes">
       <span>{{acao.titulo}}</span>
-      <span>{{acao.dataInicio | date: 'dd/MM/yyyy'}}</span>
-      <span>{{acao.dataFinal | date: 'dd/MM/yyyy'}}</span>
+      <span>{{acao.dataInicio | date: 'short' }}</span>
+      <span>{{acao.dataFinal | date: 'short' }}</span>
     </li>
   </ul>
   <div class="not-found" *ngIf="acoes && acoes.length == 0">

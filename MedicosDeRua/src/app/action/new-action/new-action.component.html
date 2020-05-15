@@ -13,15 +13,15 @@
     </section>
     <form [formGroup]="actionForm">
       <input type="text" placeholder="Título" formControlName="titulo">
-      <div>
-        <input style="width: 91%;" formControlName="dataAcao" matInput [matDatepicker]="picker" name="data"
+      <div style="display: flex; width: 100%; align-items: center;">
+        <input style="width: 100%;" formControlName="dataAcao" matInput [matDatepicker]="picker" name="data"
           placeholder="Data da ação:">
         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>
       </div>
-      <div class="input-container" style="display: flex; justify-content: space-between;">
-        <input type="text" mask="99:99" placeholder="Horário inicial" formControlName="inicioAcao">
-        <input type="text" mask="99:99" placeholder="Horário final" formControlName="fimAcao">
+      <div class="input-container">
+        <input style="width: 100%;" type="text" mask="99:99" placeholder="Horário inicial" formControlName="inicioAcao">
+        <input style="width: 100%;" type="text" mask="99:99" placeholder="Horário final" formControlName="fimAcao">
       </div>
       <button class="add-action" (click)="submit()" [disabled]="!actionForm.valid || !timeValidade()">
         Salvar
