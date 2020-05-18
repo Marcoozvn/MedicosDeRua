@@ -146,8 +146,8 @@
                       formControlName="quantidade">
                   </mat-form-field>&nbsp;
                   <mat-radio-group formControlName="tipoDeUso">
-                    <mat-radio-button value="Diário">Diário</mat-radio-button>
-                    <mat-radio-button value="Esporádico" style="margin: 5px;">Esporádico</mat-radio-button>
+                    <mat-radio-button labelPosition="before" value="Diário">Diário</mat-radio-button>
+                    <mat-radio-button labelPosition="before" value="Esporádico" style="margin: 5px;">Esporádico</mat-radio-button>
                   </mat-radio-group>
                   <mat-form-field *ngIf="registerForm.value.historiaMorbidaPregressa.Alcool.tipoDeUso == 'Esporádico'">
                     <input matInput name="quantidade" placeholder="x na sem." formControlName="frequencia" [required]="registerForm.value.historiaMorbidaPregressa.Alcool.tipoDeUso == 'Esporádico'">
@@ -172,8 +172,8 @@
               <mat-checkbox formControlName="uso">{{droga?.nome}}</mat-checkbox>&nbsp;
               <div *ngIf="registerForm.value.historiaMorbidaPregressa[droga.nome].uso">
                 <mat-radio-group formControlName="tipoDeUso">
-                  <mat-radio-button value="Diário">Diário</mat-radio-button>&nbsp;
-                  <mat-radio-button value="Esporádico">Esporádico</mat-radio-button>&nbsp;
+                  <mat-radio-button labelPosition="before" value="Diário">Diário</mat-radio-button>&nbsp;
+                  <mat-radio-button labelPosition="before" value="Esporádico">Esporádico</mat-radio-button>&nbsp;
                 </mat-radio-group>
                 <mat-form-field *ngIf="registerForm.value.historiaMorbidaPregressa[droga.nome].tipoDeUso == 'Esporádico'">
                   <input matInput placeholder="X na sem," formControlName="frequencia" [required]="registerForm.value.historiaMorbidaPregressa[droga.nome].tipoDeUso == 'Esporádico'">
@@ -291,8 +291,8 @@
             <div class="col-33 encaminhamento-item" *ngFor="let encaminhamento of encaminhamentos">
               <label>{{encaminhamento.area}}</label>
               <mat-radio-group [formControlName]="encaminhamento.area">
-                <mat-radio-button class="" value="true">{{encaminhamento.situacao1}}</mat-radio-button>
-                <mat-radio-button class="" value="false">{{encaminhamento.situacao2}}</mat-radio-button>
+                <mat-radio-button labelPosition="before" class="" value="true">{{encaminhamento.situacao1}}</mat-radio-button>
+                <mat-radio-button labelPosition="before" class="" value="false">{{encaminhamento.situacao2}}</mat-radio-button>
               </mat-radio-group>
             </div>
           </div>
