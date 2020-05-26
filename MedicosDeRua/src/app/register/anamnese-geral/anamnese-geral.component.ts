@@ -3,7 +3,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { FormService } from 'src/app/shared/form.service';
 import { Router } from '@angular/router';
 import { ListUsersService } from 'src/app/list-users/list-users.service';
-
+import {Location} from '@angular/common';
 
 @Component({
   selector: 'app-anamnese-geral',
@@ -40,12 +40,14 @@ export class AnamneseGeralComponent implements OnInit {
   constructor(private fb: FormBuilder,
     private formService: FormService,
     private router: Router,
-    private listUsersService: ListUsersService) {
+    private listUsersService: ListUsersService,
+    private location: Location) {
     this.listUsersService.selectUser(null);
     if (this.router.getCurrentNavigation().extras.state) {
       this.form = this.router.getCurrentNavigation().extras.state;
-
+    
       if (this.router.getCurrentNavigation().extras.state.length > 1) {
+        this.form = this.router.getCurrentNavigation().extras.state[0];
         this.onlyView = true;
       }
     }
@@ -53,11 +55,13 @@ export class AnamneseGeralComponent implements OnInit {
   }
 
   ngOnInit() {
+
     this.anamneseForm = this.fb.group({
       paciente: this.fb.group({
         nome: ['', Validators.required],
         cpf: ['', Validators.minLength(11)],
         dataNascimento: '',
+        idade: '',
         religiao: '',
         etnia: '',
         sexo: '',
@@ -468,6 +472,29 @@ export class AnamneseGeralComponent implements OnInit {
         },
         error => alert('Ocorreu um erro ' + error));
     }
+  }
+
+  goBack() {
+    this.location.back();
+  }
+
+  
+  calculateAgeByDate(event) {
+    let age
+    let today = new Date();
+    let birthDate = new Date(event.target.value);
+        age = today.getFullYear() - birthDate.getFullYear();
+    let m = today.getMonth() - birthDate.getMonth();
+    if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+        age--;
+    }
+
+    this.anamneseForm.patchValue({
+      paciente: {
+        idade: age
+      }
+    })
+    
   }
 
 }

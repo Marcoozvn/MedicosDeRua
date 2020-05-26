@@ -3,6 +3,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { FormService } from 'src/app/shared/form.service';
 import { Router } from '@angular/router';
 import { ListUsersService } from 'src/app/list-users/list-users.service';
+import { Location } from '@angular/common';
 import { v4 as uuidv4 } from 'uuid';
 
 @Component({
@@ -20,7 +21,7 @@ export class ReturnRegistrationComponent implements OnInit {
   prontuario: string;
 
   // tslint:disable-next-line: max-line-length
-  constructor(private fb: FormBuilder, private formService: FormService, private router: Router, private listUsersService: ListUsersService) {
+  constructor(private fb: FormBuilder, private location: Location, private formService: FormService, private router: Router, private listUsersService: ListUsersService) {
     this.listUsersService.getSelectedUser().subscribe(user => {
       if (user) {
         this.prontuario = uuidv4();
@@ -66,7 +67,7 @@ export class ReturnRegistrationComponent implements OnInit {
     situacao2: 'Atendido - ver ficha específica'
   }]
 
-  ngOnInit() {
+  ngOnInit() {    
     if (!this.paciente) {
       this.router.navigate(['/app']);
     }
@@ -212,5 +213,9 @@ export class ReturnRegistrationComponent implements OnInit {
     }
   }
 
-
+  goBack() {
+    console.log('back', this.location);
+    
+    this.location.back();
+  }
 }
