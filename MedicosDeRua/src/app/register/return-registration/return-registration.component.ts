@@ -31,6 +31,7 @@ export class ReturnRegistrationComponent implements OnInit {
     if (this.router.getCurrentNavigation().extras.state) {
       this.form = this.router.getCurrentNavigation().extras.state;
       if (this.router.getCurrentNavigation().extras.state.length > 1) {
+        this.form = this.router.getCurrentNavigation().extras.state[0];
         this.onlyView = true;
       }
     }
@@ -77,6 +78,7 @@ export class ReturnRegistrationComponent implements OnInit {
       paciente: this.fb.group({
         nome: ['', Validators.required],
         dataNascimento: '',
+        idade: '',
       }),
       sinaisVitais: this.fb.group({
         freqCardiaca: '',
@@ -176,8 +178,9 @@ export class ReturnRegistrationComponent implements OnInit {
         Jurídico: false
       })
     });
-
-    this.registerForm.get('paciente').patchValue(this.paciente);
+    if(this.registerForm != null && this.registerForm.get('paciente')) {
+      this.registerForm.get('paciente').patchValue(this.paciente);      
+    }
     this.registerForm.get('prontuario').patchValue(this.prontuario);
     this.registerForm.get('prontuario').disable();
     this.registerForm.get('paciente').disable();

@@ -15,28 +15,36 @@
           <h3>Informações pessoais</h3>
         </mat-expansion-panel-header>
         <section>
-          <mat-form-field class="matInput">
-            <input formControlName="prontuario" matInput name="prontuario" placeholder="Prontuario">
-          </mat-form-field>
-
-          <mat-form-field class="matInput">
-            <input formControlName="data" matInput [matDatepicker]="picker" name="data" placeholder="Data">
-            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-            <mat-datepicker #picker></mat-datepicker>
-          </mat-form-field>
+          <div>
+            <mat-form-field class="matInput">
+              <input formControlName="prontuario" matInput name="prontuario" placeholder="Prontuario">
+            </mat-form-field>
+  
+            <mat-form-field class="matInput">
+              <input formControlName="data" matInput [matDatepicker]="picker" name="data" placeholder="Data">
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+          </div>
 
           <div formGroupName="paciente">
-            <mat-form-field class="matInput">
+            <mat-form-field style="width: 100%;">
               <input formControlName="nome" matInput name="nome" placeholder="Nome">
               <mat-error *ngIf="registerForm.invalid">Campo Obrigatório</mat-error>
             </mat-form-field>
-
-            <mat-form-field class="matInput">
-              <input formControlName="dataNascimento" matInput [matDatepicker]="picker2" name="dataNascimento" placeholder="Data de nascimento">
-              <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
-              <mat-datepicker #picker2></mat-datepicker>
-            </mat-form-field>
+            <div>
+              <mat-form-field class="matInput">
+                <input formControlName="idade" matInput name="idade" placeholder="Idade">
+              </mat-form-field>
+              
+              <mat-form-field class="matInput">
+                <input formControlName="dataNascimento" matInput [matDatepicker]="picker2" name="dataNascimento" placeholder="Data de nascimento">
+                <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+                <mat-datepicker #picker2></mat-datepicker>
+              </mat-form-field>
+            </div>
           </div>
+
         </section>
       </mat-expansion-panel>
       <mat-divider></mat-divider>
