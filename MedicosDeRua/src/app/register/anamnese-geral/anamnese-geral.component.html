@@ -355,10 +355,10 @@
           <div class="substancias-container" formGroupName="usoSubstancias">
             <div class="left">
               <div>
-                <mat-radio-group formControlName="uso">
+                <mat-radio-group formControlName="uso" class="radio-column">
                   <label id="example-radio-group-label"><strong>Uso de
-                      substâncias:</strong></label>&nbsp;
-                  <mat-radio-button value="true" labelPosition="before">Sim</mat-radio-button>&nbsp;
+                      substâncias:</strong></label>
+                  <mat-radio-button value="true" labelPosition="before">Sim</mat-radio-button>
                   <mat-radio-button value="false" labelPosition="before" selected>Não
                   </mat-radio-button>
                 </mat-radio-group>
@@ -415,9 +415,9 @@
               </div>
             </div>
             <div style="margin-top: 10px;">
-              <mat-radio-group formControlName="abstinente" aria-labelledby="example-radio-group-label">
-                <label id="example-radio-group-label">Já ficou abstinente?</label>&nbsp;
-                <mat-radio-button value="S" labelPosition="before">Sim</mat-radio-button>&nbsp;
+              <mat-radio-group formControlName="abstinente" aria-labelledby="example-radio-group-label" class="radio-column">
+                <label id="example-radio-group-label">Já ficou abstinente?</label>
+                <mat-radio-button value="S" labelPosition="before">Sim</mat-radio-button>
                 <mat-radio-button value="N" labelPosition="before">Não</mat-radio-button>
               </mat-radio-group>
               <div *ngIf="anamneseForm.value.perfilPsicosocial.usoSubstancias.abstinente == 'S'">
@@ -430,9 +430,9 @@
               </div>
             </div>
             <div style="margin-top: 10px; margin-bottom: 10px;">
-              <mat-radio-group aria-labelledby="example-radio-group-label" formControlName="tratou">
-                <label id="example-radio-group-label">Já tratou?</label>&nbsp;
-                <mat-radio-button value="S" labelPosition="before">Sim</mat-radio-button>&nbsp;
+              <mat-radio-group aria-labelledby="example-radio-group-label" formControlName="tratou" class="radio-column">
+                <label id="example-radio-group-label">Já tratou?</label>
+                <mat-radio-button value="S" labelPosition="before">Sim</mat-radio-button>
                 <mat-radio-button value="N" labelPosition="before">Não</mat-radio-button>
               </mat-radio-group>
 
@@ -441,31 +441,31 @@
               </mat-form-field>
             </div>
           </div>
-          <mat-radio-group aria-labelledby="example-radio-group-label" formControlName="atendidoPor">
-            <label id="example-radio-group-label">Ja foi atendido por:</label>&nbsp;
-            <mat-radio-button value="Psicólogo" labelPosition="before">Psicólogo</mat-radio-button>&nbsp;
+          <mat-radio-group aria-labelledby="example-radio-group-label" formControlName="atendidoPor" class="radio-column">
+            <label id="example-radio-group-label">Ja foi atendido por:</label>
+            <mat-radio-button value="Psicólogo" labelPosition="before">Psicólogo</mat-radio-button>
             <mat-radio-button value="Psiquiatra" labelPosition="before">Psiquiatra</mat-radio-button>
           </mat-radio-group>
           <div>
             <div formGroupName="problemaMental" style="margin-top: 10px">
-              <mat-radio-group aria-labelledby="example-radio-group-label" formControlName="possui">
-                <label id="example-radio-group-label">Tem algum problema mental?</label>&nbsp;
-                <mat-radio-button value="S" labelPosition="before">Sim</mat-radio-button>&nbsp;
+              <mat-radio-group aria-labelledby="example-radio-group-label" formControlName="possui" class="radio-column">
+                <label id="example-radio-group-label">Tem algum problema mental?</label>
+                <mat-radio-button value="S" labelPosition="before">Sim</mat-radio-button>
                 <mat-radio-button value="N" labelPosition="before">Não</mat-radio-button>
               </mat-radio-group>
-              <div *ngIf="anamneseForm.value.perfilPsicosocial.problemaMental.possui == 'S'" style="margin-top: 10px;">
+              <div *ngIf="anamneseForm.value.perfilPsicosocial.problemaMental.possui == 'S'" style="margin-top: 10px;" class="radio-column">
                 <label>Qual?</label>
                 <mat-checkbox formControlName="Depressão" value="S">Depressão</mat-checkbox>
                 <mat-checkbox formControlName="Esquizofrenia" value="S">Esquizofrenia</mat-checkbox>
-                <mat-checkbox formControlName="Transtorno do Pânico" value="S">Transt. do pânico</mat-checkbox>&nbsp;
+                <mat-checkbox formControlName="Transtorno do Pânico" value="S">Transt. do pânico</mat-checkbox>
                 <mat-form-field class="full">
                   <input matInput name="outro" placeholder="Outros:" forControlName="Outro">
                 </mat-form-field>
               </div>
               <div style="margin-top: 10px;">
-                <mat-radio-group aria-labelledby="example-radio-group-label" formControlName="tratou">
-                  <label id="example-radio-group-label">Já tratou?</label>&nbsp;
-                  <mat-radio-button value="S" labelPosition="before">Sim</mat-radio-button>&nbsp;
+                <mat-radio-group aria-labelledby="example-radio-group-label" formControlName="tratou" class="radio-column">
+                  <label id="example-radio-group-label">Já tratou?</label>
+                  <mat-radio-button value="S" labelPosition="before">Sim</mat-radio-button>
                   <mat-radio-button value="N" labelPosition="before">Não</mat-radio-button>
                 </mat-radio-group>
                 <mat-form-field class="full" *ngIf="anamneseForm.value.perfilPsicosocial.problemaMental.tratou == 'S'">
