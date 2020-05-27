@@ -38,79 +38,134 @@
             </mat-form-field>
           </div>
 
-          <div class="grid-2">
+          <div class="informacoes-pessoais">
             <div class="col">
-              <label id="example-radio-group-label">Etnia:&nbsp;</label>
-              <mat-radio-group formControlName="etnia" aria-labelledby="example-radio-group-label" class="matInput">
-                <mat-radio-button labelPosition="before" value="Branco">Branco</mat-radio-button>&nbsp;
-                <mat-radio-button labelPosition="before" value="Pardo">Pardo</mat-radio-button>&nbsp;
-                <mat-radio-button labelPosition="before" value="Negro">Negro</mat-radio-button>&nbsp;
-                <mat-radio-button labelPosition="before" value="Amarelo">Amarelo</mat-radio-button>&nbsp;
-                <mat-radio-button labelPosition="before" value="Indigena">Indígena</mat-radio-button>
+              <label id="example-radio-group-label">Etnia:</label>
+              <mat-radio-group formControlName="etnia" aria-labelledby="example-radio-group-label" class="radio-column">
+                <div class="row-spaced">
+                  <span>Branco</span>
+                  <mat-radio-button value="Branco"></mat-radio-button>
+                </div>
+                <div class="row-spaced">
+                  <span>Pardo</span>
+                  <mat-radio-button value="Pardo"></mat-radio-button>
+                </div>
+                <div class="row-spaced">
+                  <span>Negro</span>
+                  <mat-radio-button value="Negro"></mat-radio-button>
+                </div>
+                <div class="row-spaced">
+                  <span>Amarelo</span>
+                  <mat-radio-button value="Amarelo"></mat-radio-button>
+                </div>
+                <div class="row-spaced">
+                  <span>Indígena</span>
+                  <mat-radio-button value="Indigena"></mat-radio-button>
+                </div>&nbsp;
               </mat-radio-group>
-              &nbsp;
+              
             </div>
 
             <div class="col">
-              <label id="example-radio-group-label">Sexo:&nbsp;</label>
-              <mat-radio-group formControlName="sexo" aria-labelledby="example-radio-group-label" class="matInput">
-                <mat-radio-button labelPosition="before" value="M">M</mat-radio-button>&nbsp;
-                <mat-radio-button labelPosition="before" value="F">F</mat-radio-button>&nbsp;
-                <mat-radio-button labelPosition="before" value="Trans">Trans</mat-radio-button>
-              </mat-radio-group>
-              &nbsp;
+              <label id="example-radio-group-label">Sexo:</label>
+              <mat-radio-group formControlName="sexo" aria-labelledby="example-radio-group-label" class="radio-column">
+                <div class="row-spaced">
+                  <span>Masculino</span>
+                  <mat-radio-button value="M"></mat-radio-button>
+                </div>
+                <div class="row-spaced">
+                  <span>Feminino</span>
+                  <mat-radio-button value="F"></mat-radio-button>
+                </div>
+                <span class="row-spaced">
+                  <span>Trans</span>
+                  <mat-radio-button value="Trans"></mat-radio-button>
+                </span>
+              </mat-radio-group>              
             </div>
           </div>
 
-          <div class="grid-2">
+          <div class="informacoes-pessoais">
             <div class="col">
-              <label id="example-radio-group-label">Orientação:&nbsp;</label>
-              <mat-radio-group formControlName="orientacao" aria-labelledby="example-radio-group-label">
-                <mat-radio-button labelPosition="before" value="hetero">Hetero</mat-radio-button>&nbsp;
-                <mat-radio-button labelPosition="before" value="homo">Homo</mat-radio-button>&nbsp;
-                <mat-radio-button labelPosition="before" value="trans">Trans</mat-radio-button>
-              </mat-radio-group>
-              &nbsp;
+              <label id="example-radio-group-label">Orientação:</label>
+              <mat-radio-group formControlName="orientacao" aria-labelledby="example-radio-group-label" class="radio-column">
+                <div class="row-spaced">
+                  <span>Heterossexual</span>
+                  <mat-radio-button value="hetero"></mat-radio-button>
+                </div>
+                <div class="row-spaced">
+                  <span>Homossexual</span>
+                  <mat-radio-button value="homo"></mat-radio-button>
+                </div>
+                <div class="row-spaced">
+                  <span>Transexual</span>
+                  <mat-radio-button value="trans"></mat-radio-button>
+                </div>&nbsp;
+              </mat-radio-group>              
             </div>
 
             <div class="col">
-              <label id="example-radio-group-label">Sit. conjugal:&nbsp;</label>
-              <mat-radio-group formControlName="situacaoConjugal" aria-labelledby="example-radio-group-label">
-                <mat-radio-button labelPosition="before" value="solteiro">Solteiro</mat-radio-button>&nbsp;
-                <mat-radio-button labelPosition="before" value="casado">Casado</mat-radio-button>&nbsp;
-                <mat-radio-button labelPosition="before" value="divorciado">Divorciado</mat-radio-button>&nbsp;
-                <mat-radio-button labelPosition="before" value="viuvo">Viúvo</mat-radio-button>
+              <label id="example-radio-group-label">Sit. conjugal:</label>
+              <mat-radio-group formControlName="situacaoConjugal" aria-labelledby="example-radio-group-label" class="radio-column">
+                <div class="row-spaced">
+                  <span>Solteiro</span>
+                  <mat-radio-button value="solteiro"></mat-radio-button>
+                </div>
+                <div class="row-spaced">
+                  <span>Casado</span>
+                  <mat-radio-button value="casado"></mat-radio-button>
+                </div>
+                <div class="row-spaced">
+                  <span>Divorciado</span>
+                  <mat-radio-button value="divorciado"></mat-radio-button>
+                </div>
+                <div class="row-spaced">
+                  <span>Viúvo</span>
+                  <mat-radio-button value="viuvo"></mat-radio-button>
+                </div>
               </mat-radio-group>
-              &nbsp;
+              
             </div>
           </div>
 
           <div>
             <div class="full col">
-              <label id="example-radio-group-label">Escolaridade:&nbsp;</label>
-              <mat-radio-group formControlName="escolaridade" aria-labelledby="example-radio-group-label" class="col">
-                <mat-radio-button labelPosition="before" value="analfabeto">&nbsp;Analfabeto
-                </mat-radio-button>
-                <mat-radio-button labelPosition="before" value="le&escreve">&nbsp;Só lê e escreve
-                </mat-radio-button>
-                <mat-radio-button labelPosition="before" value="ens.medio">&nbsp;Ensino Fundamental
-                </mat-radio-button>
-                <mat-radio-button labelPosition="before" value="ens.fund">&nbsp;Ensino Medio
-                </mat-radio-button>
-                <mat-radio-button labelPosition="before" value="tecnico">&nbsp;Técnico
-                </mat-radio-button>
-                <mat-radio-button labelPosition="before" value="ens.sup">&nbsp;Ensino Superior
-                </mat-radio-button>
+              <label id="example-radio-group-label">Escolaridade:</label>
+              <mat-radio-group formControlName="escolaridade" aria-labelledby="example-radio-group-label" class="col radio-grid">
+                <div class="row-spaced">
+                  <span>Analfabeto</span>
+                  <mat-radio-button value="analfabeto"></mat-radio-button>
+                </div>
+                <div class="row-spaced">
+                  <span>Só lê e escreve</span>
+                  <mat-radio-button value="le&escreve"></mat-radio-button>
+                </div>
+                <div class="row-spaced">
+                  <span>Ensino Fundamental</span>
+                  <mat-radio-button value="ens.medio"></mat-radio-button>
+                </div>
+                <div class="row-spaced">
+                  <span>Ensino Medio</span>
+                  <mat-radio-button value="ens.fund"></mat-radio-button>
+                </div>
+                <div class="row-spaced">
+                  <span>Técnico</span>
+                  <mat-radio-button value="tecnico"></mat-radio-button>
+                </div>
+                <div class="row-spaced">
+                  <span>Ensino Superior</span>
+                  <mat-radio-button value="ens.sup"></mat-radio-button>
+                </div>
               </mat-radio-group>
             </div>
           </div>
 
-          <div>
-            <mat-form-field class="matInput" style="margin-top: 5px;">
+          <div class="column">
+            <mat-form-field class="matInput">
               <input formControlName="cidade" matInput name="nome" placeholder="Cidade e estado onde nasceu">
             </mat-form-field>
 
-            <mat-form-field class="matInput" style="margin-top: 5px;">
+            <mat-form-field class="matInput">
               <input formControlName="ultimaCidade" matInput name="idade"
                 placeholder="Última cidade e estado em que morou">
             </mat-form-field>
@@ -120,17 +175,16 @@
             <div class="col">
               <label id="example-radio-group-label">Tem documentos pessoais?&nbsp;</label>
               <mat-radio-group formControlName="temDocsPessoais" aria-labelledby="example-radio-group-label"
-                class="col">
+                class="col radio-column">
                 <mat-radio-button labelPosition="before" value="sim">Sim</mat-radio-button>
-                &nbsp;
-                <mat-radio-button labelPosition="before" value="nao">Não</mat-radio-button>
+                <mat-radio-button labelPosition="before" value="nao">Não</mat-radio-button>&nbsp;
               </mat-radio-group>
             </div>
 
             <div class="col" *ngIf="anamneseForm.value.paciente.temDocsPessoais == 'sim'">
               <label id="example-radio-group-label">Quais?</label>
-              <div formGroupName="documentosPessoais" aria-labelledby="example-radio-group-label" class="col">
-                <mat-checkbox [formControlName]="documento" style="padding: 5px;" class=""
+              <div formGroupName="documentosPessoais" aria-labelledby="example-radio-group-label" class="col radio-grid">
+                <mat-checkbox [formControlName]="documento" class=""
                   *ngFor="let documento of docsPessoais">
                   {{documento}}</mat-checkbox>
               </div>
@@ -155,40 +209,64 @@
         <section formGroupName="perfilSocioeconomico">
           <div class="tempo-na-rua">
             <label id="example-radio-group-label">Há quanto tempo está na rua?</label>
-            <mat-radio-group formControlName="tempoDeRua" aria-labelledby="example-radio-group-label" class="matInput">
-              <mat-radio-button labelPosition="before" value="1"> 1 ano </mat-radio-button>&nbsp;
-              <mat-radio-button labelPosition="before" value="1-2"> 1-2 anos </mat-radio-button>&nbsp;
-              <mat-radio-button labelPosition="before" value="3-5"> 3-5 anos </mat-radio-button>&nbsp;
-              <mat-radio-button labelPosition="before" value="+5"> +5 anos </mat-radio-button>&nbsp;
+            <mat-radio-group formControlName="tempoDeRua" aria-labelledby="example-radio-group-label" class="radio-column" style="width: 50%;">
+              <div class="row-spaced">
+                <span>1 ano</span>
+                <mat-radio-button value="1"></mat-radio-button>
+              </div>
+              <div class="row-spaced">
+                <span>1-2 anos</span>
+                <mat-radio-button value="1-2"></mat-radio-button>
+              </div>
+              <div class="row-spaced">
+                <span>3-5 anos</span>
+                <mat-radio-button value="3-5"></mat-radio-button>
+              </div>
+              <div class="row-spaced">
+                <span>+5 anos</span>
+                <mat-radio-button value="+5"></mat-radio-button>
+              </div>
             </mat-radio-group>
           </div>
           <br>
           <div class="onde-vive">
-            <label id="example-radio-group-label">Onde costuma dormir?</label>&nbsp;
-            <mat-radio-group formControlName="ondevive" aria-labelledby="example-radio-group-label" class="matInput">
-              <mat-radio-button value="rua">Rua?</mat-radio-button>&nbsp;
-              <mat-form-field>
-                <input formControlName="nomeDarua" matInput name="qualRua" placeholder="Qual?">
-              </mat-form-field>
-              <mat-radio-button labelPosition="before" value="albergue">Albergue</mat-radio-button>&nbsp;
-              <mat-radio-button labelPosition="before" value="pousoPago">Pouso pago</mat-radio-button>
+            <label id="example-radio-group-label">Onde costuma dormir?</label>
+            <mat-radio-group formControlName="ondevive" aria-labelledby="example-radio-group-label" class="radio-column">
+              <div>
+                <mat-radio-button value="rua" labelPosition="before">Rua?</mat-radio-button>&nbsp;
+                <mat-form-field>
+                  <input formControlName="nomeDarua" matInput name="qualRua" placeholder="Qual?">
+                </mat-form-field>
+              </div>
+              <div class="row-spaced">
+                <span>Albergue</span>
+                <mat-radio-button value="albergue"></mat-radio-button>
+              </div>
+              <div class="row-spaced">
+                <span>Pouso pago</span>
+                <mat-radio-button value="pousoPago"></mat-radio-button>
+              </div>
             </mat-radio-group>
-            <mat-form-field class="matInput">
+            <mat-form-field style="width: 100%;">
               <input formControlName="outrosRua" matInput name="outro" placeholder="Outro:">
             </mat-form-field>
           </div>
+          <label>Está na rua:</label>
           <div class="na-rua">
-            <label>Está na rua:</label>&nbsp;
-            <mat-radio-group formControlName="comQuemEstaNaRua" aria-labelledby="example-radio-group-label">
-              <mat-radio-button labelPosition="before" value="sozinho">Sozinho ?</mat-radio-button>
-              &nbsp;
-              <mat-radio-button labelPosition="before" value="comFamilia">Com familia ?
-              </mat-radio-button>
-              &nbsp;
-              <mat-radio-button labelPosition="before" value="comAmigos">Com amigos? 
-              </mat-radio-button>
-            </mat-radio-group> &nbsp;
-            <br>
+            <mat-radio-group formControlName="comQuemEstaNaRua" aria-labelledby="example-radio-group-label" class="radio-column" style="width: 100%;">
+              <div class="row-spaced">
+                <span>Sozinho?</span>
+                <mat-radio-button value="sozinho"></mat-radio-button>
+              </div>
+              <div class="row-spaced">
+                <span>Com família?</span>
+                <mat-radio-button value="comFamilia"></mat-radio-button>
+              </div>
+              <div class="row-spaced">
+                <span>Com amigos?</span>
+                <mat-radio-button value="comAmigos"></mat-radio-button>
+              </div>
+            </mat-radio-group>&nbsp;
             <br>
           </div>
           <div class="col" formGroupName="seAcompanhado" *ngIf="anamneseForm.value.perfilSocioeconomico.comQuemEstaNaRua === 'comFamilia' || anamneseForm.value.perfilSocioeconomico.comQuemEstaNaRua === 'comAmigos'">
@@ -214,19 +292,19 @@
               </mat-radio-group>&nbsp;
             </div>
           </div>
-          <div class="col">
-            <mat-radio-group formControlName="parentesEmCuritiba" aria-labelledby="example-radio-group-label">
-              <label id="example-radio-group-label">Parentes moram em Curitiba?</label>&nbsp;
-              <mat-radio-button labelPosition="before" value="S">Sim</mat-radio-button>&nbsp;
+          <div class="col radio-column">
+            <mat-radio-group formControlName="parentesEmCuritiba" aria-labelledby="example-radio-group-label" class="radio-column">
+              <label id="example-radio-group-label">Parentes moram em Curitiba?</label>
+              <mat-radio-button labelPosition="before" value="S">Sim</mat-radio-button>
               <mat-radio-button labelPosition="before" value="N">Não</mat-radio-button>
-            </mat-radio-group>&nbsp;&nbsp;
+            </mat-radio-group>
             <mat-form-field *ngIf="anamneseForm.value.perfilSocioeconomico.parentesEmCuritiba == 'N'">
               <input formControlName="localidadeParentes" matInput name="outro" placeholder="Se não, onde?">
-            </mat-form-field>&nbsp;
+            </mat-form-field>
 
-            <mat-radio-group formControlName="temContato" aria-labelledby="example-radio-group-label">
-              <label id="example-radio-group-label">Tem contato com eles?</label>&nbsp;
-              <mat-radio-button labelPosition="before" value="S">Sim</mat-radio-button>&nbsp;
+            <mat-radio-group formControlName="temContato" aria-labelledby="example-radio-group-label" class="radio-column">
+              <label id="example-radio-group-label">Tem contato com eles?</label>
+              <mat-radio-button labelPosition="before" value="S">Sim</mat-radio-button>
               <mat-radio-button labelPosition="before" value="N">Não</mat-radio-button>
             </mat-radio-group>
           </div>
@@ -237,10 +315,10 @@
           </div>
           <br>
           <div>
-            <mat-radio-group formControlName="carteiraAssinada" aria-labelledby="example-radio-group-label">
+            <mat-radio-group formControlName="carteiraAssinada" aria-labelledby="example-radio-group-label" class="radio-column">
               <label id="example-radio-group-label">Já teve emprego formal/carteira
-                assinada?</label>&nbsp;
-              <mat-radio-button labelPosition="before" value="S">Sim</mat-radio-button>&nbsp;
+                assinada?</label>
+              <mat-radio-button labelPosition="before" value="S">Sim</mat-radio-button>
               <mat-radio-button labelPosition="before" value="N">Não</mat-radio-button>
             </mat-radio-group>
             <mat-form-field style="width: 100%;"
@@ -486,16 +564,16 @@
             </mat-form-field>
           </div>
           <div class="mastigacao">
-            <mat-radio-group aria-labelledby="example-radio-group-label" formControlName="problemasParaMastigar">
-              <label id="example-radio-group-label">Tem problemas para mastigar?</label>&nbsp;
-              <mat-radio-button value="Sim" labelPosition="before">Sim</mat-radio-button>&nbsp;
+            <mat-radio-group aria-labelledby="example-radio-group-label" formControlName="problemasParaMastigar" class="radio-column">
+              <label id="example-radio-group-label">Tem problemas para mastigar?</label>
+              <mat-radio-button value="Sim" labelPosition="before">Sim</mat-radio-button>
               <mat-radio-button value="Não" labelPosition="before">Não</mat-radio-button>
             </mat-radio-group>
             <div style="display: flex; flex-direction: column; justify-content: center;">
-              <mat-radio-group aria-labelledby="example-radio-group-label" formControlName="deixaDeComer">
+              <mat-radio-group aria-labelledby="example-radio-group-label" formControlName="deixaDeComer" class="radio-column">
                 <label id="example-radio-group-label">Deixa de comer alguns alimentos por não conseguir
-                  mastigar?</label>&nbsp;
-                <mat-radio-button value="Sim" labelPosition="before">Sim</mat-radio-button>&nbsp;
+                  mastigar?</label>
+                <mat-radio-button value="Sim" labelPosition="before">Sim</mat-radio-button>
                 <mat-radio-button value="Não" labelPosition="before">Não</mat-radio-button>
               </mat-radio-group>
               <mat-form-field class="matInput" *ngIf="anamneseForm.value.avaliacaoNutricional.deixaDeComer == 'Sim'">
@@ -510,17 +588,35 @@
             </mat-form-field>
           </div>
           <div class="grid-2">
-            <mat-radio-group aria-labelledby="example-radio-group-label" formControlName="HAS">
-              <label id="example-radio-group-label">HAS?</label>&nbsp;
-              <mat-radio-button value="Sim">Sim</mat-radio-button>&nbsp;
-              <mat-radio-button value="Não">Não</mat-radio-button>&nbsp;
-              <mat-radio-button value="Não sabe">Não sabe</mat-radio-button>
+            <mat-radio-group aria-labelledby="example-radio-group-label" formControlName="HAS" class="radio-column">
+              <label id="example-radio-group-label">HAS?</label>
+              <div class="row-spaced">
+                <span>Sim</span>
+                <mat-radio-button value="Sim"></mat-radio-button>
+              </div>
+              <div class="row-spaced">
+                <span>Não</span>
+                <mat-radio-button value="Não"></mat-radio-button>
+              </div>
+              <div class="row-spaced">
+                <span>Não sabe</span>
+                <mat-radio-button value="Não sabe"></mat-radio-button>
+              </div>
             </mat-radio-group>
-            <mat-radio-group aria-labelledby="example-radio-group-label" formControlName="DM">
-              <label id="example-radio-group-label">DM?</label>&nbsp;
-              <mat-radio-button value="Sim">Sim</mat-radio-button>&nbsp;
-              <mat-radio-button value="Não">Não</mat-radio-button>&nbsp;
-              <mat-radio-button value="Não sabe">Não sabe</mat-radio-button>
+            <mat-radio-group aria-labelledby="example-radio-group-label" formControlName="DM" class="radio-column">
+              <label id="example-radio-group-label">DM?</label>
+              <div class="row-spaced">
+                <span>Sim</span>
+                <mat-radio-button value="Sim"></mat-radio-button>
+              </div>
+              <div class="row-spaced">
+                <span>Não</span>
+                <mat-radio-button value="Não"></mat-radio-button>
+              </div>
+              <div class="row-spaced">
+                <span>Não sabe</span>
+                <mat-radio-button value="Não sabe"></mat-radio-button>
+              </div>
             </mat-radio-group>
           </div>
           <div class="problemas-digestivos">
@@ -534,9 +630,9 @@
           </div>
           <div class="ultima-semana" formGroupName="ultimaSemana">
             <div style="margin-top: 10px;">
-              <mat-radio-group aria-labelledby="example-radio-group-label" formControlName="fiqueiSemComer">
-                <label id="example-radio-group-label">Na última semana fiquei um dia todo, ou +, sem comer</label>&nbsp;
-                <mat-radio-button value="Sim" labelPosition="before">Sim</mat-radio-button>&nbsp;
+              <mat-radio-group aria-labelledby="example-radio-group-label" formControlName="fiqueiSemComer" class="radio-column">
+                <label id="example-radio-group-label">Na última semana fiquei um dia todo, ou +, sem comer</label>
+                <mat-radio-button value="Sim" labelPosition="before">Sim</mat-radio-button>
                 <mat-radio-button value="Não" labelPosition="before">Não</mat-radio-button>
               </mat-radio-group>
               <mat-form-field class="matInput"
@@ -545,9 +641,9 @@
               </mat-form-field>
             </div>
             <div style="margin-top: 10px;">
-              <mat-radio-group aria-labelledby="example-radio-group-label" formControlName="cozinhei">
-                <label id="example-radio-group-label">Cozinhou pra você na última semana?</label>&nbsp;
-                <mat-radio-button value="Sim" labelPosition="before">Sim</mat-radio-button>&nbsp;
+              <mat-radio-group aria-labelledby="example-radio-group-label" formControlName="cozinhei" class="radio-column">
+                <label id="example-radio-group-label">Cozinhou pra você na última semana?</label>
+                <mat-radio-button value="Sim" labelPosition="before">Sim</mat-radio-button>
                 <mat-radio-button value="Não" labelPosition="before">Não</mat-radio-button>
               </mat-radio-group>
               <mat-form-field class="matInput"
@@ -557,26 +653,50 @@
             </div>
           </div>
           <div class="copos-dagua">
-            <mat-radio-group aria-labelledby="example-radio-group-label" formControlName="refeicoesOntem">
-              <label id="example-radio-group-label">Quantas refeicoes fez ontem?</label>&nbsp;
-              <mat-radio-button value="0">0</mat-radio-button>&nbsp;
-              <mat-radio-button value="1">1</mat-radio-button>&nbsp;
-              <mat-radio-button value="2">2</mat-radio-button>&nbsp;
-              <mat-radio-button value=">3">>3</mat-radio-button>
+            <mat-radio-group aria-labelledby="example-radio-group-label" formControlName="refeicoesOntem" class="radio-column">
+              <label id="example-radio-group-label">Quantas refeicoes fez ontem?</label>
+              <div class="row-spaced" >
+                <span>0</span>
+                <mat-radio-button value="0"></mat-radio-button>
+              </div>
+              <div class="row-spaced" >
+                <span>1</span>
+                <mat-radio-button value="1"></mat-radio-button>
+              </div>
+              <div class="row-spaced" >
+                <span>2</span>
+                <mat-radio-button value="2"></mat-radio-button>
+              </div>
+              <div class="row-spaced" >
+                <span>>3</span>
+                <mat-radio-button value=">3"></mat-radio-button>
+              </div>
             </mat-radio-group>
-            <mat-radio-group aria-labelledby="example-radio-group-label" formControlName="tomouAguaOntem">
-              <label id="example-radio-group-label">Tomei mais de 2 copos de água ontem?</label>&nbsp;
-              <mat-radio-button value="Sim" labelPosition="before">Sim</mat-radio-button>&nbsp;
-              <mat-radio-button value="Não" labelPosition="before">Não</mat-radio-button>
+            <mat-radio-group aria-labelledby="example-radio-group-label" formControlName="tomouAguaOntem" class="radio-column">
+              <label id="example-radio-group-label">Tomei mais de 2 copos de água ontem?</label>
+              <div class="row-spaced">
+                <span>Sim</span>
+                <mat-radio-button value="Sim"></mat-radio-button>
+              </div>
+              <div class="row-spaced">
+                <span>Não</span>
+                <mat-radio-button value="Não"></mat-radio-button>
+              </div>
             </mat-radio-group>
           </div>
           <mat-form-field class="matInput">
             <input formControlName="fonteDaAgua" matInput name="fonteDaAgua" placeholder="Fonte da água">
           </mat-form-field>
-          <mat-radio-group aria-labelledby="example-radio-group-label" formControlName="qualidadeAlimentacao">
-            <label id="example-radio-group-label">Acho a minha alimentação:</label>&nbsp;
-            <mat-radio-button value="Boa">Boa</mat-radio-button>&nbsp;
-            <mat-radio-button value="Ruim">Ruim</mat-radio-button>
+          <mat-radio-group aria-labelledby="example-radio-group-label" formControlName="qualidadeAlimentacao" class="radio-column">
+            <label id="example-radio-group-label">Acho a minha alimentação:</label>
+            <div class="row-spaced">
+              <span>Boa</span>
+              <mat-radio-button value="Boa"></mat-radio-button>
+            </div>
+            <div class="row-spaced">
+              <span>Ruim</span>
+              <mat-radio-button value="Ruim"></mat-radio-button>
+            </div>
           </mat-radio-group>
           <mat-form-field class="matInput">
             <input formControlName="comoConsegueComida" matInput name="comoConsegueComida"
@@ -724,32 +844,44 @@
           <h3>Condições e Hábito de Vida</h3>
         </mat-expansion-panel-header>
         <section formGroupName="habitosDeVida">
-          <div>
+          <div style="margin-bottom: 10px;">
             <mat-radio-group formControlName="atividadeFisica" aria-labelledby="example-radio-group-label">
               <label id="example-radio-group-label">Atividade física:</label>&nbsp;
-              <mat-radio-button value="Sedentario">Sedentário</mat-radio-button>&nbsp;
-              <mat-radio-button value="Ativo">Ativo</mat-radio-button>
+              <mat-radio-button value="Sedentario" labelPosition="before">Sedentário</mat-radio-button>&nbsp;
+              <mat-radio-button value="Ativo" labelPosition="before">Ativo</mat-radio-button>
             </mat-radio-group>
             <mat-form-field class="full" *ngIf="anamneseForm.value.habitosDeVida.atividadeFisica == 'Ativo'">
               <input formControlName="qualAtividade" matInput name="pratica" placeholder="O que pratica?">
             </mat-form-field>
           </div>
-          <div formGroupName="atividadeSexual" style="margin-top: 10px;">
-            <label>Atividade Sexual:</label>&nbsp;
-            <mat-radio-group formControlName="protegida">
-              <mat-radio-button value=true>Protegida</mat-radio-button>&nbsp;
-              <mat-radio-button value=false>Desprotegida</mat-radio-button>&nbsp;
+          <label>Atividade Sexual:</label>
+          <div formGroupName="atividadeSexual">
+            <mat-radio-group formControlName="protegida" class="radio-column">
+              <div class="row-spaced">
+                <span>Protegida</span>
+                <mat-radio-button value=true></mat-radio-button>
+              </div>
+              <div class="row-spaced">
+                <span>Desprotegida</span>
+                <mat-radio-button value=false></mat-radio-button>
+              </div>
             </mat-radio-group>
-            <mat-radio-group formControlName="parceiroUnico">
-              <mat-radio-button value=true>Parceiro(a) único(a)</mat-radio-button>&nbsp;
-              <mat-radio-button value=false>Múltiplos(as) parceiros(as)</mat-radio-button>
+            <mat-radio-group formControlName="parceiroUnico" class="radio-column">
+              <div class="row-spaced">
+                <span>Parceiro(a) único(a)</span>
+                <mat-radio-button value=true></mat-radio-button>
+              </div>
+              <div class="row-spaced">
+                <span>Múltiplos(as) parceiros(as)</span>
+                <mat-radio-button value=false></mat-radio-button>
+              </div>
             </mat-radio-group>
           </div>
           <br>
           <div>
-            <mat-radio-group formControlName="testeDst" aria-labelledby="example-radio-group-label">
-              <label>Já fez teste para diagnóstico de: HIV/HEPATITE/SÍFILIS?</label>&nbsp;
-              <mat-radio-button value="S" labelPosition="before">Sim</mat-radio-button>&nbsp;
+            <mat-radio-group formControlName="testeDst" aria-labelledby="example-radio-group-label" class="radio-column">
+              <label>Já fez teste para diagnóstico de: HIV/HEPATITE/SÍFILIS?</label>
+              <mat-radio-button value="S" labelPosition="before">Sim</mat-radio-button>
               <mat-radio-button value="N" labelPosition="before">Não</mat-radio-button>&nbsp;
             </mat-radio-group>
           </div>
@@ -773,36 +905,43 @@
             </mat-form-field>
 
             <mat-radio-group formControlName="fertilidade">
-              <mat-radio-button value="Idade Fertil">Idade fértil</mat-radio-button>&nbsp;
-              <mat-radio-button value="Menopausa">Menopausa</mat-radio-button>
+              <mat-radio-button value="Idade Fertil" labelPosition="before">Idade fértil</mat-radio-button>&nbsp;
+              <mat-radio-button value="Menopausa" labelPosition="before">Menopausa</mat-radio-button>
             </mat-radio-group>
 
           </div>
           <br>
           <div>
-            <mat-radio-group formControlName="cicloMenstrual">
-              <label>Ciclo Menstrual</label>&nbsp;
-              <mat-radio-button value="Regular" labelPosition="before">Regular</mat-radio-button>&nbsp;
-              <mat-radio-button value="Irregular" labelPosition="before">Irregular</mat-radio-button>&nbsp;
+            <mat-radio-group formControlName="cicloMenstrual" class="radio-column" style="width: 50%;">
+              <label>Ciclo Menstrual</label>
+              <div class="row-spaced">
+                <span>Regular</span>
+                <mat-radio-button value="Regular"></mat-radio-button>
+              </div>
+              <div class="row-spaced">
+                <span>Irregular</span>
+                <mat-radio-button value="Irregular"></mat-radio-button>
+              </div>
+              &nbsp;
             </mat-radio-group>
           </div>
-          <div>
-            <mat-radio-group formControlName="usoAnticoncepcional">
-              <label>Faz uso de anticoncepcional?</label>&nbsp;
-              <mat-radio-button value="S" labelPosition="before">Sim</mat-radio-button>&nbsp;
-              <mat-radio-button value="N" labelPosition="before">Não</mat-radio-button>&nbsp;
+          <div style="display: flex; flex-direction: column;">
+            <mat-radio-group formControlName="usoAnticoncepcional" class="radio-column">
+              <label>Faz uso de anticoncepcional?</label>
+              <mat-radio-button value="S" labelPosition="before">Sim</mat-radio-button>
+              <mat-radio-button value="N" labelPosition="before">Não</mat-radio-button>
             </mat-radio-group>
-            <mat-form-field class="matInput">
+            <mat-form-field>
               <input formControlName="ondeAcompanha" matInput placeholder="Qual e onde acompanha?">
             </mat-form-field>
           </div>
           <div>
-            <mat-radio-group formControlName="doacaoAnticoncepcional">
-              <label>Aplicação/doação de anticoncepcional na ação?</label>&nbsp;
-              <mat-radio-button value="S" labelPosition="before">Sim</mat-radio-button>&nbsp;
-              <mat-radio-button value="N" labelPosition="before">Não</mat-radio-button>&nbsp;
+            <mat-radio-group formControlName="doacaoAnticoncepcional" class="radio-column">
+              <label>Aplicação/doação de anticoncepcional na ação?</label>
+              <mat-radio-button value="S" labelPosition="before">Sim</mat-radio-button>
+              <mat-radio-button value="N" labelPosition="before">Não</mat-radio-button>
             </mat-radio-group>
-            <mat-form-field class="matInput">
+            <mat-form-field style="width: 100%;">
               <input formControlName="qualAnticoncepcional" matInput placeholder="Qual?">
             </mat-form-field>
           </div>
@@ -933,18 +1072,33 @@
             <mat-form-field class="full">
               <input matInput formControlName="medicamentoEdose" name="outros" placeholder="Medicamento e Dose:">
             </mat-form-field>
-            <div style="display: flex;">
-              <mat-radio-group formControlName="local" class="matInput">
-                <label id="example-radio-group-label">Local:</label>&nbsp;
-                <mat-radio-button value="deltoide" labelPosition="before">Deltóide</mat-radio-button>&nbsp;
-                <mat-radio-button value="gluteo" labelPosition="before">Glúteo</mat-radio-button>&nbsp;
-                <mat-radio-button value="ventrogluteo" labelPosition="before">Ventroglúteo</mat-radio-button>&nbsp;
+            <div style="display: grid; grid-template-columns: 1fr 1fr;">
+              <mat-radio-group formControlName="local" class="radio-column">
+                <label id="example-radio-group-label">Local:</label>
+                <div class="row-spaced">
+                  <span>Deltóide</span>
+                  <mat-radio-button value="deltoide" labelPosition="before"></mat-radio-button>
+                </div>
+                <div class="row-spaced">
+                  <span>Glúteo</span>
+                  <mat-radio-button value="gluteo" labelPosition="before"></mat-radio-button>
+                </div>
+                <div class="row-spaced">
+                  <span>Ventroglúteo</span>
+                  <mat-radio-button value="ventrogluteo" labelPosition="before"></mat-radio-button>
+                </div>
               </mat-radio-group>
 
-              <mat-radio-group formControlName="lado" class="matInput">
-                <label id="example-radio-group-label">Lado:</label>&nbsp;
-                <mat-radio-button value="direito" labelPosition="before">D</mat-radio-button>&nbsp;
-                <mat-radio-button value="esquerdo" labelPosition="before">E</mat-radio-button>&nbsp;
+              <mat-radio-group formControlName="lado" class="radio-column" style="margin-left: 10px;">
+                <label id="example-radio-group-label">Lado:</label>
+                <div class="row-spaced">
+                  <span>Direito</span>
+                  <mat-radio-button value="direito"></mat-radio-button>
+                </div>
+                <div class="row-spaced">
+                  <span>Esquerdo</span>
+                  <mat-radio-button value="esquerdo"></mat-radio-button>
+                </div>
               </mat-radio-group>
             </div>
           </div>
@@ -967,26 +1121,26 @@
         </mat-expansion-panel-header>
         <section formGroupName="medicamentos">
           <div class="medicamentos">
-            <mat-radio-group formControlName="sabiaDaPatologia" class="matInput">
-              <label id="example-radio-group-label">O paciente já sabia que tinha essa patologia:</label><br>
-              <mat-radio-button value="S" labelPosition="before">Sim</mat-radio-button>&nbsp;
+            <mat-radio-group formControlName="sabiaDaPatologia" class="radio-column">
+              <label id="example-radio-group-label">O paciente já sabia que tinha essa patologia:</label>
+              <mat-radio-button value="S" labelPosition="before">Sim</mat-radio-button>
               <mat-radio-button value="N" labelPosition="before">Não</mat-radio-button>&nbsp;
             </mat-radio-group>
 
-            <mat-radio-group formControlName="jaUsouMedicacao" class="matInput">
-              <label id="example-radio-group-label">Já faz uso dessa medicação:</label><br>
-              <mat-radio-button value="S" labelPosition="before">Sim</mat-radio-button>&nbsp;
+            <mat-radio-group formControlName="jaUsouMedicacao" class="radio-column">
+              <label id="example-radio-group-label">Já faz uso dessa medicação:</label>
+              <mat-radio-button value="S" labelPosition="before">Sim</mat-radio-button>
               <mat-radio-button value="N" labelPosition="before">Não</mat-radio-button>&nbsp;
             </mat-radio-group>
-            <mat-radio-group formControlName="houveNecessida" class="matInput">
-              <label id="example-radio-group-label">Houve necessidade de medicação:</label><br>
-              <mat-radio-button value="S" labelPosition="before">Sim</mat-radio-button>&nbsp;
+            <mat-radio-group formControlName="houveNecessida" class="radio-column">
+              <label id="example-radio-group-label">Houve necessidade de medicação:</label>
+              <mat-radio-button value="S" labelPosition="before">Sim</mat-radio-button>
               <mat-radio-button value="N" labelPosition="before">Não</mat-radio-button>&nbsp;
             </mat-radio-group>
 
-            <mat-radio-group formControlName="foiExplicadoUso" class="matInput">
-              <label id="example-radio-group-label">Foi explicado como usar a medicação:</label><br>
-              <mat-radio-button value="S" labelPosition="before">Sim</mat-radio-button>&nbsp;
+            <mat-radio-group formControlName="foiExplicadoUso" class="radio-column">
+              <label id="example-radio-group-label">Foi explicado como usar a medicação:</label>
+              <mat-radio-button value="S" labelPosition="before">Sim</mat-radio-button>
               <mat-radio-button value="N" labelPosition="before">Não</mat-radio-button>&nbsp;
             </mat-radio-group>
           </div>
@@ -1026,33 +1180,33 @@
           <h3>Encaminhamentos Externos</h3>
         </mat-expansion-panel-header>
         <section formGroupName="encaminhamentosExternos" class="encaminhamentos-externos">
-          <div style="display: flex;">
-            <mat-radio-group formControlName="encUBS" class="matInput">
-              <label id="example-radio-group-label">Encaminhamento para UBS:</label>&nbsp;
-              <mat-radio-button value="S" labelPosition="before">Sim</mat-radio-button>&nbsp;
-              <mat-radio-button value="N" labelPosition="before">Não</mat-radio-button>&nbsp;
+          <div style="display: grid; grid-template-columns: 1fr 1fr;">
+            <mat-radio-group formControlName="encUBS" class="radio-column">
+              <label id="example-radio-group-label">Encaminhamento para UBS:</label>
+              <mat-radio-button value="S" labelPosition="before">Sim</mat-radio-button>
+              <mat-radio-button value="N" labelPosition="before">Não</mat-radio-button>
             </mat-radio-group>
 
-            <mat-radio-group formControlName="encUPA" class="matInput">
-              <label id="example-radio-group-label">Encaminhamento para UPA</label>&nbsp;
-              <mat-radio-button value="S" labelPosition="before">Sim</mat-radio-button>&nbsp;
-              <mat-radio-button value="N" labelPosition="before">Não</mat-radio-button>&nbsp;
+            <mat-radio-group formControlName="encUPA" class="radio-column">
+              <label id="example-radio-group-label">Encaminhamento para UPA:</label>
+              <mat-radio-button value="S" labelPosition="before">Sim</mat-radio-button>
+              <mat-radio-button value="N" labelPosition="before">Não</mat-radio-button>
             </mat-radio-group>
           </div>
           <div>
             <br>
             <div style="display: flex;">
-              <mat-radio-group formControlName="encCAPS" class="matInput">
-                <label id="example-radio-group-label">Encaminhamento para CAPS</label>&nbsp;
-                <mat-radio-button value="S" labelPosition="before">Sim</mat-radio-button>&nbsp;
-                <mat-radio-button value="N" labelPosition="before">Não</mat-radio-button>&nbsp;
+              <mat-radio-group formControlName="encCAPS" class="radio-column">
+                <label id="example-radio-group-label">Encaminhamento para CAPS:</label>
+                <mat-radio-button value="S" labelPosition="before">Sim</mat-radio-button>
+                <mat-radio-button value="N" labelPosition="before">Não</mat-radio-button>
               </mat-radio-group>
 
-              <mat-form-field class="matInput" style="margin-top: -15px;">
-                <input matInput formControlName="outro" name="outro" placeholder="Outro? Qual?:">
-              </mat-form-field>
             </div>
           </div>
+          <mat-form-field style="width: 100%;">
+            <input matInput formControlName="outro" name="outro" placeholder="Outro? Qual?:">
+          </mat-form-field>
         </section>
       </mat-expansion-panel>
     </form>

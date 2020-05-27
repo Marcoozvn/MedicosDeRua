@@ -5,6 +5,23 @@ label {
 	font-weight: bold;
 }
 
+.radio-column {
+	display: flex;
+	flex-direction: column;
+}
+
+.radio-grid {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+}
+
+.row-spaced {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	width: 40%;
+}
+
 .mat-expansion-panel {
 	margin-bottom: 5px;
 	box-shadow: none;
@@ -178,7 +195,8 @@ input {
 	width: 150px;
 }
 
-.grid-2 {
+.grid-2,
+.informacoes-pessoais {
 	margin-bottom: 10px;
 	display: grid;
 	grid-template-columns: 1fr 1fr;
@@ -222,6 +240,24 @@ input {
 	.docs-pessoais {
 		display: flex;
 		flex-direction: column;
+	}
+
+	.informacoes-pessoais {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.column {
+		display: flex;
+		flex-direction: column;
+
+		.matInput {
+			max-width: 100%;
+		}
+	}
+
+	.row-spaced {
+		width: 100%;
 	}
 
 	.medicamentos {
@@ -277,13 +313,6 @@ input {
 	.tempo-na-rua {
 		display: flex;
 		flex-direction: column;
-	}
-
-	.grid-2 {
-		margin-top: 5px;
-		display: flex !important;
-		flex-direction: column !important;
-		align-items: flex-start !important;
 	}
 
 	.problemas-digestivos-group {

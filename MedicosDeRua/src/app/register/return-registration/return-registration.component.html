@@ -77,24 +77,26 @@
           <h3>Queixa Principal</h3>
         </mat-expansion-panel-header>
 
-        <section formGroupName="queixa">
-          <mat-form-field class="matInput">
-            <textarea formControlName="descricao" matInput formname="descricao"
-              placeholder="Qual sua queixa?"></textarea>
-          </mat-form-field>
-
-          <mat-form-field class="matInput">
-            <textarea formControlName="tempo" matInput name="tempo" placeholder="Há quanto tempo?"></textarea>
-          </mat-form-field>
-
+        <section formGroupName="queixa" class="queixa">
+          <div class="queixa-row">
+            <mat-form-field>
+              <textarea formControlName="descricao" matInput formname="descricao"
+                placeholder="Qual sua queixa?"></textarea>
+            </mat-form-field>
+  
+            <mat-form-field>
+              <textarea formControlName="tempo" matInput name="tempo" placeholder="Há quanto tempo?"></textarea>
+            </mat-form-field>
+          </div>
+          
           <mat-form-field class="inicio">
             <textarea matInput formControlName="inicio" name="quandoComecou"
               placeholder="Quando e como começou?"></textarea>
           </mat-form-field>
 
-          <mat-radio-group formControlName="melhora" aria-labelledby="example-radio-group-label" class="matInput">
-            <label id="example-radio-group-label"><strong>Sua queixa da última consulta melhorou?</strong></label>&nbsp;
-            <mat-radio-button value="S" labelPosition="before">Sim</mat-radio-button>&nbsp;
+          <mat-radio-group formControlName="melhora" aria-labelledby="example-radio-group-label" class="radio-column">
+            <label id="example-radio-group-label"><strong>Sua queixa da última consulta melhorou?</strong></label>
+            <mat-radio-button value="S" labelPosition="before">Sim</mat-radio-button>
             <mat-radio-button value="N" labelPosition="before">Não</mat-radio-button>
           </mat-radio-group>
         </section>
@@ -113,9 +115,9 @@
               placeholder="Detalhar: local, inicio, tipo/caracteristica, irradiação etc.."></textarea>
           </mat-form-field>
 
-          <mat-radio-group formControlName="dordeDente" aria-labelledby="example-radio-group-label" class="matInput">
-            <label id="example-radio-group-label"><strong>Dor de dente?</strong></label>&nbsp;
-            <mat-radio-button value="S" labelPosition="before">Sim</mat-radio-button>&nbsp;
+          <mat-radio-group formControlName="dordeDente" aria-labelledby="example-radio-group-label" class="radio-column">
+            <label id="example-radio-group-label"><strong>Dor de dente?</strong></label>
+            <mat-radio-button value="S" labelPosition="before">Sim</mat-radio-button>
             <mat-radio-button value="N" labelPosition="before">Não</mat-radio-button>
           </mat-radio-group>
         </section>
@@ -289,10 +291,16 @@
         <section formGroupName="encaminhamentos">
           <div class="encaminhamentos-container">
             <div class="col-33 encaminhamento-item" *ngFor="let encaminhamento of encaminhamentos">
-              <label>{{encaminhamento.area}}</label>
+              <strong>{{encaminhamento.area}}</strong>
               <mat-radio-group [formControlName]="encaminhamento.area">
-                <mat-radio-button labelPosition="before" class="" value="true">{{encaminhamento.situacao1}}</mat-radio-button>
-                <mat-radio-button labelPosition="before" class="" value="false">{{encaminhamento.situacao2}}</mat-radio-button>
+                <div class="row-spaced">
+                  <span>{{encaminhamento.situacao1}}</span>
+                  <mat-radio-button class="" value="true"></mat-radio-button>
+                </div>
+                <div class="row-spaced">
+                  <span>{{encaminhamento.situacao2}}</span>
+                  <mat-radio-button class="" value="false"></mat-radio-button>
+                </div>
               </mat-radio-group>
             </div>
           </div>

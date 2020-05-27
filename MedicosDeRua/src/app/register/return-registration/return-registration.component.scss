@@ -12,6 +12,11 @@ h3 {
 	padding-top: 5px;
 }
 
+.queixa {
+	display: flex;
+	flex-direction: column;
+}
+
 .background {
 	background: url('../../../assets/background.png');
 	position: fixed;
@@ -55,6 +60,11 @@ input {
 	flex-direction: column;
 }
 
+.radio-column {
+	display: flex;
+	flex-direction: column;
+}
+
 .laboratoriais-container {
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr;
@@ -80,6 +90,7 @@ input {
 .encaminhamentos-container {
 	display: flex;
 	flex-direction: row;
+	justify-content: space-between;
 }
 
 .submit-button {
@@ -118,8 +129,18 @@ input {
 	flex-direction: column;
 }
 
+.row-spaced {
+	display: flex;
+	justify-content: space-between;
+}
+
 @media(max-width: 600px) {
 	.historia-morbida-container {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.queixa-row {
 		display: flex;
 		flex-direction: column;
 	}
