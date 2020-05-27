@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormService } from '../shared/form.service';
 import { Router } from '@angular/router';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-list-forms',
@@ -13,13 +14,12 @@ export class ListFormsComponent implements OnInit {
   forms: any[];
   onlyView = true;
 
-  constructor(private formsService: FormService, private router: Router) { }
+  constructor(private formsService: FormService, private router: Router, private location: Location) { }
 
   ngOnInit() {
     this.formsService.getForms().subscribe( res => {
       this.forms = res;
-      console.log(this.forms);
-
+      
       if (!this.forms) {
         this.router.navigate(['/app']);
       }
@@ -44,14 +44,17 @@ export class ListFormsComponent implements OnInit {
     }
   }
 
-  viewForm(form: any) {
-    if (form.type === 'Retorno') {
+  viewForm(form: any) {    
+    if (form.type === 'Retorno') {      
       this.router.navigate(['app/return-registration'], { state: [form, this.onlyView] });
     }
 
     if (form.type === 'Anamnese inicial') {
       this.router.navigate(['app/anamnese-geral'], { state: [form, this.onlyView]});
     }
+  }
+  goBack() {
+    this.location.back();
   }
 
 }

@@ -35,7 +35,6 @@ export class UserComponent implements OnInit {
   }
 
   passwordValidator(group: FormGroup): { [key: string]: boolean } | null {
-    console.log(group);
     const passwordControl = group.get('password');
     const confirmPasswordControl = group.get('confirmPassword');
 

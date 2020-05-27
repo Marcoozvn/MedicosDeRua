@@ -3,6 +3,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { FormService } from 'src/app/shared/form.service';
 import { Router } from '@angular/router';
 import { ListUsersService } from 'src/app/list-users/list-users.service';
+import { Location } from '@angular/common';
 import { v4 as uuidv4 } from 'uuid';
 
 @Component({
@@ -20,7 +21,7 @@ export class ReturnRegistrationComponent implements OnInit {
   prontuario: string;
 
   // tslint:disable-next-line: max-line-length
-  constructor(private fb: FormBuilder, private formService: FormService, private router: Router, private listUsersService: ListUsersService) {
+  constructor(private fb: FormBuilder, private location: Location, private formService: FormService, private router: Router, private listUsersService: ListUsersService) {
     this.listUsersService.getSelectedUser().subscribe(user => {
       if (user) {
         this.prontuario = uuidv4();
@@ -30,6 +31,7 @@ export class ReturnRegistrationComponent implements OnInit {
     if (this.router.getCurrentNavigation().extras.state) {
       this.form = this.router.getCurrentNavigation().extras.state;
       if (this.router.getCurrentNavigation().extras.state.length > 1) {
+        this.form = this.router.getCurrentNavigation().extras.state[0];
         this.onlyView = true;
       }
     }
@@ -66,7 +68,7 @@ export class ReturnRegistrationComponent implements OnInit {
     situacao2: 'Atendido - ver ficha específica'
   }]
 
-  ngOnInit() {
+  ngOnInit() {    
     if (!this.paciente) {
       this.router.navigate(['/app']);
     }
@@ -76,6 +78,7 @@ export class ReturnRegistrationComponent implements OnInit {
       paciente: this.fb.group({
         nome: ['', Validators.required],
         dataNascimento: '',
+        idade: '',
       }),
       sinaisVitais: this.fb.group({
         freqCardiaca: '',
@@ -175,8 +178,9 @@ export class ReturnRegistrationComponent implements OnInit {
         Jurídico: false
       })
     });
-
-    this.registerForm.get('paciente').patchValue(this.paciente);
+    if(this.registerForm != null && this.registerForm.get('paciente')) {
+      this.registerForm.get('paciente').patchValue(this.paciente);      
+    }
     this.registerForm.get('prontuario').patchValue(this.prontuario);
     this.registerForm.get('prontuario').disable();
     this.registerForm.get('paciente').disable();
@@ -212,5 +216,9 @@ export class ReturnRegistrationComponent implements OnInit {
     }
   }
 
-
+  goBack() {
+    console.log('back', this.location);
+    
+    this.location.back();
+  }
 }

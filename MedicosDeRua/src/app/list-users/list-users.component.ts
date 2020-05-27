@@ -3,6 +3,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { UserService } from '../shared/user.service';
 import { ListUsersService } from './list-users.service';
 import { FormService } from '../shared/form.service';
+import {Location} from '@angular/common';
 
 @Component({
   selector: 'app-list-users',
@@ -17,7 +18,8 @@ export class ListUsersComponent implements OnInit {
               private activatedRoute: ActivatedRoute,
               private userService: UserService,
               private listUsersService: ListUsersService,
-              private formService: FormService) {}
+              private formService: FormService,
+              private location: Location) {}
 
   ngOnInit() {
     this.listUsersService.selectUser(null);
@@ -38,4 +40,8 @@ export class ListUsersComponent implements OnInit {
     });
   }
 
+  goBack() {
+    this.location.back();
+  }
+  
 }

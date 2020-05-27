@@ -1,5 +1,5 @@
 <div style="display: flex; flex-direction: column;">
-  <a class="back-button" [routerLink]="['/app']">
+  <a class="back-button" (click)="goBack()">
     <span class="material-icons">
       arrow_back
     </span>
@@ -16,25 +16,29 @@
         </mat-expansion-panel-header>
         <section formGroupName="paciente">
           <div>
-            <mat-form-field class="matInput">
+            <mat-form-field class="full">
               <input formControlName="nome" matInput name="nome" placeholder="Nome">
             </mat-form-field>
-
+          </div>
+          <div>
             <mat-form-field class="matInput">
               <input formControlName="cpf" matInput name="cpf" placeholder="CPF" mask="000.000.000-00">
+            </mat-form-field>
+            <mat-form-field class="matInput">
+              <input formControlName="religiao" matInput name="religiao" placeholder="Religião">
             </mat-form-field>
           </div>
 
           <div>
             <mat-form-field class="matInput">
-              <input formControlName="dataNascimento" matInput [matDatepicker]="picker" name="data"
-                placeholder="Data nasc.:">
-              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-              <mat-datepicker #picker></mat-datepicker>
+              <input formControlName="idade" readonly matInput name="idade" placeholder="Idade">
             </mat-form-field>
 
             <mat-form-field class="matInput">
-              <input formControlName="religiao" matInput name="religiao" placeholder="Religião">
+              <input formControlName="dataNascimento" (dateChange)="calculateAgeByDate($event)" readonly matInput [matDatepicker]="picker" name="data"
+                placeholder="Data nasc.:">
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
             </mat-form-field>
           </div>
 

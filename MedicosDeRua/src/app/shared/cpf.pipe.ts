@@ -4,9 +4,7 @@ import { Pipe, PipeTransform } from '@angular/core';
   name: 'CPF'
 })
 export class CpfPipe implements PipeTransform {
-
   transform(value: any): any {
-    console.log('a');
     if (value.length === 11) {
       return value.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/g, '\$1.\$2.\$3\-\$4');
     }
