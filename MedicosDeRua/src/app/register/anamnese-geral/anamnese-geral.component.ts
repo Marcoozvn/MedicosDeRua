@@ -478,13 +478,15 @@ export class AnamneseGeralComponent implements OnInit {
     this.location.back();
   }
 
-  
   calculateAgeByDate(event) {
-    let age
-    let today = new Date();
-    let birthDate = new Date(event.target.value);
-        age = today.getFullYear() - birthDate.getFullYear();
-    let m = today.getMonth() - birthDate.getMonth();
+    let age: number;
+
+    const today = new Date();
+    const birthDate = new Date(event.target.value);
+
+    age = today.getFullYear() - birthDate.getFullYear();
+
+    const m = today.getMonth() - birthDate.getMonth();
     if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
         age--;
     }
@@ -493,8 +495,7 @@ export class AnamneseGeralComponent implements OnInit {
       paciente: {
         idade: age
       }
-    })
-    
+    });
   }
 
 }

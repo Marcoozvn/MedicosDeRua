@@ -43,5 +43,4 @@ export class ListUsersComponent implements OnInit {
   goBack() {
     this.location.back();
   }
-  
 }

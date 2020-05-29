@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, AfterViewChecked, ChangeDetectorRef } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
@@ -13,7 +13,7 @@ import { AuthService } from '../auth/auth.service';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent {
+export class HomeComponent implements AfterViewChecked {
 
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
@@ -24,11 +24,22 @@ export class HomeComponent {
   loggedUser: Usuario;
 
   // tslint:disable-next-line: max-line-length
-  constructor(private breakpointObserver: BreakpointObserver, private router: Router, private listUsersService: ListUsersService, private authService: AuthService) {
+  constructor(private breakpointObserver: BreakpointObserver, private router: Router, private listUsersService: ListUsersService, private authService: AuthService, private cdRef: ChangeDetectorRef) {
     this.loggedUser = this.authService.getCurrentUser();
     this.listUsersService.getSelectedUser().subscribe( user => {
       this.selectedUser = user;
+      console.log('mudou');
     });
+  }
+  
+  ngAfterViewChecked(): void {
+    if (!this.selectedUser) {
+      this.cdRef.detectChanges();
+    }
+  }
+
+  ngOnChange() {
+
   }
 
   logout() {
