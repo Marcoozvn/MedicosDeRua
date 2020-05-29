@@ -28,7 +28,6 @@ export class HomeComponent implements AfterViewChecked {
     this.loggedUser = this.authService.getCurrentUser();
     this.listUsersService.getSelectedUser().subscribe( user => {
       this.selectedUser = user;
-      console.log('mudou');
     });
   }
   

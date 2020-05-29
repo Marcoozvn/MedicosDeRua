@@ -25,7 +25,7 @@ export class ReturnRegistrationComponent implements OnInit {
     this.listUsersService.getSelectedUser().subscribe(user => {
       if (user) {
         this.prontuario = uuidv4();
-        this.paciente = { nome: user.nome, dataNascimento: user.dataNascimento };
+        this.paciente = { nome: user.nome, dataNascimento: user.dataNascimento, idade: user.idade };
       }
     });
     if (this.router.getCurrentNavigation().extras.state) {
@@ -179,7 +179,7 @@ export class ReturnRegistrationComponent implements OnInit {
       })
     });
     if(this.registerForm != null && this.registerForm.get('paciente')) {
-      this.registerForm.get('paciente').patchValue(this.paciente);      
+      this.registerForm.get('paciente').patchValue(this.paciente);
     }
     this.registerForm.get('prontuario').patchValue(this.prontuario);
     this.registerForm.get('prontuario').disable();
@@ -196,6 +196,7 @@ export class ReturnRegistrationComponent implements OnInit {
   }
 
   submitForm() {
+    console.log(this.registerForm.value)
     this.registerForm.value = { ...this.registerForm.value, paciente: this.paciente, prontuario: this.prontuario };
 
     if (this.form) {

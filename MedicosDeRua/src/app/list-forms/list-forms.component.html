@@ -2,7 +2,7 @@
   <span class="material-icons">
     arrow_back
   </span>
-  Voltar para a busca
+  Voltar
 </a>
 <div class="list-forms-container">
   <h2>Formulários encontrados</h2>
@@ -15,7 +15,7 @@
     <li *ngFor="let form of forms">
       <div class="form-card" (click)="viewForm(form)">
         <span>{{form.type}}</span>
-        <span>{{form.createdAt | date: 'dd/MM/yyyy'}}</span>
+        <span>{{ (form.data ? form.data : form.createdAt) | date: 'dd/MM/yyyy'}}</span>
         <div class="card-actions">
           <span  style="padding: 0 10px 0 0;" title="Deletar" class="material-icons" (click)="deleteForm($event, form)">
             delete
