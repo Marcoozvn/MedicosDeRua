@@ -16,7 +16,7 @@ export class ReturnRegistrationComponent implements OnInit {
   usoDeSubstancias: any;
   registerForm: any;
   form: any;
-  onlyView: boolean = false;
+  onlyView = false;
   paciente: any;
   prontuario: string;
 
@@ -25,7 +25,7 @@ export class ReturnRegistrationComponent implements OnInit {
     this.listUsersService.getSelectedUser().subscribe(user => {
       if (user) {
         this.prontuario = uuidv4();
-        this.paciente = { nome: user.nome, dataNascimento: user.dataNascimento, idade: user.idade };
+        this.paciente = { _id: user._id, nome: user.nome, dataNascimento: user.dataNascimento, idade: user.idade };
       }
     });
     if (this.router.getCurrentNavigation().extras.state) {
@@ -37,7 +37,7 @@ export class ReturnRegistrationComponent implements OnInit {
     }
   }
 
-  drogas = [] = [{ nome: 'Cocaína' }, { nome: 'Maconha' }, { nome: 'LSD' }, { nome: 'Ecstasy' }, { nome: 'Lança perfume' }]
+  drogas = [] = [{ nome: 'Cocaína' }, { nome: 'Maconha' }, { nome: 'LSD' }, { nome: 'Ecstasy' }, { nome: 'Lança perfume' }];
 
   exames = [
     { nome: 'Destro' },
@@ -52,7 +52,7 @@ export class ReturnRegistrationComponent implements OnInit {
     { nome: 'HIV' },
     { nome: 'Hepatite B' },
     { nome: 'Hepatite C' },
-    { nome: 'Gravidez' }]
+    { nome: 'Gravidez' }];
 
   encaminhamentos = [] = [{
     area: 'Odontologia',
@@ -66,9 +66,9 @@ export class ReturnRegistrationComponent implements OnInit {
     area: 'Jurídico',
     situacao1: 'Não quis/ foi necessário atendimento',
     situacao2: 'Atendido - ver ficha específica'
-  }]
+  }];
 
-  ngOnInit() {    
+  ngOnInit() {
     if (!this.paciente) {
       this.router.navigate(['/app']);
     }
@@ -178,7 +178,7 @@ export class ReturnRegistrationComponent implements OnInit {
         Jurídico: false
       })
     });
-    if(this.registerForm != null && this.registerForm.get('paciente')) {
+    if (this.registerForm != null && this.registerForm.get('paciente')) {
       this.registerForm.get('paciente').patchValue(this.paciente);
     }
     this.registerForm.get('prontuario').patchValue(this.prontuario);
@@ -196,8 +196,8 @@ export class ReturnRegistrationComponent implements OnInit {
   }
 
   submitForm() {
-    console.log(this.registerForm.value)
-    this.registerForm.value = { ...this.registerForm.value, paciente: this.paciente, prontuario: this.prontuario };
+    console.log(this.registerForm.value);
+    this.registerForm.value = { ...this.registerForm.value, paciente: this.paciente._id, prontuario: this.prontuario };
 
     if (this.form) {
       this.formService.updateForm('return', this.registerForm.value, this.form._id).subscribe(
@@ -205,7 +205,7 @@ export class ReturnRegistrationComponent implements OnInit {
           alert('Formulário atualizado com sucesso');
           this.router.navigate(['/app']);
         },
-        error => alert('Ocorreu um erro ' + error)
+        ({ error }) => alert('Ocorreu um erro ' + error.message)
       );
     } else {
       this.formService.saveForm('return', this.registerForm.value).subscribe(
@@ -213,13 +213,13 @@ export class ReturnRegistrationComponent implements OnInit {
           alert('Formulário salvo com sucesso');
           this.router.navigate(['/app']);
         },
-        error => alert('Ocorreu um erro ' + error));
+        ({ error }) => alert('Ocorreu um erro ' + error.message));
     }
   }
 
   goBack() {
     console.log('back', this.location);
-    
+
     this.location.back();
   }
 }

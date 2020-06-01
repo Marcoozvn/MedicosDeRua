@@ -14,14 +14,15 @@ export class AnamneseGeralComponent implements OnInit {
 
   form: any;
   anamneseForm: any;
-  onlyView: boolean = false;
-  
+  onlyView = false;
+
   docsPessoais = ['RG', 'CPF', 'Carteira de Trabalho', 'CNH', 'Certidão de Nascimento', 'Certidão de Casamento'];
   drogas = [{ nome: 'Cocaína' }, { nome: 'Maconha' }, { nome: 'LSD' }, { nome: 'Ecstasy' }, { nome: 'Lança perfume' }];
-  servicos = ['FAS', 'CREAS', 'Albergue', 'Centro Pop', 'CRAS', 'Internamento', 'CAPS']
-  sintomas = ['Dor', 'Astenia', 'Náuseas', 'Diarreia', 'Edema', 'Lesões cutâneas', 'Prurido', 'Febre', 'Vertigem', 'Vômito', 'Constipação', 'Hemorragia', 'Dor de Dente']
-  doencas = ['HAS', 'AVC', 'DM', 'ICC', 'IAM', 'IRC', 'Hipotireoide', 'DPOC', 'Hepatite', 'HIV', 'TB', 'DST', 'Câncer']
-  materiais = ['Soro', 'Seringa 20 ml', 'Agulha', 'Esponja', 'Kit curativo', 'Gaze', 'Cobertura', 'Atadura', 'Micropore', 'Esparadrapo']
+  servicos = ['FAS', 'CREAS', 'Albergue', 'Centro Pop', 'CRAS', 'Internamento', 'CAPS'];
+  // tslint:disable-next-line: max-line-length
+  sintomas = ['Dor', 'Astenia', 'Náuseas', 'Diarreia', 'Edema', 'Lesões cutâneas', 'Prurido', 'Febre', 'Vertigem', 'Vômito', 'Constipação', 'Hemorragia', 'Dor de Dente'];
+  doencas = ['HAS', 'AVC', 'DM', 'ICC', 'IAM', 'IRC', 'Hipotireoide', 'DPOC', 'Hepatite', 'HIV', 'TB', 'DST', 'Câncer'];
+  materiais = ['Soro', 'Seringa 20 ml', 'Agulha', 'Esponja', 'Kit curativo', 'Gaze', 'Cobertura', 'Atadura', 'Micropore', 'Esparadrapo'];
   exames = [
     { nome: 'Destro' },
     { nome: 'Hemograma' },
@@ -35,17 +36,16 @@ export class AnamneseGeralComponent implements OnInit {
     { nome: 'HIV' },
     { nome: 'Hepatite B' },
     { nome: 'Hepatite C' },
-    { nome: 'Gravidez' }]
+    { nome: 'Gravidez' }];
 
   constructor(private fb: FormBuilder,
-    private formService: FormService,
-    private router: Router,
-    private listUsersService: ListUsersService,
-    private location: Location) {
-    this.listUsersService.selectUser(null);
+              private formService: FormService,
+              private router: Router,
+              private listUsersService: ListUsersService,
+              private location: Location) {
     if (this.router.getCurrentNavigation().extras.state) {
       this.form = this.router.getCurrentNavigation().extras.state;
-    
+
       if (this.router.getCurrentNavigation().extras.state.length > 1) {
         this.form = this.router.getCurrentNavigation().extras.state[0];
         this.onlyView = true;
@@ -261,15 +261,15 @@ export class AnamneseGeralComponent implements OnInit {
         sintoma: this.fb.group({
           Dor: [false],
           Astenia: [false],
-          'Náuseas': [false],
+          Náuseas: [false],
           Diarreia: [false],
           Edema: [false],
           'Lesões cutâneas': [false],
           Prurido: [false],
           Febre: [false],
           Vertigem: [false],
-          'Vômito': [false],
-          'Constipação': [false],
+          Vômito: [false],
+          Constipação: [false],
           Hemorragia: [false],
           'Dor de Dente': [false]
         }),
@@ -392,7 +392,7 @@ export class AnamneseGeralComponent implements OnInit {
         Outros: ''
       }),
       procedimentosEnfermagem: this.fb.group({
-        'Soro': [false],
+        Soro: [false],
         'Seringa 20 ml': [false],
         Agulha: [false],
         Esponja: [false],
@@ -452,6 +452,10 @@ export class AnamneseGeralComponent implements OnInit {
   initializeFormValues() {
     this.anamneseForm.patchValue(this.form);
     this.anamneseForm.get('paciente').get('nome').disable();
+
+    if (this.anamneseForm.get('paciente').get('cpf').value) {
+      this.anamneseForm.get('paciente').get('cpf').disable();
+    }
   }
 
   submitForm() {
@@ -462,7 +466,7 @@ export class AnamneseGeralComponent implements OnInit {
           alert('Formulário atualizado com sucesso');
           this.router.navigate(['/app']);
         },
-        error => alert('Ocorreu um erro ' + error)
+        ({ error }) => alert('Ocorreu um erro: ' + error.message)
       );
     } else {
       this.formService.saveForm('anamnese', this.anamneseForm.value).subscribe(
@@ -470,7 +474,8 @@ export class AnamneseGeralComponent implements OnInit {
           alert('Formulário salvo com sucesso');
           this.router.navigate(['/app']);
         },
-        error => alert('Ocorreu um erro ' + error));
+        ({ error }) => alert('Ocorreu um erro: ' + error.message)
+      );
     }
   }
 

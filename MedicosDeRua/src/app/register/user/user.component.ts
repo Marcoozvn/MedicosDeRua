@@ -4,7 +4,6 @@ import { ListUsersService } from 'src/app/list-users/list-users.service';
 import { UserService } from 'src/app/shared/user.service';
 import Usuario from 'src/app/models/usuario';
 import { Router } from '@angular/router';
-import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-user',
@@ -57,7 +56,7 @@ export class UserComponent implements OnInit {
         alert('Usuário criado com sucesso');
         this.router.navigate(['/app']);
       },
-      (error: HttpErrorResponse) => alert('Ocorreu um erro: ' + error.error.message)
+      ({ error }) => alert('Ocorreu um erro: ' + error.message)
     );
 
   }

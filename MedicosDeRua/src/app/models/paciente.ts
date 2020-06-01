@@ -1,4 +1,6 @@
 export default class Paciente {
+  // tslint:disable-next-line: variable-name
+  public _id: string;
   public nome: string;
   public dataNascimento: Date;
   public cpf: string;

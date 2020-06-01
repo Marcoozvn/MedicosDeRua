@@ -19,8 +19,8 @@ export class ListFormsComponent implements OnInit {
   ngOnInit() {
     this.formsService.getForms().subscribe( res => {
       this.forms = res;
-      
-      if (!this.forms) {
+
+      if (!this.forms || this.forms.length === 0) {
         this.router.navigate(['/app']);
       }
     });
@@ -44,8 +44,8 @@ export class ListFormsComponent implements OnInit {
     }
   }
 
-  viewForm(form: any) {    
-    if (form.type === 'Retorno') {      
+  viewForm(form: any) {
+    if (form.type === 'Retorno') {
       this.router.navigate(['app/return-registration'], { state: [form, this.onlyView] });
     }
 

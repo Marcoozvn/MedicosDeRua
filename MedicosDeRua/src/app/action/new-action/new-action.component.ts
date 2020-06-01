@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { NgbDate, NgbCalendar, NgbDateParserFormatter } from '@ng-bootstrap/ng-bootstrap';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActionService } from '../action.service';
 import Acao from 'src/app/models/acao';
@@ -59,7 +58,7 @@ export class NewActionComponent implements OnInit {
         alert('Ação criada com sucesso');
         this.router.navigate(['/app/action']);
       },
-      error => alert('Ocorreu um erro: ' + error.error.message)
+      ({ error }) => alert('Ocorreu um erro: ' + error.message)
     );
   }
 
