@@ -1,0 +1,388 @@
+h3 {
+	color: #7159c1;
+}
+label {
+	font-weight: bold;
+}
+
+.radio-column {
+	display: flex;
+	flex-direction: column;
+}
+
+.radio-grid {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+}
+
+.row-spaced {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	width: 40%;
+}
+
+.mat-expansion-panel {
+	margin-bottom: 5px;
+	box-shadow: none;
+
+}
+
+.mat-divider + .mat-expansion-panel {
+	padding-top: 5px;
+}
+
+.assinatura {
+	border: 2px solid;
+	text-align: center;
+	width: 40%;
+	height: 100px;
+}
+  
+.matInput {
+	width: 100%;
+	max-width: 50%;
+	min-width: 50%;
+	padding: 0 5px 0 5px !important;
+}
+
+input {
+	padding: 0 5px 0 5px!important;
+}
+
+.full {
+	width: 100%!important
+}
+
+.checkbox-section {
+	display: flex;
+	align-content: center;
+	align-items: center;
+	height: 55px;
+}
+	
+.substancias-container {
+	display: flex;
+	flex-direction: column;
+}
+
+.substancia-item-container {
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+
+.display-center {
+	display: flex;
+	align-items: center;
+}
+
+.laboratoriais-container {
+	display: grid; 
+	grid-template-columns: repeat(4, 1fr);
+	line-height: 1.5rem;
+}
+
+.medicamentos-container {
+	display: flex;
+
+	.col-33 {
+		width: 33%;
+	}
+}
+
+.historia-morbida-atual {
+	display: flex;
+	flex-direction: column;
+
+	.mat-form-field {
+		max-width: 100%;
+	}
+}
+
+.encaminhamentos-container {
+	display: flex;
+	flex-direction: row;
+}
+
+.avaliacao-nutricional {
+	display: flex;
+	flex-direction: column;
+
+	.medidas {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+	}
+
+	.mastigacao {
+		display: grid; 
+		grid-template-columns: 1fr 1fr;
+	}
+
+	.mat-form-field {
+		max-width: 100%;
+	}
+
+	.mat-radio-group {
+		margin-top: 10px;
+	}
+
+	.peso-perdido {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+
+		.mat-form-field {
+			width: max-content !important;
+		}
+	}
+}
+
+.onde-vive {
+	.matInput {
+		min-width: auto;
+		width: auto;
+	}
+}
+
+.na-rua {
+	display: flex;
+	align-items: baseline;
+}
+
+.problemas-digestivos {
+	margin-top: 10px;
+
+	.problemas-digestivos-group {
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+	}
+}
+
+.ultima-semana {
+	margin-top: 10px;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+}
+
+.copos-dagua {
+	margin-top: 10px;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+}
+
+.sinais-vitais {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+
+	.mat-form-field {
+		max-width: 100%;
+	}
+}
+
+.submit-button {
+  background: #7159c1;
+  padding: 15px;
+  color: #fff;
+  border: 0;
+  border-radius: 8px;
+  box-shadow: 0 2px 1px -1px rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 1px 3px 0 rgba(0,0,0,.12);
+  text-align: center;
+  text-decoration: none;
+  height: 45px;
+	font: 500 14px Roboto;
+	width: 150px;
+}
+
+.grid-2,
+.informacoes-pessoais {
+	margin-bottom: 10px;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+}
+
+.historia-morbida-atual {
+	display: flex;
+	flex-direction: column;
+}
+
+.historia-morbida-atual-group {
+	display: grid;
+	grid-template-columns: repeat(5, 1fr);
+}
+
+.historia-morbida-pregressa {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+}
+
+.submit-button:hover {
+  opacity: 0.8;
+}
+
+.medicamentos {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+
+	.matInput {
+		max-width: 100% !important;
+		margin-top: 5px;
+	}
+}
+
+.docs-pessoais {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+}
+
+@media(max-width: 600px) {
+	.docs-pessoais {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.informacoes-pessoais {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.column {
+		display: flex;
+		flex-direction: column;
+
+		.matInput {
+			max-width: 100%;
+		}
+	}
+
+	.row-spaced {
+		width: 100%;
+	}
+
+	.medicamentos {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.historia-morbida-pregressa {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.historia-morbida-atual-group {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+	}
+	
+	.avaliacao-nutricional .medidas {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+	}
+
+	.mastigacao {
+		margin-top: 5px;
+		display: flex !important;
+		flex-direction: column !important;
+	}
+
+	.peso-perdido {
+		margin-top: 5px;
+		display: flex !important;
+		flex-direction: column !important;
+		align-items: flex-start !important;
+	}
+
+	.ultima-semana {
+		margin-top: 5px;
+		display: flex !important;
+		flex-direction: column !important;
+		align-items: flex-start !important;
+	}
+
+	.na-rua {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.onde-vive {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.tempo-na-rua {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.problemas-digestivos-group {
+		display: grid;
+		grid-template-columns: 1fr 1fr !important;
+	}
+
+	.copos-dagua {
+		margin-top: 5px;
+		display: flex !important;
+		flex-direction: column !important;
+		align-items: flex-start !important;
+	}
+
+	.historia-morbida-container {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.sinais-vitais {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+	}
+
+	.laboratoriais-container {
+		display: grid; 
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	.medicamentos-container {
+		display: flex;
+		flex-direction: column;
+
+		.col-33 {
+			width: 100% !important;
+		}
+	}
+
+	.substancia-item-container {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+	}
+
+	.encaminhamentos-container {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.submit-button {
+		width: 100%;
+	}    
+
+	.col {
+		display: flex;
+		flex-direction: column;
+
+		.matInput {
+			max-width: 100% !important;
+		}
+		
+	}
+}
+
+.dsip-flex-row {
+    display: flex;
+    flex-flow: row; 
+}
+
+.mat-checkbox {
+	padding: 3px;
+}

@@ -1,0 +1,34 @@
+<div>
+  <a class="back-button" (click)="goBack()">
+    <span class="material-icons">
+      arrow_back
+    </span>
+    Voltar para a busca
+  </a>
+  <div class="list-users-container" *ngIf="users?.length > 0">
+    <h2>Pacientes</h2>
+    <div class="list-header">
+      <span>Nome</span>
+      <span>CPF</span>
+      <span>Data de Nascimento</span>
+    </div>
+    <ul class="list-container">
+      <li *ngFor="let user of users">
+        <div class="user-card" (click)="searchForm(user)">
+          <span>{{user.nome ? user.nome : 'Não informado'}}</span>
+          <span>{{user.cpf ? (user.cpf | CPF ) : 'Não informado'}}</span>
+          <span>{{user.dataNascimento | date: 'dd/MM/yyyy'}}</span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div class="not-found" *ngIf="users?.length == 0">
+    <h3>
+      Nenhum usuário encontrado
+    </h3>
+    <span class="material-icons" style="margin-top: 5px;">
+      sentiment_very_dissatisfied
+    </span>
+  </div>
+
+</div>

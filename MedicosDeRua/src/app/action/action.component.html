@@ -1,0 +1,34 @@
+<a class="back-button" [routerLink]="['/app']">
+  <span class="material-icons">
+    arrow_back
+  </span>
+  Voltar para a busca
+</a>
+<div class="action-container">
+  <button class="new" (click)="newAction()">
+    <span class="material-icons">
+      add
+    </span>
+    Criar ação
+  </button>
+  <ul class="actions-list" *ngIf="acoes && acoes.length > 0">
+    <div class="item-header">
+      <span>Nome</span>
+      <span>Data Início</span>
+      <span>Data Final</span>
+    </div>
+    <li class="action-item" *ngFor="let acao of acoes">
+      <span>{{acao.titulo}}</span>
+      <span>{{acao.dataInicio | date: 'short' }}</span>
+      <span>{{acao.dataFinal | date: 'short' }}</span>
+    </li>
+  </ul>
+  <div class="not-found" *ngIf="acoes && acoes.length == 0">
+    <h3>
+      Nenhuma ação criada
+    </h3>
+    <span class="material-icons" style="margin-top: 5px;">
+      sentiment_very_dissatisfied
+    </span>
+  </div>
+</div>

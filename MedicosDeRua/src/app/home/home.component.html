@@ -1,0 +1,32 @@
+<div class="background"></div>
+<div class="home-container">
+  <div class="home-header">
+    <div class="logo-container">
+      <img src="../../assets/logo.png" alt="Logo"/>
+      <span>Seja bem vindo, {{ loggedUser.nome }}</span>
+    </div>
+    
+    <div class="buttons-container">
+      <div [ngClass]="{'action': true, 'grid': loggedUser.papel === 'Tutor'}">
+        <button *ngIf="loggedUser.papel === 'Tutor'" class="button-add button-header" [routerLink]="['/app/action']">Ações</button>
+        <button *ngIf="loggedUser.papel === 'Tutor'" class="button-add button-header" [routerLink]="['/app/new-user']">Novo usuário</button>
+        <button class="button-add button-header" [routerLink]="['/app/anamnese-geral']">Nova anamnese</button>
+        <button *ngIf="selectedUser" class="button-add button-header" [routerLink]="['/app/return-registration']">Novo retorno</button>
+      </div>
+      <button class="button-logout button-header" (click)="logout()">
+        <span class="material-icons">
+          power_settings_new
+        </span>
+      </button>
+    </div>
+  </div>
+
+  <router-outlet></router-outlet>
+  <!--
+    <app-search style="height: 100%;"></app-search>
+    <app-list-users style="height: 100%;"></app-list-users>
+    <app-list-forms></app-list-forms>
+  -->
+
+
+</div>

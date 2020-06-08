@@ -1,0 +1,94 @@
+.background {
+  background: url('../../assets/background.png');
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  background-size: 50px;
+  background-repeat: space;
+  filter: opacity(0.03);
+  z-index: -3;
+}
+
+.home-container {
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+  height: 100%;
+
+  .home-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    img {
+      width: 15vh;
+    }
+  }
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+
+  span {
+    font-weight: 500;
+    font-size: 1rem;
+    margin-left: 10px;
+  }
+}
+
+.buttons-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  .actions {
+    display: flex; 
+    flex-direction: row;
+  }
+}
+
+.button-logout {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #ddccdd;
+  color: #7159c1;
+  padding: 5px;
+  height: 45px;
+  border-radius: 8px;
+  margin: 5px;
+}
+
+.button-logout:hover {
+  border: 1px solid #000;
+}
+
+@media(max-width: 700px) {
+  .logo-container {
+    display: none;
+  }
+
+  .buttons-container {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .button-header {
+    height: 40px;
+    padding: 5px;
+  }
+
+  .button-logout {
+    height: 80px;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+}

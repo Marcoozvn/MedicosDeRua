@@ -1,0 +1,183 @@
+h3 {
+	color: #7159c1;
+}
+
+.mat-expansion-panel {
+	margin-bottom: 5px;
+	box-shadow: none;
+
+}
+
+.mat-divider + .mat-expansion-panel {
+	padding-top: 5px;
+}
+
+.queixa {
+	display: flex;
+	flex-direction: column;
+}
+
+.background {
+	background: url('../../../assets/background.png');
+	position: fixed;
+	height: 100%;
+	width: 100%;
+	background-size: 50px;
+	background-repeat: space;
+	filter: opacity(0.03);
+	z-index: -3;
+  }
+
+  .assinatura {
+    border: 2px solid;
+    text-align: center;
+    width: 40%;
+    height: 100px;
+  }
+  
+.matInput {
+	width: 100%;
+	max-width: 50%;
+	padding: 0 5px 0 5px !important;
+}
+
+input {
+	padding: 0 5px 0 5px!important;
+}
+
+.full {
+	max-width: 100%!important
+}
+.checkbox-section {
+	display: flex;
+	align-content: center;
+	align-items: center;
+	height: 55px;
+}
+	
+.historia-morbida-container {
+	display: flex;
+	flex-direction: column;
+}
+
+.radio-column {
+	display: flex;
+	flex-direction: column;
+}
+
+.laboratoriais-container {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+}
+
+.medicamentos-container {
+	display: flex;
+
+	.col-33 {
+		width: 33%;
+	}
+}
+
+.historia-morbida-atual {
+	display: flex;
+	flex-direction: column;
+
+	.mat-form-field {
+		max-width: 100%;
+	}
+}
+
+.encaminhamentos-container {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+.submit-button {
+  background: #7159c1;
+  padding: 15px;
+  color: #fff;
+  border: 0;
+  border-radius: 8px;
+  box-shadow: 0 2px 1px -1px rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 1px 3px 0 rgba(0,0,0,.12);
+  text-align: center;
+  text-decoration: none;
+  height: 45px;
+	font: 500 14px Roboto;
+	width: 150px;
+}
+
+.substancia-item-container {
+	display: flex; 
+	flex-direction: row; 
+	align-items: center; 
+	margin-top: 5px;
+}
+
+.submit-button:hover {
+  opacity: 0.8;
+}
+
+.submit-button:disabled {
+  opacity: 1;
+  background: #dddddd;
+  cursor: auto;
+}
+
+.encaminhamento-item {
+	display: flex;
+	flex-direction: column;
+}
+
+.row-spaced {
+	display: flex;
+	justify-content: space-between;
+}
+
+@media(max-width: 600px) {
+	.historia-morbida-container {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.queixa-row {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.sinais-vitais {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+	}
+
+	.laboratoriais-container {
+		display: grid; 
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	.medicamentos-container {
+		display: flex;
+		flex-direction: column;
+
+		.col-33 {
+			width: 100% !important;
+		}
+	}
+
+	.encaminhamentos-container {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.submit-button {
+		width: 100%;
+	}
+
+	.substancia-item-container {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+	}
+}
+

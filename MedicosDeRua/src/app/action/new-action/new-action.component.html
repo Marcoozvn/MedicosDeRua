@@ -1,0 +1,31 @@
+<a class="back-button" [routerLink]="['/app/action']">
+  <span class="material-icons">
+    arrow_back
+  </span>
+  Voltar para a listagem de ações
+</a>
+<div class="new-action-container">
+  <div class="card">
+    <section class="card-left">
+      <img src="../../assets/new-action.svg" alt="Logo" />
+      <span>Nova ação</span>
+      <p>Crie uma nova ação incrível e nos ajude a melhorar o mundo cuidando das pessoas!</p>
+    </section>
+    <form [formGroup]="actionForm">
+      <input type="text" placeholder="Título" formControlName="titulo">
+      <div style="display: flex; width: 100%; align-items: center;">
+        <input style="width: 100%;" formControlName="dataAcao" matInput [matDatepicker]="picker" name="data"
+          placeholder="Data da ação:">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </div>
+      <div class="input-container">
+        <input style="width: 100%;" type="text" mask="99:99" placeholder="Horário inicial" formControlName="inicioAcao">
+        <input style="width: 100%;" type="text" mask="99:99" placeholder="Horário final" formControlName="fimAcao">
+      </div>
+      <button class="add-action" (click)="submit()" [disabled]="!actionForm.valid || !timeValidade()">
+        Salvar
+      </button>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,54 @@
+.list-forms-container {
+  margin: 5px 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.list-header {
+  display: flex;
+  width: 100%;
+  padding: 15px 15px 0 15px;
+
+  span {
+    flex: 1;
+    font-weight: 500;
+  }
+}
+
+.list-container {
+  width: 100%;
+
+  li {
+    list-style: none;
+    margin: 10px;
+  }
+}
+
+.form-card {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  background: #7159c1;
+  color: #fff;
+  padding: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+
+  span {
+    flex: 1
+  }
+
+  .card-actions {
+    flex: 1;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: start;
+    cursor: pointer;
+
+    span {
+      flex: 0;
+    }
+  }
+}

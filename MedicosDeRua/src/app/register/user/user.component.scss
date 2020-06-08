@@ -1,0 +1,110 @@
+.new-user-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card {
+  width: 100%;
+  max-width: 900px;
+  padding: 60px 80px 60px 80px;
+  background: #f0f0f5;
+  box-shadow: 0 0 100px rgba(0, 0, 0, 0.15);
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  
+  img {
+    width: 25vh;
+  }
+
+  .card-left {
+    display: flex;
+    flex-direction: column;
+    margin-right: 20px;
+
+    h3 {
+      margin-top: 30px;
+    }
+
+    p {
+      margin-top: 10px;
+      color: #737380;
+      line-height: 20px;
+    }
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+    width: 100%;
+
+    input,
+    select {
+      margin: 0 5px 8px 5px;
+      height: 35px;
+      color: #333;
+      border: 1px solid #dcdce6;
+      border-radius: 4px;
+    }
+
+    input {
+      padding: 0 20px;
+    }
+
+    select {
+      padding: 0 17px;
+    }
+  }
+}
+
+.password-error {
+  margin-top: -5px;
+  margin-left: 5px;
+  margin-bottom: 5px;
+  color: red;
+  font-size: 12px;
+}
+
+input.ng-pristine.ng-invalid.ng-touched,
+input.ng-dirty.ng-touched.ng-invalid {
+  border: 1px solid red !important;
+}
+
+.login-error {
+  color: red;
+  border: 1px solid red;
+  padding: 5px 20px;
+  text-align: center;
+  margin: 0 5px 8px 5px;
+}
+
+@media(max-width: 600px) {
+  .new-user-container {
+    margin-bottom: 10px;
+  }
+
+  .card {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  img {
+    width: 10vh;
+  }
+
+  .card-left {
+    align-items: center;
+    margin-right: 0 !important;
+    text-align: center;
+    margin-bottom: 15px;
+
+    h3 {
+      margin-top: 15px !important;
+    }
+  }
+
+}
